@@ -1,0 +1,14 @@
+/******************************************************************
+Stylesheet: Vertical spacing
+******************************************************************/
+
+h1,h2,h3,h4,h5,h6,hgroup,
+ul,ol,dl,
+blockquote,p,address,
+table,
+fieldset,figure,
+pre,hr {
+  margin-top: 0;
+  margin-bottom:$base-line-height*1px;
+  margin-bottom:($base-line-height/$base-font-size)*1rem;
+}
