@@ -32,6 +32,7 @@ with the width and height.
 	overflow: hidden;
 	padding-bottom: 15px;
 	display: block;
+	background-size: contain;
 }
 
 form {
@@ -75,8 +76,7 @@ retina login logo
 
   // you can put your 2x logo in here
   .login h1 a {
-		background: url(../images/login-logo@2x.png) no-repeat top center; /* make sure to replace this! */
+		// background: url(../images/login-logo@2x.png) no-repeat top center; /* make sure to replace this! */
 	}
 
 } // end retina media query
-

@@ -473,25 +473,6 @@ span.amp {
 Stylesheet: Variables
 ******************************************************************/
 /******************************************************************
-Stylesheet: Breakpoints
-******************************************************************/
-html:before {
-  content: "desktop";
-  display: none;
-  /* Prevent from displaying. */
-}
-
-@media (max-width: 768px) {
-  html:before {
-    content: "tablet";
-  }
-}
-@media (max-width: 480px) {
-  html:before {
-    content: "mobile";
-  }
-}
-/******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
 h1, h2, h3, h4, h5, h6, hgroup,
@@ -501,74 +482,8 @@ table,
 fieldset, figure,
 pre, hr {
   margin-top: 0;
-  margin-bottom: 28px;
-  margin-bottom: 1.75rem;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Roboto Light"), local("Roboto-Light"), url(library/fonts/roboto-300-normal.woff2) format("woff"), url(library/fonts/roboto-300-normal.woff) format("woff");
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Roboto"), local("Roboto-Regular"), url(library/fonts/roboto-400-normal.woff2) format("woff"), url(library/fonts/roboto-400-normal.woff) format("woff");
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: italic;
-  font-weight: 400;
-  src: local("Roboto Italic"), local("Roboto-Italic"), url(library/fonts/roboto-400-italic.woff2) format("woff"), url(library/fonts/roboto-400-italic.woff) format("woff");
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Roboto Medium"), local("Roboto-Medium"), url(library/fonts/roboto-500-normal.woff2) format("woff"), url(library/fonts/roboto-500-normal.woff) format("woff");
-}
-@font-face {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Roboto Bold"), local("Roboto-Bold"), url(library/fonts/roboto-700-normal.woff2) format("woff"), url(library/fonts/roboto-700-normal.woff) format("woff");
-}
-/******************************************************************
-
-Stylesheet: Typography
-
-******************************************************************/
-/*********************
-FONT FACE (IN YOUR FACE)
-*********************/
-/*
- i imported this one in the functions file so bones would look sweet.
- don't forget to remove it for your site.
-*/
-/*
-some nice typographical defaults
-more here: http://www.newnet-soft.com/blog/csstypography
-*/
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-}
-
-p {
-  -ms-word-wrap: break-word;
-  word-break: break-word;
-  word-wrap: break-word;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-      hyphens: auto;
-  -webkit-hyphenate-before: 2;
-  -webkit-hyphenate-after: 3;
-  hyphenate-lines: 3;
-  -ms-font-feature-settings: "liga", "dlig";
-  -o-font-feature-settings: "liga", "dlig";
-  font-feature-settings: "liga", "dlig";
+  margin-bottom: 32px;
+  margin-bottom: 1.77778rem;
 }
 
 /******************************************************************
@@ -619,6 +534,119 @@ RESPONSIVE FONT SIZE
 /*********************
 CLEARFIX
 *********************/
+/******************************************************************
+Stylesheet: Breakpoints
+******************************************************************/
+html:before {
+  content: "desktop";
+  display: none;
+  /* Prevent from displaying. */
+}
+
+@media (max-width: 768px) {
+  html:before {
+    content: "tablet";
+  }
+}
+@media (max-width: 480px) {
+  html:before {
+    content: "mobile";
+  }
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url(library/fonts/roboto-300-normal.woff2) format("woff"), url(library/fonts/roboto-300-normal.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url(library/fonts/roboto-400-normal.woff2) format("woff"), url(library/fonts/roboto-400-normal.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: italic;
+  font-weight: 400;
+  src: local("Roboto Italic"), local("Roboto-Italic"), url(library/fonts/roboto-400-italic.woff2) format("woff"), url(library/fonts/roboto-400-italic.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url(library/fonts/roboto-500-normal.woff2) format("woff"), url(library/fonts/roboto-500-normal.woff) format("woff");
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(library/fonts/roboto-700-normal.woff2) format("woff"), url(library/fonts/roboto-700-normal.woff) format("woff");
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/material-icons/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/material-icons/MaterialIcons-Regular.woff) format("woff"), url(../fonts/material-icons/MaterialIcons-Regular.ttf) format("truetype");
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/******************************************************************
+
+Stylesheet: Typography
+
+******************************************************************/
+/*********************
+FONT FACE (IN YOUR FACE)
+*********************/
+/*
+ i imported this one in the functions file so bones would look sweet.
+ don't forget to remove it for your site.
+*/
+/*
+some nice typographical defaults
+more here: http://www.newnet-soft.com/blog/csstypography
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+p {
+  -ms-word-wrap: break-word;
+  word-break: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+      hyphens: auto;
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+}
+
 /******************************************************************
 Site Name:
 Author:
@@ -896,29 +924,30 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn {
+.blue-btn, #menu-header-links .button.looking-for-staff a, #menu-header-links .button.looking-for-work a {
   display: inline-block;
   position: relative;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
   font-weight: normal;
-  padding: 0 24px;
-  border-radius: 4px;
+  font-size: 12px;
+  font-size: 0.66667rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 19px 45px 15px;
+  border-radius: 0px;
   border: 0;
   cursor: pointer;
   -webkit-transition: background-color 0.14s ease-in-out;
   transition: background-color 0.14s ease-in-out;
 }
-.blue-btn:hover, .blue-btn:focus {
+.blue-btn:hover, #menu-header-links .button.looking-for-staff a:hover, #menu-header-links .button.looking-for-work a:hover, .blue-btn:focus, #menu-header-links .button.looking-for-staff a:focus, #menu-header-links .button.looking-for-work a:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
 }
-.blue-btn:active {
+.blue-btn:active, #menu-header-links .button.looking-for-staff a:active, #menu-header-links .button.looking-for-work a:active {
   top: 1px;
 }
 
@@ -928,13 +957,7 @@ You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
 .blue-btn {
-  background-color: #000;
-}
-.blue-btn:hover, .blue-btn:focus {
-  background-color: black;
-}
-.blue-btn:active {
-  background-color: black;
+  background-color: #484844;
 }
 
 /******************************************************************
@@ -968,7 +991,7 @@ textarea,
   padding: 0 12px;
   margin-bottom: 14px;
   font-size: 1em;
-  color: #000;
+  color: #484844;
   border-radius: 3px;
   vertical-align: middle;
   box-shadow: none;
@@ -1227,25 +1250,328 @@ select {
 BASE
 ******************************************************************/
 html {
-  font-size: 16px;
+  font-size: 18px;
   font-size: 1rem;
-  line-height: 28px;
-  line-height: 1.75rem;
+  line-height: 32px;
+  line-height: 1.77778rem;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
-.inner-wrap {
+.inner-wrap, .menu-main-nav ul {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 20px;
 }
-.inner-wrap:after {
+.inner-wrap:after, .menu-main-nav ul:after {
   content: "";
   display: table;
   clear: both;
+}
+@media (min-width: 1200px) {
+  .inner-wrap, .menu-main-nav ul {
+    margin: 0 auto;
+  }
+}
+
+a {
+  color: #484844;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+#menu-header-links li.no-link > a, .footer-links .nav li.no-link > a {
+  pointer-events: none;
+  cursor: default;
+}
+
+#content {
+  position: relative;
+}
+
+h1 {
+  font-size: 92px;
+  font-size: 5.11111rem;
+  line-height: 1.1;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 /******************************************************************
 HEADER
 ******************************************************************/
+.header {
+  position: relative;
+  z-index: 10;
+}
+
+/**************************
+HEADER LINKS
+**************************/
+#menu-header-links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+  padding: 15px 0;
+}
+#menu-header-links li {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+#menu-header-links li + li {
+  margin-left: 25px;
+}
+#menu-header-links li:not(.no-link) {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#menu-header-links li:not(.no-link) a:hover {
+  text-decoration: none;
+}
+#menu-header-links .button.looking-for-staff a {
+  background: #FFCF60;
+}
+#menu-header-links .button.looking-for-staff a:hover {
+  background: #ffc337;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+#menu-header-links .button.looking-for-staff a:active {
+  background: #e09c00;
+}
+#menu-header-links .button.looking-for-staff a i {
+  font-size: 14px;
+  vertical-align: sub;
+  margin-left: 5px;
+}
+#menu-header-links .button.looking-for-staff a i:before {
+  content: "people";
+}
+#menu-header-links .button.looking-for-work a {
+  background: #fff;
+  color: #484844;
+  border: 1px solid #ddd;
+}
+#menu-header-links .button.looking-for-work a:hover {
+  background: #ebebeb;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+#menu-header-links .button.looking-for-work a:active {
+  background: #bfbfbf;
+}
+#menu-header-links .button.looking-for-work a i {
+  font-size: 14px;
+  vertical-align: sub;
+  margin-left: 5px;
+}
+#menu-header-links .button.looking-for-work a i:before {
+  content: "work";
+}
+#menu-header-links .menu-item-has-children {
+  position: relative;
+}
+#menu-header-links .menu-item-has-children ul {
+  display: none;
+  min-width: 80px;
+  position: absolute;
+  top: 100%;
+  left: -9px;
+  -webkit-transform: translateY(0%);
+      -ms-transform: translateY(0%);
+          transform: translateY(0%);
+  background: #fff;
+  box-shadow: 0 0 2px #ddd;
+}
+#menu-header-links .menu-item-has-children ul li {
+  margin: 0;
+}
+#menu-header-links .menu-item-has-children ul a {
+  padding: 5px 10px;
+  display: block;
+}
+#menu-header-links .menu-item-has-children ul a:hover {
+  background: #f2f2f2;
+  text-decoration: none;
+}
+#menu-header-links .menu-item-has-children > a i {
+  font-size: 24px;
+  vertical-align: middle;
+  margin-left: 5px;
+  color: #43DA5C;
+}
+#menu-header-links .menu-item-has-children > a i:before {
+  content: "keyboard_arrow_down";
+}
+#menu-header-links .menu-item-has-children:hover ul {
+  display: block;
+}
+
+/******************************************************************
+MAIN NAVIGATION
+******************************************************************/
+.menu-main-nav {
+  margin: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+.menu-main-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.menu-main-nav li {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  margin: 0 30px;
+}
+.menu-main-nav a {
+  color: #fff;
+  font-size: 20px;
+  font-size: 1.11111rem;
+  letter-spacing: 1px;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 8px;
+  -webkit-transition: all 0.4s;
+          transition: all 0.4s;
+}
+.menu-main-nav a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #fff;
+}
+.menu-main-nav li.main-nav-link--logo,
+.menu-main-nav li.main-nav-link--login {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  margin: 0;
+}
+.menu-main-nav li.main-nav-link--login {
+  text-align: right;
+}
+.menu-main-nav li.main-nav-link--login a {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-size: 0.77778rem;
+}
+.menu-main-nav li.main-nav-link--login i {
+  font-size: 14px;
+  vertical-align: text-top;
+  margin-left: 5px;
+}
+.menu-main-nav li.main-nav-link--login i:before {
+  content: "person";
+}
+.menu-main-nav li.main-nav-link--logo a {
+  width: 110px;
+  height: 40px;
+  background: url("../images/logo--white.png") no-repeat;
+  background-size: contain;
+  display: inline-block;
+  text-indent: -99999px;
+  -webkit-transform: translateY(-7px);
+      -ms-transform: translateY(-7px);
+          transform: translateY(-7px);
+}
+.menu-main-nav li.main-nav-link--logo a:hover {
+  border-bottom-color: transparent;
+}
+
+/******************************************************************
+HOMEPAGE HERO
+******************************************************************/
+.homepage-hero {
+  background: #fff;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+.homepage-hero .inner-wrap, .homepage-hero .menu-main-nav ul, .menu-main-nav .homepage-hero ul {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.homepage-hero .homepage-hero-text {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #fff;
+  z-index: 2;
+}
+.homepage-hero p {
+  font-size: 28px;
+  font-size: 1.55556rem;
+  line-height: 46.66667px;
+  line-height: 2.59259rem;
+  font-weight: 100;
+}
+.homepage-hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  opacity: 0.9;
+}
+
+/******************************************************************
+FOOTER LINKS
+******************************************************************/
+.footer {
+  padding: 40px 0;
+  background: #000;
+}
+
+.footer-links .nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.footer-links .nav li a {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-size: 0.66667rem;
+}
+.footer-links .nav li.no-link > a {
+  font-weight: bold;
+  color: #424242;
+  margin-bottom: 35px;
+  display: block;
+}
+.footer-links .nav li {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
 
 /*# sourceMappingURL=style.css.map */

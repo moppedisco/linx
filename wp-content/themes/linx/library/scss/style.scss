@@ -9,33 +9,16 @@ Stylesheet: Main Stylesheet
 ******************************************************************/
 
 @import "partials/normalize";
-
-// Sass variables
-@import "partials/variables";
-
-// import mixins
-@import "partials/breakpoints";
-
-// import mixins
-@import "partials/vertical-spacing";
-
-// typography
-@import "../fonts/fonts";
-
-// typography
-@import "partials/typography";
-
-// import mixins
-@import "partials/mixins";
-
-// the grid
-@import "partials/grid";
-
-// buttons
-@import "modules/buttons";
-
-// forms (inputs & labels)
-@import "modules/forms";
+@import "partials/variables";                      // Sass variables
+@import "partials/vertical-spacing";               // vertical spacing
+@import "partials/mixins";                         // import mixins
+@import "partials/breakpoints";                    // Breakpoints
+@import "../fonts/fonts";                          // fonts import
+@import "../fonts/material-icons/material-icons";  // fonts import
+@import "partials/typography";                     // typography
+@import "partials/grid";                           // the grid
+@import "modules/buttons";                         // buttons
+@import "modules/forms";                           // forms (inputs & labels)
 
 /******************************************************************
 BASE
@@ -49,9 +32,292 @@ html {
 .inner-wrap {
   @include clearfix;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 20px;
+
+  @include for-size(tablet-landscape-up){
+    margin: 0 auto;
+  }
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+%no-link {
+   pointer-events: none;
+   cursor: default;
+}
+
+#content { position: relative; }
+
+h1 {
+  @include font-size(92px);
+  line-height: 1.1;
+  letter-spacing: 1px;
+  font-weight: bold;
 }
 
 /******************************************************************
 HEADER
 ******************************************************************/
+
+.header {
+  position: relative;
+  z-index: 10;
+}
+
+/**************************
+HEADER LINKS
+**************************/
+#menu-header-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0;
+  padding: 15px 0;
+
+  li {
+    align-self: center;
+
+    & + li { margin-left: 25px; }
+  }
+
+  li.no-link > a { @extend %no-link; }
+
+  // Regular links
+  li:not(.no-link) {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    a:hover { text-decoration: none; }
+  }
+
+  // Button
+  .button.looking-for-staff a {
+    @extend %button;
+    @include button-bg($yellow);
+
+    i {
+      font-size: 14px;
+      vertical-align: sub;
+      margin-left: 5px;
+      &:before {
+        content:"people";
+      }
+    }
+  }
+
+  .button.looking-for-work a {
+    @extend %button;
+    @include button-bg(#fff);
+    color: $black;
+    border: 1px solid #ddd;
+
+    i {
+      font-size: 14px;
+      vertical-align: sub;
+      margin-left: 5px;
+      &:before {
+        content:"work";
+      }
+    }
+  }
+
+  .menu-item-has-children {
+    position: relative;
+    ul {
+      display: none;
+      min-width: 80px;
+      position: absolute;
+      top: 100%;
+      left: -9px;
+      transform: translateY(0%);
+      background: #fff;
+      box-shadow: 0 0 2px #ddd;
+
+      li {
+        margin: 0;
+      }
+
+      a {
+        padding: 5px 10px;
+        display: block;
+        &:hover {
+          background: #f2f2f2;
+          text-decoration: none;
+        }
+      }
+    }
+
+    > a i {
+      font-size: 24px;
+      vertical-align: middle;
+      margin-left: 5px;
+      color: $green;
+      &:before {
+        content:"keyboard_arrow_down";
+      }
+    }
+
+    &:hover ul {
+      display: block;
+    }
+  }
+}
+
+
+/******************************************************************
+MAIN NAVIGATION
+******************************************************************/
+
+.menu-main-nav {
+  margin: 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+
+  ul {
+    @extend .inner-wrap;
+    display: flex;
+    flex-direction: row;
+  }
+
+  li {
+    flex: 0 0 auto;
+    margin: 0 30px;
+  }
+
+  a {
+    color: $white;
+    @include font-size(20px);
+    letter-spacing: 1px;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 8px;
+    transition: all 0.4s;
+
+    &:hover {
+      text-decoration: none;
+      border-bottom: 3px solid #fff;
+    }
+  }
+
+  li.main-nav-link--logo,
+  li.main-nav-link--login {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  li.main-nav-link--login {
+    text-align: right;
+
+    a {
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      @include font-size(14px);
+    }
+
+    i {
+      font-size: 14px;
+      vertical-align: text-top;
+      margin-left: 5px;
+      &:before {
+        content:"person";
+      }
+    }
+  }
+
+  li.main-nav-link--logo a {
+    width: 110px;
+    height: 40px;
+    background: url("../images/logo--white.png") no-repeat;
+    background-size: contain;
+    display: inline-block;
+    text-indent: -99999px;
+    transform: translateY(-7px);
+
+    &:hover { border-bottom-color: transparent; }
+  }
+}
+
+/******************************************************************
+HOMEPAGE HERO
+******************************************************************/
+
+.homepage-hero {
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+
+  .inner-wrap {
+    position: relative;
+    flex: 1 1 auto;
+  }
+
+  .homepage-hero-text {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    color: #fff;
+    z-index: 2;
+  }
+
+  p {
+    @include font-size(28px,true);
+    font-weight: 100;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.9;
+  }
+}
+
+/******************************************************************
+FOOTER LINKS
+******************************************************************/
+
+.footer {
+  padding: 40px 0;
+  background: #000;
+}
+
+.footer-links .nav {
+  display: flex;
+  flex-direction: row;
+
+  li a {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    @include font-size(12px);
+  }
+
+  // Column labels. They are just special links
+  li.no-link > a {
+    @extend %no-link;
+    font-weight: bold;
+    color: #424242;
+    margin-bottom: 35px;
+    display: block;
+  }
+
+
+
+  li {
+    flex: 1 1 auto;
+  }
+}

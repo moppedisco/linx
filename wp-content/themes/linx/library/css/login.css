@@ -27,6 +27,7 @@ with the width and height.
   overflow: hidden;
   padding-bottom: 15px;
   display: block;
+  background-size: contain;
 }
 
 form {
@@ -62,11 +63,5 @@ but since we're referencing the id, it should be easy.
 /*
 retina login logo
 */
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
-  .login h1 a {
-    background: url(../images/login-logo@2x.png) no-repeat top center;
-    /* make sure to replace this! */
-  }
-}
 
 /*# sourceMappingURL=login.css.map */

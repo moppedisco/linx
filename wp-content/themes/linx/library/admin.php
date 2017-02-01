@@ -119,7 +119,7 @@ function bones_login_css() {
 function bones_login_url() {  return home_url(); }
 
 // changing the alt text on the logo to show your site name
-function bones_login_title() { return get_option( 'blogname' ); }
+function bones_login_title() { return get_option( 'LINX' ); }
 
 // calling it only on the login page
 add_action( 'login_enqueue_scripts', 'bones_login_css', 10 );
@@ -138,7 +138,7 @@ you like.
 
 // Custom Backend Footer
 function bones_custom_admin_footer() {
-	_e( '<span id="footer-thankyou">Developed by <a href="http://yoursite.com" target="_blank">Your Site Name</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.', 'bonestheme' );
+	_e( '<span id="footer-thankyou">Developed by <a href="http://www.studio-ycne.ch" target="_blank">STUDIO YCNE</a></span>. Built using <a href="http://themble.com/bones" target="_blank">Bones</a>.', 'bonestheme' );
 }
 
 // adding it to the admin area

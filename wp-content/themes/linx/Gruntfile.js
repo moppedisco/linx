@@ -111,9 +111,9 @@ module.exports = function(grunt) {
                   mangle: false
               },
               files: {
-                  'library/js/main.js' : [
-                      'library/vendor/**/*.js',
-                      'library/app.js',
+                  'library/js/scripts.min.js' : [
+                      'library/libs/**/*.js',
+                      'library/js/app.js',
                   ]
               }
           }
