@@ -1255,6 +1255,7 @@ html {
   line-height: 32px;
   line-height: 1.77778rem;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+  color: #484844;
 }
 
 .inner-wrap, .menu-main-nav ul {
@@ -1335,6 +1336,7 @@ HEADER LINKS
 }
 #menu-header-links li:not(.no-link) a:hover {
   text-decoration: none;
+  cursor: pointer;
 }
 #menu-header-links .button.looking-for-staff a {
   background: #FFCF60;
@@ -1418,13 +1420,68 @@ HEADER LINKS
 /******************************************************************
 MAIN NAVIGATION
 ******************************************************************/
+@-webkit-keyframes fallDown {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes fallDown {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  to {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@-webkit-keyframes fallUp {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
+@keyframes fallUp {
+  from {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+}
 .menu-main-nav {
   margin: 0;
   position: absolute;
-  top: 40px;
+  top: 20px;
   left: 0;
   width: 100%;
   z-index: 3;
+  padding: 15px 0;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.menu-main-nav.sticky {
+  background: #fff;
+  position: fixed;
+  top: -100%;
+  box-shadow: 0px 13px 26px 0px rgba(0, 0, 0, 0.09);
+}
+.menu-main-nav.sticky a {
+  color: #43DA5C;
+}
+.menu-main-nav.sticky li.main-nav-link--logo a {
+  background-image: url("../images/logo--green.png");
 }
 .menu-main-nav ul {
   display: -webkit-box;
@@ -1434,6 +1491,9 @@ MAIN NAVIGATION
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .menu-main-nav li {
   -webkit-box-flex: 0;
@@ -1448,10 +1508,11 @@ MAIN NAVIGATION
   letter-spacing: 1px;
   border-bottom: 3px solid transparent;
   padding-bottom: 8px;
-  -webkit-transition: all 0.4s;
-          transition: all 0.4s;
+  -webkit-transition: all 0.2s;
+          transition: all 0.2s;
 }
 .menu-main-nav a:hover {
+  padding-bottom: 6px;
   text-decoration: none;
   border-bottom: 3px solid #fff;
 }
@@ -1487,9 +1548,6 @@ MAIN NAVIGATION
   background-size: contain;
   display: inline-block;
   text-indent: -99999px;
-  -webkit-transform: translateY(-7px);
-      -ms-transform: translateY(-7px);
-          transform: translateY(-7px);
 }
 .menu-main-nav li.main-nav-link--logo a:hover {
   border-bottom-color: transparent;
@@ -1498,7 +1556,7 @@ MAIN NAVIGATION
 /******************************************************************
 HOMEPAGE HERO
 ******************************************************************/
-.homepage-hero {
+.homepage--hero {
   background: #fff;
   min-height: 100vh;
   display: -webkit-box;
@@ -1507,13 +1565,13 @@ HOMEPAGE HERO
   overflow: hidden;
   position: relative;
 }
-.homepage-hero .inner-wrap, .homepage-hero .menu-main-nav ul, .menu-main-nav .homepage-hero ul {
+.homepage--hero .inner-wrap, .homepage--hero .menu-main-nav ul, .menu-main-nav .homepage--hero ul {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
-.homepage-hero .homepage-hero-text {
+.homepage--hero .homepage--hero-text {
   position: absolute;
   top: 50%;
   left: 0;
@@ -1523,19 +1581,39 @@ HOMEPAGE HERO
   color: #fff;
   z-index: 2;
 }
-.homepage-hero p {
+.homepage--hero p {
   font-size: 28px;
   font-size: 1.55556rem;
   line-height: 46.66667px;
   line-height: 2.59259rem;
   font-weight: 100;
 }
-.homepage-hero video {
+.homepage--hero video {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
   opacity: 0.9;
+}
+
+.homepage--text-banner {
+  padding: 120px 0;
+  text-align: center;
+}
+.homepage--text-banner h3 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: bold;
+  color: #9B9B9B;
+}
+.homepage--text-banner p {
+  font-size: 36px;
+  font-size: 2rem;
+  line-height: 60px;
+  line-height: 3.33333rem;
+  font-weight: 100;
 }
 
 /******************************************************************

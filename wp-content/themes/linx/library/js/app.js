@@ -88,7 +88,6 @@ var timeToWaitForLast = 100;
 */
 
 
-
 /*
  * Put all your regular jQuery in here.
 */
@@ -99,13 +98,30 @@ var timeToWaitForLast = 100;
   function init(){
     breakpoint();
     reSizeVideoWrapper();
+
+    var controller = new ScrollMagic.Controller();
+    var slideDownNav = TweenMax.to(".menu-main-nav", 0.8, {top:"0%", onReverseComplete:function(){
+      jQuery('.menu-main-nav').removeClass('sticky').attr('style','');
+    }});
+
+    // build scene
+    var stickyNav = new ScrollMagic.Scene({
+      triggerElement: ".homepage--text-banner",
+      triggerHook: "onLeave"
+    })
+    .setTween(slideDownNav)
+    .on("enter", function(){
+      jQuery('.menu-main-nav').addClass('sticky');
+    })
+    .addTo(controller);
   }
 
   function reSizeVideoWrapper(){
     if(window.breakpoint != 'mobile'){
-      adjustVideoPositioning('.homepage-hero-video','video');
+      adjustVideoPositioning('.homepage--hero-video','video');
     } else {
-      adjustVideoPositioning('.homepage-hero','img');
+      // adjustVideoPositioning('.homepage-hero','img');
+
     }
   }
 
@@ -157,8 +173,8 @@ var timeToWaitForLast = 100;
 
   window.Application = {
     init: init
-  }
+  };
 
-}(window))  // Self execute
+}(window));  // Self execute
 
 Application.init();

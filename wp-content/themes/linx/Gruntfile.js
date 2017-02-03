@@ -12,7 +12,7 @@ module.exports = function(grunt) {
                 tasks: ['sass','autoprefixer']
             },
             js: {
-                files: 'library/js/*.js',
+                files: 'library/js/app.js',
                 tasks: ['uglify']
             }
         },
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
               },
               files: {
                   'library/js/scripts.min.js' : [
-                      'library/libs/**/*.js',
+                      'library/js/libs/**/*.js',
                       'library/js/app.js',
                   ]
               }
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('googlefont', ['googlefonts']);
     grunt.registerTask('default', [
-        'jshint',
+        // 'jshint',
         'uglify:dev',
         // 'uglify:dist',
         'sass:dev',

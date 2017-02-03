@@ -39,21 +39,30 @@
 
 											<?php // VIDEO HERO // ?>
 							        <?php if( get_row_layout() == 'video_hero' ): ?>
-												<section class="homepage-hero">
+												<section class="homepage--hero">
 													<div class="inner-wrap">
-														<div class="homepage-hero-text">
+														<div class="homepage--hero-text">
 										        	<h1><?php the_sub_field('hero_title'); ?></h1>
 															<?php the_sub_field('hero_text'); ?>
 														</div>
 														<!-- END .homepage-hero-text -->
 													</div>
 													<!-- END .inner-wrap -->
-													<video class='homepage-hero-video' src="<?php the_sub_field('hero_video'); ?>" paused muted loop></video>
+													<video class='homepage--hero-video' src="<?php the_sub_field('hero_video'); ?>" paused muted loop></video>
 												</section>
-												<!-- END .homepage-hero -->
+												<!-- END section.homepage-hero -->
 
 											<?php elseif( get_row_layout() == 'text_banner' ): ?>
+												<section class="homepage--text-banner">
+													<div class="inner-wrap">
 
+														<h3><?php the_sub_field('small_text'); ?></h3>
+														<?php the_sub_field('large_text'); ?>
+
+													</div>
+													<!-- END .inner-wrap -->
+												</section>
+												<!-- END section.homepage-hero -->
 							        <?php endif; ?>
 
 							    <?php endwhile; ?>
