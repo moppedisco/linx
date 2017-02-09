@@ -283,6 +283,10 @@ MAIN NAVIGATION
 HOMEPAGE HERO
 ******************************************************************/
 
+section[class^="homepage--"] {
+  margin-bottom: 120px;
+}
+
 .homepage--hero {
   background: #fff;
   min-height: 100vh;
@@ -318,8 +322,11 @@ HOMEPAGE HERO
   }
 }
 
+/******************************************************************
+HOMEPAGE SECTION TEXT BANNER
+******************************************************************/
+
 .homepage--text-banner {
-  padding: 120px 0;
   text-align: center;
 
   h3 {
@@ -333,6 +340,97 @@ HOMEPAGE HERO
   p {
     @include font-size(36px,true);
     font-weight: 100;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+
+/******************************************************************
+HOMEPAGE SECTION CAROUSEL
+******************************************************************/
+
+.homepage--carousel {
+  // background: orange;
+
+  &.active {
+    // z-index: 2;
+    // .carousel__feature__rightcol { position: fixed !important; }
+  }
+}
+
+.homepage--carousel__feature {
+  @include clearfix;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  padding: 0vh 0 25vh;
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  &.screen-desktop {
+    flex-wrap: wrap;
+
+    .carousel__feature__leftcol {
+      order: 2;
+      flex: 0 0 50%;
+      margin: 0 auto;
+      padding: 0;
+      text-align: center;
+    }
+    .carousel__feature__rightcol {
+      order: 1;
+      flex: 1 1 100%;
+      left: 0;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  &.active {
+    // z-index: 2;
+    // .carousel__feature__rightcol { position: fixed; }
+  }
+
+  h3 {
+    font-size: 36px;
+    line-height: 1.4;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 100;
+    line-height: 1.7;
+  }
+
+  .carousel__feature__leftcol,
+  .carousel__feature__rightcol {
+    // flex: 1 1 50%;
+  }
+
+  .carousel__feature__leftcol {
+    padding: 0 0 0 20%;
+    flex:  0 0 40%;
+    position: relative;
+    align-self: center;
+  }
+
+  .carousel__feature__rightcol {
+    width: 50vw;
+    position: relative;
+    top: 0%;
+    left: 8%;
+
+    img {
+      max-width: 100%;
+      width: 70%;
+    }
   }
 }
 

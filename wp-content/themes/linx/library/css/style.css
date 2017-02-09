@@ -1556,6 +1556,10 @@ MAIN NAVIGATION
 /******************************************************************
 HOMEPAGE HERO
 ******************************************************************/
+section[class^="homepage--"] {
+  margin-bottom: 120px;
+}
+
 .homepage--hero {
   background: #fff;
   min-height: 100vh;
@@ -1596,8 +1600,10 @@ HOMEPAGE HERO
   opacity: 0.9;
 }
 
+/******************************************************************
+HOMEPAGE SECTION TEXT BANNER
+******************************************************************/
 .homepage--text-banner {
-  padding: 120px 0;
   text-align: center;
 }
 .homepage--text-banner h3 {
@@ -1614,6 +1620,90 @@ HOMEPAGE HERO
   line-height: 60px;
   line-height: 3.33333rem;
   font-weight: 100;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/******************************************************************
+HOMEPAGE SECTION CAROUSEL
+******************************************************************/
+.homepage--carousel__feature {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding: 0vh 0 25vh;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.homepage--carousel__feature:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.homepage--carousel__feature:last-of-type {
+  padding-bottom: 0;
+}
+.homepage--carousel__feature.screen-desktop {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.homepage--carousel__feature.screen-desktop .carousel__feature__leftcol {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+.homepage--carousel__feature.screen-desktop .carousel__feature__rightcol {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
+  left: 0;
+}
+.homepage--carousel__feature.screen-desktop .carousel__feature__rightcol img {
+  width: 100%;
+}
+.homepage--carousel__feature h3 {
+  font-size: 36px;
+  line-height: 1.4;
+}
+.homepage--carousel__feature p {
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 1.7;
+}
+.homepage--carousel__feature .carousel__feature__leftcol {
+  padding: 0 0 0 20%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 40%;
+          flex: 0 0 40%;
+  position: relative;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.homepage--carousel__feature .carousel__feature__rightcol {
+  width: 50vw;
+  position: relative;
+  top: 0%;
+  left: 8%;
+}
+.homepage--carousel__feature .carousel__feature__rightcol img {
+  max-width: 100%;
+  width: 70%;
 }
 
 /******************************************************************

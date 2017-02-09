@@ -94,11 +94,135 @@ var timeToWaitForLast = 100;
 (function(window){
 
   var $window = jQuery(window);
+  var attrName = 'data-scroll-speed';
+  var elementsNl = document.querySelectorAll('[' + attrName + ']');
+  var items = [];
+  var viewport = {};
+  var scrollPosition;
+
+  function getYScrollPosition() {
+    return window.pageYOffset;
+  }
+
+  function layout() {
+    var scrollPosition = getYScrollPosition();
+
+    viewport.height = window.innerHeight;
+    viewport.halfHeight = viewport.height / 2;
+
+    items.forEach(function(item) {
+      var bounds = item.element.getBoundingClientRect();
+      item.bounds = {
+        top: bounds.top + scrollPosition - item.offsetY,
+        center: bounds.top + scrollPosition - item.offsetY + (bounds.height / 2),
+        bottom: bounds.bottom + scrollPosition - item.offsetY
+      };
+    });
+
+    render();
+  }
+
+  function render() {
+    var position = getYScrollPosition();
+    var delta;
+    var offsetY;
+
+    window.removeEventListener('scroll', render);
+
+    if (position === scrollPosition) {
+      waitForScroll();
+      return;
+    }
+
+    items.forEach(function(item) {
+      delta = item.bounds.center - (position + viewport.halfHeight);
+      offsetY = delta * item.speed;
+      item.element.style.transform = 'translateY(' + offsetY + 'px)';
+      item.offsetY = offsetY;
+    });
+
+    scrollPosition = position;
+    window.requestAnimationFrame(render);
+  }
+
+  function waitForScroll() {
+    window.addEventListener('scroll', render);
+  }
 
   function init(){
     breakpoint();
     reSizeVideoWrapper();
+    stickyNav();
 
+    // elements = Array.prototype.slice.call(elementsNl);
+    // elements.forEach(function(element) {
+    //   items.push({
+    //     element: element,
+    //     speed: element.attributes[attrName].value - 1,
+    //     offsetY: 0
+    //   });
+    //
+    //   element.style.willChange = 'transform';
+    // });
+    //
+    //   window.addEventListener('resize', layout);
+    //   layout();
+    //   waitForScroll();
+    //
+    // var controller = new ScrollMagic.Controller();
+    //
+    // var carheight = jQuery('.homepage--carousel').height();
+    //
+    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: -carheight*0.5});
+    // var carousel = new ScrollMagic.Scene({
+    //   triggerElement: ".homepage--carousel",
+    //   triggerHook: "0.3",
+    //   duration: jQuery('.homepage--carousel').height()
+    // })
+    // .setPin(".homepage--carousel")
+    // // .setTween(tween)
+    //   // .on("start", function(event){
+    //   //   jQuery('this').addClass('active');
+    //   //   window.addEventListener('resize', layout);
+    //   //   layout();
+    //   //   waitForScroll();
+    //   // })
+    // .setClassToggle(".homepage--carousel", "active")
+    // .addTo(controller);
+    //
+    // console.log(jQuery('.homepage--carousel').height());
+    //
+    // jQuery(".homepage--carousel__feature").each(function(index,elem) {
+    //   var height = jQuery(elem).height();
+    //   jQuery(elem).css('position',"absolute").css('z-index',index*20).css('top',"0");
+    //   jQuery(elem).find('.carousel__feature__leftcol').css('top',height*index);
+    //   // jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
+    //   // console.log(elem);
+    // });
+    //
+    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: "-100%"});
+    // jQuery(".homepage--carousel__feature").each(function() {
+    //   _this = this;
+    //   new ScrollMagic.Scene({
+    //     triggerElement: this,
+    //     triggerHook: "1",
+    //     duration: "100%",
+    //     // offset: '-50%'
+    //   })
+    //   .setClassToggle(jQuery(this)[0], "active")
+    //   .on("start", function(event){
+    //     // jQuery(_this).addClass('active');
+    //     // console.log(event);
+    //   })
+    //
+    //   // .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
+    //   // .setTween(tween)
+    //   .addTo(controller);
+    // });
+
+  }
+
+  function stickyNav(){
     var controller = new ScrollMagic.Controller();
     var slideDownNav = TweenMax.to(".menu-main-nav", 0.8, {top:"0%", onReverseComplete:function(){
       jQuery('.menu-main-nav').removeClass('sticky').attr('style','');
