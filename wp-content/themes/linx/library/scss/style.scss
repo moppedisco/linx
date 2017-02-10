@@ -26,9 +26,12 @@ BASE
 ******************************************************************/
 
 html {
-  @include font-size($base-font-size,$base-line-height);
+  @include font-size($base-font-size*0.75,$base-line-height);
   font-family: $sans-serif;
   color: $black;
+  @include for-size("phone-upper-boundary"){
+    @include font-size($base-font-size,$base-line-height);
+  }
 }
 
 .inner-wrap {
@@ -36,7 +39,7 @@ html {
   max-width: 1200px;
   margin: 0 20px;
 
-  @include for-size(tablet-landscape-up){
+  @include for-size("tablet-landscape-up"){
     margin: 0 auto;
   }
 }
@@ -78,15 +81,29 @@ HEADER LINKS
 **************************/
 #menu-header-links {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   margin: 0;
   padding: 15px 0;
 
+  @include for-size('tablet-portrait-up'){
+    flex-direction: row;
+  }
+
   li {
     align-self: center;
+    margin-bottom: 10px;
 
-    & + li { margin-left: 25px; }
+    @include for-size('tablet-portrait-up'){
+      & + li { margin-left: 25px; margin-bottom: 0; }
+    }
+
+    &.blog-link,
+    &.menu-item-has-children {
+      @include for-size('phone-only'){
+        display: none;
+      }
+    }
   }
 
   li.no-link > a { @extend %no-link; }
@@ -527,7 +544,11 @@ FOOTER LINKS
 
 .footer-links .nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  @include for-size("tablet-landscape-up"){
+    flex-direction: row;
+  }
 
   li a {
     color: #fff;
@@ -541,8 +562,11 @@ FOOTER LINKS
     @extend %no-link;
     font-weight: bold;
     color: #424242;
-    margin-bottom: 35px;
     display: block;
+
+    @include for-size("tablet-landscape-up"){
+      margin-bottom: 35px;
+    }
   }
 
 

@@ -1323,8 +1323,8 @@ select {
 BASE
 ******************************************************************/
 html {
-  font-size: 18px;
-  font-size: 1rem;
+  font-size: 13.5px;
+  font-size: 0.75rem;
   line-height: 32px;
   line-height: 1.77778rem;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1386,22 +1386,39 @@ HEADER LINKS
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   margin: 0;
   padding: 15px 0;
 }
+@media (min-width: 600px) {
+  #menu-header-links {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
 #menu-header-links li {
   -ms-flex-item-align: center;
       align-self: center;
+  margin-bottom: 10px;
 }
-#menu-header-links li + li {
-  margin-left: 25px;
+@media (min-width: 600px) {
+  #menu-header-links li + li {
+    margin-left: 25px;
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 599px) {
+  #menu-header-links li.blog-link, #menu-header-links li.menu-item-has-children {
+    display: none;
+  }
 }
 #menu-header-links li:not(.no-link) {
   text-transform: uppercase;
@@ -1913,10 +1930,18 @@ FOOTER LINKS
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media (min-width: 1200px) {
+  .footer-links .nav {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
 }
 .footer-links .nav li a {
   color: #fff;
@@ -1928,8 +1953,12 @@ FOOTER LINKS
 .footer-links .nav li.no-link > a {
   font-weight: bold;
   color: #424242;
-  margin-bottom: 35px;
   display: block;
+}
+@media (min-width: 1200px) {
+  .footer-links .nav li.no-link > a {
+    margin-bottom: 35px;
+  }
 }
 .footer-links .nav li {
   -webkit-box-flex: 1;
