@@ -51,7 +51,7 @@ function bones_ahoy() {
   bones_theme_support();
 
   // adding sidebars to Wordpress (these are created in functions.php)
-  add_action( 'widgets_init', 'bones_register_sidebars' );
+  // add_action( 'widgets_init', 'bones_register_sidebars' );
 
   // cleaning up random code around images
   add_filter( 'the_content', 'bones_filter_ptags_on_images' );
@@ -134,18 +134,18 @@ function bones_theme_customizer($wp_customize) {
   //
   // Uncomment the below lines to remove the default customize sections
 
-  // $wp_customize->remove_section('title_tagline');
-  // $wp_customize->remove_section('colors');
-  // $wp_customize->remove_section('background_image');
-  // $wp_customize->remove_section('static_front_page');
+  $wp_customize->remove_section('title_tagline');
+  $wp_customize->remove_section('colors');
+  $wp_customize->remove_section('background_image');
+  $wp_customize->remove_section('static_front_page');
   // $wp_customize->remove_section('nav');
 
   // Uncomment the below lines to remove the default controls
   // $wp_customize->remove_control('blogdescription');
 
   // Uncomment the following to change the default section titles
-  // $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
-  // $wp_customize->get_section('background_image')->title = __( 'Images' );
+  $wp_customize->get_section('colors')->title = __( 'Theme Colors' );
+  $wp_customize->get_section('background_image')->title = __( 'Images' );
 }
 
 add_action( 'customize_register', 'bones_theme_customizer' );
@@ -243,5 +243,22 @@ function bones_fonts() {
 }
 
 add_action('wp_enqueue_scripts', 'bones_fonts');
+
+function remove_menus(){
+
+  // remove_menu_page( 'index.php' );                  //Dashboard
+  remove_menu_page( 'jetpack' );                    //Jetpack*
+  remove_menu_page( 'edit.php' );                   //Posts
+  // remove_menu_page( 'upload.php' );                 //Media
+  // remove_menu_page( 'edit.php?post_type=page' );    //Pages
+  remove_menu_page( 'edit-comments.php' );          //Comments
+  // remove_menu_page( 'themes.php' );                 //Appearance
+  // remove_menu_page( 'plugins.php' );                //Plugins
+  // remove_menu_page( 'users.php' );                  //Users
+  // remove_menu_page( 'tools.php' );                  //Tools
+  // remove_menu_page( 'options-general.php' );        //Settings
+
+}
+add_action( 'admin_menu', 'remove_menus' );
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

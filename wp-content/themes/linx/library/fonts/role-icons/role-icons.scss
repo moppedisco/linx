@@ -1,0 +1,76 @@
+@font-face {
+	font-family: "jitr-role-icon-font";
+	src: url(../fonts/role-icons/jitr-role-icon-font.eot?v=1.5);
+	src: url(../fonts/role-icons/jitr-role-icon-font.eot?#iefix&?v=1.5) format('eot'),
+		url(../fonts/role-icons/jitr-role-icon-font.woff?v=1.5) format('woff'),
+		url(../fonts/role-icons/jitr-role-icon-font.ttf?v=1.5) format('truetype'),
+		url(../fonts/role-icons/jitr-role-icon-font.svg#jitr-role-icon-font) format('svg');
+}
+
+.role-icon:before {
+	font-family: "jitr-role-icon-font";
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+.icon-role-bartender:before {
+	content: "\E551";
+}
+
+.icon-role-chef-de-rang:before {
+	content: "\E552";
+}
+
+.icon-role-chef-de-service:before {
+	content: "\E553";
+}
+
+.icon-role-cloak-room-assistant:before {
+	content: "\E554";
+}
+
+.icon-role-cook:before {
+	content: "\E555";
+}
+
+.icon-role-event-staff-promoter:before {
+	content: "\E556";
+}
+
+.icon-role-event-technician:before {
+	content: "\E557";
+}
+
+.icon-role-flyer-distributer:before {
+	content: "\E558";
+}
+
+.icon-role-hostess:before {
+	content: "\E559";
+}
+
+.icon-role-kitchen-assistant:before {
+	content: "\E55A";
+}
+
+.icon-role-logistics:before {
+	content: "\E55B";
+}
+
+.icon-role-shop-assistant:before {
+	content: "\E55C";
+}
+
+.icon-role-sous-chef:before {
+	content: "\E55D";
+}
+
+.icon-role-stagehand:before {
+	content: "\E55E";
+}
