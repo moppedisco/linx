@@ -149,16 +149,36 @@ var timeToWaitForLast = 100;
     window.addEventListener('scroll', render);
   }
 
+	function videoHeroParallax(){
+		var controller = new ScrollMagic.Controller();
+		jQuery('.homepage--hero').each(function(index,elem){
+			var tween = new TimelineMax()
+			.add([
+				TweenMax.to(jQuery(elem).find('.homepage--hero-text'), 1, {y: "100px", ease: Linear.easeNone})
+			]);
+
+			// build scene
+			var scene = new ScrollMagic.Scene({
+				triggerElement: elem,
+				triggerHook: '0.5',
+				duration: 1000
+			})
+			.setTween(tween)
+			.addTo(controller);
+		})
+	}
+
   function init(){
     breakpoint();
     reSizeVideoWrapper();
     stickyNav();
+		videoHeroParallax();
 
     // elements = Array.prototype.slice.call(elementsNl);
     // elements.forEach(function(element) {
     //   items.push({
     //     element: element,
-    //     speed: element.attributes[attrName].value - 1,
+    //     speed: element.attributes[attrName].value,
     //     offsetY: 0
     //   });
     //
@@ -166,58 +186,96 @@ var timeToWaitForLast = 100;
     // });
     //
     //   window.addEventListener('resize', layout);
-    //   layout();
+
     //   waitForScroll();
     //
+
+    // var carouselTop = jQuery('.homepage--carousel').offset().top;
+    // window.addEventListener('scroll', function(event){
+    //   // var attrName = 'data-scroll-speed';
+    //   // var elementsNl = document.querySelectorAll('[' + attrName + ']');
+    //
+    //   var elTop = jQuery('.carousel__feature__leftcol:first-of-type').offset().top;
+    //   // var carouselTop = jQuery('.homepage--carousel').offset().top;
+    //   var pelle = (carouselTop - jQuery(window).scrollTop() - jQuery(window).outerHeight()*0.3)*1
+    //   if((carouselTop - jQuery(window).scrollTop() - jQuery(window).outerHeight()*0.3)<= 0){
+    //       console.log("rumpa");
+    //       // jQuery('.carousel__feature__leftcol:first-of-type').css('transform','translateY(-'+pelle+'px)');
+    //       jQuery('.carousel__feature__leftcol:first-of-type').css({"-webkit-transform":"translate3d(0,"+pelle+"px,0)"});​
+    //   }
+    //
+    //   // console.log(pelle);
+    // });
+
     // var controller = new ScrollMagic.Controller();
-    //
+    // // console.log(getYScrollPosition());
     // var carheight = jQuery('.homepage--carousel').height();
-    //
-    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: -carheight*0.5});
+    // //
+    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: -carheight});
+    // var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
     // var carousel = new ScrollMagic.Scene({
     //   triggerElement: ".homepage--carousel",
-    //   triggerHook: "0.3",
+    //   triggerHook: "0.2",
     //   duration: jQuery('.homepage--carousel').height()
     // })
     // .setPin(".homepage--carousel")
     // // .setTween(tween)
-    //   // .on("start", function(event){
-    //   //   jQuery('this').addClass('active');
-    //   //   window.addEventListener('resize', layout);
-    //   //   layout();
-    //   //   waitForScroll();
-    //   // })
+    // .on("start", function(event){
+    //
+    // }).on("progress", function (event) {
+    //   console.log("Scene progress changed to " + event.progress);
+    //   jQuery('.carousel__feature__leftcol').css('transform','translateY(-'+carheight*event.progress+'px)');
+    //   if(event.progress >= 0.33){
+    //     tween.play();
+    //     // console.log('asdasd');
+    //   }
+    // })
+    //
     // .setClassToggle(".homepage--carousel", "active")
-    // .addTo(controller);
+    // // .addTo(controller);
     //
-    // console.log(jQuery('.homepage--carousel').height());
     //
+    //
+    // // console.log(jQuery('.homepage--carousel').height());
+    // var height;
+    // var textHeights = [200,1200,2000];
     // jQuery(".homepage--carousel__feature").each(function(index,elem) {
-    //   var height = jQuery(elem).height();
-    //   jQuery(elem).css('position',"absolute").css('z-index',index*20).css('top',"0");
-    //   jQuery(elem).find('.carousel__feature__leftcol').css('top',height*index);
-    //   // jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
-    //   // console.log(elem);
+      // var height = jQuery(elem).height();
+      // var offset = jQuery('.homepage--carousel').offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
+      // console.log(offset);
+      // jQuery(elem).css('position',"absolute").css('z-index',index*20).css('top',"0");
+      // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
+      // jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
+      // console.log(elem);
     // });
+
+    // jQuery('.homepage--carousel__feature').css('position',"absolute").css('height',height);
     //
-    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: "-100%"});
-    // jQuery(".homepage--carousel__feature").each(function() {
+
+    // jQuery(".homepage--carousel__feature").each(function(index,elem) {
     //   _this = this;
+    //
+    //   // jQuery(elem).css('position',"absolute");
+    //   // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
+    //
     //   new ScrollMagic.Scene({
     //     triggerElement: this,
-    //     triggerHook: "1",
-    //     duration: "100%",
+    //     // triggerHook: "1",
+    //     duration: 900,
     //     // offset: '-50%'
     //   })
     //   .setClassToggle(jQuery(this)[0], "active")
     //   .on("start", function(event){
     //     // jQuery(_this).addClass('active');
-    //     // console.log(event);
+    //     // console.log(jQuery(_this)[0]);
+    //   }).on("progress", function (event) {
+    //     // console.log("Scene progress changed to " + event.progress);
     //   })
-    //
-    //   // .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
-    //   // .setTween(tween)
-    //   .addTo(controller);
+
+
+      // .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
+      // .setTween(tween)
+      // .addTo(controller);
     // });
 
   }
@@ -230,8 +288,9 @@ var timeToWaitForLast = 100;
 
     // build scene
     var stickyNav = new ScrollMagic.Scene({
-      triggerElement: ".homepage--text-banner",
-      triggerHook: "onLeave"
+      triggerElement: ".homepage--hero",
+      triggerHook: "onLeave",
+      offset: '500px'
     })
     .setTween(slideDownNav)
     .on("enter", function(){

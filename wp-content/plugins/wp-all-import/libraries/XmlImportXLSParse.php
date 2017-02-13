@@ -34,6 +34,8 @@ class PMXI_XLSParser{
 
 		$objPHPExcel = PHPExcel_IOFactory::load($this->_filename);
 
+    $objPHPExcel = apply_filters('wp_all_import_phpexcel_object', $objPHPExcel, $this->_filename);
+
 		$objWriter   = PHPExcel_IOFactory::createWriter($objPHPExcel, 'CSV')->setDelimiter(',')
                                                           ->setEnclosure('"')
                                                           ->setLineEnding("\r\n")

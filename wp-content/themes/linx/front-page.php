@@ -34,24 +34,22 @@
 						</nav>
 
 							<?php if( have_rows('homepage_section') ): ?>
-
 							    <?php while ( have_rows('homepage_section') ) : the_row(); ?>
-
 											<?php // VIDEO HERO =================================// ?>
 							      	<?php if( get_row_layout() == 'video_hero' ): ?>
-													<section class="homepage--hero">
+													<section class="homepage--hero" style='background-image: url("<?php the_sub_field('hero_background'); ?>");'>
 														<div class="inner-wrap">
 															<div class="homepage--hero-text">
 											        	<h1><?php the_sub_field('hero_title'); ?></h1>
 																<?php the_sub_field('hero_text'); ?>
+																<?php //echo do_shortcode('[ninja_form id=2]'); ?>
 															</div>
 															<!-- END .homepage-hero-text -->
 														</div>
 														<!-- END .inner-wrap -->
-														<video class='homepage--hero-video' src="<?php the_sub_field('hero_video'); ?>" paused muted loop></video>
+														<video class='homepage--hero-video' src="<?php the_sub_field('hero_video'); ?>" autoplay muted loop></video>
 													</section>
 													<!-- END section.homepage-hero -->
-
 											<?php // TEXT BANNER ================================// ?>
 											<?php elseif( get_row_layout() == 'text_banner' ): ?>
 													<section class="homepage--text-banner">
@@ -64,87 +62,90 @@
 														<!-- END .inner-wrap -->
 													</section>
 													<!-- END section.homepage-hero -->
+											<?php // CAROUSEL SECTION ===========================// ?>
+											<?php elseif( get_row_layout() == 'carousel' ): ?>
+													<section class="homepage--carousel">
+														<div class="inner-wrap">
 
-												<?php // TEXT BANNER ================================// ?>
-												<?php elseif( get_row_layout() == 'carousel' ): ?>
-															<section class="homepage--carousel">
-																<div class="inner-wrap">
+															<?php if( have_rows('carousel_item') ): ?>
+															    <?php while ( have_rows('carousel_item') ) : the_row(); ?>
 
-																	<?php if( have_rows('carousel_item') ): ?>
-																	    <?php while ( have_rows('carousel_item') ) : the_row(); ?>
+																		<article class="homepage--carousel__feature <?php the_sub_field('screenshot_type');?>">
 
-																				<article class="homepage--carousel__feature <?php the_sub_field('screenshot_type');?>">
+																			<div class="carousel__feature__leftcol" data-scroll-speed='1'>
+																        <h3><?php the_sub_field('title');?></h3>
+																				<p><?php the_sub_field('text');?></p>
+																			</div>
 
-																					<div class="carousel__feature__leftcol" data-scroll-speed='2'>
-																		        <h3><?php the_sub_field('title');?></h3>
-																						<p><?php the_sub_field('text');?></p>
-																					</div>
+																			<div class="carousel__feature__rightcol">
+																				<img src="<?php the_sub_field('image'); ?>" alt="" />
+																			</div>
 
-																					<div class="carousel__feature__rightcol">
-																						<img src="<?php the_sub_field('image'); ?>" alt="" />
-																					</div>
+																		</article>
+															    <?php endwhile;?>
+															<?php endif; ?>
 
-																				</article>
-																	    <?php endwhile;?>
-																	<?php endif; ?>
+														</div>
+														<!-- END .inner-wrap -->
+													</section>
+													<!-- END section.homepage-hero -->
+											<?php // JOBS SECTION ===============================// ?>
+											<?php elseif( get_row_layout() == 'jobs' ): ?>
+													<section class="homepage--jobs">
+														<div class="inner-wrap">
 
-																</div>
-																<!-- END .inner-wrap -->
-															</section>
-															<!-- END section.homepage-hero -->
+															<?php
+															    $job_loop = new WP_Query( array(
+															    'post_type' => 'job',
+															        'posts_per_page' => 10 // put number of posts that you'd like to display
+															    ) );
+															?>
 
-														<?php // JOBS SECTION ================================// ?>
-													<?php elseif( get_row_layout() == 'jobs' ): ?>
-																	<section class="homepage--jobs">
-																		<div class="inner-wrap">
+															<?php if ( $job_loop->have_posts() ) : ?>
+														    <?php while ( $job_loop->have_posts() ) : $job_loop->the_post(); ?>
+																	<?php
+																		$salary = get_post_meta($post->ID, "salary", true);
+																		$location = get_post_meta($post->ID, "location", true);
+																		$terms = get_the_terms( $post->ID , 'job_categories' );
+																	?>
+																	<a href='<?php echo get_permalink(); ?>' class="job-listing">
+																			<div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
 
-																			<?php
-																			    $job_loop = new WP_Query( array(
-																			    'post_type' => 'job',
-																			        'posts_per_page' => 10 // put number of posts that you'd like to display
-																			    ) );
-																			?>
-
-																			<?php if ( $job_loop->have_posts() ) : ?>
-																			    <?php while ( $job_loop->have_posts() ) : $job_loop->the_post(); ?>
+																			</div>
+																			<div class="job-listing__text">
+															          <h3 class='job-listing__title'><?php the_title(); ?></h3>
+																				<span class="job-listing__location"><?php echo $location['address']; ?></span>
+																				<span class="job-listing__salary"><?php echo $salary; ?></span>
+																				<div class="clearfix" style='clear: both;'>
+																					<span class='job-listing__category'>
 																						<?php
-																							$salary = get_post_meta($post->ID, "salary", true);
-																							$location = get_post_meta($post->ID, "location", true);
-																							$terms = get_the_terms( $post->ID , 'job_categories' );
+																							foreach ( $terms as $term ) {
+																								echo $term->name;
+																							}
 																						?>
-																						<div class="job-listing">
-																								<div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
+																					</span>
+																					<?php the_content(); ?>
+																				</div>
+																			</div>
 
-																								</div>
-																								<div class="job-listing__text">
-																				          <h3 class='job-listing__title'><?php the_title(); ?></h3>
-																									<span class="job-listing__location"><?php echo $location['address']; ?></span>
-																									<span class="job-listing__salary"><?php echo $salary; ?></span>
-																									<div class="clearfix" style='clear: both;'>
-																										<span class='job-listing__category'>
-																											<?php
-																												foreach ( $terms as $term ) {
-																													echo $term->name;
-																												}
-																											?>
-																										</span>
-																										<?php the_content(); ?>
-																									</div>
-																								</div>
-
-																						</div>
-																			    <?php endwhile;?>
-																			<?php else: ?>
-																			<?php endif; ?>
-																			<?php wp_reset_query(); ?>
-
-																		</div>
-																		<!-- END .inner-wrap -->
-																	</section>
-																	<!-- END section.homepage-hero -->
-							        <?php endif; ?>
-
-
+																	</a>
+														    <?php endwhile;?>
+															<?php endif; ?>
+															<?php wp_reset_query(); ?>
+														</div>
+														<!-- END .inner-wrap -->
+													</section>
+													<!-- END section.homepage-hero -->
+											<?php // TEXT BANNER ================================// ?>
+											<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
+													<section class="homepage--text-hero" style='background-image: url("<?php the_sub_field('image'); ?>");'>
+														<div class="inner-wrap">
+															<h3><?php the_sub_field('text'); ?></h3>
+														</div>
+														<!-- END .inner-wrap -->
+													</section>
+													<!-- END section.homepage-hero -->
+						        <?php endif; ?>
 							    <?php endwhile; ?>
 
 							<?php endif; ?>

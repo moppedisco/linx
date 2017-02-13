@@ -109,18 +109,16 @@ class PMXI_Chunk {
       return;
     } 
 
+    $input  = new PMXI_Input();
+    $import_id = $input->get('id', 0);
+    if ( empty($import_id)) $import_id = $input->get('import_id', 0);
+
     if ( PMXI_Plugin::getInstance()->getOption('force_stream_reader') )
     {
       $this->parser_type = 'xmlstreamer';
     }
     else
     {
-      $input  = new PMXI_Input();         
-
-      $import_id = $input->get('id', 0);
-
-      if ( empty($import_id)) $import_id = $input->get('import_id', 0);    
-
       if ( ! empty($import_id) )
       {
         $this->parser_type = empty($parser_type) ? 'xmlreader' : $parser_type;
@@ -200,6 +198,8 @@ class PMXI_Chunk {
               break;            
           }          
         }          
+
+        $this->options['element'] = apply_filters('wp_all_import_root_element', $this->options['element'], $import_id, $this->cloud);
       }
     } 
 

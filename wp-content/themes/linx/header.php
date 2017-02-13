@@ -53,7 +53,7 @@
 					<?php // if you'd like to use the site description you can un-comment it below ?>
 					<?php // bloginfo('description'); ?>
 
-					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+					<nav class='header-links' role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 						<?php wp_nav_menu(array(
 								 'container' => false,								// remove nav container
 								 'theme_location' => 'header-links',

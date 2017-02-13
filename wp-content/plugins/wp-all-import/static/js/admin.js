@@ -169,9 +169,9 @@
 		});
 
 		if ( $import_to_custom_type != 'product' && 
-				( $('textarea[name=download_featured_image]').val() != "" || 
-					$('textarea[name=gallery_featured_image]').val() != "" || 
-						$('textarea[name=featured_image]').val() != "" )) 
+				( $('textarea[name=download_featured_image]').length && $('textarea[name=download_featured_image]').val() != "" ||
+					$('textarea[name=gallery_featured_image]').length && $('textarea[name=gallery_featured_image]').val() != "" ||
+						$('textarea[name=featured_image]').length && $('textarea[name=featured_image]').val() != "" ))
 		{
 			$is_show_images_notice = true;
 		}

@@ -25,11 +25,15 @@ Stylesheet: Button Styles
   @include font-size(12px);
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 19px 45px 15px;
+  padding: 10px 25px 8px;
   border-radius: 0px;
   border: 0;
   cursor: pointer;
   @include transition(background-color 0.14s ease-in-out);
+
+  @include for-size("tablet-portrait-up"){
+    padding: 19px 45px 15px;
+  }
 
   // hovering on the btn
   &:hover, &:focus {
