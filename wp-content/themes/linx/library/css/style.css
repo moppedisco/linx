@@ -111,7 +111,7 @@ a:hover {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-h1, .homepage--text-hero h3 {
+h1, .section--text-hero h3 {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -475,7 +475,7 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
-h1, .homepage--text-hero h3, h2, h3, h4, h5, h6, hgroup,
+h1, .section--text-hero h3, h2, h3, h4, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
 table,
@@ -703,7 +703,7 @@ FONT FACE (IN YOUR FACE)
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-h1, .homepage--text-hero h3, h2, h3, h4, h5, h6 {
+h1, .section--text-hero h3, h2, h3, h4, h5, h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
@@ -997,7 +997,7 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a {
+.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button {
   display: inline-block;
   position: relative;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1016,16 +1016,16 @@ Stylesheet: Button Styles
   transition: background-color 0.14s ease-in-out;
 }
 @media (min-width: 600px) {
-  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a {
+  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button {
     padding: 19px 45px 15px;
   }
 }
-.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus {
+.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .homepage--video-intro #gform_1 input.button:hover, .section--text-hero a:hover, .section--text-3-columns .text-column__button:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .homepage--video-intro #gform_1 input.button:focus, .section--text-hero a:focus, .section--text-3-columns .text-column__button:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
 }
-.blue-btn:active, .header-links .menu .button.looking-for-staff a:active, .header-links .menu .button.looking-for-work a:active {
+.blue-btn:active, .header-links .menu .button.looking-for-staff a:active, .header-links .menu .button.looking-for-work a:active, .homepage--video-intro #gform_1 input.button:active, .section--text-hero a:active, .section--text-3-columns .text-column__button:active {
   top: 1px;
 }
 
@@ -1376,7 +1376,7 @@ a:hover {
   position: relative;
 }
 
-h1, .homepage--text-hero h3 {
+h1, .section--text-hero h3 {
   font-size: 52px;
   font-size: 2.88889rem;
   line-height: 1.1;
@@ -1384,10 +1384,34 @@ h1, .homepage--text-hero h3 {
   font-weight: bold;
 }
 @media (min-width: 600px) {
-  h1, .homepage--text-hero h3 {
+  h1, .section--text-hero h3 {
     font-size: 92px;
     font-size: 5.11111rem;
   }
+}
+
+h2 {
+  font-size: 42px;
+  font-size: 2.33333rem;
+  line-height: 70px;
+  line-height: 3.88889rem;
+  font-weight: 100;
+}
+@media (min-width: 600px) {
+  h2 {
+    font-size: 54px;
+    font-size: 3rem;
+    line-height: 90px;
+    line-height: 5rem;
+  }
+}
+
+h3 {
+  font-size: 26px;
+  font-size: 1.44444rem;
+  line-height: 43.33333px;
+  line-height: 2.40741rem;
+  font-weight: 100;
 }
 
 img {
@@ -1674,16 +1698,16 @@ MAIN NAVIGATION
 /******************************************************************
 HOMEPAGE HERO
 ******************************************************************/
-section[class^="homepage--"] {
+section[class^="section--"] {
   margin-bottom: 60px;
 }
 @media (min-width: 600px) {
-  section[class^="homepage--"] {
+  section[class^="section--"] {
     margin-bottom: 120px;
   }
 }
 
-.homepage--hero {
+.homepage--video-intro {
   min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1694,17 +1718,17 @@ section[class^="homepage--"] {
   background-position: 50% 50%;
 }
 @media (min-width: 600px) {
-  .homepage--hero {
+  .homepage--video-intro {
     background: #08152b !important;
   }
 }
-.homepage--hero .inner-wrap, .homepage--hero .menu-main-nav ul, .menu-main-nav .homepage--hero ul {
+.homepage--video-intro .inner-wrap, .homepage--video-intro .menu-main-nav ul, .menu-main-nav .homepage--video-intro ul {
   position: relative;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
 }
-.homepage--hero .homepage--hero-text {
+.homepage--video-intro .homepage--video-intro__text {
   position: absolute;
   top: 50%;
   left: 0;
@@ -1714,14 +1738,14 @@ section[class^="homepage--"] {
   color: #fff;
   z-index: 2;
 }
-.homepage--hero p {
+.homepage--video-intro p {
   font-size: 28px;
   font-size: 1.55556rem;
   line-height: 46.66667px;
   line-height: 2.59259rem;
   font-weight: 100;
 }
-.homepage--hero video {
+.homepage--video-intro .homepage--video-intro__video {
   position: absolute;
   top: 0;
   left: 0;
@@ -1729,18 +1753,66 @@ section[class^="homepage--"] {
   opacity: 0.8;
 }
 @media (max-width: 599px) {
-  .homepage--hero video {
+  .homepage--video-intro .homepage--video-intro__video {
     display: none;
   }
+}
+.homepage--video-intro #gform_1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.homepage--video-intro #gform_1 label {
+  display: none;
+}
+.homepage--video-intro #gform_1 .ginput_container {
+  margin: 0;
+}
+.homepage--video-intro #gform_1 input {
+  width: 100%;
+  margin: 0;
+  padding: 9px 14px 7px;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+}
+.homepage--video-intro #gform_1 input.button {
+  background: #FFCF60;
+  padding: 14px 25px 13px;
+  width: auto;
+}
+.homepage--video-intro #gform_1 input.button:hover {
+  background: #ffc337;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.homepage--video-intro #gform_1 input.button:active {
+  background: #e09c00;
+}
+.homepage--video-intro #gform_1 .gform_body {
+  padding: 0;
+  margin: 0 20px 0 0;
+}
+.homepage--video-intro #gform_1 .gform_footer {
+  padding: 0;
+  margin: 0;
+}
+.homepage--video-intro #gform_1 .gfield {
+  margin: 0;
+  padding: 0;
 }
 
 /******************************************************************
 HOMEPAGE SECTION TEXT BANNER
 ******************************************************************/
-.homepage--text-banner {
+.section--text-banner {
   text-align: center;
 }
-.homepage--text-banner h3 {
+.section--text-banner h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 14px;
@@ -1748,7 +1820,7 @@ HOMEPAGE SECTION TEXT BANNER
   font-weight: bold;
   color: #9B9B9B;
 }
-.homepage--text-banner p {
+.section--text-banner p {
   font-size: 36px;
   font-size: 2rem;
   line-height: 60px;
@@ -1757,7 +1829,7 @@ HOMEPAGE SECTION TEXT BANNER
   margin: 0 auto;
 }
 @media (min-width: 600px) {
-  .homepage--text-banner p {
+  .section--text-banner p {
     max-width: 80%;
   }
 }
@@ -1809,7 +1881,7 @@ HOMEPAGE SECTION CAROUSEL
     padding: 0 0 40vh;
   }
 }
-.homepage--carousel__feature h3 {
+.homepage--carousel__feature h2 {
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 1.4;
@@ -1899,8 +1971,8 @@ HOMEPAGE SECTION CAROUSEL
   border-top: 1px solid #F2F2F2;
   display: block;
   position: relative;
-  -webkit-transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+  -webkit-transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
 }
 .job-listing:after {
   content: "";
@@ -1927,6 +1999,8 @@ HOMEPAGE SECTION CAROUSEL
   text-decoration: none;
   z-index: 10;
   max-width: 845px;
+  -webkit-transition-duration: 0.7s;
+          transition-duration: 0.7s;
 }
 .job-listing:hover:before, .job-listing:hover:after {
   opacity: 1;
@@ -1999,6 +2073,7 @@ HOMEPAGE SECTION CAROUSEL
 .job-listing__title {
   font-size: 32px;
   font-size: 1.77778rem;
+  line-height: 1;
   font-weight: 100;
   margin: 0 10px 0px 0;
 }
@@ -2046,22 +2121,70 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
-.homepage--text-hero {
+.section--text-hero {
   position: relative;
   overflow-x: hidden;
   background-size: cover;
   background-position: 50% 50%;
   padding: 30vh 0;
 }
-.homepage--text-hero h3 {
+.section--text-hero h3 {
   color: #fff;
   max-width: 90%;
   z-index: 1;
-  margin: 0;
+  margin: 0 0 20px;
 }
 @media (min-width: 600px) {
-  .homepage--text-hero h3 {
+  .section--text-hero h3 {
+    max-width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .section--text-hero h3 {
+    margin: 0;
     max-width: 50%;
+  }
+}
+.section--text-hero a {
+  background-color: #2AD189;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#43DA5C), to(#2AD189));
+  background-image: -webkit-linear-gradient(top, #43DA5C, #2AD189);
+  background-image: linear-gradient(to bottom, #43DA5C, #2AD189);
+}
+@media (min-width: 1200px) {
+  .section--text-hero a {
+    text-transform: none;
+    padding: 3em 2.5em;
+    font-size: 26px;
+    font-size: 1.44444rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+    font-weight: 500;
+    -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+    display: inline-block;
+  }
+  .section--text-hero a:hover {
+    -webkit-transform: translateY(-50%) translateX(5px);
+        -ms-transform: translateY(-50%) translateX(5px);
+            transform: translateY(-50%) translateX(5px);
+  }
+}
+.section--text-hero a i {
+  vertical-align: sub;
+  font-weight: bold;
+  font-size: 16px;
+  font-size: 0.88889rem;
+}
+@media (min-width: 1200px) {
+  .section--text-hero a i {
+    font-size: 30px;
+    font-size: 1.66667rem;
+    vertical-align: bottom;
   }
 }
 
@@ -2140,6 +2263,62 @@ FOOTER LINKS
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+}
+
+.section--text-3-columns {
+  text-align: center;
+}
+.section--text-3-columns h2 {
+  text-align: center;
+}
+.section--text-3-columns .text-column {
+  padding: 2rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+@media (min-width: 600px) {
+  .section--text-3-columns .text-column {
+    text-align: left;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+}
+@media (min-width: 600px) {
+  .section--text-3-columns .text-column__item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+  }
+}
+.section--text-3-columns .text-column__item p {
+  font-weight: 100;
+  letter-spacing: 0.5px;
+}
+.section--text-3-columns .text-column__item .material-icons {
+  font-size: 32px;
+  color: #43DA5C;
+  margin-bottom: 2rem;
+}
+.section--text-3-columns .text-column__button {
+  background: #43DA5C;
+  min-width: 200px;
+}
+.section--text-3-columns .text-column__button:hover {
+  background: #28cc43;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.section--text-3-columns .text-column__button:active {
+  background: #1a842b;
 }
 
 .footer .copyright {

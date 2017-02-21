@@ -261,4 +261,22 @@ function remove_menus(){
 }
 add_action( 'admin_menu', 'remove_menus' );
 
+/************* SEND SMS FROM FORM *********************/
+
+function sendSMS( $entry, $form ) {
+
+    $text = array(
+      'phonenumber' => rgar( $entry, '2' ),
+      'message' => rgar( $entry, '3' )
+    );
+
+    $args = array(
+    	'number_to' => $text['phonenumber'],
+    	'message' => $text['message']
+    );
+    twl_send_sms( $args );
+}
+
+add_action( 'gform_after_submission_1', 'sendSMS', 10, 2 );
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>

@@ -172,7 +172,7 @@ var timeToWaitForLast = 100;
     breakpoint();
     reSizeVideoWrapper();
     stickyNav();
-		videoHeroParallax();
+		//videoHeroParallax();
 
     // elements = Array.prototype.slice.call(elementsNl);
     // elements.forEach(function(element) {
@@ -288,9 +288,9 @@ var timeToWaitForLast = 100;
 
     // build scene
     var stickyNav = new ScrollMagic.Scene({
-      triggerElement: ".homepage--hero",
+      triggerElement: ".homepage--video-intro",
       triggerHook: "onLeave",
-      offset: '500px'
+      offset: '700px'
     })
     .setTween(slideDownNav)
     .on("enter", function(){
@@ -301,7 +301,7 @@ var timeToWaitForLast = 100;
 
   function reSizeVideoWrapper(){
     if(window.breakpoint != 'mobile'){
-      adjustVideoPositioning('.homepage--hero-video','video');
+      adjustVideoPositioning('.homepage--video-intro__video','video');
     } else {
       // adjustVideoPositioning('.homepage-hero','img');
 
