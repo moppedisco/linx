@@ -59,6 +59,10 @@
 
 												<?php get_template_part( 'partials/section--text-3-columns' ); ?>
 
+											<?php elseif( get_row_layout() == 'text_image_row' ): ?>
+
+												<?php get_template_part( 'partials/section--text-image-row' ); ?>
+
 						        <?php endif; ?>
 							    <?php endwhile; ?>
 

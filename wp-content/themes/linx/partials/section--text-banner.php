@@ -7,4 +7,4 @@
   </div>
   <!-- END .inner-wrap -->
 </section>
-<!-- END section.homepage-hero -->
+<!-- END section.text-banner -->

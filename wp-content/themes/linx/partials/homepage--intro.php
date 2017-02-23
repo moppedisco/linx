@@ -12,4 +12,4 @@
   <!-- END .inner-wrap -->
   <video class='homepage--video-intro__video' src="<?php the_sub_field('hero_video'); ?>" autoplay muted loop></video>
 </section>
-<!-- END section.homepage-hero -->
+<!-- END section.homepage-intro -->

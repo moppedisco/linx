@@ -32,4 +32,4 @@
   </div>
   <!-- END .inner-wrap -->
 </section>
-<!-- END section.homepage__text-3-columns -->
+<!-- END section.text-3-columns -->

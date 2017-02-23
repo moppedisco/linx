@@ -1472,6 +1472,9 @@ HEADER LINKS
     display: none;
   }
 }
+.header-links .menu li.no-link > a {
+  font-weight: 100;
+}
 .header-links .menu li:not(.no-link) {
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1716,10 +1719,12 @@ section[class^="section--"] {
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
+  margin-bottom: 60px;
 }
 @media (min-width: 600px) {
   .homepage--video-intro {
     background: #08152b !important;
+    margin-bottom: 120px;
   }
 }
 .homepage--video-intro .inner-wrap, .homepage--video-intro .menu-main-nav ul, .menu-main-nav .homepage--video-intro ul {
@@ -1737,6 +1742,11 @@ section[class^="section--"] {
           transform: translateY(-50%);
   color: #fff;
   z-index: 2;
+}
+@media (min-width: 600px) {
+  .homepage--video-intro .homepage--video-intro__text {
+    width: 65%;
+  }
 }
 .homepage--video-intro p {
   font-size: 28px;
@@ -1796,6 +1806,8 @@ section[class^="section--"] {
 .homepage--video-intro #gform_1 .gform_body {
   padding: 0;
   margin: 0 20px 0 0;
+  width: auto;
+  min-width: 260px;
 }
 .homepage--video-intro #gform_1 .gform_footer {
   padding: 0;
@@ -1891,6 +1903,7 @@ HOMEPAGE SECTION CAROUSEL
   font-size: 1.22222rem;
   font-weight: 100;
   line-height: 1.7;
+  letter-spacing: 0.5px;
 }
 .homepage--carousel__feature .carousel__feature__leftcol {
   text-align: center;
@@ -2188,6 +2201,84 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
+.text-image-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10%;
+  margin-right: 5%;
+}
+.text-image-row .image-box {
+  box-shadow: 0px 85px 109px 0px rgba(0, 0, 0, 0.15);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 0;
+  padding-bottom: 100%;
+  width: 100%;
+}
+.text-image-row:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.text-image-row:nth-child(even) .text-image--text {
+  margin-left: 5%;
+  margin-right: 0%;
+}
+.text-image-row ~ .text-image-row .text-image--image {
+  margin-top: -10%;
+}
+.text-image-row ~ .text-image-row .text-image--text {
+  padding-top: 25vh;
+}
+.text-image-row .text-image--text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  margin-right: 5%;
+  padding: 10vh 0 20vh;
+}
+.text-image-row .text-image--image {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+.text-image-row.text-image-row--portrait {
+  margin-left: 0;
+  margin-right: 10%;
+}
+.text-image-row.text-image-row--portrait .text-image--text {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+}
+.text-image-row.text-image-row--portrait .text-image--image {
+  position: relative;
+  z-index: 2;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 420px;
+          flex: 0 0 420px;
+}
+.text-image-row.text-image-row--portrait .image-box {
+  padding-bottom: 177%;
+}
+.text-image-row h2 {
+  font-size: 42px;
+  font-size: 2.33333rem;
+  line-height: 1.4;
+}
+.text-image-row p {
+  font-size: 22px;
+  font-size: 1.22222rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
 /******************************************************************
 FOOTER LINKS
 ******************************************************************/
@@ -2219,6 +2310,14 @@ FOOTER LINKS
   letter-spacing: 1px;
   font-size: 12px;
   font-size: 0.66667rem;
+  text-decoration: none;
+  padding-bottom: 2px;
+  border-bottom: 1px solid transparent;
+  -webkit-transition: border 0.3s;
+          transition: border 0.3s;
+}
+.footer-links .nav li a:hover {
+  border-bottom: 1px solid #fff;
 }
 .footer-links .nav li.no-link > a {
   font-weight: bold;
@@ -2255,6 +2354,11 @@ FOOTER LINKS
   display: inline-block;
   background-size: cover;
   margin-top: 15px;
+  border: none;
+}
+.footer-links .nav li.button-apple a:hover,
+.footer-links .nav li.button-google a:hover {
+  border: none;
 }
 .footer-links .nav li.button-google a {
   background-image: url("../images/button-google.png");

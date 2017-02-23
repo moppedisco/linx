@@ -135,7 +135,7 @@ HEADER LINKS
     }
   }
 
-  li.no-link > a { @extend %no-link; }
+  li.no-link > a { @extend %no-link; font-weight: 100; }
 
   // Regular links
   li:not(.no-link) {
@@ -344,9 +344,11 @@ section[class^="section--"] {
   position: relative;
   background-size: cover;
   background-position: 50% 50%;
+  margin-bottom: 60px;
 
   @include for-size('tablet-portrait-up'){
     background: $blueDark !important;
+    margin-bottom: 120px;
   }
 
   .inner-wrap {
@@ -361,6 +363,9 @@ section[class^="section--"] {
     transform: translateY(-50%);
     color: #fff;
     z-index: 2;
+    @include for-size('tablet-portrait-up'){
+      width: 65%;
+    }
   }
 
   p {
@@ -403,7 +408,7 @@ section[class^="section--"] {
       }
     }
 
-    .gform_body {padding: 0;margin: 0 20px 0 0;}
+    .gform_body {padding: 0;margin: 0 20px 0 0; width: auto; min-width: 260px; }
     .gform_footer {padding: 0; margin: 0;}
     .gfield {margin: 0;padding: 0;}
   }
@@ -485,6 +490,7 @@ HOMEPAGE SECTION CAROUSEL
     @include font-size(22px);
     font-weight: 100;
     line-height: 1.7;
+    letter-spacing: 0.5px;
   }
 
   // &.active .carousel__feature__rightcol { position: absolute !important; top: 0 !important; left: 0 !important; }
@@ -739,6 +745,87 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
+.section--text-image {
+  // padding-top: 120px;
+}
+
+.text-image-row {
+  display: flex;
+  margin-left: 10%;
+  margin-right: 5%;
+
+  .image-box {
+    box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%;
+  }
+
+  &:nth-child(even){
+    flex-direction: row-reverse;
+    justify-content: center;
+    // margin-right: 20%;
+    // margin-left: 10%;
+
+    .text-image--text {
+      margin-left: 5%;
+      margin-right: 0%;
+    }
+  }
+
+  & ~ & .text-image--image {
+    margin-top: -10%;
+  }
+
+  & ~ & .text-image--text {
+    padding-top: 25vh;
+  }
+
+  .text-image--text {
+    flex: 0 0 30%;
+    margin-right: 5%;
+    padding: 10vh 0 20vh;
+  }
+
+  .text-image--image {
+    flex: 1 1 auto;
+  }
+
+  &.text-image-row--portrait {
+    margin-left: 0;
+    margin-right: 10%;
+
+    .text-image--text {
+      flex: 0 0 30%;
+    }
+    .text-image--image {
+      position: relative;
+      z-index: 2;
+      flex: 0 0 420px;
+    }
+
+    .image-box {
+      padding-bottom: 177%;
+    }
+  }
+
+  h2 {
+    @include font-size(42px);
+    line-height: 1.4;
+  }
+
+  p {
+    @include font-size(22px);
+    font-weight: 100;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
+
+
+}
+
 /******************************************************************
 FOOTER LINKS
 ******************************************************************/
@@ -761,6 +848,12 @@ FOOTER LINKS
     text-transform: uppercase;
     letter-spacing: 1px;
     @include font-size(12px);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+
+    &:hover { border-bottom: 1px solid #fff; }
   }
 
   // Column labels. They are just special links
@@ -799,6 +892,9 @@ FOOTER LINKS
     display: inline-block;
     background-size: cover;
     margin-top: 15px;
+    border: none;
+
+    &:hover { border: none; }
   }
 
   li.button-google a { background-image: url('../images/button-google.png'); }
