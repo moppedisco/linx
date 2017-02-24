@@ -149,19 +149,39 @@ var timeToWaitForLast = 100;
     window.addEventListener('scroll', render);
   }
 
-	function videoHeroParallax(){
+	function addParallax(){
 		var controller = new ScrollMagic.Controller();
-		jQuery('.homepage--hero').each(function(index,elem){
+
+		jQuery('.section--text-3-columns.columns--vertical').each(function(index,elem){
 			var tween = new TimelineMax()
 			.add([
-				TweenMax.to(jQuery(elem).find('.homepage--hero-text'), 1, {y: "100px", ease: Linear.easeNone})
+				TweenMax.to(jQuery(elem).find('.text-columns'), 1, {y: "-200px", ease: Linear.easeNone}),
+				TweenMax.to(jQuery(elem).find('.text-columns--image'), 1, {y: "-100px", ease: Linear.easeNone})
 			]);
 
 			// build scene
 			var scene = new ScrollMagic.Scene({
 				triggerElement: elem,
-				triggerHook: '0.5',
-				duration: 1000
+				triggerHook: '0.8',
+				duration: jQuery(elem).height()
+			})
+			.setTween(tween)
+			.addTo(controller);
+		})
+
+
+		jQuery('.section--text-image').each(function(index,elem){
+			var tween = new TimelineMax()
+			.add([
+				TweenMax.to(jQuery(elem).find('.text-image--image').eq(0), 1, {y: "-200px", ease: Linear.easeNone}),
+				TweenMax.to(jQuery(elem).find('.text-image--image').eq(1), 1, {y: "-100px", ease: Linear.easeNone})
+			]);
+
+			// build scene
+			var scene = new ScrollMagic.Scene({
+				triggerElement: elem,
+				triggerHook: '0.8',
+				duration: jQuery(elem).height()
 			})
 			.setTween(tween)
 			.addTo(controller);
@@ -172,7 +192,7 @@ var timeToWaitForLast = 100;
     breakpoint();
     reSizeVideoWrapper();
     stickyNav();
-		//videoHeroParallax();
+		addParallax();
 
     // elements = Array.prototype.slice.call(elementsNl);
     // elements.forEach(function(element) {

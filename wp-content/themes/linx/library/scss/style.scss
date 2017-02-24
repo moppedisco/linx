@@ -746,7 +746,7 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .section--text-image {
-  // padding-top: 120px;
+  padding-top: 120px;
 }
 
 .text-image-row {
@@ -754,20 +754,9 @@ HOMEPAGE SECTION CAROUSEL
   margin-left: 10%;
   margin-right: 5%;
 
-  .image-box {
-    box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 0;
-    padding-bottom: 100%;
-    width: 100%;
-  }
-
   &:nth-child(even){
     flex-direction: row-reverse;
     justify-content: center;
-    // margin-right: 20%;
-    // margin-left: 10%;
 
     .text-image--text {
       margin-left: 5%;
@@ -780,11 +769,11 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   & ~ & .text-image--text {
-    padding-top: 25vh;
+    padding-top: 15vh;
   }
 
   .text-image--text {
-    flex: 0 0 30%;
+    flex: 0 0 350px;
     margin-right: 5%;
     padding: 10vh 0 20vh;
   }
@@ -794,16 +783,22 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   &.text-image-row--portrait {
-    margin-left: 0;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    justify-content: center;
+
+    // &:nth-child(odd){
+    //   margin-left: 10%;
+    //   justify-content: center;
+    // }
 
     .text-image--text {
-      flex: 0 0 30%;
+      flex: 0 0 350px;
     }
     .text-image--image {
       position: relative;
       z-index: 2;
-      flex: 0 0 420px;
+      flex: 0 0 35%;
     }
 
     .image-box {
@@ -823,6 +818,14 @@ HOMEPAGE SECTION CAROUSEL
     letter-spacing: 0.5px;
   }
 
+  .image-box {
+    box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 0;
+    padding-bottom: 100%;
+    width: 100%;
+  }
 
 }
 
@@ -909,7 +912,9 @@ FOOTER LINKS
 
   h2 { text-align: center; }
 
-  .text-column {
+  p { margin: 0; }
+
+  .text-columns {
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
@@ -924,6 +929,22 @@ FOOTER LINKS
   .text-column__item {
     @include for-size("tablet-portrait-up"){
       flex: 0 0 25%;
+    }
+
+    /* one item */
+    &:first-child:nth-last-child(1) {
+    	flex: 0 0 50%;
+      text-align: center;
+    }
+
+    /* two items */
+    &:first-child:nth-last-child(2) { flex: 0 0 25%; margin-left: 12.5%; }
+    &:first-child:nth-last-child(2) ~ .text-column__item { flex: 0 0 25%; margin-right: 12.5%; }
+
+    /* three items */
+    &:first-child:nth-last-child(3),
+    &:first-child:nth-last-child(3) ~ .text-column__item {
+    	flex: 0 0 25%;
     }
 
     p {
@@ -942,6 +963,67 @@ FOOTER LINKS
     @extend %button;
     @include button-bg($green);
     min-width: 200px;
+  }
+}
+
+.section--text-3-columns.columns--vertical {
+
+  .text-columns-split {
+    @include clearfix;
+    margin: 80px 0;
+
+    @include for-size("tablet-portrait-up"){
+      margin: 160px 0;
+    }
+  }
+
+  .text-columns {
+    background: #f9f9f9;
+    padding: 40px 80px 40px 40px;
+    margin-top: -40%;
+    margin-right: -20px;
+    width: 85%;
+    float: right;
+    text-align: left;
+
+    @include for-size("tablet-portrait-up"){
+      position: relative;
+      z-index: 1;
+      float: left;
+      width: 50%;
+      margin-top: -20px;
+      padding: 80px 40px 80px calc(10% + 40px);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text-column__item {
+      margin: 0 0 40px 0 !important;
+      flex: 0 0 auto !important;
+
+      &:last-child {
+        margin-bottom: 0 !important;
+      }
+    }
+  }
+
+  .text-columns--image {
+    width: 90%;
+    margin-left: -20px;
+
+    @include for-size("tablet-portrait-up"){
+      margin-left: -10%;
+      margin-right: -10%;
+      float: left;
+      width: 55%;
+      box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 3;
+      max-height: 95vh;
+      overflow: hidden;
+    }
+
+    img { display: block; }
   }
 }
 
