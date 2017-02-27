@@ -173,7 +173,7 @@ var timeToWaitForLast = 100;
 		jQuery('.section--text-image').each(function(index,elem){
 			var tween = new TimelineMax()
 			.add([
-				TweenMax.to(jQuery(elem).find('.text-image--image').eq(0), 1, {y: "-200px", ease: Linear.easeNone}),
+				TweenMax.to(jQuery(elem).find('.text-image--image').eq(0), 1, {y: "-150px", ease: Linear.easeNone}),
 				TweenMax.to(jQuery(elem).find('.text-image--image').eq(1), 1, {y: "-100px", ease: Linear.easeNone})
 			]);
 
@@ -181,7 +181,7 @@ var timeToWaitForLast = 100;
 			var scene = new ScrollMagic.Scene({
 				triggerElement: elem,
 				triggerHook: '0.8',
-				duration: jQuery(elem).height()
+				duration: jQuery(elem).height()*1.5
 			})
 			.setTween(tween)
 			.addTo(controller);
