@@ -48,7 +48,7 @@ class acf_settings_addons {
 
 
 		// add page
-		$page = add_submenu_page('edit.php?post_type=acf-field-group', __('Add-ons','acf'), __('Add-ons','acf'), 'manage_options','acf-settings-addons', array($this,'html') );
+		$page = add_submenu_page('edit.php?post_type=acf-field-group', __('Add-ons','acf'), __('Add-ons','acf'), acf_get_setting('capability'),'acf-settings-addons', array($this,'html') );
 
 
 		// actions
@@ -79,7 +79,7 @@ class acf_settings_addons {
 
 
 		// load json
-        $request = wp_remote_post( 'http://assets.advancedcustomfields.com/add-ons/add-ons.json' );
+        $request = wp_remote_post( 'https://assets.advancedcustomfields.com/add-ons/add-ons.json' );
 
         // validate
         if( is_wp_error($request) || wp_remote_retrieve_response_code($request) != 200)

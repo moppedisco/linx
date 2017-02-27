@@ -83,6 +83,19 @@ class acf_field_oembed extends acf_field {
 		$embed = @wp_oembed_get( $url, $res );
 		
 		
+		// try shortcode
+		if( !$embed ) {
+			
+			 // global
+			global $wp_embed;
+			
+			
+			// get emebed
+			$embed = $wp_embed->shortcode($res, $url);
+		
+		}
+				
+		
 		// return
 		return $embed;
 	}
@@ -103,10 +116,13 @@ class acf_field_oembed extends acf_field {
 	
 	function ajax_search() {
 		
+		// validate
+		if( !acf_verify_ajax() ) die();
+		
+		
    		// options
    		$args = acf_parse_args( $_POST, array(
 			's'			=> '',
-			'nonce'		=> '',
 			'width'		=> 0,
 			'height'	=> 0,
 		));
@@ -122,14 +138,6 @@ class acf_field_oembed extends acf_field {
 		if( !$args['height'] ) {
 		
 			$args['height'] = $this->default_values['height'];
-			
-		}
-		
-		
-		// validate
-		if( ! wp_verify_nonce($args['nonce'], 'acf_nonce') ) {
-		
-			die();
 			
 		}
 		
@@ -199,9 +207,7 @@ class acf_field_oembed extends acf_field {
 			<input data-name="search-input" type="text" placeholder="<?php _e("Enter URL", 'acf'); ?>" autocomplete="off" />
 		</div>
 		
-		<a data-name="clear-button" href="#" class="acf-icon light acf-soh-target">
-			<i class="acf-sprite-delete"></i>
-		</a>
+		<a data-name="clear-button" href="#" class="acf-icon -cancel grey acf-soh-target"></a>
 		
 	</div>
 	<div class="canvas">
@@ -211,7 +217,7 @@ class acf_field_oembed extends acf_field {
 		</div>
 		
 		<div class="canvas-error">
-			<p><strong><?php _e("Error", 'acf'); ?></strong>. <?php _e("No embed found for the given URL", 'acf'); ?></p>
+			<p><strong><?php _e("Error.", 'acf'); ?></strong> <?php _e("No embed found for the given URL.", 'acf'); ?></p>
 		</div>
 		
 		<div class="canvas-media" data-name="value-embed">
@@ -220,7 +226,7 @@ class acf_field_oembed extends acf_field {
 			<?php endif; ?>
 		</div>
 		
-		<i class="acf-sprite-media hide-if-value"></i>
+		<i class="acf-icon -picture hide-if-value"></i>
 		
 	</div>
 	
@@ -250,6 +256,7 @@ class acf_field_oembed extends acf_field {
 			'label'			=> __('Embed Size','acf'),
 			'type'			=> 'text',
 			'name'			=> 'width',
+			'prepend'		=> __('Width', 'acf'),
 			'append'		=> 'px',
 			'placeholder'	=> $this->default_values['width']
 		));
@@ -260,8 +267,10 @@ class acf_field_oembed extends acf_field {
 			'label'			=> __('Embed Size','acf'),
 			'type'			=> 'text',
 			'name'			=> 'height',
+			'prepend'		=> __('Height', 'acf'),
 			'append'		=> 'px',
-			'placeholder'	=> $this->default_values['height']
+			'placeholder'	=> $this->default_values['height'],
+			'_append' 		=> 'width'
 		));
 		
 	}
@@ -304,8 +313,10 @@ class acf_field_oembed extends acf_field {
 	
 }
 
-new acf_field_oembed();
 
-endif;
+// initialize
+acf_register_field_type( new acf_field_oembed() );
+
+endif; // class_exists check
 
 ?>

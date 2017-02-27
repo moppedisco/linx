@@ -14,6 +14,8 @@ if( ! class_exists('acf_form_taxonomy') ) :
 
 class acf_form_taxonomy {
 	
+	var $form = '#addtag';
+	
 	
 	/*
 	*  __construct
@@ -65,7 +67,7 @@ class acf_form_taxonomy {
 		
 		
 		// validate page
-		if( $pagenow == 'edit-tags.php' ) {
+		if( $pagenow === 'edit-tags.php' || $pagenow === 'term.php' ) {
 			
 			return true;
 			
@@ -94,7 +96,7 @@ class acf_form_taxonomy {
 	function admin_enqueue_scripts() {
 		
 		// validate page
-		if( ! $this->validate_page() ) {
+		if( !$this->validate_page() ) {
 			
 			return;
 			
@@ -110,9 +112,10 @@ class acf_form_taxonomy {
 		acf_enqueue_scripts();
 		
 		
-		// render
-		add_action("{$taxonomy}_add_form_fields", 	array( $this, 'add_term' ), 10, 1);
-		add_action("{$taxonomy}_edit_form", 		array( $this, 'edit_term' ), 10, 2);
+		// actions
+		add_action('admin_footer',					array($this, 'admin_footer'), 10, 1);
+		add_action("{$taxonomy}_add_form_fields", 	array($this, 'add_term'), 10, 1);
+		add_action("{$taxonomy}_edit_form", 		array($this, 'edit_term'), 10, 2);
 		
 	}
 	
@@ -133,24 +136,30 @@ class acf_form_taxonomy {
 	function add_term( $taxonomy ) {
 		
 		// vars
-		$post_id = "{$taxonomy}_0";
-		$args = array(
-			'taxonomy' => $taxonomy
-		);
+		$post_id = acf_get_term_post_id( $taxonomy, 0 );
+		
+		
+		// update vars
+		$this->form = '#addtag';
 		
 		
 		// get field groups
-		$field_groups = acf_get_field_groups( $args );
+		$field_groups = acf_get_field_groups(array(
+			'taxonomy' => $taxonomy
+		));
 		
 		
 		// render
 		if( !empty($field_groups) ) {
 			
+			// data
 			acf_form_data(array( 
 				'post_id'	=> $post_id, 
 				'nonce'		=> 'taxonomy',
 			));
 			
+			
+			// loop
 			foreach( $field_groups as $field_group ) {
 				
 				$fields = acf_get_fields( $field_group );
@@ -158,99 +167,6 @@ class acf_form_taxonomy {
 				acf_render_fields( $post_id, $fields, 'div', 'field' );
 				
 			}
-			
-?>
-<script type="text/javascript">
-(function($) {
-	
-	// store origional HTML
-	var $orig = $('#addtag').children('.acf-field').clone();
-	
-	$(document).ready(function(){
-		
-		// update acf validation class
-		acf.validation.error_class = 'form-invalid';
-		
-		
-		// events
-		$('#submit').on('click', function( e ){
-			
-			// bail early if this form does not contain ACF data
-			if( ! $('#addtag').find('#acf-form-data').exists() ) {
-				
-				return true;
-			
-			}
-			
-			
-			// ignore this submit?
-			if( acf.validation.ignore == 1 ) {
-			
-				acf.validation.ignore = 0;
-				return true;
-			
-			}
-			
-	
-			// bail early if disabled
-			if( acf.validation.active == 0 ) {
-			
-				return true;
-			
-			}
-			
-			
-			// stop WP JS validation
-			e.stopImmediatePropagation();
-			
-			
-			// store submit trigger so it will be clicked if validation is passed
-			acf.validation.$trigger = $(this);
-			
-			
-			// run validation
-			acf.validation.fetch( $('#addtag') );
-			
-			
-			// stop all other click events on this input
-			return false;
-			
-		});
-	
-	});
-	
-	$(document).ajaxComplete(function(event, xhr, settings) {
-		
-		// bail early if is other ajax call
-		if( settings.data.indexOf('action=add-tag') == -1 ) {
-			
-			return;
-			
-		}
-		
-		
-		// action for 3rd party customization
-		acf.do_action('remove', $('#addtag'));
-		
-		
-		// remove old fields
-		$('#addtag').find('.acf-field').remove();
-		
-		
-		// add orig fields
-		$('#acf-form-data').after( $orig.clone() );
-		
-		
-		// action for 3rd party customization
-		acf.do_action('append', $('#addtag'));
-		
-
-	});
-
-	
-})(jQuery);	
-</script>
-<?php
 			
 		}
 		
@@ -273,14 +189,17 @@ class acf_form_taxonomy {
 	function edit_term( $term, $taxonomy ) {
 		
 		// vars
-		$post_id = "{$taxonomy}_{$term->term_id}";
-		$args = array(
-			'taxonomy' => $taxonomy
-		);
+		$post_id = acf_get_term_post_id( $term->taxonomy, $term->term_id );
+		
+		
+		// update vars
+		$this->form = '#edittag';
 		
 		
 		// get field groups
-		$field_groups = acf_get_field_groups( $args );
+		$field_groups = acf_get_field_groups(array(
+			'taxonomy' => $taxonomy
+		));
 		
 		
 		// render
@@ -297,7 +216,7 @@ class acf_form_taxonomy {
 				
 				?>
 				<?php if( $field_group['style'] == 'default' ): ?>
-					<h3><?php echo $field_group['title']; ?></h3>
+					<h2><?php echo $field_group['title']; ?></h2>
 				<?php endif; ?>
 				<table class="form-table">
 					<tbody>
@@ -309,6 +228,146 @@ class acf_form_taxonomy {
 			}
 		
 		}
+		
+	}
+	
+	
+	/*
+	*  admin_footer
+	*
+	*  description
+	*
+	*  @type	function
+	*  @date	27/03/2015
+	*  @since	5.1.5
+	*
+	*  @param	$post_id (int)
+	*  @return	$post_id (int)
+	*/
+	
+	function admin_footer() {
+	
+?>
+<script type="text/javascript">
+(function($) {
+	
+	// vars
+	var $spinner = $('<?php echo $this->form; ?> p.submit .spinner');
+	
+	
+	// create spinner if not exists (may exist in future WP versions)
+	if( !$spinner.exists() ) {
+		
+		// create spinner
+		$spinner = $('<span class="spinner"></span>');
+		
+		
+		// append
+		$('<?php echo $this->form; ?> p.submit').append( $spinner );
+		
+	}
+	
+	
+	// update acf validation class
+	acf.validation.error_class = 'form-invalid';
+		
+		
+<?php if( $this->form == '#addtag' ): ?>
+
+	// store origional HTML
+	var $orig = $('#addtag').children('.acf-field').clone();
+	
+	
+	// events
+	$('#submit').on('click', function( e ){
+		
+		// bail early if not active
+		if( !acf.validation.active ) {
+		
+			return true;
+			
+		}
+		
+		
+		// ignore validation (only ignore once)
+		if( acf.validation.ignore ) {
+		
+			acf.validation.ignore = 0;
+			return true;
+			
+		}
+		
+		
+		// bail early if this form does not contain ACF data
+		if( !$('#addtag').find('#acf-form-data').exists() ) {
+			
+			return true;
+		
+		}
+		
+		
+		// stop WP JS validation
+		e.stopImmediatePropagation();
+		
+		
+		// store submit trigger so it will be clicked if validation is passed
+		acf.validation.$trigger = $(this);
+		
+					
+		// run validation
+		acf.validation.fetch( $('#addtag') );
+		
+		
+		// stop all other click events on this input
+		return false;
+		
+	});
+	
+
+	$(document).ajaxComplete(function(event, xhr, settings) {
+		
+		// bail early if is other ajax call
+		if( settings.data.indexOf('action=add-tag') == -1 ) {
+			
+			return;
+			
+		}
+		
+		
+		// unlock form
+		acf.validation.toggle( $('#addtag'), 'unlock' );
+		
+		
+		// bail early if response contains error
+		if( xhr.responseText.indexOf('wp_error') !== -1 ) {
+			
+			return;
+			
+		}
+		
+		
+		// action for 3rd party customization
+		acf.do_action('remove', $('#addtag'));
+		
+		
+		// remove old fields
+		$('#addtag').find('.acf-field').remove();
+		
+		
+		// add orig fields
+		$('#acf-form-data').after( $orig.clone() );
+		
+		
+		// action for 3rd party customization
+		acf.do_action('append', $('#addtag'));
+		
+	});
+	
+<?php endif; ?>
+	
+})(jQuery);	
+</script>
+<?php
 		
 	}
 	
@@ -328,21 +387,20 @@ class acf_form_taxonomy {
 	
 	function save_term( $term_id, $tt_id, $taxonomy ) {
 		
+		// vars
+		$post_id = acf_get_term_post_id( $taxonomy, $term_id );
+		
+		
 		// verify and remove nonce
-		if( ! acf_verify_nonce('taxonomy') ) {
+		if( !acf_verify_nonce('taxonomy') ) return $term_id;
+		
+	    
+	    // valied and show errors
+		acf_validate_save_post( true );
 			
-			return $term_id;
-		
-		}
-		
-		
-	    
-	    // save data
-	    if( acf_validate_save_post(true) ) {
-	    
-			acf_save_post("{$taxonomy}_{$term_id}");
-		
-		}
+			
+	    // save
+		acf_save_post( $post_id );
 			
 	}
 	
@@ -362,11 +420,30 @@ class acf_form_taxonomy {
 	
 	function delete_term( $term, $tt_id, $taxonomy, $deleted_term ) {
 		
+		// bail early if termmeta table exists
+		if( acf_isset_termmeta() ) return $term;
+		
+		
+		// globals
 		global $wpdb;
 		
-		$values = $wpdb->query($wpdb->prepare(
-			"DELETE FROM $wpdb->options WHERE option_name LIKE %s",
-			'%' . $taxonomy . '_' . $term . '%'
+		
+		// vars
+		$search = $taxonomy . '_' . $term . '_%';
+		$_search = '_' . $search;
+		
+		
+		// escape '_'
+		// http://stackoverflow.com/questions/2300285/how-do-i-escape-in-sql-server
+		$search = str_replace('_', '\_', $search);
+		$_search = str_replace('_', '\_', $_search);
+		
+		
+		// delete
+		$result = $wpdb->query($wpdb->prepare(
+			"DELETE FROM $wpdb->options WHERE option_name LIKE %s OR option_name LIKE %s",
+			$search,
+			$_search 
 		));
 		
 	}
@@ -376,5 +453,6 @@ class acf_form_taxonomy {
 new acf_form_taxonomy();
 
 endif;
+
 
 ?>
