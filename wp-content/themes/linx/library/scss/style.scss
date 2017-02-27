@@ -256,8 +256,22 @@ MAIN NAVIGATION
       color: $green;
     }
 
-    li.main-nav-link--logo a {
-      background-image: url("../images/logo--green.png");
+    li.main-nav-link--logo {
+      margin: 0;
+      @include for-size('phone-only'){
+        height: 21px;
+      }
+
+      a {
+        padding: 0;
+        border: none;
+        margin: 0;
+        background-image: url("../images/logo--green.png");
+        @include for-size('phone-only'){
+          width: 60px;
+          height: 21px;
+        }
+      }
     }
   }
 
@@ -271,6 +285,11 @@ MAIN NAVIGATION
   li {
     flex: 0 0 auto;
     margin: 0 30px;
+    display: none;
+
+    @include for-size('tablet-portrait-up'){
+      display: block;
+    }
   }
 
   a {
@@ -314,15 +333,25 @@ MAIN NAVIGATION
     }
   }
 
-  li.main-nav-link--logo a {
-    width: 110px;
-    height: 40px;
-    background: url("../images/logo--white.png") no-repeat;
-    background-size: contain;
-    display: inline-block;
-    text-indent: -99999px;
+  li.main-nav-link--logo {
+    display: block;
+    flex: 0 0 auto;
+    margin: 0 auto;
 
-    &:hover { border-bottom-color: transparent; }
+    @include for-size('tablet-portrait-up'){
+      flex: 1 1 100%;
+    }
+
+    a {
+      width: 110px;
+      height: 40px;
+      background: url("../images/logo--white.png") no-repeat;
+      background-size: contain;
+      display: inline-block;
+      text-indent: -99999px;
+
+      &:hover { border-bottom-color: transparent; }
+    }
   }
 }
 
@@ -363,6 +392,7 @@ section[class^="section--"] {
     transform: translateY(-50%);
     color: #fff;
     z-index: 2;
+    width: 100%;
     @include for-size('tablet-portrait-up'){
       width: 65%;
     }
@@ -403,14 +433,35 @@ section[class^="section--"] {
       &.button {
         @extend %button;
         @include button-bg($yellow);
-        padding: 14px 25px 13px;
+        padding: 12px 25px 10px;
         width: auto;
+        @include for-size('tablet-portrait-up'){
+          padding: 14px 25px 13px;
+        }
       }
     }
 
-    .gform_body {padding: 0;margin: 0 20px 0 0; width: auto; min-width: 260px; }
-    .gform_footer {padding: 0; margin: 0;}
-    .gfield {margin: 0;padding: 0;}
+    .gform_body {
+      padding: 0;
+      margin: 0;
+      width: auto;
+      flex: 1 0 auto;
+      @include for-size('tablet-portrait-up'){
+        flex: 0 0 320px;
+      }
+    }
+
+    .gform_footer {
+      padding: 0;
+      margin: 0;
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    .gfield {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
@@ -746,40 +797,65 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .section--text-image {
-  padding-top: 120px;
+
+  @include for-size('tablet-portrait-up'){
+    padding-top: 120px;
+  }
 }
 
 .text-image-row {
   display: flex;
-  margin-left: 10%;
-  margin-right: 5%;
+  flex-direction: column;
+  text-align: center;
+  @extend .inner-wrap;
+
+  @include for-size('tablet-portrait-up'){
+    margin: 0;
+    margin-left: 10%;
+    margin-right: 5%;
+    flex-direction: row;
+    max-width: none;
+    text-align: left;
+  }
 
   &:nth-child(even){
-    flex-direction: row-reverse;
-    justify-content: center;
+    flex-direction: column-reverse;
+
+    @include for-size('tablet-portrait-up'){
+      flex-direction: row-reverse;
+      justify-content: center;
+    }
 
     .text-image--text {
-      margin-left: 5%;
-      margin-right: 0%;
+      @include for-size('tablet-portrait-up'){
+        margin-left: 5%;
+        margin-right: 0%;
+      }
+    }
+
+    .text-image--image {
+      margin-top: -30%;
+      @include for-size('tablet-portrait-up'){
+        margin-top: -10%;
+      }
     }
   }
 
-  & ~ & .text-image--image {
-    margin-top: -10%;
-  }
-
-  & ~ & .text-image--text {
-    padding-top: 15vh;
-  }
-
   .text-image--text {
-    flex: 0 0 350px;
-    margin-right: 5%;
-    padding: 10vh 0 20vh;
+    padding: 5vh 0 10vh;
+    @include for-size('tablet-portrait-up'){
+      flex: 0 0 350px;
+      margin-right: 5%;
+      padding: 10vh 0 20vh;
+    }
   }
 
   .text-image--image {
     flex: 1 1 auto;
+    padding: 0 0 0 40%;
+    @include for-size('tablet-portrait-up'){
+      padding: 0;
+    }
   }
 
   &.text-image-row--portrait {
@@ -787,18 +863,19 @@ HOMEPAGE SECTION CAROUSEL
     margin-right: 5%;
     justify-content: center;
 
-    // &:nth-child(odd){
-    //   margin-left: 10%;
-    //   justify-content: center;
-    // }
-
     .text-image--text {
-      flex: 0 0 350px;
+      @include for-size('tablet-portrait-up'){
+        flex: 0 0 350px;
+      }
     }
     .text-image--image {
       position: relative;
       z-index: 2;
-      flex: 0 0 35%;
+      padding: 0 55% 0 0;
+      @include for-size('tablet-portrait-up'){
+        flex: 0 0 35%;
+        padding: 0;
+      }
     }
 
     .image-box {
@@ -830,83 +907,8 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 /******************************************************************
-FOOTER LINKS
+3 POINTS SECTION
 ******************************************************************/
-
-.footer {
-  padding: 40px 0;
-  background: $brown;
-}
-
-.footer-links .nav {
-  display: flex;
-  flex-direction: column;
-
-  @include for-size("tablet-portrait-up"){
-    flex-direction: row;
-  }
-
-  li a {
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    @include font-size(12px);
-    text-decoration: none;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-    transition: border 0.3s;
-
-    &:hover { border-bottom: 1px solid #fff; }
-  }
-
-  // Column labels. They are just special links
-  li.no-link > a {
-    @extend %no-link;
-    font-weight: bold;
-    color: rgba(255,255,255,0.3);
-    display: block;
-
-    @include for-size("tablet-portrait-up"){
-      height: 60px;
-    }
-  }
-
-  li.logo > a {
-    width: 110px;
-    height: 40px;
-    background: url("../images/logo--white.png") no-repeat;
-    background-size: contain;
-    display: inline-block;
-    text-indent: -99999px;
-
-    &:hover { border-bottom-color: transparent; }
-
-    @include for-size("tablet-portrait-up"){
-      height: 60px;
-    }
-  }
-
-  li.button-apple a,
-  li.button-google a {
-    background: url('../images/button-apple.png');
-    width: 135px;
-    height: 40px;
-    text-indent: -99999px;
-    display: inline-block;
-    background-size: cover;
-    margin-top: 15px;
-    border: none;
-
-    &:hover { border: none; }
-  }
-
-  li.button-google a { background-image: url('../images/button-google.png'); }
-
-  li {
-    flex: 1 1 auto;
-  }
-}
-
 .section--text-3-columns {
   text-align: center;
 
@@ -1024,6 +1026,90 @@ FOOTER LINKS
     }
 
     img { display: block; }
+  }
+}
+
+/******************************************************************
+FOOTER LINKS
+******************************************************************/
+
+.footer {
+  padding: 40px 0;
+  background: $brown;
+  text-align: center;
+  @include for-size("tablet-portrait-up"){
+    text-align: left;
+  }
+}
+
+.footer-links .nav {
+  display: flex;
+  flex-direction: column;
+
+  @include for-size("tablet-portrait-up"){
+    flex-direction: row;
+  }
+
+  li a {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    @include font-size(12px);
+    text-decoration: none;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+    transition: border 0.3s;
+
+    &:hover { border-bottom: 1px solid #fff; }
+  }
+
+  // Column labels. They are just special links
+  li.no-link > a {
+    @extend %no-link;
+    font-weight: bold;
+    color: rgba(255,255,255,0.3);
+    display: block;
+
+    @include for-size("tablet-portrait-up"){
+      height: 60px;
+    }
+  }
+
+  li.logo > a {
+    width: 110px;
+    height: 40px;
+    background: url("../images/logo--white.png") no-repeat;
+    background-size: contain;
+    display: inline-block;
+    text-indent: -99999px;
+    margin-bottom: 20px;
+
+    &:hover { border-bottom-color: transparent; }
+
+    @include for-size("tablet-portrait-up"){
+      height: 60px;
+      margin-bottom: 0px;
+    }
+  }
+
+  li.button-apple a,
+  li.button-google a {
+    background: url('../images/button-apple.png');
+    width: 135px;
+    height: 40px;
+    text-indent: -99999px;
+    display: inline-block;
+    background-size: cover;
+    margin-top: 15px;
+    border: none;
+
+    &:hover { border: none; }
+  }
+
+  li.button-google a { background-image: url('../images/button-google.png'); }
+
+  li {
+    flex: 1 1 auto;
   }
 }
 
