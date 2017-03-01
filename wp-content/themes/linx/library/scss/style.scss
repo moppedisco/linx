@@ -494,14 +494,21 @@ HOMEPAGE SECTION TEXT BANNER
 HOMEPAGE SECTION CAROUSEL
 ******************************************************************/
 
-.homepage--carousel {
-  // margin-bottom: 800px !important;
+.section--carousel {
+  padding-bottom: 800px !important;
   // background: orange;
+  // position: relative;
 
-  &.active {
-    // z-index: 2;
-    // .carousel__feature__rightcol { position: fixed !important; }
+  .homepage--carousel__feature {
+    // position: absolute;
+    // padding: 20vh 0 20vh;
   }
+  // .carousel__feature__rightcol {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  //   left: auto;
+  // }
 }
 
 .homepage--carousel__feature {
@@ -509,10 +516,10 @@ HOMEPAGE SECTION CAROUSEL
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  padding: 0vh 0 15vh;
+  // padding: 0vh 0 800px;
   width: 100%;
   height: 100%;
-  position: relative;
+
   left: 0;
   z-index: 100;
 
@@ -529,7 +536,7 @@ HOMEPAGE SECTION CAROUSEL
 
   @include for-size('tablet-portrait-up'){
     flex-direction: row;
-    padding: 0 0 40vh;
+    padding: 20vh 0 20vh;
   }
 
   h2 {
@@ -544,7 +551,7 @@ HOMEPAGE SECTION CAROUSEL
     letter-spacing: 0.5px;
   }
 
-  // &.active .carousel__feature__rightcol { position: absolute !important; top: 0 !important; left: 0 !important; }
+
 
   .carousel__feature__leftcol {
     text-align: center;
@@ -562,10 +569,10 @@ HOMEPAGE SECTION CAROUSEL
   .carousel__feature__rightcol {
 
     @include for-size('tablet-portrait-up'){
-      width: 50vw;
-      position: relative;
+      width: 40vw;
+      position: absolute;;
       top: 0%;
-      left: 8%;
+      right: 0%;
     }
 
     img {
@@ -929,8 +936,17 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   .text-column__item {
+    margin-bottom: 2rem;
+
     @include for-size("tablet-portrait-up"){
       flex: 0 0 25%;
+      margin-bottom: 0;
+    }
+
+    h3 {
+      @include for-size("phone-only"){
+        margin-bottom: 0rem;
+      }
     }
 
     /* one item */
@@ -957,7 +973,10 @@ HOMEPAGE SECTION CAROUSEL
     .material-icons {
       font-size: 32px;
       color: $green;
-      margin-bottom: 2rem;
+
+      @include for-size("tablet-portrait-up"){
+        margin-bottom: 2rem;
+      }
     }
   }
 
@@ -1061,6 +1080,11 @@ FOOTER LINKS
     transition: border 0.3s;
 
     &:hover { border-bottom: 1px solid #fff; }
+
+    @include for-size("phone-only"){
+      @include font-size(18px);
+    }
+
   }
 
   // Column labels. They are just special links

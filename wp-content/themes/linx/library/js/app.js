@@ -94,60 +94,6 @@ var timeToWaitForLast = 100;
 (function(window){
 
   var $window = jQuery(window);
-  var attrName = 'data-scroll-speed';
-  var elementsNl = document.querySelectorAll('[' + attrName + ']');
-  var items = [];
-  var viewport = {};
-  var scrollPosition;
-
-  function getYScrollPosition() {
-    return window.pageYOffset;
-  }
-
-  function layout() {
-    var scrollPosition = getYScrollPosition();
-
-    viewport.height = window.innerHeight;
-    viewport.halfHeight = viewport.height / 2;
-
-    items.forEach(function(item) {
-      var bounds = item.element.getBoundingClientRect();
-      item.bounds = {
-        top: bounds.top + scrollPosition - item.offsetY,
-        center: bounds.top + scrollPosition - item.offsetY + (bounds.height / 2),
-        bottom: bounds.bottom + scrollPosition - item.offsetY
-      };
-    });
-
-    render();
-  }
-
-  function render() {
-    var position = getYScrollPosition();
-    var delta;
-    var offsetY;
-
-    window.removeEventListener('scroll', render);
-
-    if (position === scrollPosition) {
-      waitForScroll();
-      return;
-    }
-
-    items.forEach(function(item) {
-      delta = item.bounds.center - (position + viewport.halfHeight);
-      offsetY = delta * item.speed;
-      item.element.style.transform = 'translateY(' + offsetY + 'px)';
-      item.offsetY = offsetY;
-    });
-
-    scrollPosition = position;
-    window.requestAnimationFrame(render);
-  }
-
-  function waitForScroll() {
-    window.addEventListener('scroll', render);
-  }
 
 	function addParallax(){
 		var controller = new ScrollMagic.Controller();
@@ -194,80 +140,88 @@ var timeToWaitForLast = 100;
     stickyNav();
 		addParallax();
 
-    // elements = Array.prototype.slice.call(elementsNl);
-    // elements.forEach(function(element) {
-    //   items.push({
-    //     element: element,
-    //     speed: element.attributes[attrName].value,
-    //     offsetY: 0
-    //   });
-    //
-    //   element.style.willChange = 'transform';
-    // });
-    //
-    //   window.addEventListener('resize', layout);
+		var scrollDuration = 900;
+		var tl = new TimelineMax({paused: true});
+    var controller = new ScrollMagic.Controller();
+    var carouselItems = jQuery('.homepage--carousel__feature');
+		var scrollDistance = carouselItems.length * scrollDuration;
+    var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
 
-    //   waitForScroll();
-    //
+		var scroll1;
+		var scroll2;
+		var scroll3;
+		var carousel = new ScrollMagic.Scene({
+      triggerElement: ".section--carousel",
+      triggerHook: "0.2",
+      duration: scrollDistance
+    })
+    .setPin(".section--carousel")
+    .setTween(tween)
+    .on("end", function(event){
+			// isScrolling = 1;
+			scroll1 = false;
+			scroll2 = false;
+			scroll3 = false;
+    }).on("progress", function (event) {
+			// console.log(event);
 
-    // var carouselTop = jQuery('.homepage--carousel').offset().top;
-    // window.addEventListener('scroll', function(event){
-    //   // var attrName = 'data-scroll-speed';
-    //   // var elementsNl = document.querySelectorAll('[' + attrName + ']');
-    //
-    //   var elTop = jQuery('.carousel__feature__leftcol:first-of-type').offset().top;
-    //   // var carouselTop = jQuery('.homepage--carousel').offset().top;
-    //   var pelle = (carouselTop - jQuery(window).scrollTop() - jQuery(window).outerHeight()*0.3)*1
-    //   if((carouselTop - jQuery(window).scrollTop() - jQuery(window).outerHeight()*0.3)<= 0){
-    //       console.log("rumpa");
-    //       // jQuery('.carousel__feature__leftcol:first-of-type').css('transform','translateY(-'+pelle+'px)');
-    //       jQuery('.carousel__feature__leftcol:first-of-type').css({"-webkit-transform":"translate3d(0,"+pelle+"px,0)"});​
-    //   }
-    //
-    //   // console.log(pelle);
-    // });
+      jQuery('.carousel__feature__leftcol').each(function(index,element){
+				jQuery(element).css('transform','translateY(-'+ scrollDistance*event.progress + 'px)');
+			})
 
-    // var controller = new ScrollMagic.Controller();
-    // // console.log(getYScrollPosition());
-    // var carheight = jQuery('.homepage--carousel').height();
-    // //
-    // // var tween = TweenMax.to(".carousel__feature__leftcol", 1, {y: -carheight});
-    // var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
-    // var carousel = new ScrollMagic.Scene({
-    //   triggerElement: ".homepage--carousel",
-    //   triggerHook: "0.2",
-    //   duration: jQuery('.homepage--carousel').height()
-    // })
-    // .setPin(".homepage--carousel")
-    // // .setTween(tween)
-    // .on("start", function(event){
-    //
-    // }).on("progress", function (event) {
-    //   console.log("Scene progress changed to " + event.progress);
-    //   jQuery('.carousel__feature__leftcol').css('transform','translateY(-'+carheight*event.progress+'px)');
-    //   if(event.progress >= 0.33){
-    //     tween.play();
-    //     // console.log('asdasd');
-    //   }
-    // })
-    //
-    // .setClassToggle(".homepage--carousel", "active")
-    // // .addTo(controller);
-    //
-    //
-    //
-    // // console.log(jQuery('.homepage--carousel').height());
-    // var height;
-    // var textHeights = [200,1200,2000];
-    // jQuery(".homepage--carousel__feature").each(function(index,elem) {
+			if(event.progress > 0 && event.progress < 0.3 && !scroll1) {
+				console.log("1");
+				// oldscrollTimestamp = scrollTimestamp;
+			  // tl.play();
+				if(event.scrollDirection == "FORWARD"){
+					// tl.play();
+				} else {
+					tl.reverse();
+				}
+				scroll1 = true;
+				scroll2 = false;
+				scroll3 = false;
+			} else if(event.progress > 0.3 && event.progress < 0.6 && !scroll2){
+				if(event.scrollDirection == "FORWARD"){
+					tl.play();
+				} else {
+					tl.reverse();
+				}
+				console.log('2');
+				scroll1 = false;
+				scroll2 = true;
+				scroll3 = false;
+
+			} else if(event.progress > 0.6 && event.progress < 1 && !scroll3){
+				if(event.scrollDirection == "FORWARD"){
+					tl.play();
+				} else {
+					// tl.reverse();
+				}
+				console.log('3');
+				scroll1 = false;
+				scroll2 = false;
+				scroll3 = true;
+			}
+
+			scrollTimestamp = event.timeStamp;
+
+    })
+    .setClassToggle(".section--carousel", "active")
+    .addTo(controller);
+
+		console.log(jQuery(".section--carousel").height());
+    var textHeights = [0,1100,2200];
+    jQuery(".homepage--carousel__feature").each(function(index,elem) {
+			tl.to(jQuery(elem).find('.carousel__feature__rightcol'), 0.7, {autoAlpha:0}).addPause();
       // var height = jQuery(elem).height();
-      // var offset = jQuery('.homepage--carousel').offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
+      // var offset = jQuery(elem).offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
       // console.log(offset);
-      // jQuery(elem).css('position',"absolute").css('z-index',index*20).css('top',"0");
-      // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
+      jQuery(elem).css('position',"absolute").css('top',"0");
+      jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
       // jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
       // console.log(elem);
-    // });
+    });
 
     // jQuery('.homepage--carousel__feature').css('position',"absolute").css('height',height);
     //
