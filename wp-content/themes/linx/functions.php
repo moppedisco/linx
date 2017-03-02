@@ -261,6 +261,11 @@ function remove_menus(){
 }
 add_action( 'admin_menu', 'remove_menus' );
 
+add_action( 'admin_enqueue_scripts', 'load_admin_style');
+function load_admin_style() {
+    wp_enqueue_style( 'admin_css', get_template_directory_uri() . '/library/css/admin.css', false );
+}
+
 /************* SEND SMS FROM FORM *********************/
 
 function sendSMS( $entry, $form ) {

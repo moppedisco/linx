@@ -20,6 +20,7 @@ Stylesheet: Main Stylesheet
 @import "partials/grid";                           // the grid
 @import "modules/buttons";                         // buttons
 @import "modules/forms";                           // forms (inputs & labels)
+@import "admin";                                   // forms (inputs & labels)
 
 /******************************************************************
 BASE
@@ -87,10 +88,22 @@ h3 {
   font-weight: 100;
 }
 
+h4 {
+  @include font-size(22px);
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
 img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 /******************************************************************
@@ -299,6 +312,7 @@ MAIN NAVIGATION
     border-bottom: 3px solid transparent;
     padding-bottom: 8px;
     transition: all 0.2s;
+    text-decoration: none;
 
     &:hover {
       padding-bottom: 6px;
@@ -429,15 +443,16 @@ section[class^="section--"] {
       border: none;
       border-radius: 0;
       background: #fff;
+      height: 35px;
+
+      @include for-size('tablet-portrait-up'){
+        height: 55px;
+      }
 
       &.button {
         @extend %button;
         @include button-bg($yellow);
-        padding: 12px 25px 10px;
         width: auto;
-        @include for-size('tablet-portrait-up'){
-          padding: 14px 25px 13px;
-        }
       }
     }
 
@@ -545,10 +560,7 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   p {
-    @include font-size(22px);
-    font-weight: 100;
-    line-height: 1.7;
-    letter-spacing: 0.5px;
+    @extend h4;
   }
 
 
@@ -750,11 +762,26 @@ HOMEPAGE SECTION CAROUSEL
   background-size: cover;
   background-position: 50% 50%;
   padding: 30vh 0;
+  text-align: center;
+
+
+  .page-template-page-landingpage & {
+    // min-height: 85vh;
+    // max-height: 880px;
+    // padding: 0;
+    //
+    // .inner-wrap {
+    //   padding-top: 20vh;
+    // }
+  }
+
+  @include for-size('tablet-portrait-up'){
+    text-align: left;
+  }
 
   h3 {
     @extend h1;
-    color: #fff;
-    max-width: 90%;
+    color: $white;
     z-index: 1;
     margin: 0 0 20px;
 
@@ -763,14 +790,25 @@ HOMEPAGE SECTION CAROUSEL
     }
 
     @include for-size('tablet-landscape-up'){
-      margin: 0;
-      max-width: 50%;
+      max-width: 60%;
+    }
+  }
+
+  p {
+    @extend h4;
+    color: $white;
+    @include for-size('tablet-portrait-up'){
+      max-width: 75%;
+    }
+
+    @include for-size('tablet-landscape-up'){
+
+      max-width: 40%;
     }
   }
 
   a {
     @extend %button;
-    // @include button-bg($green);
     @include css-gradient(#43DA5C, #2AD189);
 
     @include for-size('tablet-landscape-up'){
@@ -782,11 +820,12 @@ HOMEPAGE SECTION CAROUSEL
       right: 0;
       transform: translateY(-50%);
       font-weight: 500;
-      transition: all 0.3s;
-      display: inline-block;
+      transition: all 1s cubic-bezier(.19,1,.22,1),transform 2.5s cubic-bezier(.19,1,.22,1);
+
 
       &:hover {
-        transform: translateY(-50%) translateX(5px);
+        margin-right: -10px;
+        // transform: translateY(-50%) translateX(5px);
       }
     }
 
@@ -896,10 +935,7 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   p {
-    @include font-size(22px);
-    font-weight: 100;
-    line-height: 1.7;
-    letter-spacing: 0.5px;
+    @extend h4;
   }
 
   .image-box {
@@ -1045,6 +1081,143 @@ HOMEPAGE SECTION CAROUSEL
     }
 
     img { display: block; }
+  }
+}
+
+.page-template-default .header {
+  // @include css-gradient(#43DA5C, #2AD189);
+  // color: $white;
+  padding-top: 190px;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+
+  .menu-main-nav ul {
+    // border-bottom: 1px solid #eee;
+    // padding-bottom: 20px;
+
+    .main-nav-link--login a {
+      @extend %button;
+      @include button-bg($green);
+      color: #fff !important;
+    }
+  }
+
+  .menu-main-nav li.main-nav-link--logo a {
+    background-image: url("../images/logo--green.png");
+  }
+
+  a { color: $green !important;}
+
+
+  h1 {
+    position: relative;
+    color: $black;
+
+    &:before {
+      content:"";
+      width: 60px;
+      height: 60px;
+      border: 10px solid $green;
+      display: block;
+      position: absolute;
+      top: -30px;
+      left: -30px;
+      z-index: -1;
+      box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);
+    }
+  }
+}
+
+.simple-content-wrap {
+  display: flex;
+
+  p {
+    font-weight: 100;
+    letter-spacing: 0.5px;
+  }
+
+  .simple-content--text,
+  .simple-content--image {
+    padding: 0 20px;
+  }
+
+  [class^="simple-content"]:nth-child(1):nth-last-child(1) {
+  	flex: 0 0 100%;
+    margin: 0 auto;
+    padding: 0;
+    @include for-size("tablet-portrait-up"){
+      flex: 0 0 50%;
+    }
+  }
+
+  /* two items */
+  [class^="simple-content"]:nth-child(1):nth-last-child(2),
+  [class^="simple-content"]:nth-child(2):nth-last-child(1) {
+  	flex: 1 1 50%;
+  }
+
+  /* three items */
+  [class^="simple-content"]:nth-child(1):nth-last-child(3),
+  [class^="simple-content"]:nth-child(2):nth-last-child(2),
+  [class^="simple-content"]:nth-child(3):nth-last-child(1) {
+  	flex: 1 1 33.333334%;
+  }
+
+  /* four items */
+  [class^="simple-content"]:nth-child(1):nth-last-child(4),
+  [class^="simple-content"]:nth-child(2):nth-last-child(3),
+  [class^="simple-content"]:nth-child(3):nth-last-child(2),
+  [class^="simple-content"]:nth-child(4):nth-last-child(1) {
+  	flex: 1 1 25%;
+  }
+
+}
+
+.simple-content--text .custom-form_wrapper {
+  @include css-gradient(#43DA5C, #2AD189);
+  box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
+  padding: 3rem 2rem;
+  max-width: 440px;
+  margin: 0 auto;
+
+  &.gform_wrapper .gfield_required { color: red; }
+
+  .gform_body {
+    width: 100% !important;
+  }
+
+  ul.gform_fields li.gfield {
+    padding: 0;
+  }
+
+  .gfield_html {
+    font-weight: 100;
+    @include font-size(16px,true);
+    color: $white;
+  }
+
+  ul.gform_fields label.gfield_label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    @include font-size(14px);
+    font-weight: bold;
+    color: #fff;
+  }
+
+  input[type='text'].medium {
+    width: 100%;
+    max-width: none;
+    background: $white;
+    border-radius: 0;
+    padding: 5px 10px !important;
+  }
+
+  .gform_footer input[type=submit] {
+    @extend %button;
+    @include button-bg($yellow);
+    display: block;
+    width: 100%;
+
   }
 }
 

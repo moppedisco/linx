@@ -211,7 +211,7 @@ var timeToWaitForLast = 100;
     .addTo(controller);
 
 		console.log(jQuery(".section--carousel").height());
-    var textHeights = [0,1100,2200];
+    var textHeights = [0,900,1800];
     jQuery(".homepage--carousel__feature").each(function(index,elem) {
 			tl.to(jQuery(elem).find('.carousel__feature__rightcol'), 0.7, {autoAlpha:0}).addPause();
       // var height = jQuery(elem).height();

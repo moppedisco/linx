@@ -475,7 +475,7 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
-h1, .section--text-hero h3, h2, h3, h4, h5, h6, hgroup,
+h1, .section--text-hero h3, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
 table,
@@ -703,7 +703,7 @@ FONT FACE (IN YOUR FACE)
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-h1, .section--text-hero h3, h2, h3, h4, h5, h6 {
+h1, .section--text-hero h3, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
@@ -997,7 +997,7 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button {
+.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header .menu-main-nav ul .main-nav-link--login a, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit] {
   display: inline-block;
   position: relative;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1016,16 +1016,16 @@ Stylesheet: Button Styles
   transition: background-color 0.14s ease-in-out;
 }
 @media (min-width: 600px) {
-  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button {
+  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header .menu-main-nav ul .main-nav-link--login a, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit] {
     padding: 19px 45px 15px;
   }
 }
-.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .homepage--video-intro #gform_1 input.button:hover, .section--text-hero a:hover, .section--text-3-columns .text-column__button:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .homepage--video-intro #gform_1 input.button:focus, .section--text-hero a:focus, .section--text-3-columns .text-column__button:focus {
+.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .homepage--video-intro #gform_1 input.button:hover, .section--text-hero a:hover, .section--text-3-columns .text-column__button:hover, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:hover, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .homepage--video-intro #gform_1 input.button:focus, .section--text-hero a:focus, .section--text-3-columns .text-column__button:focus, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:focus, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
 }
-.blue-btn:active, .header-links .menu .button.looking-for-staff a:active, .header-links .menu .button.looking-for-work a:active, .homepage--video-intro #gform_1 input.button:active, .section--text-hero a:active, .section--text-3-columns .text-column__button:active {
+.blue-btn:active, .header-links .menu .button.looking-for-staff a:active, .header-links .menu .button.looking-for-work a:active, .homepage--video-intro #gform_1 input.button:active, .section--text-hero a:active, .section--text-3-columns .text-column__button:active, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:active, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:active {
   top: 1px;
 }
 
@@ -1325,6 +1325,30 @@ select {
 }
 
 /******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Admin Stylesheet
+
+If you like living on the edge, you can add some styles here to
+customize the dashboard and WordPress admin area. This stylesheet
+is empty, but you can just start dropping your styles here to
+start customizing. All admin functions are located in lib/admin/
+
+******************************************************************/
+#adminmenu #menu-posts-job ul li:nth-child(4) {
+  display: none;
+}
+
+#wp-admin-bar-customize,
+#wp-admin-bar-comments,
+#wp-admin-bar-updates,
+#wp-admin-bar-new-content,
+#wp-admin-bar-gform-forms {
+  display: none;
+}
+
+/******************************************************************
 BASE
 ******************************************************************/
 html {
@@ -1414,10 +1438,23 @@ h3 {
   font-weight: 100;
 }
 
+h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p {
+  font-size: 22px;
+  font-size: 1.22222rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
+}
+
 img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+a {
+  font-weight: 400;
+  text-decoration: underline;
 }
 
 /******************************************************************
@@ -1678,6 +1715,7 @@ MAIN NAVIGATION
   padding-bottom: 8px;
   -webkit-transition: all 0.2s;
           transition: all 0.2s;
+  text-decoration: none;
 }
 .menu-main-nav a:hover {
   padding-bottom: 6px;
@@ -1827,10 +1865,15 @@ section[class^="section--"] {
   border: none;
   border-radius: 0;
   background: #fff;
+  height: 35px;
+}
+@media (min-width: 600px) {
+  .homepage--video-intro #gform_1 input {
+    height: 55px;
+  }
 }
 .homepage--video-intro #gform_1 input.button {
   background: #FFCF60;
-  padding: 12px 25px 10px;
   width: auto;
 }
 .homepage--video-intro #gform_1 input.button:hover {
@@ -1840,11 +1883,6 @@ section[class^="section--"] {
 }
 .homepage--video-intro #gform_1 input.button:active {
   background: #e09c00;
-}
-@media (min-width: 600px) {
-  .homepage--video-intro #gform_1 input.button {
-    padding: 14px 25px 13px;
-  }
 }
 .homepage--video-intro #gform_1 .gform_body {
   padding: 0;
@@ -1955,13 +1993,6 @@ HOMEPAGE SECTION CAROUSEL
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 1.4;
-}
-.homepage--carousel__feature p {
-  font-size: 22px;
-  font-size: 1.22222rem;
-  font-weight: 100;
-  line-height: 1.7;
-  letter-spacing: 0.5px;
 }
 .homepage--carousel__feature .carousel__feature__leftcol {
   text-align: center;
@@ -2198,10 +2229,15 @@ HOMEPAGE SECTION CAROUSEL
   background-size: cover;
   background-position: 50% 50%;
   padding: 30vh 0;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .section--text-hero {
+    text-align: left;
+  }
 }
 .section--text-hero h3 {
   color: #fff;
-  max-width: 90%;
   z-index: 1;
   margin: 0 0 20px;
 }
@@ -2212,8 +2248,20 @@ HOMEPAGE SECTION CAROUSEL
 }
 @media (min-width: 1200px) {
   .section--text-hero h3 {
-    margin: 0;
-    max-width: 50%;
+    max-width: 60%;
+  }
+}
+.section--text-hero p {
+  color: #fff;
+}
+@media (min-width: 600px) {
+  .section--text-hero p {
+    max-width: 75%;
+  }
+}
+@media (min-width: 1200px) {
+  .section--text-hero p {
+    max-width: 40%;
   }
 }
 .section--text-hero a {
@@ -2235,14 +2283,11 @@ HOMEPAGE SECTION CAROUSEL
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     font-weight: 500;
-    -webkit-transition: all 0.3s;
-            transition: all 0.3s;
-    display: inline-block;
+    -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1), transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   .section--text-hero a:hover {
-    -webkit-transform: translateY(-50%) translateX(5px);
-        -ms-transform: translateY(-50%) translateX(5px);
-            transform: translateY(-50%) translateX(5px);
+    margin-right: -10px;
   }
 }
 .section--text-hero a i {
@@ -2376,13 +2421,6 @@ HOMEPAGE SECTION CAROUSEL
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 1.4;
-}
-.text-image-row p {
-  font-size: 22px;
-  font-size: 1.22222rem;
-  font-weight: 100;
-  line-height: 1.7;
-  letter-spacing: 0.5px;
 }
 .text-image-row .image-box {
   box-shadow: 0px 85px 109px 0px rgba(0, 0, 0, 0.15);
@@ -2562,6 +2600,154 @@ HOMEPAGE SECTION CAROUSEL
 }
 .section--text-3-columns.columns--vertical .text-columns--image img {
   display: block;
+}
+
+.page-template-default .header {
+  padding-top: 190px;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+}
+.page-template-default .header .menu-main-nav ul .main-nav-link--login a {
+  background: #43DA5C;
+  color: #fff !important;
+}
+.page-template-default .header .menu-main-nav ul .main-nav-link--login a:hover {
+  background: #28cc43;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.page-template-default .header .menu-main-nav ul .main-nav-link--login a:active {
+  background: #1a842b;
+}
+.page-template-default .header .menu-main-nav li.main-nav-link--logo a {
+  background-image: url("../images/logo--green.png");
+}
+.page-template-default .header a {
+  color: #43DA5C !important;
+}
+.page-template-default .header h1, .page-template-default .header .section--text-hero h3, .section--text-hero .page-template-default .header h3 {
+  position: relative;
+  color: #484844;
+}
+.page-template-default .header h1:before, .page-template-default .header .section--text-hero h3:before, .section--text-hero .page-template-default .header h3:before {
+  content: "";
+  width: 60px;
+  height: 60px;
+  border: 10px solid #43DA5C;
+  display: block;
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  z-index: -1;
+  box-shadow: 0px 13px 26px 0px rgba(0, 0, 0, 0.09);
+}
+
+.simple-content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* two items */
+  /* three items */
+  /* four items */
+}
+.simple-content-wrap p {
+  font-weight: 100;
+  letter-spacing: 0.5px;
+}
+.simple-content-wrap .simple-content--text,
+.simple-content-wrap .simple-content--image {
+  padding: 0 20px;
+}
+.simple-content-wrap [class^="simple-content"]:nth-child(1):nth-last-child(1) {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 100%;
+          flex: 0 0 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+@media (min-width: 600px) {
+  .simple-content-wrap [class^="simple-content"]:nth-child(1):nth-last-child(1) {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+}
+.simple-content-wrap [class^="simple-content"]:nth-child(1):nth-last-child(2),
+.simple-content-wrap [class^="simple-content"]:nth-child(2):nth-last-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+.simple-content-wrap [class^="simple-content"]:nth-child(1):nth-last-child(3),
+.simple-content-wrap [class^="simple-content"]:nth-child(2):nth-last-child(2),
+.simple-content-wrap [class^="simple-content"]:nth-child(3):nth-last-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33.333334%;
+          flex: 1 1 33.333334%;
+}
+.simple-content-wrap [class^="simple-content"]:nth-child(1):nth-last-child(4),
+.simple-content-wrap [class^="simple-content"]:nth-child(2):nth-last-child(3),
+.simple-content-wrap [class^="simple-content"]:nth-child(3):nth-last-child(2),
+.simple-content-wrap [class^="simple-content"]:nth-child(4):nth-last-child(1) {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 25%;
+          flex: 1 1 25%;
+}
+
+.simple-content--text .custom-form_wrapper {
+  background-color: #2AD189;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#43DA5C), to(#2AD189));
+  background-image: -webkit-linear-gradient(top, #43DA5C, #2AD189);
+  background-image: linear-gradient(to bottom, #43DA5C, #2AD189);
+  box-shadow: 0px 85px 109px 0px rgba(0, 0, 0, 0.15);
+  padding: 3rem 2rem;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.simple-content--text .custom-form_wrapper.gform_wrapper .gfield_required {
+  color: red;
+}
+.simple-content--text .custom-form_wrapper .gform_body {
+  width: 100% !important;
+}
+.simple-content--text .custom-form_wrapper ul.gform_fields li.gfield {
+  padding: 0;
+}
+.simple-content--text .custom-form_wrapper .gfield_html {
+  font-weight: 100;
+  font-size: 16px;
+  font-size: 0.88889rem;
+  line-height: 26.66667px;
+  line-height: 1.48148rem;
+  color: #fff;
+}
+.simple-content--text .custom-form_wrapper ul.gform_fields label.gfield_label {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: bold;
+  color: #fff;
+}
+.simple-content--text .custom-form_wrapper input[type='text'].medium {
+  width: 100%;
+  max-width: none;
+  background: #fff;
+  border-radius: 0;
+  padding: 5px 10px !important;
+}
+.simple-content--text .custom-form_wrapper .gform_footer input[type=submit] {
+  background: #FFCF60;
+  display: block;
+  width: 100%;
+}
+.simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:hover {
+  background: #ffc337;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:active {
+  background: #e09c00;
 }
 
 /******************************************************************

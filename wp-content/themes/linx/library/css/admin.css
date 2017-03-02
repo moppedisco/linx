@@ -10,5 +10,16 @@ is empty, but you can just start dropping your styles here to
 start customizing. All admin functions are located in lib/admin/
 
 ******************************************************************/
+#adminmenu #menu-posts-job ul li:nth-child(4) {
+  display: none;
+}
+
+#wp-admin-bar-customize,
+#wp-admin-bar-comments,
+#wp-admin-bar-updates,
+#wp-admin-bar-new-content,
+#wp-admin-bar-gform-forms {
+  display: none;
+}
 
 /*# sourceMappingURL=admin.css.map */
