@@ -81,6 +81,7 @@
 								<?php elseif( get_row_layout() == 'simple_content_box' ): ?>
 
 									<?php get_template_part( 'partials/section--simple-content' ); ?>
+									
 
 			        <?php endif; ?>
 				    <?php endwhile; ?>

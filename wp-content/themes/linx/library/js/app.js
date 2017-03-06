@@ -119,7 +119,7 @@ var timeToWaitForLast = 100;
 		jQuery('.section--text-image').each(function(index,elem){
 			var tween = new TimelineMax()
 			.add([
-				TweenMax.to(jQuery(elem).find('.text-image--image').eq(0), 1, {y: "-150px", ease: Linear.easeNone}),
+				TweenMax.to(jQuery(elem).find('.text-image--image').eq(0), 1, {y: "-250px", ease: Linear.easeNone}),
 				TweenMax.to(jQuery(elem).find('.text-image--image').eq(1), 1, {y: "-100px", ease: Linear.easeNone})
 			]);
 
@@ -139,6 +139,26 @@ var timeToWaitForLast = 100;
     reSizeVideoWrapper();
     stickyNav();
 		addParallax();
+
+		var videoHero = new TimelineMax({paused: true,onComplete: function(){
+			jQuery('.homepage--video-intro__video')[0].play();
+		}});
+
+		videoHero.staggerTo('.homepage--video-intro__text > *,.menu-main-nav', 1, {y: '-30px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.2)
+			// .to('.menu-main-nav', 1, {autoAlpha: 0,y: "-30px", ease:Power4.easeInOut})
+			.to('.homepage--video-intro', 1, {css:{backgroundImage:"none"}})
+			.to('.homepage--video-intro__video', 1, {autoAlpha: 1, ease:Power4.easeInOut});
+
+		// TweenMax.staggerto(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
+
+		jQuery('.homepage--video-intro-thumbnail').on('click',function(){
+			videoHero.play();
+		});
+
+		jQuery('.homepage--video-intro__video').on('click',function(){
+			jQuery('.homepage--video-intro__video')[0].pause();
+			videoHero.reverse();
+		});
 
 		var scrollDuration = 900;
 		var tl = new TimelineMax({paused: true});
