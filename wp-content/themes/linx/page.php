@@ -15,9 +15,6 @@
 					)); ?>
 
 				</nav>
-				<div class="inner-wrap">
-					<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-				</div>
 			</header>
 			<div id="content">
 
@@ -31,15 +28,13 @@
 
 								<header class="article-header">
 
-									<!-- <h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1> -->
+									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 
-									<p class="byline vcard">
-										<?php printf( __( 'Posted', 'bonestheme').' <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> '.__( 'by',  'bonestheme').' <span class="author">%3$s</span>', get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-									</p>
+
 
 								</header> <?php // end article header ?>
 
-								<section class="entry-content cf" itemprop="articleBody">
+								<section class="entry-content" itemprop="articleBody">
 									<?php
 										// the content (pretty self explanatory huh)
 										the_content();
@@ -65,19 +60,11 @@
 									?>
 								</section> <?php // end article section ?>
 
-								<footer class="article-footer cf">
-
-								</footer>
-
-								<?php comments_template(); ?>
-
 							</article>
 
 							<?php endwhile; endif; ?>
 
 						</main>
-
-						<?php get_sidebar(); ?>
 
 				</div>
 

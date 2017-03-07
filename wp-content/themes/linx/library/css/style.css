@@ -810,13 +810,13 @@ them however you see fit.
     width: 50%;
   }
 
-  .t-1of3 {
+  .t-1of3, .page-template-default .article-header {
     float: left;
     padding-right: 0.75em;
     width: 33.33%;
   }
 
-  .t-2of3 {
+  .t-2of3, .page-template-default .entry-content {
     float: left;
     padding-right: 0.75em;
     width: 66.66%;
@@ -873,13 +873,13 @@ them however you see fit.
     width: 50%;
   }
 
-  .d-1of3 {
+  .d-1of3, .page-template-default .article-header {
     float: left;
     padding-right: 0.75em;
     width: 33.33%;
   }
 
-  .d-2of3 {
+  .d-2of3, .page-template-default .entry-content {
     float: left;
     padding-right: 0.75em;
     width: 66.66%;
@@ -1770,6 +1770,7 @@ MAIN NAVIGATION
   }
 }
 .menu-main-nav li.main-nav-link--logo a {
+  border: none;
   width: 110px;
   height: 40px;
   background: url("../images/logo--white.png") no-repeat;
@@ -2747,12 +2748,27 @@ HOMEPAGE SECTION CAROUSEL
 
 .page-template-default .header {
   padding-top: 190px;
-  margin-bottom: 60px;
+}
+@media (min-width: 600px) {
+  .page-template-default .header {
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+  }
+}
+.page-template-default .header .menu-main-nav.sticky ul {
+  padding-bottom: 0;
+  border: none;
+}
+.page-template-default .header .menu-main-nav ul {
+  border-bottom: 1px solid #eee;
   padding-bottom: 20px;
 }
 .page-template-default .header .menu-main-nav ul .main-nav-link--login a {
   background: #43DA5C;
   color: #fff !important;
+  padding: 10px 30px 6px;
+  min-width: 150px;
+  text-align: center;
 }
 .page-template-default .header .menu-main-nav ul .main-nav-link--login a:hover {
   background: #28cc43;
@@ -2768,21 +2784,15 @@ HOMEPAGE SECTION CAROUSEL
 .page-template-default .header a {
   color: #43DA5C !important;
 }
-.page-template-default .header h1, .page-template-default .header .section--text-hero h3, .section--text-hero .page-template-default .header h3 {
-  position: relative;
-  color: #484844;
+.page-template-default .article-header h1, .page-template-default .article-header .section--text-hero h3, .section--text-hero .page-template-default .article-header h3 {
+  font-size: 42px;
+  font-size: 2.33333rem;
+  line-height: 70px;
+  line-height: 3.88889rem;
+  margin-top: -10px;
 }
-.page-template-default .header h1:before, .page-template-default .header .section--text-hero h3:before, .section--text-hero .page-template-default .header h3:before {
-  content: "";
-  width: 60px;
-  height: 60px;
-  border: 10px solid #43DA5C;
-  display: block;
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  z-index: -1;
-  box-shadow: 0px 13px 26px 0px rgba(0, 0, 0, 0.09);
+.page-template-default .entry-content {
+  font-weight: 100;
 }
 
 .simple-content-wrap {
