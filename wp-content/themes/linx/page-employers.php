@@ -35,35 +35,47 @@
 
 				<?php if( have_rows('homepage_section') ): ?>
 						<?php while ( have_rows('homepage_section') ) : the_row(); ?>
-								<?php if( get_row_layout() == 'video_hero' ): ?>
+							<?php if( get_row_layout() == 'video_hero' ): ?>
 
-									<?php get_template_part( 'partials/homepage--intro' ); ?>
+								<?php get_template_part( 'partials/homepage--intro' ); ?>
 
-								<?php elseif( get_row_layout() == 'text_banner' ): ?>
+							<?php elseif( get_row_layout() == 'text_banner' ): ?>
 
-									<?php get_template_part( 'partials/section--text-banner' ); ?>
+								<?php get_template_part( 'partials/section--text-banner' ); ?>
 
-								<?php elseif( get_row_layout() == 'carousel' ): ?>
+							<?php elseif( get_row_layout() == 'carousel' ): ?>
 
-									<?php get_template_part( 'partials/section--carousel' ); ?>
+								<?php get_template_part( 'partials/section--carousel' ); ?>
 
-								<?php elseif( get_row_layout() == 'jobs' ): ?>
+							<?php elseif( get_row_layout() == 'jobs' ): ?>
 
-									<?php get_template_part( 'partials/section--jobs' ); ?>
+								<?php get_template_part( 'partials/section--jobs' ); ?>
 
-								<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
+							<?php elseif( get_row_layout() == 'employers' ): ?>
 
-									<?php get_template_part( 'partials/section--image-hero-text' ); ?>
+								<?php get_template_part( 'partials/section--employers' ); ?>
 
-								<?php elseif( get_row_layout() == 'text_w_3_column_points' ): ?>
+							<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
 
-									<?php get_template_part( 'partials/section--text-3-columns' ); ?>
+								<?php get_template_part( 'partials/section--image-hero-text' ); ?>
 
-								<?php elseif( get_row_layout() == 'text_image_row' ): ?>
+							<?php elseif( get_row_layout() == 'text_w_3_column_points' ): ?>
 
-									<?php get_template_part( 'partials/section--text-image-row' ); ?>
+								<?php get_template_part( 'partials/section--text-3-columns' ); ?>
 
-							<?php endif; ?>
+							<?php elseif( get_row_layout() == 'feature_text_w_image' ): ?>
+
+								<?php get_template_part( 'partials/section--feature-row' ); ?>
+
+							<?php elseif( get_row_layout() == 'simple_content_box' ): ?>
+
+								<?php get_template_part( 'partials/section--simple-content' ); ?>
+
+							<?php elseif( get_row_layout() == 'bullet_points' ): ?>
+
+								<?php get_template_part( 'partials/section--bullet-points' ); ?>
+
+						<?php endif; ?>
 						<?php endwhile; ?>
 
 				<?php endif; ?>

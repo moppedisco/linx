@@ -66,6 +66,10 @@
 
 									<?php get_template_part( 'partials/section--jobs' ); ?>
 
+								<?php elseif( get_row_layout() == 'employers' ): ?>
+
+									<?php get_template_part( 'partials/section--employers' ); ?>
+
 								<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
 
 									<?php get_template_part( 'partials/section--image-hero-text' ); ?>
@@ -81,7 +85,10 @@
 								<?php elseif( get_row_layout() == 'simple_content_box' ): ?>
 
 									<?php get_template_part( 'partials/section--simple-content' ); ?>
-									
+
+								<?php elseif( get_row_layout() == 'bullet_points' ): ?>
+
+									<?php get_template_part( 'partials/section--bullet-points' ); ?>
 
 			        <?php endif; ?>
 				    <?php endwhile; ?>

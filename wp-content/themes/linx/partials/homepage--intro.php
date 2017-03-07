@@ -10,6 +10,7 @@
       <?php if( get_sub_field('embed_type') != "embed" ): ?>
         <button class="homepage--video-intro-thumbnail" type="button" name="button">
           <img width='150' src="<?php the_sub_field('video_thumbnail'); ?>" alt="">
+          <i class="icon">play_circle_outline</i>
         </button>
       <?php endif; ?>
       <?php

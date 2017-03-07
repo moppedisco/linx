@@ -140,25 +140,33 @@ var timeToWaitForLast = 100;
     stickyNav();
 		addParallax();
 
-		var videoHero = new TimelineMax({paused: true,onComplete: function(){
-			jQuery('.homepage--video-intro__video')[0].play();
-		}});
 
-		videoHero.staggerTo('.homepage--video-intro__text > *,.menu-main-nav', 1, {y: '-30px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.2)
-			// .to('.menu-main-nav', 1, {autoAlpha: 0,y: "-30px", ease:Power4.easeInOut})
-			.to('.homepage--video-intro', 1, {css:{backgroundImage:"none"}})
-			.to('.homepage--video-intro__video', 1, {autoAlpha: 1, ease:Power4.easeInOut});
 
-		// TweenMax.staggerto(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
+		jQuery(".homepage--video-intro.showBG").each(function(index,element){
 
-		jQuery('.homepage--video-intro-thumbnail').on('click',function(){
-			videoHero.play();
-		});
+			var videoHero = new TimelineMax({paused: true,onComplete: function(){
+				jQuery(element).find('.homepage--video-intro__video')[0].play();
+			}});
 
-		jQuery('.homepage--video-intro__video').on('click',function(){
-			jQuery('.homepage--video-intro__video')[0].pause();
-			videoHero.reverse();
-		});
+			videoHero.set(jQuery(element).find('.homepage--video-intro-thumbnail'), {clearProps:"all"})
+				.staggerTo(jQuery(element).find('.homepage--video-intro__text > *'), 0.8, {y: '-60px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.1)
+				// .to(jQuery(element).find('.homepage--video-intro'), 1, {css:{backgroundImage:"none"}})
+				.to(jQuery(element).find('.homepage--video-intro__text'), 0.1, {css:{zIndex:"-1"}})
+				.to(jQuery(element).find('.homepage--video-intro__video'), 1, {autoAlpha: 1, ease:Power4.easeInOut});
+
+			// TweenMax.staggerto(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
+
+			jQuery(element).find('.homepage--video-intro-thumbnail').on('click',function(){
+				videoHero.play();
+			});
+
+			jQuery(element).find('.homepage--video-intro__video').on('click',function(){
+				jQuery(element).find('.homepage--video-intro__video')[0].pause();
+				videoHero.reverse();
+			});
+		})
+
+
 
 		var scrollDuration = 900;
 		var tl = new TimelineMax({paused: true});
