@@ -290,7 +290,7 @@ var timeToWaitForLast = 100;
 
     // build scene
     var stickyNav = new ScrollMagic.Scene({
-      triggerElement: ".homepage--video-intro",
+      triggerElement: ".header",
       triggerHook: "onLeave",
       offset: '700px'
     })

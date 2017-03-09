@@ -19,13 +19,15 @@
           ?>
           <a href='<?php echo get_permalink(); ?>' class="job-listing">
             <hr>
-            <div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>"></div>
-            <div class="job-listing__text">
+            <div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
               <?php if( $openpositions ): ?>
-                <h3 class='job-listing__title'><?php the_title(); ?> <span class="job-listing__open-positions"><?php echo $openpositions ?></span></h3>
+                <span class="job-listing__open-positions"><?php echo $openpositions ?></span>
               <?php else: ?>
-                <h3 class='job-listing__title'><?php the_title(); ?></span></h3>
+                </span>
               <?php endif; ?>
+            </div>
+            <div class="job-listing__text">
+              <h3 class='job-listing__title'><?php the_title(); ?></span></h3>
               <span class="job-listing__salary"><?php echo $hourly_rate; ?></span>
               <div class="clearfix" style='clear: both;'>
                 <span class='job-listing__category'>

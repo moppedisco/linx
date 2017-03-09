@@ -66,35 +66,35 @@ function custom_post_example() {
 
 }
 
-function custom_post_landingpage() {
+function custom_post_blogpost() {
 	// creating (registering) the custom type
-	register_post_type( 'landingpage', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+	register_post_type( 'blogpost', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-			'name' => __( 'Landingpages', 'bonestheme' ), /* This is the Title of the Group */
-			'singular_name' => __( 'Landingpage', 'bonestheme' ), /* This is the individual type */
-			'all_items' => __( 'All Landingpages', 'bonestheme' ), /* the all items menu item */
-			'add_new' => __( 'Add New Landingpage', 'bonestheme' ), /* The add new menu item */
-			'add_new_item' => __( 'Add New Landingpage', 'bonestheme' ), /* Add New Display Title */
+			'name' => __( 'Blog posts', 'bonestheme' ), /* This is the Title of the Group */
+			'singular_name' => __( 'Blog post', 'bonestheme' ), /* This is the individual type */
+			'all_items' => __( 'All Blog posts', 'bonestheme' ), /* the all items menu item */
+			'add_new' => __( 'Add New Blog post', 'bonestheme' ), /* The add new menu item */
+			'add_new_item' => __( 'Add New Blog post', 'bonestheme' ), /* Add New Display Title */
 			'edit' => __( 'Edit', 'bonestheme' ), /* Edit Dialog */
-			'edit_item' => __( 'Edit Landingpage', 'bonestheme' ), /* Edit Display Title */
-			'new_item' => __( 'New Landingpage', 'bonestheme' ), /* New Display Title */
-			'view_item' => __( 'View Landingpage', 'bonestheme' ), /* View Display Title */
-			'search_items' => __( 'Search Landingpages', 'bonestheme' ), /* Search Custom Type Title */
-			'not_found' =>  __( 'No Landingpages created', 'bonestheme' ), /* This displays if there are no entries yet */
+			'edit_item' => __( 'Edit Blog post', 'bonestheme' ), /* Edit Display Title */
+			'new_item' => __( 'New Blog post', 'bonestheme' ), /* New Display Title */
+			'view_item' => __( 'View Blog post', 'bonestheme' ), /* View Display Title */
+			'search_items' => __( 'Search Blog posts', 'bonestheme' ), /* Search Custom Type Title */
+			'not_found' =>  __( 'No Blog posts created', 'bonestheme' ), /* This displays if there are no entries yet */
 			'not_found_in_trash' => __( 'Nothing found in Trash', 'bonestheme' ), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
 			), /* end of arrays */
-			'description' => __( 'This is a Landingpage listing', 'bonestheme' ), /* Custom Type Description */
+			'description' => __( 'This is a Blog post listing', 'bonestheme' ), /* Custom Type Description */
 			'public' => true,
 			'publicly_queryable' => true,
 			'exclude_from_search' => false,
 			'show_ui' => true,
 			'query_var' => true,
 			'menu_position' => 7, /* this is what order you want it to appear in on the left hand side menu */
-			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-landingpage.png', /* the icon for the custom post type menu */
-			// 'rewrite'	=> array( 'slug' => false, 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'landingpage', /* you can rename the slug here */
+			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-blogpost.png', /* the icon for the custom post type menu */
+			'rewrite'	=> array( 'slug' => 'blog', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => 'blogpost', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -103,13 +103,13 @@ function custom_post_landingpage() {
 	); /* end of register post type */
 
 	/* this adds your post categories to your custom post type */
-	// register_taxonomy_for_object_type( 'category', 'job' );
+	register_taxonomy_for_object_type( 'category', 'blogpost' );
 	/* this adds your post tags to your custom post type */
 	// register_taxonomy_for_object_type( 'post_tag', 'custom_type' );
 
 }
 
-add_action( 'init', 'custom_post_landingpage');
+add_action( 'init', 'custom_post_blogpost');
 
 function custom_post_employers() {
 	// creating (registering) the custom type
@@ -224,6 +224,28 @@ add_action( 'init', 'custom_post_jobs');
 				'update_item' => __( 'Update Job Category', 'bonestheme' ), /* update title for taxonomy */
 				'add_new_item' => __( 'Add New Job Category', 'bonestheme' ), /* add new title for taxonomy */
 				'new_item_name' => __( 'New Job Category Name', 'bonestheme' ) /* name title for taxonomy */
+			),
+			'show_admin_column' => true,
+			'show_ui' => true,
+			'query_var' => true,
+			'rewrite' => array( 'slug' => 'custom-slug' ),
+		)
+	);
+
+	register_taxonomy( 'blog_categories',
+		array('blogpost'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+		array('hierarchical' => true,     /* if this is true, it acts like categories */
+			'labels' => array(
+				'name' => __( 'Blog Categories', 'bonestheme' ), /* name of the custom taxonomy */
+				'singular_name' => __( 'Blog Category', 'bonestheme' ), /* single taxonomy name */
+				'search_items' =>  __( 'Search Blog Categories', 'bonestheme' ), /* search title for taxomony */
+				'all_items' => __( 'All Blog Categories', 'bonestheme' ), /* all title for taxonomies */
+				'parent_item' => __( 'Parent Blog Category', 'bonestheme' ), /* parent title for taxonomy */
+				'parent_item_colon' => __( 'Parent Blog Category:', 'bonestheme' ), /* parent taxonomy title */
+				'edit_item' => __( 'Edit Blog Category', 'bonestheme' ), /* edit custom taxonomy title */
+				'update_item' => __( 'Update Blog Category', 'bonestheme' ), /* update title for taxonomy */
+				'add_new_item' => __( 'Add New Blog Category', 'bonestheme' ), /* add new title for taxonomy */
+				'new_item_name' => __( 'New Blog Category Name', 'bonestheme' ) /* name title for taxonomy */
 			),
 			'show_admin_column' => true,
 			'show_ui' => true,
