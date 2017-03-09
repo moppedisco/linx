@@ -17,21 +17,7 @@
 
 <?php get_header(); ?>
 			<header class="header">
-				<nav class='menu-main-nav' role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-					<?php wp_nav_menu(array(
-						 'container' => false,                           // remove nav container
-						 'theme_location' => 'main-nav',                 // where it's located in the theme
-						 'menu_class' => '',
-						 'menu_id' => 'homepage-here-navigation',
-						 'before' => '',                                 // before the menu
-						 'after' => '',                                  // after the menu
-						 'link_before' => '',                            // before each link
-						 'link_after' => '<i class="material-icons"></i>',                             // after each link
-						 'depth' => 0,                                   // limit the depth of the nav
-						 'fallback_cb' => ''                             // fallback function (if there is one)
-					)); ?>
 
-				</nav>
 			</header>
 			<div id="content">
 

@@ -134,11 +134,38 @@ var timeToWaitForLast = 100;
 		})
 	}
 
+	function mobileNav(){
+
+		var slideOut = new TimelineMax({ paused: true,
+		onReverseComplete:function(){
+			jQuery('body').attr('style','');
+			jQuery('.menu-main-nav').attr('style','1');
+		},onComplete: function(){
+			jQuery('body').attr('style','overflow: hidden;');
+			jQuery('.menu-main-nav').attr('style','z-index: -1;');
+
+		}});
+
+		slideOut.to(".menu-main-nav", 0.8, {autoAlpha:"0", ease:Power4.easeInOut},'one')
+						.to("#mobile-navigation-wrapper", 0.8, {x:0, ease:Power4.easeInOut},'one')
+						.from(".mobile-background", 0.8, {autoAlpha:0},'one');
+
+		jQuery('.main-nav-link--mobile a').on('click',function(){
+			slideOut.play();
+			return false;
+		});
+
+		jQuery('.mobile-background,#mobile-navigation-wrapper .close-button').on('click',function(){
+			slideOut.reverse();
+		});
+	}
+
   function init(){
     breakpoint();
     reSizeVideoWrapper();
     stickyNav();
 		addParallax();
+		mobileNav();
 
 
 
@@ -286,7 +313,7 @@ var timeToWaitForLast = 100;
 
   function stickyNav(){
     var controller = new ScrollMagic.Controller();
-    var slideDownNav = TweenMax.to(".menu-main-nav", 0.8, {top:"0%", onReverseComplete:function(){
+    var slideDownNav = TweenMax.to(".menu-main-nav", 0.8, {y:0,top:"0%", onReverseComplete:function(){
       jQuery('.menu-main-nav').removeClass('sticky').attr('style','');
     }});
 

@@ -23,7 +23,24 @@
 				</div>
 
 			</footer>
+			<div id="mobile-navigation-wrapper">
 
+				<a class='close-button'>close</a>
+
+				<?php wp_nav_menu(array(
+					 'container' => false,                           // remove nav container
+					 'theme_location' => 'mobile-nav',                 // where it's located in the theme
+					 'menu_class' => '',
+					 'menu_id' => 'mobile-navigation',
+					 'before' => '',                                 // before the menu
+					 'after' => '',                                  // after the menu
+					 'link_before' => '',                            // before each link
+					 'depth' => 0,                                   // limit the depth of the nav
+					 'fallback_cb' => ''                             // fallback function (if there is one)
+				)); ?>
+			</div>
+			<div class="mobile-background">
+			</div>
 		</div>
 
 		<?php // all js scripts are loaded in library/bones.php ?>

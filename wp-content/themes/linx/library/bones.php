@@ -211,6 +211,7 @@ function bones_theme_support() {
 		array(
 			'header-links' => __( 'Header links', 'bonestheme' ),
 			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
+			'mobile-nav' => __( 'The Mobile Menu', 'bonestheme' ),   // Mobile nav
 			'footer-links' => __( 'Footer Links', 'bonestheme' ) // links in footer
 		)
 	);

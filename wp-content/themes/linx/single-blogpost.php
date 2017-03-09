@@ -47,7 +47,8 @@
 
 
 								<header class="article-header">
-									<?php the_date(); ?>
+									<span class="blogposts__date"><i>date_range</i> <?php the_date(); ?></span>
+									<span class="blogposts__author"><i>portrait</i>	<?php the_author(); ?></span>
 									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
