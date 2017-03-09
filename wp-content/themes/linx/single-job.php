@@ -64,9 +64,6 @@
 										<span class="job-listing__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
 										<span class="job-listing__shifts"><i class="material-icons">timelapse</i> <?php echo $number_of_shifts; ?></span>
 										<span class="job-listing__salary"><?php echo $hourly_rate; ?></span>
-
-
-
 									</div>
 								</header> <?php // end article header ?>
 
@@ -79,9 +76,7 @@
 									<?php the_content(); ?>
 									<div class="article-expire__date">
 										<?php if($expireDate > $today): ?>
-											<span>
-												<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
-											</span>
+											<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
 										<?php elseif($expireDate < $today && $expireDate): ?>
 											<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
 										<?php endif; ?>

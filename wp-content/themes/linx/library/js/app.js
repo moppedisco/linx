@@ -144,23 +144,25 @@ var timeToWaitForLast = 100;
 
 		jQuery(".homepage--video-intro.showBG").each(function(index,element){
 
-			var videoHero = new TimelineMax({paused: true,onComplete: function(){
+			var videoHero = new TimelineMax({paused: true,onReverseComplete:function(){
+				jQuery(element).find('.homepage--video-intro__video').css('z-index','1');
+			},onComplete: function(){
 				jQuery(element).find('.homepage--video-intro__video')[0].play();
 			}});
 
-			videoHero.set(jQuery(element).find('.homepage--video-intro-thumbnail'), {clearProps:"all"})
-				.staggerTo(jQuery(element).find('.homepage--video-intro__text > *'), 0.8, {y: '-60px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.1)
+			videoHero.set(jQuery(element).find('.homepage--video-intro-button'), {clearProps:"all"})
+				.staggerTo(jQuery(element).find('.homepage--video-intro__text > *'), 0.8, {y: '-20px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.1)
 				// .to(jQuery(element).find('.homepage--video-intro'), 1, {css:{backgroundImage:"none"}})
 				.to(jQuery(element).find('.homepage--video-intro__text'), 0.1, {css:{zIndex:"-1"}})
 				.to(jQuery(element).find('.homepage--video-intro__video'), 1, {autoAlpha: 1, ease:Power4.easeInOut});
 
-			// TweenMax.staggerto(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
-
-			jQuery(element).find('.homepage--video-intro-thumbnail').on('click',function(){
+			jQuery(element).find('.homepage--video-intro-button').on('click',function(){
+				jQuery(element).find('.homepage--video-intro__video').css('z-index','9999');
 				videoHero.play();
 			});
 
 			jQuery(element).find('.homepage--video-intro__video').on('click',function(){
+
 				jQuery(element).find('.homepage--video-intro__video')[0].pause();
 				videoHero.reverse();
 			});

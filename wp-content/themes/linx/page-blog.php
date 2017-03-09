@@ -50,7 +50,7 @@
 									?>
 								</section> <?php // end article section ?>
 
-								<section class='entry-content--jobs'>
+								<section class='entry-content--blogposts'>
 									<?php
 							        $blogpost_loop = new WP_Query( array(
 							        'post_type' => 'blogpost',
@@ -60,14 +60,27 @@
 
 							    <?php if ( $blogpost_loop->have_posts() ) : ?>
 							      <?php while ( $blogpost_loop->have_posts() ) : $blogpost_loop->the_post(); ?>
-
 							          <?php
-							            $terms = get_the_terms( $post->ID , 'job_categories' );
+							            // $terms = get_the_terms( $post->ID , 'blog_categories' );
 							          ?>
 							          <a href='<?php echo get_permalink(); ?>' class="list-view-item">
-							            <div class="job-listing__text">
-						                <h2 class='job-listing__title'><?php the_title(); ?></span></h2>
-							            </div>
+													<?php	if ( has_post_thumbnail() ): ?>
+														<img class='list-view-item__image' src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="">
+													<?php endif; ?>
+													<div class="list-view-item__text">
+														<span class="blogposts__date"><i>date_range</i> <?php the_date(); ?></span>
+														<span class="blogposts__author"><i>portrait</i>	<?php the_author(); ?></span>
+						                <h2><?php the_title(); ?></span></h2>
+
+														<p>
+															<?php
+																$content = get_the_content();
+																echo substr($content, 0, 150);
+															?>
+														</p>
+
+														<button class="blogposts__readmore" href="<?php get_permalink(); ?>">Read more</button>
+													</div>
 							          </a>
 							      <?php endwhile;?>
 							    <?php endif; ?>

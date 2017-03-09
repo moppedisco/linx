@@ -9,7 +9,7 @@
 
         <?php while ( have_rows('points') ) : the_row(); ?>
           <li class="bullet-points__item">
-            <h5><i class='material-icons'>check</i><span><?php the_sub_field('text');?></span></h5>
+            <i class='material-icons'>check</i><span><?php the_sub_field('text');?></span>
           </li>
           <!-- END .bullet-points__item -->
         <?php endwhile;?>

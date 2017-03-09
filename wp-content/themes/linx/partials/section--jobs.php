@@ -17,8 +17,7 @@
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
           ?>
-          <a href='<?php echo get_permalink(); ?>' class="job-listing">
-            <hr>
+          <a class="job-listing">
             <div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
               <?php if( $openpositions ): ?>
                 <span class="job-listing__open-positions"><?php echo $openpositions ?></span>
@@ -30,17 +29,10 @@
               <h3 class='job-listing__title'><?php the_title(); ?></span></h3>
               <span class="job-listing__salary"><?php echo $hourly_rate; ?></span>
               <div class="clearfix" style='clear: both;'>
-                <span class='job-listing__category'>
-                  <?php
-                    foreach ( $terms as $term ) {
-                      echo $term->name;
-                    }
-                  ?>
-                </span>
+
                 <span class="job-listing__location"><?php echo $location['address']; ?></span>
               </div>
             </div>
-            <hr>
           </a>
       <?php endwhile;?>
     <?php endif; ?>

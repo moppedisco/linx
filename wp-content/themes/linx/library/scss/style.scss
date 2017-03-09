@@ -65,7 +65,7 @@ a {
 h1 {
   @include font-size(52px);
   line-height: 1.1;
-  letter-spacing: 1px;
+  letter-spacing: -2px;
   font-weight: bold;
 
   @include for-size('tablet-portrait-up'){
@@ -100,10 +100,10 @@ h5 {
   font-weight: 100;
 }
 
-img {
-  // width: 100%;
-  // max-width: 100%;
-  // height: auto;
+ul {
+  // padding: 0 0 0 40px;
+  margin: 1em 0;
+  list-style: disc;
 }
 
 a {
@@ -217,8 +217,8 @@ HEADER LINKS
     @include button-bg($green);
 
     i {
-      font-size: 14px;
-      vertical-align: sub;
+      font-size: 19px;
+      vertical-align: middle;
       margin-left: 5px;
       &:before {
         content:"people";
@@ -233,8 +233,8 @@ HEADER LINKS
     border: 1px solid #ddd;
 
     i {
-      font-size: 14px;
-      vertical-align: sub;
+      font-size: 19px;
+      vertical-align: middle;
       margin-left: 5px;
       &:before {
         content:"work";
@@ -298,6 +298,7 @@ MAIN NAVIGATION
         right: -16px;
         left: auto;
         text-align: left;
+        padding: 0;
       }
       .sub-menu a {
         padding: 18px 20px;
@@ -330,7 +331,7 @@ MAIN NAVIGATION
       position: absolute;
       right: 0;
       top: 0;
-      padding: 29px 40px 27px;
+      padding: 27px 40px 24px;
       color: #fff;
       border: none;
 
@@ -346,6 +347,7 @@ MAIN NAVIGATION
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding: 0;
   }
 
   li {
@@ -396,8 +398,8 @@ MAIN NAVIGATION
     }
 
     i {
-      font-size: 14px;
-      vertical-align: text-top;
+      font-size: 19px;
+      vertical-align: middle;
       margin-left: 5px;
       &:before {
         content:"person";
@@ -513,31 +515,30 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     }
   }
 
-  .homepage--video-intro-thumbnail {
-    background: #000;
+  .homepage--video-intro-button {
+    background: none;
     border: none;
     padding: 0;
     outline: none;
     position: relative;
-    transition: all 0.3s;
+
+    color: #fff;
 
     .icon {
       @extend .material-icons;
-      color: #fff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
+      vertical-align: middle;
+      transition: all 0.3s;
+      font-size: 19px;
     }
 
-    img {
-      display: block;
-      opacity: 0.7;
+    span {
+      text-transform: uppercase;
+      @include font-size(14px);
+      font-weight: bold;
+      letter-spacing: 1px;
     }
 
-    &:hover {
-      transform: scale(0.98);
-    }
+    &:hover .icon { transform: translateX(2px); }
   }
 
   p {
@@ -814,50 +815,38 @@ HOMEPAGE SECTION CAROUSEL
   position: relative;
   transition: all 1.7s cubic-bezier(.19,1,.22,1);
   text-decoration: none;
-  padding: 0 10px;
+  padding: 30px 10px;
   background: #fff;
+  border-top: 1px solid #eee;
 
-  hr {
-    height: 1px;
-    box-shadow: none;
-    border: none;
-    border-top: 1px solid #f2f2f2;
-    padding: 0 0 15px;
-    clear: both;
-    margin: 0;
-
-    @include for-size('tablet-portrait-up'){
-      padding: 0 0 25px;
-    }
-
-    &:last-of-type {
-      padding: 15px 0 0;
-      border: none;
-      border-bottom: 1px solid #f2f2f2;
-      @include for-size('tablet-portrait-up'){
-        padding: 25px 0 0;
-      }
-    }
+  &:first-child {
+    // border: none;
   }
 
   &:hover {
-    text-decoration: none;
-    z-index: 10;
+    // border-color: transparent;
+    // text-decoration: none;
+    // z-index: 10;
     // max-width: 845px;
     // transition-duration: 0.7s;
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);
-    &:before,
-    &:after {
-      opacity: 1;
-    }
-
-    hr {visibility: hidden;}
+    // transform: translateY(-2px);
+    // box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);
   }
 
   &:last-child {
     border-bottom: 1px solid #F2F2F2;
   }
+}
+
+.job-listing__readmore {
+  @extend %button;
+  @include button-bg($black);
+  position: absolute;
+  top: 55%;
+  right: -40px;
+  border: none;
+  box-shadow: 0px 9px 46px 0px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(.19,1,.22,1),transform 2.5s cubic-bezier(.19,1,.22,1);
 }
 
 .job-listing__image {
@@ -881,12 +870,14 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .job-listing__text {
-  float: left;
-  width: calc(100% - 47px - 15px);
+  overflow: hidden;
 
-  @include for-size('tablet-portrait-up'){
-    width: calc(100% - 70px - 50px);
-  }
+  // float: left;
+  // width: calc(100% - 47px - 15px);
+  //
+  // @include for-size('tablet-portrait-up'){
+  //   width: calc(100% - 70px - 50px);
+  // }
 }
 
 .job-listing__text {
@@ -906,20 +897,16 @@ HOMEPAGE SECTION CAROUSEL
 
 .job-listing__employer {
   float: left;
-  @include font-size(20px);
+  @include font-size(18px);
   font-weight: 100;
-  margin-top: -2px;
 }
 
 .job-listing__title {
-  @include font-size(22px);
   position: relative;
-
-  font-weight: 100;
   margin: 0 10px 0px 0;
   @include for-size('tablet-portrait-up'){
     margin: 5px 10px 10px 0;
-    line-height: 1;
+    line-height: 1.3;
   }
 }
 
@@ -946,7 +933,7 @@ HOMEPAGE SECTION CAROUSEL
 
 .job-listing__category {
   @include font-size(14px);
-  margin: 0 10px 0 4px;
+  margin: 0 10px 0 0;
   letter-spacing: 1px;
   font-weight: 400;
   text-transform: uppercase;
@@ -965,9 +952,9 @@ HOMEPAGE SECTION CAROUSEL
   margin-right: 15px;
 
   i {
-    font-size: 14px;
+    @include font-size(19px);
     position: relative;
-    top: 2px;
+    top: 4px;
     margin-right: 2px;
   }
 }
@@ -1082,10 +1069,16 @@ HOMEPAGE SECTION CAROUSEL
   padding: 35px 20px 25px;
   transition: all 1.7s cubic-bezier(.19,1,.22,1);
   position: relative;
+  text-decoration: none;
 
   &:hover {
+    background: #f3f3f3;
+  }
+
+  &:hover .job-listing__readmore,
+  &:hover .blogposts__readmore {
     z-index: 2;
-    transform: scale(1.03);
+    transform: translateX(10px);
   }
 
   .job-listing__image {
@@ -1095,7 +1088,7 @@ HOMEPAGE SECTION CAROUSEL
 
   .job-listing__title {
     @include font-size(42px);
-    float: none;
+    max-width: 80%;
   }
 }
 
@@ -1115,7 +1108,7 @@ HOMEPAGE SECTION CAROUSEL
   @include for-size('tablet-portrait-up'){
     margin: 0;
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 10%;
     flex-direction: row;
     max-width: none;
     text-align: left;
@@ -1133,6 +1126,7 @@ HOMEPAGE SECTION CAROUSEL
       @include for-size('tablet-portrait-up'){
         margin-left: 5%;
         margin-right: 0%;
+        padding-top: 2vh;
       }
     }
 
@@ -1176,7 +1170,7 @@ HOMEPAGE SECTION CAROUSEL
       z-index: 2;
       padding: 0 55% 0 0;
       @include for-size('tablet-portrait-up'){
-        flex: 0 0 35%;
+        flex: 0 0 27%;
         padding: 0;
       }
     }
@@ -1200,7 +1194,7 @@ HOMEPAGE SECTION CAROUSEL
     background-size: cover;
     background-repeat: no-repeat;
     height: 0;
-    padding-bottom: 100%;
+    padding-bottom: 70%;
     width: 100%;
   }
 
@@ -1349,7 +1343,7 @@ HOMEPAGE SECTION CAROUSEL
     max-width: 800px;
   }
 
-  .header {
+  .header:not(.header--hasImage) {
     padding-top: 190px;
     @include for-size("tablet-portrait-up"){
       margin-bottom: 60px;
@@ -1359,11 +1353,14 @@ HOMEPAGE SECTION CAROUSEL
     .menu-main-nav {
 
       &.sticky ul {
+        padding: 0;
         padding-bottom: 0;
         border: none;
+
       }
 
       ul {
+        padding: 0;
         border-bottom: 1px solid #eee;
         padding-bottom: 20px;
 
@@ -1424,8 +1421,9 @@ HOMEPAGE SECTION CAROUSEL
         @extend .role-icon;
         font-size: 20px;
         vertical-align: middle;
-        margin-right: 10px;
         margin-left: 5px;
+        margin-right: 5px;
+
 
         @include for-size("tablet-portrait-up"){
           font-size: 26px;
@@ -1471,9 +1469,18 @@ HOMEPAGE SECTION CAROUSEL
   .entry-content {
     // @extend .d-2of3;
     // @extend .t-2of3;
-
+    @include font-size(22px,true);
+    color: #60605a;
     font-weight: 100;
     margin-bottom: 120px;
+  }
+}
+
+.blogpost-template-default {
+  .header--hasImage {
+    min-height: 600px;
+    background-size: cover;
+    background-position: 50% 50%;
   }
 }
 
@@ -1492,7 +1499,8 @@ HOMEPAGE SECTION CAROUSEL
     }
   }
 
-  .entry-content--jobs {
+  .entry-content--jobs,
+  .entry-content--blogposts {
     margin-top: -100px;
     margin-bottom: 180px;
     padding: 0;
@@ -1501,6 +1509,82 @@ HOMEPAGE SECTION CAROUSEL
     @extend .t-2of3;
   }
 
+}
+
+.entry-content--blogposts {
+  .list-view-item {
+    text-decoration: none;
+    padding: 35px 0 25px 40px;
+
+    .list-view-item__image {
+      float: right;
+      margin-left: 40px;
+      margin-right: -40px;
+    }
+
+    .list-view-item__text {
+      overflow: hidden;
+    }
+  }
+
+  .blogposts__date {
+    text-transform: uppercase;
+    @include font-size(14px);
+    letter-spacing: 1px;
+    font-weight: bold;
+    opacity: 0.3;
+    margin-right: 20px;
+
+    i {
+      @extend .material-icons;
+      @include font-size(19px);
+      position: relative;
+      top: 3px;
+    }
+  }
+
+  .blogposts__readmore {
+    @extend %button;
+    @include button-bg($black);
+    border: none;
+    position: absolute;
+    top: 160px;
+    right: 40px;
+    transition: all 1.7s cubic-bezier(.19,1,.22,1);
+    box-shadow: 0px 9px 46px 0px rgba(0, 0, 0, 0.15);
+  }
+
+  .blogposts__author {
+    text-transform: uppercase;
+    @include font-size(14px);
+    letter-spacing: 1px;
+    font-weight: bold;
+    opacity: 0.3;
+
+    i {
+      @extend .material-icons;
+      @include font-size(19px);
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  h2 {
+    @include font-size(42px);
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+
+  p {
+    font-weight: 100;
+    position: relative;
+    max-width: 80%;
+
+    &:after {
+      content: "[...]";
+      font-weight: 100;
+    }
+  }
 }
 
 .page-template-default,
@@ -1668,21 +1752,27 @@ HOMEPAGE SECTION CAROUSEL
 
 
 .bullet-points {
-  display: flex;
-  flex-wrap: wrap;
+  @include clearfix;
   padding-top: 7px;
 
   .bullet-points__item {
-    flex: 0 0 50%;
+    @extend .m-1of2;
+    @extend .d-1of2;
+    font-weight: 100;
     padding-right: 20px;
-
-    h5 { margin: 0 0 5px; }
+    margin: 0 0 5px;
 
     i {
       vertical-align: middle;
       color: $green;
       margin-right: 15px;
       margin-top: -1px;
+      float: left;
+    }
+
+    span {
+      display: block;
+      overflow: hidden;
     }
   }
 }
@@ -1704,6 +1794,11 @@ FOOTER LINKS
 .footer-links .nav {
   display: flex;
   flex-direction: column;
+  padding: 0;
+
+  .sub-menu {
+    padding: 0;
+  }
 
   @include for-size("tablet-portrait-up"){
     flex-direction: row;

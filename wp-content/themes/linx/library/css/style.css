@@ -591,7 +591,7 @@ html:before {
   /* For IE6-8 */
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/material-icons/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/material-icons/MaterialIcons-Regular.woff) format("woff"), url(../fonts/material-icons/MaterialIcons-Regular.ttf) format("truetype");
 }
-.material-icons, .homepage--video-intro .homepage--video-intro-thumbnail .icon {
+.material-icons, .homepage--video-intro .homepage--video-intro-button .icon, .entry-content--blogposts .blogposts__date i, .entry-content--blogposts .blogposts__author i {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -767,7 +767,7 @@ them however you see fit.
     padding-right: 0;
   }
 
-  .m-1of2 {
+  .m-1of2, .bullet-points .bullet-points__item {
     float: left;
     padding-right: 0.75em;
     width: 50%;
@@ -819,7 +819,9 @@ them however you see fit.
   }
 
   .t-2of3, .page-template-page-jobs .entry-content--jobs,
-  .page-template-page-blog .entry-content--jobs {
+  .page-template-page-jobs .entry-content--blogposts,
+  .page-template-page-blog .entry-content--jobs,
+  .page-template-page-blog .entry-content--blogposts {
     float: left;
     padding-right: 0.75em;
     width: 66.66%;
@@ -870,7 +872,7 @@ them however you see fit.
     padding-right: 0;
   }
 
-  .d-1of2 {
+  .d-1of2, .bullet-points .bullet-points__item {
     float: left;
     padding-right: 0.75em;
     width: 50%;
@@ -895,7 +897,9 @@ them however you see fit.
   }
 
   .d-3of4, .page-template-page-jobs .entry-content--jobs,
-  .page-template-page-blog .entry-content--jobs {
+  .page-template-page-jobs .entry-content--blogposts,
+  .page-template-page-blog .entry-content--jobs,
+  .page-template-page-blog .entry-content--blogposts {
     float: left;
     padding-right: 0.75em;
     width: 75%;
@@ -1002,9 +1006,9 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .employers-text a, .section--jobs a.button, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header .menu-main-nav ul .main-nav-link--login a,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit], .bullet-points__button a {
+.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .employers-text a, .section--jobs a.button, .job-listing__readmore, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a, .entry-content--blogposts .blogposts__readmore, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit], .bullet-points__button a {
   display: inline-block;
   position: relative;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1023,25 +1027,20 @@ Stylesheet: Button Styles
   transition: background-color 0.14s ease-in-out;
 }
 @media (min-width: 600px) {
-  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .employers-text a, .section--jobs a.button, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header .menu-main-nav ul .main-nav-link--login a,
-  .job-template-default .header .menu-main-nav ul .main-nav-link--login a,
-  .blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit], .bullet-points__button a {
+  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .homepage--video-intro #gform_1 input.button, .employers-text a, .section--jobs a.button, .job-listing__readmore, .section--text-hero a, .section--text-3-columns .text-column__button, .page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+  .job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+  .blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a, .entry-content--blogposts .blogposts__readmore, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit], .bullet-points__button a {
     padding: 19px 45px 15px;
   }
 }
-.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .homepage--video-intro #gform_1 input.button:hover, .employers-text a:hover, .section--jobs a.button:hover, .section--text-hero a:hover, .section--text-3-columns .text-column__button:hover, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:hover,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a:hover,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a:hover, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:hover, .bullet-points__button a:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .homepage--video-intro #gform_1 input.button:focus, .employers-text a:focus, .section--jobs a.button:focus, .section--text-hero a:focus, .section--text-3-columns .text-column__button:focus, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:focus,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a:focus,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a:focus, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:focus, .bullet-points__button a:focus {
+.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .homepage--video-intro #gform_1 input.button:hover, .employers-text a:hover, .section--jobs a.button:hover, .job-listing__readmore:hover, .section--text-hero a:hover, .section--text-3-columns .text-column__button:hover, .page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover, .entry-content--blogposts .blogposts__readmore:hover, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:hover, .bullet-points__button a:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .homepage--video-intro #gform_1 input.button:focus, .employers-text a:focus, .section--jobs a.button:focus, .job-listing__readmore:focus, .section--text-hero a:focus, .section--text-3-columns .text-column__button:focus, .page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:focus,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:focus,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:focus, .entry-content--blogposts .blogposts__readmore:focus, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:focus, .bullet-points__button a:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
-}
-.blue-btn:active, .header-links .menu .button.looking-for-staff a:active, .header-links .menu .button.looking-for-work a:active, .homepage--video-intro #gform_1 input.button:active, .employers-text a:active, .section--jobs a.button:active, .section--text-hero a:active, .section--text-3-columns .text-column__button:active, .page-template-default .header .menu-main-nav ul .main-nav-link--login a:active,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a:active,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a:active, .simple-content--text .custom-form_wrapper .gform_footer input[type=submit]:active, .bullet-points__button a:active {
-  top: 1px;
 }
 
 /*
@@ -1419,7 +1418,7 @@ h1, .section--text-hero h3 {
   font-size: 52px;
   font-size: 2.88889rem;
   line-height: 1.1;
-  letter-spacing: 1px;
+  letter-spacing: -2px;
   font-weight: bold;
 }
 @media (min-width: 600px) {
@@ -1465,6 +1464,11 @@ h5 {
   font-size: 18px;
   font-size: 1rem;
   font-weight: 100;
+}
+
+ul {
+  margin: 1em 0;
+  list-style: disc;
 }
 
 a {
@@ -1550,8 +1554,8 @@ HEADER LINKS
   background: #1a842b;
 }
 .header-links .menu .button.looking-for-staff a i {
-  font-size: 14px;
-  vertical-align: sub;
+  font-size: 19px;
+  vertical-align: middle;
   margin-left: 5px;
 }
 .header-links .menu .button.looking-for-staff a i:before {
@@ -1571,8 +1575,8 @@ HEADER LINKS
   background: #bfbfbf;
 }
 .header-links .menu .button.looking-for-work a i {
-  font-size: 14px;
-  vertical-align: sub;
+  font-size: 19px;
+  vertical-align: middle;
   margin-left: 5px;
 }
 .header-links .menu .button.looking-for-work a i:before {
@@ -1666,7 +1670,7 @@ MAIN NAVIGATION
   color: #ccc;
   padding: 32px 0;
 }
-.menu-main-nav.sticky li.menu-item-has-children > a i.material-icons, .menu-main-nav.sticky li.menu-item-has-children > a .homepage--video-intro .homepage--video-intro-thumbnail i.icon, .homepage--video-intro .homepage--video-intro-thumbnail .menu-main-nav.sticky li.menu-item-has-children > a i.icon {
+.menu-main-nav.sticky li.menu-item-has-children > a i.material-icons, .menu-main-nav.sticky li.menu-item-has-children > a .homepage--video-intro .homepage--video-intro-button i.icon, .homepage--video-intro .homepage--video-intro-button .menu-main-nav.sticky li.menu-item-has-children > a i.icon, .menu-main-nav.sticky li.menu-item-has-children > a .entry-content--blogposts .blogposts__date i, .entry-content--blogposts .blogposts__date .menu-main-nav.sticky li.menu-item-has-children > a i, .menu-main-nav.sticky li.menu-item-has-children > a .entry-content--blogposts .blogposts__author i, .entry-content--blogposts .blogposts__author .menu-main-nav.sticky li.menu-item-has-children > a i {
   color: #eee;
 }
 .menu-main-nav.sticky li.menu-item-has-children .sub-menu {
@@ -1675,6 +1679,7 @@ MAIN NAVIGATION
   right: -16px;
   left: auto;
   text-align: left;
+  padding: 0;
 }
 .menu-main-nav.sticky li.menu-item-has-children .sub-menu a {
   padding: 18px 20px;
@@ -1712,7 +1717,7 @@ MAIN NAVIGATION
   position: absolute;
   right: 0;
   top: 0;
-  padding: 29px 40px 27px;
+  padding: 27px 40px 24px;
   color: #fff;
   border: none;
 }
@@ -1732,6 +1737,7 @@ MAIN NAVIGATION
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0;
 }
 .menu-main-nav li {
   -webkit-box-flex: 0;
@@ -1789,8 +1795,8 @@ MAIN NAVIGATION
 }
 .menu-main-nav li.main-nav-link--login i,
 .menu-main-nav li.main-nav-link--register i {
-  font-size: 14px;
-  vertical-align: text-top;
+  font-size: 19px;
+  vertical-align: middle;
   margin-left: 5px;
 }
 .menu-main-nav li.main-nav-link--login i:before,
@@ -1949,32 +1955,31 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     width: 80%;
   }
 }
-.homepage--video-intro .homepage--video-intro-thumbnail {
-  background: #000;
+.homepage--video-intro .homepage--video-intro-button {
+  background: none;
   border: none;
   padding: 0;
   outline: none;
   position: relative;
+  color: #fff;
+}
+.homepage--video-intro .homepage--video-intro-button .icon {
+  vertical-align: middle;
   -webkit-transition: all 0.3s;
           transition: all 0.3s;
+  font-size: 19px;
 }
-.homepage--video-intro .homepage--video-intro-thumbnail .icon {
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+.homepage--video-intro .homepage--video-intro-button span {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
-.homepage--video-intro .homepage--video-intro-thumbnail img {
-  display: block;
-  opacity: 0.7;
-}
-.homepage--video-intro .homepage--video-intro-thumbnail:hover {
-  -webkit-transform: scale(0.98);
-      -ms-transform: scale(0.98);
-          transform: scale(0.98);
+.homepage--video-intro .homepage--video-intro-button:hover .icon {
+  -webkit-transform: translateX(2px);
+      -ms-transform: translateX(2px);
+          transform: translateX(2px);
 }
 .homepage--video-intro p {
   font-size: 28px;
@@ -2296,54 +2301,36 @@ HOMEPAGE SECTION CAROUSEL
   -webkit-transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
   text-decoration: none;
-  padding: 0 10px;
+  padding: 30px 10px;
   background: #fff;
+  border-top: 1px solid #eee;
 }
 .job-listing:after {
   content: "";
   display: table;
   clear: both;
 }
-.job-listing hr {
-  height: 1px;
-  box-shadow: none;
-  border: none;
-  border-top: 1px solid #f2f2f2;
-  padding: 0 0 15px;
-  clear: both;
-  margin: 0;
-}
-@media (min-width: 600px) {
-  .job-listing hr {
-    padding: 0 0 25px;
-  }
-}
-.job-listing hr:last-of-type {
-  padding: 15px 0 0;
-  border: none;
-  border-bottom: 1px solid #f2f2f2;
-}
-@media (min-width: 600px) {
-  .job-listing hr:last-of-type {
-    padding: 25px 0 0;
-  }
-}
-.job-listing:hover {
-  text-decoration: none;
-  z-index: 10;
-  -webkit-transform: translateY(-2px) scale(1.03);
-      -ms-transform: translateY(-2px) scale(1.03);
-          transform: translateY(-2px) scale(1.03);
-  box-shadow: 0px 13px 26px 0px rgba(0, 0, 0, 0.09);
-}
-.job-listing:hover:before, .job-listing:hover:after {
-  opacity: 1;
-}
-.job-listing:hover hr {
-  visibility: hidden;
-}
 .job-listing:last-child {
   border-bottom: 1px solid #F2F2F2;
+}
+
+.job-listing__readmore {
+  background: #484844;
+  position: absolute;
+  top: 55%;
+  right: -40px;
+  border: none;
+  box-shadow: 0px 9px 46px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1), transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.job-listing__readmore:hover {
+  background: #333330;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.job-listing__readmore:active {
+  background: #060606;
 }
 
 .job-listing__image {
@@ -2367,15 +2354,7 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .job-listing__text {
-  float: left;
-  width: -webkit-calc(100% - 47px - 15px);
-  width: calc(100% - 47px - 15px);
-}
-@media (min-width: 600px) {
-  .job-listing__text {
-    width: -webkit-calc(100% - 70px - 50px);
-    width: calc(100% - 70px - 50px);
-  }
+  overflow: hidden;
 }
 
 @media (max-width: 599px) {
@@ -2412,23 +2391,19 @@ HOMEPAGE SECTION CAROUSEL
 
 .job-listing__employer {
   float: left;
-  font-size: 20px;
-  font-size: 1.11111rem;
+  font-size: 18px;
+  font-size: 1rem;
   font-weight: 100;
-  margin-top: -2px;
 }
 
 .job-listing__title {
-  font-size: 22px;
-  font-size: 1.22222rem;
   position: relative;
-  font-weight: 100;
   margin: 0 10px 0px 0;
 }
 @media (min-width: 600px) {
   .job-listing__title {
     margin: 5px 10px 10px 0;
-    line-height: 1;
+    line-height: 1.3;
   }
 }
 
@@ -2456,7 +2431,7 @@ HOMEPAGE SECTION CAROUSEL
 .job-listing__category {
   font-size: 14px;
   font-size: 0.77778rem;
-  margin: 0 10px 0 4px;
+  margin: 0 10px 0 0;
   letter-spacing: 1px;
   font-weight: 400;
   text-transform: uppercase;
@@ -2479,9 +2454,10 @@ HOMEPAGE SECTION CAROUSEL
 .job-listing__location i,
 .job-listing__salary i,
 .job-listing__expires i {
-  font-size: 14px;
+  font-size: 19px;
+  font-size: 1.05556rem;
   position: relative;
-  top: 2px;
+  top: 4px;
   margin-right: 2px;
 }
 
@@ -2599,6 +2575,7 @@ HOMEPAGE SECTION CAROUSEL
   -webkit-transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
   position: relative;
+  text-decoration: none;
 }
 .list-view-item:after {
   content: "";
@@ -2606,10 +2583,13 @@ HOMEPAGE SECTION CAROUSEL
   clear: both;
 }
 .list-view-item:hover {
+  background: #f3f3f3;
+}
+.list-view-item:hover .job-listing__readmore, .list-view-item:hover .blogposts__readmore {
   z-index: 2;
-  -webkit-transform: scale(1.03);
-      -ms-transform: scale(1.03);
-          transform: scale(1.03);
+  -webkit-transform: translateX(10px);
+      -ms-transform: translateX(10px);
+          transform: translateX(10px);
 }
 .list-view-item .job-listing__image {
   margin-top: 15px;
@@ -2620,7 +2600,7 @@ HOMEPAGE SECTION CAROUSEL
 .list-view-item .job-listing__title {
   font-size: 42px;
   font-size: 2.33333rem;
-  float: none;
+  max-width: 80%;
 }
 
 @media (min-width: 600px) {
@@ -2643,7 +2623,7 @@ HOMEPAGE SECTION CAROUSEL
   .text-image-row {
     margin: 0;
     margin-left: 10%;
-    margin-right: 5%;
+    margin-right: 10%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -2673,6 +2653,7 @@ HOMEPAGE SECTION CAROUSEL
   .text-image-row:nth-child(even) .text-image--text {
     margin-left: 5%;
     margin-right: 0%;
+    padding-top: 2vh;
   }
 }
 .text-image-row:nth-child(even) .text-image--image {
@@ -2728,8 +2709,8 @@ HOMEPAGE SECTION CAROUSEL
 @media (min-width: 600px) {
   .text-image-row.text-image-row--portrait .text-image--image {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 35%;
-            flex: 0 0 35%;
+        -ms-flex: 0 0 27%;
+            flex: 0 0 27%;
     padding: 0;
   }
 }
@@ -2746,7 +2727,7 @@ HOMEPAGE SECTION CAROUSEL
   background-size: cover;
   background-repeat: no-repeat;
   height: 0;
-  padding-bottom: 100%;
+  padding-bottom: 70%;
   width: 100%;
 }
 
@@ -2829,12 +2810,12 @@ HOMEPAGE SECTION CAROUSEL
   font-weight: 100;
   letter-spacing: 0.5px;
 }
-.section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-thumbnail .icon, .homepage--video-intro .homepage--video-intro-thumbnail .section--text-3-columns .text-column__item .icon {
+.section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-button .icon, .homepage--video-intro .homepage--video-intro-button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .entry-content--blogposts .blogposts__date i, .entry-content--blogposts .blogposts__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .entry-content--blogposts .blogposts__author i, .entry-content--blogposts .blogposts__author .section--text-3-columns .text-column__item i {
   font-size: 32px;
   color: #43DA5C;
 }
 @media (min-width: 600px) {
-  .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-thumbnail .icon, .homepage--video-intro .homepage--video-intro-thumbnail .section--text-3-columns .text-column__item .icon {
+  .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-button .icon, .homepage--video-intro .homepage--video-intro-button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .entry-content--blogposts .blogposts__date i, .entry-content--blogposts .blogposts__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .entry-content--blogposts .blogposts__author i, .entry-content--blogposts .blogposts__author .section--text-3-columns .text-column__item i {
     margin-bottom: 2rem;
   }
 }
@@ -2933,61 +2914,63 @@ HOMEPAGE SECTION CAROUSEL
 .blogpost-template-default #content .text-image-row {
   max-width: 800px;
 }
-.page-template-default .header,
-.job-template-default .header,
-.blogpost-template-default .header {
+.page-template-default .header:not(.header--hasImage),
+.job-template-default .header:not(.header--hasImage),
+.blogpost-template-default .header:not(.header--hasImage) {
   padding-top: 190px;
 }
 @media (min-width: 600px) {
-  .page-template-default .header,
-  .job-template-default .header,
-  .blogpost-template-default .header {
+  .page-template-default .header:not(.header--hasImage),
+  .job-template-default .header:not(.header--hasImage),
+  .blogpost-template-default .header:not(.header--hasImage) {
     margin-bottom: 60px;
     padding-bottom: 20px;
   }
 }
-.page-template-default .header .menu-main-nav.sticky ul,
-.job-template-default .header .menu-main-nav.sticky ul,
-.blogpost-template-default .header .menu-main-nav.sticky ul {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav.sticky ul,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav.sticky ul,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav.sticky ul {
+  padding: 0;
   padding-bottom: 0;
   border: none;
 }
-.page-template-default .header .menu-main-nav ul,
-.job-template-default .header .menu-main-nav ul,
-.blogpost-template-default .header .menu-main-nav ul {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav ul,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul {
+  padding: 0;
   border-bottom: 1px solid #eee;
   padding-bottom: 20px;
 }
-.page-template-default .header .menu-main-nav ul .main-nav-link--login a,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a {
   background: #43DA5C;
   color: #fff !important;
   padding: 10px 30px 6px;
   min-width: 150px;
   text-align: center;
 }
-.page-template-default .header .menu-main-nav ul .main-nav-link--login a:hover,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a:hover,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a:hover {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:hover {
   background: #28cc43;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
-.page-template-default .header .menu-main-nav ul .main-nav-link--login a:active,
-.job-template-default .header .menu-main-nav ul .main-nav-link--login a:active,
-.blogpost-template-default .header .menu-main-nav ul .main-nav-link--login a:active {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:active,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:active,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav ul .main-nav-link--login a:active {
   background: #1a842b;
 }
-.page-template-default .header .menu-main-nav li.main-nav-link--logo a,
-.job-template-default .header .menu-main-nav li.main-nav-link--logo a,
-.blogpost-template-default .header .menu-main-nav li.main-nav-link--logo a {
+.page-template-default .header:not(.header--hasImage) .menu-main-nav li.main-nav-link--logo a,
+.job-template-default .header:not(.header--hasImage) .menu-main-nav li.main-nav-link--logo a,
+.blogpost-template-default .header:not(.header--hasImage) .menu-main-nav li.main-nav-link--logo a {
   background-image: url("../images/logo--black.png");
   opacity: 0.7;
 }
-.page-template-default .header a,
-.job-template-default .header a,
-.blogpost-template-default .header a {
+.page-template-default .header:not(.header--hasImage) a,
+.job-template-default .header:not(.header--hasImage) a,
+.blogpost-template-default .header:not(.header--hasImage) a {
   color: #484844 !important;
 }
 .page-template-default .article-header,
@@ -3064,8 +3047,8 @@ HOMEPAGE SECTION CAROUSEL
 .blogpost-template-default .article-header .job-listing__role i {
   font-size: 20px;
   vertical-align: middle;
-  margin-right: 10px;
   margin-left: 5px;
+  margin-right: 5px;
 }
 @media (min-width: 600px) {
   .page-template-default .article-header .job-listing__role i,
@@ -3142,8 +3125,19 @@ HOMEPAGE SECTION CAROUSEL
 .page-template-default .entry-content,
 .job-template-default .entry-content,
 .blogpost-template-default .entry-content {
+  font-size: 22px;
+  font-size: 1.22222rem;
+  line-height: 36.66667px;
+  line-height: 2.03704rem;
+  color: #60605a;
   font-weight: 100;
   margin-bottom: 120px;
+}
+
+.blogpost-template-default .header--hasImage {
+  min-height: 600px;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
 .page-template-page-jobs .header,
@@ -3161,11 +3155,88 @@ HOMEPAGE SECTION CAROUSEL
   color: #fff;
 }
 .page-template-page-jobs .entry-content--jobs,
-.page-template-page-blog .entry-content--jobs {
+.page-template-page-jobs .entry-content--blogposts,
+.page-template-page-blog .entry-content--jobs,
+.page-template-page-blog .entry-content--blogposts {
   margin-top: -100px;
   margin-bottom: 180px;
   padding: 0;
   box-shadow: 0px 55px 109px 0px rgba(0, 0, 0, 0.15);
+}
+
+.entry-content--blogposts .list-view-item {
+  text-decoration: none;
+  padding: 35px 0 25px 40px;
+}
+.entry-content--blogposts .list-view-item .list-view-item__image {
+  float: right;
+  margin-left: 40px;
+  margin-right: -40px;
+}
+.entry-content--blogposts .list-view-item .list-view-item__text {
+  overflow: hidden;
+}
+.entry-content--blogposts .blogposts__date {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  opacity: 0.3;
+  margin-right: 20px;
+}
+.entry-content--blogposts .blogposts__date i {
+  font-size: 19px;
+  font-size: 1.05556rem;
+  position: relative;
+  top: 3px;
+}
+.entry-content--blogposts .blogposts__readmore {
+  background: #484844;
+  border: none;
+  position: absolute;
+  top: 160px;
+  right: 40px;
+  -webkit-transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
+          transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 9px 46px 0px rgba(0, 0, 0, 0.15);
+}
+.entry-content--blogposts .blogposts__readmore:hover {
+  background: #333330;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.entry-content--blogposts .blogposts__readmore:active {
+  background: #060606;
+}
+.entry-content--blogposts .blogposts__author {
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  opacity: 0.3;
+}
+.entry-content--blogposts .blogposts__author i {
+  font-size: 19px;
+  font-size: 1.05556rem;
+  position: relative;
+  top: 4px;
+}
+.entry-content--blogposts h2 {
+  font-size: 42px;
+  font-size: 2.33333rem;
+  margin: 0 0 10px;
+  line-height: 1.4;
+}
+.entry-content--blogposts p {
+  font-weight: 100;
+  position: relative;
+  max-width: 80%;
+}
+.entry-content--blogposts p:after {
+  content: "[...]";
+  font-weight: 100;
 }
 
 .page-template-default .footer,
@@ -3360,20 +3431,16 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .bullet-points {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   padding-top: 7px;
 }
-.bullet-points .bullet-points__item {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 50%;
-          flex: 0 0 50%;
-  padding-right: 20px;
+.bullet-points:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.bullet-points .bullet-points__item h5 {
+.bullet-points .bullet-points__item {
+  font-weight: 100;
+  padding-right: 20px;
   margin: 0 0 5px;
 }
 .bullet-points .bullet-points__item i {
@@ -3381,6 +3448,11 @@ HOMEPAGE SECTION CAROUSEL
   color: #43DA5C;
   margin-right: 15px;
   margin-top: -1px;
+  float: left;
+}
+.bullet-points .bullet-points__item span {
+  display: block;
+  overflow: hidden;
 }
 
 /******************************************************************
@@ -3405,6 +3477,10 @@ FOOTER LINKS
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 0;
+}
+.footer-links .nav .sub-menu {
+  padding: 0;
 }
 @media (min-width: 600px) {
   .footer-links .nav {

@@ -86,9 +86,9 @@
 							              <div class="clearfix" style='clear: both;'>
 							                <span class='job-listing__category'>
 							                  <?php
-							                    foreach ( $terms as $term ) {
-							                      echo $term->name;
-							                    }
+							                    // foreach ( $terms as $term ) {
+							                      // echo $term->name;
+							                    // }
 							                  ?>
 							                </span>
 															<?php if($employerID): ?>
@@ -99,6 +99,7 @@
 
 							              </div>
 							            </div>
+													<button class="job-listing__readmore" href="<?php get_permalink(); ?>">Read more</button>
 							          </a>
 							      <?php endwhile;?>
 							    <?php endif; ?>

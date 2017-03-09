@@ -16,7 +16,8 @@
 ?>
 
 <?php get_header(); ?>
-			<header class="header">
+			<header class="header <?php	if ( has_post_thumbnail() ) { echo 'header--hasImage';	} ?>" style='background-image: url("<?php	if ( has_post_thumbnail() ) {	the_post_thumbnail_url('full');	} ?>")'>
+
 				<nav class='menu-main-nav' role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 					<?php wp_nav_menu(array(
 						 'container' => false,                           // remove nav container
@@ -43,8 +44,10 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-								<header class="article-header">
 
+
+								<header class="article-header">
+									<?php the_date(); ?>
 									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
 
 								</header> <?php // end article header ?>
