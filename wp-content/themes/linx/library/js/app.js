@@ -139,10 +139,10 @@ var timeToWaitForLast = 100;
 		var slideOut = new TimelineMax({ paused: true,
 		onReverseComplete:function(){
 			jQuery('body').attr('style','');
-			jQuery('.menu-main-nav').attr('style','1');
+			jQuery('.menu-main-nav').fadeIn();
 		},onComplete: function(){
 			jQuery('body').attr('style','overflow: hidden;');
-			jQuery('.menu-main-nav').attr('style','z-index: -1;');
+			jQuery('.menu-main-nav').fadeOut();
 
 		}});
 
@@ -160,15 +160,104 @@ var timeToWaitForLast = 100;
 		});
 	}
 
+	var wipeAnimation;
+	var isPaused = [];
+
+	function pause(){
+		wipeAnimation.pause();
+		// isPaused = true;
+		console.log("is it paused");
+	}
+
+	function newCarousel(){
+		var windowHeight = jQuery(window).height();
+		var carouselItems = jQuery('.desktop-carousel .homepage--carousel__feature');
+		var scrollDistance = carouselItems.length * windowHeight;
+		var controller = new ScrollMagic.Controller();
+
+
+		jQuery( ".desktop-carousel .homepage--carousel__feature" ).each(function(){
+			isPaused.push(true);
+		});
+
+		// define movement of panels
+		wipeAnimation = new TimelineMax({paused: true})
+			// .fromTo(".homepage--carousel__feature:nth-child(1) .carousel__feature__rightcol", 1, {autoAlpha: "1"}, {autoAlpha: "1", ease: Power4.easeInOut},"0")  // in from left
+			// .add(pause)
+			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(1) .carousel__feature__rightcol", 0.7, {autoAlpha: "1",x:0}, {autoAlpha: "0",x:10, ease: Power4.easeInOut},"1")  // in from left
+			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(2) .carousel__feature__rightcol", 0.7, {autoAlpha: "0",x:10}, {autoAlpha: "1",x:0, ease: Power4.easeInOut},'1+='+0.3)  // in from right
+			.add(pause)
+			.to(".desktop-carousel .homepage--carousel__feature:nth-child(2) .carousel__feature__rightcol", 0.7, {autoAlpha: "0",scale:0.98, ease: Power4.easeInOut},'2')  // in from righ
+			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(3) .carousel__feature__rightcol", 1.2, {autoAlpha: "0",scale:1}, {autoAlpha: "1",scale:1.02, ease: Power4.easeInOut},'2') // in from top
+			.add(pause)
+			.to(".desktop-carousel .homepage--carousel__feature:nth-child(3) .carousel__feature__rightcol", 1.2, {autoAlpha: "0", ease: Power4.easeInOut},'3')  // in from righ
+			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(4) .carousel__feature__rightcol", 1.2, {autoAlpha: "0"}, {autoAlpha: "1", ease: Power4.easeInOut},'3') // in from top
+			.add(pause)
+			.to(".desktop-carousel .homepage--carousel__feature:nth-child(4) .carousel__feature__rightcol", 1.2, {autoAlpha: "0",y:"-20px", ease: Power4.easeInOut},'4')  // in from righ
+			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(5) .carousel__feature__rightcol", 1.4, {autoAlpha: "0",y:"20px"}, {autoAlpha: "1",y: 0, ease: Power4.easeInOut},'4'); // in from top
+
+		// create scene to pin and link animation
+		new ScrollMagic.Scene({
+				triggerElement: ".desktop-carousel",
+				triggerHook: "onLeave",
+				duration: "500%"
+			})
+			.setPin(".desktop-carousel")
+			// .setTween(wipeAnimation)
+			.on("progress", function(event){
+				var prog = Math.round(event.progress * 10) / 10;
+						prog = Math.round(prog*5)/1; // To even numbers
+						// console.log(event.scrollDirection);
+
+				if(prog == 1 && isPaused[0]) {
+					isPaused[0] = false;
+					wipeAnimation.tweenFromTo("1", "2");
+					console.log("playing 1");
+				} else if(prog == 2 && isPaused[1]){
+					isPaused[1] = false;
+					wipeAnimation.tweenFromTo("2", "3");
+					console.log("playing 2");
+				} else if(prog == 3 && isPaused[2]){
+					isPaused[2] = false;
+					wipeAnimation.tweenFromTo("3", "4");
+					console.log("playing 3");
+				} else if(prog == 4 && isPaused[3]){
+					isPaused[3] = false;
+					wipeAnimation.tweenFromTo("4", "5");
+					console.log("playing 4");
+				}
+
+				jQuery('.homepage--carousel__feature').each(function(index,element){
+					jQuery(element).find('.carousel__feature__leftcol').css('transform','translateY(-'+ scrollDistance*event.progress + 'px)');
+				})
+			})
+			.addTo(controller);
+	}
+
   function init(){
     breakpoint();
     reSizeVideoWrapper();
     stickyNav();
 		addParallax();
 		mobileNav();
+		videoHeroPlay();
+		if(window.breakpoint != 'mobile'){
+			newCarousel();
+		} else {
+			createOwlCarousel();
+		}
 
+  }
 
+	function createOwlCarousel(){
+		jQuery('.mobile-carousel').owlCarousel({
+			items: 1,
+			dots: true,
+			margin: 40,
+		})
+	}
 
+	function videoHeroPlay(){
 		jQuery(".homepage--video-intro.showBG").each(function(index,element){
 
 			var videoHero = new TimelineMax({paused: true,onReverseComplete:function(){
@@ -194,42 +283,42 @@ var timeToWaitForLast = 100;
 				videoHero.reverse();
 			});
 		})
+	}
 
-
-
+	function carousel(){
 		var scrollDuration = 900;
 		var tl = new TimelineMax({paused: true});
-    var controller = new ScrollMagic.Controller();
-    var carouselItems = jQuery('.homepage--carousel__feature');
+		var controller = new ScrollMagic.Controller();
+		var carouselItems = jQuery('.homepage--carousel__feature');
 		var scrollDistance = carouselItems.length * scrollDuration;
-    var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
+		var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
 
 		var scroll1;
 		var scroll2;
 		var scroll3;
 		var carousel = new ScrollMagic.Scene({
-      triggerElement: ".section--carousel",
-      triggerHook: "0.2",
-      duration: scrollDistance
-    })
-    .setPin(".section--carousel")
-    .setTween(tween)
-    .on("end", function(event){
+			triggerElement: ".section--carousel",
+			triggerHook: "0.2",
+			duration: scrollDistance
+		})
+		.setPin(".section--carousel")
+		.setTween(tween)
+		.on("end", function(event){
 			// isScrolling = 1;
 			scroll1 = false;
 			scroll2 = false;
 			scroll3 = false;
-    }).on("progress", function (event) {
+		}).on("progress", function (event) {
 			// console.log(event);
 
-      jQuery('.carousel__feature__leftcol').each(function(index,element){
+			jQuery('.carousel__feature__leftcol').each(function(index,element){
 				jQuery(element).css('transform','translateY(-'+ scrollDistance*event.progress + 'px)');
 			})
 
 			if(event.progress > 0 && event.progress < 0.3 && !scroll1) {
 				console.log("1");
 				// oldscrollTimestamp = scrollTimestamp;
-			  // tl.play();
+				// tl.play();
 				if(event.scrollDirection == "FORWARD"){
 					// tl.play();
 				} else {
@@ -263,53 +352,52 @@ var timeToWaitForLast = 100;
 
 			scrollTimestamp = event.timeStamp;
 
-    })
-    .setClassToggle(".section--carousel", "active")
-    .addTo(controller);
+		})
+		.setClassToggle(".section--carousel", "active")
+		.addTo(controller);
 
 		console.log(jQuery(".section--carousel").height());
-    var textHeights = [0,900,1800];
-    jQuery(".homepage--carousel__feature").each(function(index,elem) {
+		var textHeights = [0,900,1800];
+		jQuery(".homepage--carousel__feature").each(function(index,elem) {
 			tl.to(jQuery(elem).find('.carousel__feature__rightcol'), 0.7, {autoAlpha:0}).addPause();
-      // var height = jQuery(elem).height();
-      // var offset = jQuery(elem).offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
-      // console.log(offset);
-      jQuery(elem).css('position',"absolute").css('top',"0");
-      jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
-      // jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
-      // console.log(elem);
-    });
+			// var height = jQuery(elem).height();
+			// var offset = jQuery(elem).offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
+			// console.log(offset);
+			jQuery(elem).css('position',"absolute").css('top',"0");
+			jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
+			// jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
+			// console.log(elem);
+		});
 
-    // jQuery('.homepage--carousel__feature').css('position',"absolute").css('height',height);
-    //
+		// jQuery('.homepage--carousel__feature').css('position',"absolute").css('height',height);
+		//
 
-    // jQuery(".homepage--carousel__feature").each(function(index,elem) {
-    //   _this = this;
-    //
-    //   // jQuery(elem).css('position',"absolute");
-    //   // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
-    //
-    //   new ScrollMagic.Scene({
-    //     triggerElement: this,
-    //     // triggerHook: "1",
-    //     duration: 900,
-    //     // offset: '-50%'
-    //   })
-    //   .setClassToggle(jQuery(this)[0], "active")
-    //   .on("start", function(event){
-    //     // jQuery(_this).addClass('active');
-    //     // console.log(jQuery(_this)[0]);
-    //   }).on("progress", function (event) {
-    //     // console.log("Scene progress changed to " + event.progress);
-    //   })
+		// jQuery(".homepage--carousel__feature").each(function(index,elem) {
+		//   _this = this;
+		//
+		//   // jQuery(elem).css('position',"absolute");
+		//   // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
+		//
+		//   new ScrollMagic.Scene({
+		//     triggerElement: this,
+		//     // triggerHook: "1",
+		//     duration: 900,
+		//     // offset: '-50%'
+		//   })
+		//   .setClassToggle(jQuery(this)[0], "active")
+		//   .on("start", function(event){
+		//     // jQuery(_this).addClass('active');
+		//     // console.log(jQuery(_this)[0]);
+		//   }).on("progress", function (event) {
+		//     // console.log("Scene progress changed to " + event.progress);
+		//   })
 
 
-      // .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
-      // .setTween(tween)
-      // .addTo(controller);
-    // });
-
-  }
+			// .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
+			// .setTween(tween)
+			// .addTo(controller);
+		// });
+	}
 
   function stickyNav(){
     var controller = new ScrollMagic.Controller();

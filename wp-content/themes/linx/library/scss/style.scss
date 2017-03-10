@@ -20,7 +20,9 @@ Stylesheet: Main Stylesheet
 @import "partials/grid";                           // the grid
 @import "modules/buttons";                         // buttons
 @import "modules/forms";                           // forms (inputs & labels)
+@import "modules/owl-carousel";                    // Owl carousel
 @import "admin";                                   // forms (inputs & labels)
+
 
 /******************************************************************
 BASE
@@ -117,7 +119,6 @@ HEADER
 
 .header {
   position: relative;
-  // z-index: 99999;
 }
 
 @mixin menu-with-children() {
@@ -163,6 +164,10 @@ HEADER
   }
 }
 
+/******************************************************************
+MOBILE NAVIGATION
+******************************************************************/
+
 .mobile-background {
   position: fixed;
   z-index: 98;
@@ -204,11 +209,8 @@ HEADER
     a {
       @include font-size(14px,true);
       font-weight: 400;
+      padding: 0;
     }
-  }
-
-  li:nth-child(5) {
-    padding-top: 30px;
   }
 
   .menu-item-has-children {
@@ -237,9 +239,10 @@ HEADER
   }
 }
 
-/**************************
+/******************************************************************
 HEADER LINKS
-**************************/
+******************************************************************/
+
 .header-links .menu {
   display: flex;
   flex-direction: column;
@@ -250,7 +253,9 @@ HEADER LINKS
   @include for-size('tablet-portrait-up'){
     flex-direction: row;
   }
+}
 
+.header-links .menu {
   li {
     align-self: center;
 
@@ -316,6 +321,7 @@ HEADER LINKS
     }
   }
 
+  // LANGUAGE DROPDOWN
   .menu-item-has-children {
     @include menu-with-children;
     a {
@@ -351,8 +357,10 @@ MAIN NAVIGATION
     @extend .inner-wrap;
     display: flex;
     flex-direction: row;
-    align-items: center;
     padding: 0;
+    @include for-size('tablet-portrait-up'){
+      align-items: center;
+    }
   }
 
   li {
@@ -450,6 +458,7 @@ MAIN NAVIGATION
 
   li.main-nav-link--mobile {
     display: block;
+    position: absolute;
     margin: 0;
     @include for-size('tablet-portrait-up'){
       display: none;
@@ -469,8 +478,14 @@ MAIN NAVIGATION
   background: #fff;
   position: fixed;
   padding: 12px 0;
+  height: 45px;
   top: -100%;
   box-shadow: 0px 13px 26px 0px rgba(0,0,0,0.09);
+
+  @include for-size('tablet-portrait-up'){
+    height: auto;
+    padding: 15px 0;
+  }
 
   a {
     color: $green;
@@ -509,6 +524,8 @@ MAIN NAVIGATION
       color: #ccc;
     }
   }
+
+  li.main-nav-link--mobile { position: static; }
 
   li.main-nav-link--logo {
     margin: 0;
@@ -752,49 +769,92 @@ HOMEPAGE SECTION CAROUSEL
 ******************************************************************/
 
 .section--carousel {
-  padding-bottom: 800px !important;
-  // background: orange;
-  // position: relative;
+  padding-bottom: 0;
 
-  .homepage--carousel__feature {
-    // position: absolute;
-    // padding: 20vh 0 20vh;
+  @include for-size('tablet-portrait-up'){
+    margin: 0 5%;
   }
-  // .carousel__feature__rightcol {
-  //   position: absolute;
-  //   top: 0;
-  //   right: 0;
-  //   left: auto;
-  // }
+
+  .mobile-carousel {
+    display: block;
+    padding-top: 40px;
+    @extend .owl-carousel;
+    @extend .owl-theme;
+    @include for-size('tablet-portrait-up'){
+      display: none;
+    }
+
+    .owl-dot span {
+      width: 18px !important;
+      height: 18px !important;
+      background: #eee !important;
+    }
+
+    .owl-dot.active span { background: $yellow !important; }
+
+    .image-box {
+      box-shadow: 0px 5px 59px 0px rgba(0, 0, 0, 0.15);
+    }
+
+    .owl-carousel__text h2 { margin: 0; }
+  }
+
+  .desktop-carousel {
+    display: none;
+    @include for-size('tablet-portrait-up'){
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      height: 100vh;
+    }
+    @include for-size('desktop-up'){
+      width: 90%;
+    }
+  }
+
+  .image-box {
+    box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 0;
+    padding-bottom: 177%;
+    width: 100%;
+  }
+}
+
+.owl-carousel__image {
+  max-width: 150px;
+  margin: 0 auto 40px;
+}
+
+.owl-carousel__text {
+  text-align: center;
+
+  p {
+    @include font-size(22px);
+    font-weight: 100;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+  }
 }
 
 .homepage--carousel__feature {
   @include clearfix;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: nowrap;
-  // padding: 0vh 0 800px;
-  width: 100%;
+  justify-content: center;
+
   height: 100%;
-
+  width: 100%;
+  position: absolute;
   left: 0;
-  z-index: 100;
 
-  .carousel__feature__rightcol {
-    // opacity: 0;
-    // visibility: hidden;
-  }
-
-  &:first-of-type .carousel__feature__rightcol { opacity: 1; visibility: visible; }
-
-  & + & { z-index: 90; }
-  & + & + & { z-index: 80; }
-  & + & + & + &{ z-index: 70; }
-
-  @include for-size('tablet-portrait-up'){
-    flex-direction: row;
-    padding: 20vh 0 20vh;
-  }
+  &:nth-child(1){ z-index: 10; }
+  &:nth-child(2){ z-index: 9; }
+  &:nth-child(3){ z-index: 8; }
+  &:nth-child(4){ z-index: 7; }
+  &:nth-child(5){ z-index: 6; }
 
   h2 {
     @include font-size(42px);
@@ -805,70 +865,28 @@ HOMEPAGE SECTION CAROUSEL
     @extend h4;
   }
 
-
-
   .carousel__feature__leftcol {
-    text-align: center;
-    flex:  0 0 40%;
+    flex:  0 0 350px;
     position: relative;
     align-self: center;
-
-
-    @include for-size('tablet-portrait-up'){
-      padding: 0 0 0 20%;
-      text-align: left;
-    }
+    margin-right: 80px;
   }
 
+  &:nth-child(1) .carousel__feature__leftcol { top: 0%; }
+  &:nth-child(2) .carousel__feature__leftcol { top: 100%; }
+  &:nth-child(3) .carousel__feature__leftcol { top: 200%; }
+  &:nth-child(4) .carousel__feature__leftcol { top: 300%; }
+  &:nth-child(5) .carousel__feature__leftcol { top: 400%; }
+
   .carousel__feature__rightcol {
-
-    @include for-size('tablet-portrait-up'){
-      width: 40vw;
-      position: absolute;;
-      top: 0%;
-      right: 0%;
-    }
-
-    img {
-      max-width: 100%;
-      width: 100%;
-      @include for-size('tablet-portrait-up'){
-        width: 70%;
-      }
-    }
+    flex:  0 0 320px;
+    align-self: center;
   }
 }
 
-.homepage--carousel__feature.screen-desktop {
-  flex-wrap: wrap;
-
-  .carousel__feature__leftcol {
-    flex: 0 0 50%;
-    margin: 0 auto;
-    padding: 0;
-    text-align: center;
-    top: 0;
-
-    @include for-size('tablet-portrait-up'){
-      order: 2;
-    }
-  }
-  .carousel__feature__rightcol {
-    flex: 1 1 100%;
-    left: 0;
-
-    @include for-size('tablet-portrait-up'){
-      order: 1;
-      width: 100%;
-    }
-
-    img {
-      width: 100%;
-      max-width: 100%;
-      // display: none;
-    }
-  }
-}
+/******************************************************************
+EMPLOYERS LOGOS
+******************************************************************/
 
 .employers-logos {
   display: flex;
@@ -901,6 +919,9 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
+/******************************************************************
+JOBS
+******************************************************************/
 .section--jobs {
 
   .jobs-link {
@@ -950,11 +971,17 @@ HOMEPAGE SECTION CAROUSEL
   @extend %button;
   @include button-bg($black);
   position: absolute;
-  top: 55%;
-  right: -40px;
+  bottom: 20px;
+  right: 15px;
   border: none;
   box-shadow: 0px 9px 46px 0px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(.19,1,.22,1),transform 2.5s cubic-bezier(.19,1,.22,1);
+
+  @include for-size('tablet-portrait-up'){
+    bottom: auto;
+    top: 55%;
+    right: -40px;
+  }
 }
 
 .job-listing__image {
@@ -979,13 +1006,6 @@ HOMEPAGE SECTION CAROUSEL
 
 .job-listing__text {
   overflow: hidden;
-
-  // float: left;
-  // width: calc(100% - 47px - 15px);
-  //
-  // @include for-size('tablet-portrait-up'){
-  //   width: calc(100% - 70px - 50px);
-  // }
 }
 
 .job-listing__text {
@@ -998,7 +1018,7 @@ HOMEPAGE SECTION CAROUSEL
   .job-listing__location { float: left; }
   .job-listing__shifts { float: left; }
   .job-listing__salary { float: right; }
-  .job-listing__category {  float: left; }
+  .job-listing__category { float: left; }
   .job-listing__expires { float: left; }
   p { overflow: hidden; font-weight: 100; @include font-size(14px); height: 24px; margin: 0; }
 }
@@ -1089,6 +1109,9 @@ HOMEPAGE SECTION CAROUSEL
   &:after { content:" / Hour"; }
 }
 
+/******************************************************************
+TEXT HERO
+******************************************************************/
 .section--text-hero {
   position: relative;
   overflow-x: hidden;
@@ -1167,6 +1190,9 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
+/******************************************************************
+JOB LISTING AND BLOG LISTING
+******************************************************************/
 .list-view-item {
   @include clearfix;
   display: block;
@@ -1174,10 +1200,13 @@ HOMEPAGE SECTION CAROUSEL
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   margin-bottom: -1px;
-  padding: 35px 20px 25px;
+  padding: 15px 10px 15px;
   transition: all 1.7s cubic-bezier(.19,1,.22,1);
   position: relative;
   text-decoration: none;
+  @include for-size('tablet-landscape-up'){
+    padding: 35px 20px 25px;
+  }
 
   &:hover {
     background: #f3f3f3;
@@ -1191,15 +1220,24 @@ HOMEPAGE SECTION CAROUSEL
 
   .job-listing__image {
     margin-top: 15px;
-    transform: translateX(10px);
+
+    @include for-size('tablet-landscape-up'){
+      transform: translateX(10px);
+    }
   }
 
   .job-listing__title {
-    @include font-size(42px);
-    max-width: 80%;
+    @include font-size(32px);
+    @include for-size('tablet-landscape-up'){
+      @include font-size(42px);
+      max-width: 80%;
+    }
   }
 }
 
+/******************************************************************
+IMAGE + TEXT
+******************************************************************/
 .section--text-image {
 
   @include for-size('tablet-portrait-up'){
@@ -1214,77 +1252,13 @@ HOMEPAGE SECTION CAROUSEL
   @extend .inner-wrap;
 
   @include for-size('tablet-portrait-up'){
-    margin: 0;
-    margin-left: 10%;
-    margin-right: 10%;
     flex-direction: row;
-    max-width: none;
-    text-align: left;
   }
 
   &:nth-child(even){
     flex-direction: column-reverse;
-
     @include for-size('tablet-portrait-up'){
       flex-direction: row-reverse;
-      justify-content: center;
-    }
-
-    .text-image--text {
-      @include for-size('tablet-portrait-up'){
-        margin-left: 5%;
-        margin-right: 0%;
-        padding-top: 2vh;
-      }
-    }
-
-    .text-image--image {
-      margin-top: -30%;
-      @include for-size('tablet-portrait-up'){
-        margin-top: -10%;
-      }
-    }
-  }
-
-  .text-image--text {
-    padding: 5vh 0 10vh;
-    @include for-size('tablet-portrait-up'){
-      flex: 0 0 350px;
-      margin-right: 5%;
-      padding: 10vh 0 20vh;
-    }
-  }
-
-  .text-image--image {
-    flex: 1 1 auto;
-    padding: 0 0 0 30%;
-    @include for-size('tablet-portrait-up'){
-      padding: 0;
-    }
-  }
-
-  &.text-image-row--portrait {
-    margin-left: 5%;
-    margin-right: 5%;
-    justify-content: center;
-
-    .text-image--text {
-      @include for-size('tablet-portrait-up'){
-        flex: 0 0 350px;
-      }
-    }
-    .text-image--image {
-      position: relative;
-      z-index: 2;
-      padding: 0 55% 0 0;
-      @include for-size('tablet-portrait-up'){
-        flex: 0 0 27%;
-        padding: 0;
-      }
-    }
-
-    .image-box {
-      padding-bottom: 177%;
     }
   }
 
@@ -1297,6 +1271,30 @@ HOMEPAGE SECTION CAROUSEL
     @extend h4;
   }
 
+  .text-image--text {
+    text-align: center;
+
+    @include for-size('tablet-portrait-up'){
+      text-align: left;
+      flex: 0 0 350px;
+      margin-right: 4%;
+    }
+  }
+
+  &:nth-child(even) .text-image--text {
+    @include for-size('tablet-portrait-up'){
+      margin-right: 0%;
+      margin-left: 4%;
+    }
+  }
+
+  .text-image--image {
+    flex: 1 1 auto;
+    @include for-size('tablet-portrait-up'){
+      padding: 0;
+    }
+  }
+
   .image-box {
     box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
     background-size: cover;
@@ -1306,6 +1304,83 @@ HOMEPAGE SECTION CAROUSEL
     width: 100%;
   }
 
+  /**********************************
+  LANDSCAPE
+  **********************************/
+  &.text-image-row--landscape {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: none;
+
+    @include for-size('tablet-portrait-up'){
+      margin-left: 2%;
+      margin-right: 2%;
+      justify-content: center;
+    }
+
+    .text-image--image {
+      margin-top: -30%;
+      padding-left: 20%;
+      @include for-size('tablet-portrait-up'){
+        margin-top: -10%;
+        padding: 0;
+      }
+    }
+
+    // ODD POSITION, AKA FIRST
+    &:nth-child(odd) {
+      .text-image--image {
+        margin-bottom: -40%;
+        padding-left: 0%;
+        padding-right: 20%;
+        margin-top: 30%;
+        @include for-size('tablet-portrait-up'){
+          margin-top: 0%;
+          padding: 0;
+        }
+      }
+    }
+
+  }
+
+  /**********************************
+  PORTRAIT
+  **********************************/
+  &.text-image-row--portrait {
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+    @include for-size('tablet-portrait-up'){
+      margin-left: 5%;
+      margin-right: 5%;
+    }
+
+    .text-image--image {
+      position: relative;
+      z-index: 2;
+      padding: 0% 70% 0 0;
+      margin: 30% 0 -30%;
+      @include for-size('tablet-portrait-up'){
+        flex: 0 0 320px;
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    &:nth-child(even) {
+      .text-image--image {
+        padding: 0% 0% 0 70%;
+        margin: 0;
+        @include for-size('tablet-portrait-up'){
+          padding: 0;
+        }
+      }
+    }
+
+    .image-box {
+      padding-bottom: 177%;
+    }
+  }
 }
 
 /******************************************************************
@@ -1394,7 +1469,7 @@ HOMEPAGE SECTION CAROUSEL
 
   .text-columns {
     background: #f9f9f9;
-    padding: 70% 80px 40px 40px;
+    padding: 70% 20px 40px 30px;
     margin-top: -40%;
     margin-right: -20px;
     width: 100%;
@@ -1442,6 +1517,7 @@ HOMEPAGE SECTION CAROUSEL
     img { display: block; width: 100%; max-width: 100%; }
   }
 }
+
 
 .page-template-default,
 .job-template-default,
@@ -1601,18 +1677,27 @@ HOMEPAGE SECTION CAROUSEL
   .header {
     position: static;
     min-height: 50vh;
-    padding: 140px 0 40px;
     background-size: cover;
     background-position: 50% 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    @include for-size("tablet-portrait-up"){
+      text-align: left;
+    }
+
+    .inner-wrap { width: 100%; }
 
     h1 {
       color: $white;
+      margin: 0;
     }
   }
 
   .entry-content--jobs,
   .entry-content--blogposts {
-    margin-top: -100px;
+    margin-top: -60px;
     margin-bottom: 180px;
     padding: 0;
     box-shadow: 0px 55px 109px 0px rgba(0, 0, 0, 0.15);
