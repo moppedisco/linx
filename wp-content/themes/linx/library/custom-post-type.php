@@ -228,7 +228,7 @@ add_action( 'init', 'custom_post_jobs');
 			'show_admin_column' => true,
 			'show_ui' => true,
 			'query_var' => true,
-			'rewrite' => array( 'slug' => 'custom-slug' ),
+			'rewrite' => array( 'slug' => 'job-categories' ),
 		)
 	);
 

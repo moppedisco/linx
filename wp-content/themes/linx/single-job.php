@@ -14,12 +14,31 @@
  * For more info: http://codex.wordpress.org/Post_Type_Templates
 */
 ?>
-
+<?php
+	$expireDate = get_post_meta( get_the_ID(), 'pw_spe_expiration', true );
+	$today = date('Y-m-d');
+	$hourly_rate = get_post_meta(get_the_ID(), "hourly_rate", true);
+	$number_of_shifts = get_post_meta(get_the_ID(), "number_of_shifts", true);
+	$location = get_post_meta(get_the_ID(), "location", true);
+	$openpositions = get_post_meta(get_the_ID(), "open_positions", true);
+	$terms = get_the_terms( get_the_ID() , 'job_categories' );
+?>
 <?php get_header(); ?>
-			<header class="header">
+<header class="header">
+	<div class="job-article__header">
+		<span class="job-item-meta__date"><i class="material-icons">date_range</i><?php the_date(); ?></span>
+		<div class="job-item-meta__role">
+			<i class='icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>'></i>
+			<span class="job-item-meta__category"><?php foreach ( $terms as $term ) {echo $term->slug; } ?></span>
+		</div>
+		<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
+		<span class="job-item-meta__shifts"><i class="material-icons">timelapse</i><?php echo $number_of_shifts; ?></span>
+	</div>
 
-			</header>
-			<div id="content">
+	<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+	<span class="job-item__salary"><?php echo $hourly_rate; ?></span>
+</header>
+<div id="content">
 
 				<div id="inner-content" class="inner-wrap">
 
@@ -28,30 +47,6 @@
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
-
-								<header class="article-header">
-
-									<?php
-										$expireDate = get_post_meta( get_the_ID(), 'pw_spe_expiration', true );
-										$today = date('Y-m-d');
-										$hourly_rate = get_post_meta(get_the_ID(), "hourly_rate", true);
-										$number_of_shifts = get_post_meta(get_the_ID(), "number_of_shifts", true);
-										$location = get_post_meta(get_the_ID(), "location", true);
-										$openpositions = get_post_meta(get_the_ID(), "open_positions", true);
-										$terms = get_the_terms( get_the_ID() , 'job_categories' );
-									?>
-
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-									<div class="article-header-meta">
-										<div class="job-listing__role">
-											<i class='icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>'></i>
-											<span class="job-listing__category"><?php foreach ( $terms as $term ) {echo $term->slug; } ?></span>
-										</div>
-										<span class="job-listing__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
-										<span class="job-listing__shifts"><i class="material-icons">timelapse</i> <?php echo $number_of_shifts; ?></span>
-										<span class="job-listing__salary"><?php echo $hourly_rate; ?></span>
-									</div>
-								</header> <?php // end article header ?>
 
 								<section class="entry-content" itemprop="articleBody">
 									<div class="article-expire__date">
@@ -78,5 +73,7 @@
 				</div>
 
 			</div>
-
+<?php if(get_field( "add_footer_cta" )): ?>
+	<?php get_template_part( 'partials/footer--cta-hero' ); ?>
+<?php endif; ?>
 <?php get_footer(); ?>

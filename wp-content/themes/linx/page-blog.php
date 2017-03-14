@@ -13,7 +13,7 @@
 */
 ?>
 <?php get_header(); ?>
-			<header class="header" style="background-image: url(<?php echo get_field('hero_image'); ?>);">
+			<header class="header">
 
 				<div class="inner-wrap">
 						<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
@@ -30,12 +30,6 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-								<section class="entry-content" itemprop="articleBody">
-									<?php
-										// the_content();
-									?>
-								</section> <?php // end article section ?>
-
 								<section class='entry-content--blogposts'>
 									<?php
 							        $blogpost_loop = new WP_Query( array(
@@ -49,25 +43,24 @@
 							          <?php
 							            // $terms = get_the_terms( $post->ID , 'blog_categories' );
 							          ?>
-							          <a href='<?php echo get_permalink(); ?>' class="list-view-item">
-													<?php	if ( has_post_thumbnail() ): ?>
-														<img class='list-view-item__image' src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="">
-													<?php endif; ?>
-													<div class="list-view-item__text">
-														<span class="blogposts__date"><i>date_range</i> <?php the_date(); ?></span>
-														<span class="blogposts__author"><i>portrait</i>	<?php the_author(); ?></span>
-						                <h2><?php the_title(); ?></span></h2>
+												<div class="list--blog-item">
+								          <a href='<?php echo get_permalink(); ?>'>
+														<?php	if ( has_post_thumbnail() ): ?>
+															<div class='blog-item__image' style='background-image: url(<?php the_post_thumbnail_url('large'); ?>);'></div>
+														<?php endif; ?>
+														<div class="blog-item__text">
+															<span class="blog-item__date"><i>date_range</i> <?php the_date(); ?></span>
+							                <h2><?php the_title(); ?></span></h2>
 
-														<p>
-															<?php
-																$content = get_the_content();
-																echo substr($content, 0, 150);
-															?>
-														</p>
-
-														<button class="blogposts__readmore" href="<?php get_permalink(); ?>">Read more</button>
-													</div>
-							          </a>
+															<p>
+																<?php
+																	$content = get_the_content();
+																	echo substr($content, 0, 150);
+																?>
+															</p>
+														</div>
+								          </a>
+												</div>
 							      <?php endwhile;?>
 							    <?php endif; ?>
 							    <?php wp_reset_query(); ?>

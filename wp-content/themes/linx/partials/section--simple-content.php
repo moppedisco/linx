@@ -1,6 +1,10 @@
 <section class="section--simple-content">
   <div class="inner-wrap">
-    <div class="simple-content-wrap">
+    <?php if( get_sub_field('grid_size') ): ?>
+      <div class="simple-content-wrap <?php the_sub_field('grid_size'); ?>">
+    <?php else: ?>
+      <div class="simple-content-wrap">
+    <?php endif; ?>
       <?php if( have_rows('layout') ): ?>
           <?php while ( have_rows('layout') ) : the_row(); ?>
 
@@ -12,7 +16,7 @@
 
             <?php else: ?>
               <article class='simple-content--text'>
-                <?php the_sub_field('text');?>
+                <?php the_sub_field('text'); ?>
               </article>
             <?php endif; ?>
 

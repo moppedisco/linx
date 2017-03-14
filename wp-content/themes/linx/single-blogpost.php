@@ -16,23 +16,9 @@
 ?>
 
 <?php get_header(); ?>
-			<header class="header <?php	if ( has_post_thumbnail() ) { echo 'header--hasImage';	} ?>" style='background-image: url("<?php	if ( has_post_thumbnail() ) {	the_post_thumbnail_url('full');	} ?>")'>
-
-				<nav class='menu-main-nav' role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-					<?php wp_nav_menu(array(
-						 'container' => false,                           // remove nav container
-						 'theme_location' => 'main-nav',                 // where it's located in the theme
-						 'menu_class' => '',
-						 'menu_id' => 'homepage-here-navigation',
-						 'before' => '',                                 // before the menu
-						 'after' => '',                                  // after the menu
-						 'link_before' => '',                            // before each link
-						 'link_after' => '<i class="material-icons"></i>',                             // after each link
-						 'depth' => 0,                                   // limit the depth of the nav
-						 'fallback_cb' => ''                             // fallback function (if there is one)
-					)); ?>
-
-				</nav>
+			<header class="header">
+				<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+				<span class="blog-item__date"><i>date_range</i><?php the_date(); ?></span>
 			</header>
 			<div id="content">
 
@@ -44,12 +30,15 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-
-
 								<header class="article-header">
-									<span class="blogposts__date"><i>date_range</i> <?php the_date(); ?></span>
-									<span class="blogposts__author"><i>portrait</i>	<?php the_author(); ?></span>
-									<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+
+									<?php if(has_post_thumbnail() ): ?>
+										<div class="article-header__images">
+											<?php the_post_thumbnail( 'large' ); ?>
+										</div>
+									<?php endif; ?>
+
+									<span class="blog-item__author"><i>portrait</i><?php the_author(); ?></span>
 
 								</header> <?php // end article header ?>
 
@@ -66,5 +55,7 @@
 				</div>
 
 			</div>
-
+			<?php if(get_field( "add_footer_cta" )): ?>
+				<?php get_template_part( 'partials/footer--cta-hero' ); ?>
+			<?php endif; ?>
 <?php get_footer(); ?>

@@ -14,6 +14,12 @@
           <i class="icon">play_circle_outline</i>
         </button>
       <?php endif; ?>
+      <?php if( get_sub_field('add_form')): ?>
+        <?php
+            $form_object = get_sub_field('form');
+            echo do_shortcode('[gravityform id="' . $form_object['id'] . '" title="false" description="false" ajax="true"]');
+        ?>
+      <?php endif; ?>
       <?php
         // echo do_shortcode('[gravityform id=1 title=false description=false ajax=true field_values="smsMessage='.get_sub_field('sms_text_message').'"]');
       ?>

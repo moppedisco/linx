@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Frontpage
+ Template Name: Blank template
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -14,21 +14,6 @@
 ?>
 
 <?php get_header(); ?>
-
-<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
-	<div id="inner-header" class="inner-wrap">
-
-		<nav class='header-links' role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-			<?php wp_nav_menu(array(
-					 'container' => false,								// remove nav container
-					 'theme_location' => 'header-links',
-					 'link_after' => '<i class="material-icons"></i>'
-			)); ?>
-		</nav>
-
-	</div>
-
-</header>
 
 <main id="content" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
@@ -73,10 +58,6 @@
 								<?php elseif( get_row_layout() == 'bullet_points' ): ?>
 
 									<?php get_template_part( 'partials/section--bullet-points' ); ?>
-
-								<?php elseif( get_row_layout() == 'cta_section' ): ?>
-
-									<?php get_template_part( 'partials/section--cta-hero' ); ?>
 
 			        <?php endif; ?>
 				    <?php endwhile; ?>

@@ -51,7 +51,7 @@ function bones_ahoy() {
   bones_theme_support();
 
   // adding sidebars to Wordpress (these are created in functions.php)
-  // add_action( 'widgets_init', 'bones_register_sidebars' );
+  add_action( 'widgets_init', 'bones_register_sidebars' );
 
   // cleaning up random code around images
   add_filter( 'the_content', 'bones_filter_ptags_on_images' );
@@ -277,7 +277,7 @@ function sendSMS( $entry, $form ) {
 
     $args = array(
     	'number_to' => $text['phonenumber'],
-    	'message' => $text['message']
+    	'message' => "Click on the link to download the Adia app: http://bit.ly/linx-app"
     );
     twl_send_sms( $args );
 }
