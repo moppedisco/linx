@@ -17,6 +17,7 @@
 
 				<div class="inner-wrap">
 						<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
+						<?php get_sidebar(); ?>
 				</div>
 
 			</header>

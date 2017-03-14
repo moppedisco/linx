@@ -24,9 +24,6 @@
 
 						<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<?php // echo get_field('sub_title'); ?>
-
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
@@ -67,7 +64,7 @@
 														</div>
 						                <h2 class='job-item__title'><?php the_title(); ?></span></h2>
 														<div class="job-item__text--bottom">
-															<span class="job-item__salary"><?php echo $hourly_rate; ?></span>															
+															<span class="job-item__salary"><?php echo $hourly_rate; ?></span>
 															<?php if($employerID): ?>
 																<span class='job-item__employer'>
 																	<?php echo get_the_title( $employerID ); ?>
@@ -84,11 +81,8 @@
 
 							</article>
 
-							<?php endwhile; endif; ?>
 
 						</main>
-
-
 
 				</div>
 

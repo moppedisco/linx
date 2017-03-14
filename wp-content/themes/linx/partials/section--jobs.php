@@ -17,21 +17,24 @@
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
           ?>
-          <a class="job-listing">
-            <div class="job-listing__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
+          <a class="list--job-item">
+            <div class="job-item__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
               <?php if( $openpositions ): ?>
-                <span class="job-listing__open-positions"><?php echo $openpositions ?></span>
+                <span class="job-item__open-positions"><?php echo $openpositions ?></span>
               <?php else: ?>
                 </span>
               <?php endif; ?>
             </div>
-            <div class="job-listing__text">
-              <h3 class='job-listing__title'><?php the_title(); ?></span></h3>
-              <span class="job-listing__salary"><?php echo $hourly_rate; ?></span>
-              <div class="clearfix" style='clear: both;'>
-
-                <span class="job-listing__location"><?php echo $location['address']; ?></span>
+            <div class="job-item__text">
+              <div class="job-item__text--top">
+                <span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
               </div>
+              <h3 class='job-item__title'><?php the_title(); ?></span></h3>
+              <div class="job-item__text--bottom">
+                <span class="job-item__salary"><?php echo $hourly_rate; ?></span>
+              </div>
+
+
             </div>
           </a>
       <?php endwhile;?>
