@@ -1,7 +1,8 @@
 <section class="section--carousel">
   <div class="inner-wrap">
-
+    <h2 class='carousel-title'><?php the_sub_field('title'); ?></h2>
     <div class="desktop-carousel">
+
       <?php if( have_rows('carousel_item') ): ?>
           <?php while ( have_rows('carousel_item') ) : the_row(); ?>
 

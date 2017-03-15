@@ -49,13 +49,13 @@
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 								<section class="entry-content" itemprop="articleBody">
-									<div class="article-expire__date">
+									<div class="job-item__expires">
 										<?php if($expireDate < $today && $expireDate): ?>
 											<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
 										<?php endif; ?>
 									</div>
 									<?php the_content(); ?>
-									<div class="article-expire__date">
+									<div class="job-item__expires">
 										<?php if($expireDate > $today): ?>
 											<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
 										<?php elseif($expireDate < $today && $expireDate): ?>

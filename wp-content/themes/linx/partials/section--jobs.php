@@ -17,8 +17,11 @@
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
           ?>
-          <a class="list--job-item">
-            <div class="job-item__image icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>">
+          <a href='<?php echo get_permalink(); ?>' class="list--job-item">
+            <div class="job-item__image">
+              <?php foreach ( $terms as $term ): ?>
+                <img src="<?php echo z_taxonomy_image_url($term->term_id); ?>" />
+              <?php endforeach; ?>
               <?php if( $openpositions ): ?>
                 <span class="job-item__open-positions"><?php echo $openpositions ?></span>
               <?php else: ?>

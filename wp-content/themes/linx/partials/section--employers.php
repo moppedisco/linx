@@ -21,10 +21,14 @@
       <?php endif; ?>
       <?php wp_reset_query(); ?>
     </div>
+
     <div class="employers-text">
       <?php the_sub_field('text'); ?>
-      <a href="<?php echo get_permalink( 39 ); ?>" class=button><?php the_sub_field('button_label'); ?></a>
+      <?php if( get_sub_field('button_label') ): ?>
+        <a href="<?php echo get_permalink( 39 ); ?>" class=button><?php the_sub_field('button_label'); ?></a>
+      <?php endif; ?>
     </div>
+
   </div>
   <!-- END .inner-wrap -->
 </section>
