@@ -1286,50 +1286,6 @@ TEXT HERO
 }
 
 /******************************************************************
-JOB LISTING AND BLOG LISTING
-******************************************************************/
-.list-view-item {
-  @include clearfix;
-  display: block;
-  background: #fff;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  margin-bottom: -1px;
-  padding: 15px 10px 15px;
-  transition: all 1.7s cubic-bezier(.19,1,.22,1);
-  position: relative;
-  text-decoration: none;
-  @include for-size('tablet-landscape-up'){
-    padding: 35px 20px 25px;
-  }
-
-  &:hover {
-    background: #f3f3f3;
-  }
-
-  &:hover .job-listing__readmore {
-    z-index: 2;
-    transform: translateX(10px);
-  }
-
-  .job-listing__image {
-    margin-top: 15px;
-
-    @include for-size('tablet-landscape-up'){
-      transform: translateX(10px);
-    }
-  }
-
-  .job-listing__title {
-    @include font-size(32px);
-    @include for-size('tablet-landscape-up'){
-      @include font-size(42px);
-      max-width: 80%;
-    }
-  }
-}
-
-/******************************************************************
 IMAGE + TEXT
 ******************************************************************/
 .section--text-image {
@@ -2427,15 +2383,15 @@ JOBS LIST
   transition: .3s,box-shadow .3s,background-color .3s;
   border-top: 1px solid #f1f1f1;
 
-  & + & {
-
+  &:last-of-type {
+    border-bottom: 1px solid #f1f1f1;
   }
 
   &:hover {
     text-decoration: none;
-    box-shadow: 0 10px 30px 0 rgba(17,21,23,.1);
-    // transform: translate3d(0,-8px,0);
-
+    .job-item__title {
+      border-bottom-color: #ccc;
+    }
   }
 
   .job-item__image {
@@ -2451,17 +2407,9 @@ JOBS LIST
     overflow: hidden;
   }
 
-  .job-item__title {
-    @include for-size('tablet-portrait-up'){
-      overflow: hidden;
-      padding-right: 30px;
-    }
-  }
-
   .job-item__text--top {
-    @include for-size('tablet-portrait-up'){
-      float: right;
-      padding-right: 20px;
+    @include for-size('phone-only'){
+      margin-bottom: 5px;
     }
   }
 
@@ -2481,11 +2429,6 @@ JOBS LIST
     display: block;
     max-width: 100%;
   }
-
-  // @include for-size('tablet-portrait-up'){
-  //   width: 70px;
-  //   margin-right: 50px;
-  // }
 }
 
 .job-item__employer {
@@ -2504,8 +2447,22 @@ JOBS LIST
   @include font-size(26px);
   line-height: 1.4;
   margin: 0;
+  display: inline-block;
+  border-bottom: 1px solid #fff;
+  transition: .3s;
   @include for-size('tablet-portrait-up'){
     @include font-size(32px);
+  }
+
+  span {
+    @include font-size(15px);
+    font-weight: 100;
+    letter-spacing: 1px;
+    display: block;
+    @include for-size('tablet-portrait-up'){
+      display: inline-block;
+      margin-left: 10px;
+    }
   }
 }
 
@@ -2539,9 +2496,10 @@ span[class^=job-item-meta]{
   letter-spacing: 1px;
   margin-right: 5px;
 
-  @include for-size('tablet-portrait-up'){
+  @include for-size('phone-only'){
     display: block;
-    margin-right: 0px;
+    line-height: 2;
+    margin: 0;
   }
 
   i {

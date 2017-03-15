@@ -19,7 +19,7 @@
 	$today = date('Y-m-d');
 	$hourly_rate = get_post_meta(get_the_ID(), "hourly_rate", true);
 	$number_of_shifts = get_post_meta(get_the_ID(), "number_of_shifts", true);
-	$location = get_post_meta(get_the_ID(), "location", true);
+	$location = get_post_meta(get_the_ID(), "location_display_name", true);
 	$openpositions = get_post_meta(get_the_ID(), "open_positions", true);
 	$terms = get_the_terms( get_the_ID() , 'job_categories' );
 ?>
@@ -31,8 +31,12 @@
 			<i class='icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>'></i>
 			<span class="job-item-meta__category"><?php foreach ( $terms as $term ) {echo $term->slug; } ?></span>
 		</div>
-		<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
-		<span class="job-item-meta__shifts"><i class="material-icons">timelapse</i><?php echo $number_of_shifts; ?></span>
+		<?php if($location): ?>
+			<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location; ?></span>
+		<?php endif; ?>
+		<?php if($number_of_shifts): ?>
+			<span class="job-item-meta__shifts"><i class="material-icons">timelapse</i><?php echo $number_of_shifts; ?></span>
+		<?php endif; ?>
 	</div>
 
 	<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
@@ -73,7 +77,7 @@
 				</div>
 
 			</div>
-<?php if(get_field( "add_footer_cta" )): ?>
+<?php if(get_field( "include_cta" )): ?>
 	<?php get_template_part( 'partials/footer--cta-hero' ); ?>
 <?php endif; ?>
 <?php get_footer(); ?>

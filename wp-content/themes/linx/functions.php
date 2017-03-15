@@ -282,12 +282,4 @@ function sendSMS( $entry, $form ) {
     twl_send_sms( $args );
 }
 
-// add_action( 'gform_after_submission_1', 'sendSMS', 10, 2 );
-//
-// if( function_exists('acf_add_options_page') ) {
-//
-// 	acf_add_options_page();
-//
-// }
-
 /* DON'T DELETE THIS CLOSING TAG */ ?>

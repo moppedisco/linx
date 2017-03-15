@@ -3159,62 +3159,6 @@ TEXT HERO
 }
 
 /******************************************************************
-JOB LISTING AND BLOG LISTING
-******************************************************************/
-.list-view-item {
-  display: block;
-  background: #fff;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  margin-bottom: -1px;
-  padding: 15px 10px 15px;
-  -webkit-transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
-          transition: all 1.7s cubic-bezier(0.19, 1, 0.22, 1);
-  position: relative;
-  text-decoration: none;
-}
-.list-view-item:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-@media (min-width: 1200px) {
-  .list-view-item {
-    padding: 35px 20px 25px;
-  }
-}
-.list-view-item:hover {
-  background: #f3f3f3;
-}
-.list-view-item:hover .job-listing__readmore {
-  z-index: 2;
-  -webkit-transform: translateX(10px);
-      -ms-transform: translateX(10px);
-          transform: translateX(10px);
-}
-.list-view-item .job-listing__image {
-  margin-top: 15px;
-}
-@media (min-width: 1200px) {
-  .list-view-item .job-listing__image {
-    -webkit-transform: translateX(10px);
-        -ms-transform: translateX(10px);
-            transform: translateX(10px);
-  }
-}
-.list-view-item .job-listing__title {
-  font-size: 32px;
-  font-size: 1.77778rem;
-}
-@media (min-width: 1200px) {
-  .list-view-item .job-listing__title {
-    font-size: 42px;
-    font-size: 2.33333rem;
-    max-width: 80%;
-  }
-}
-
-/******************************************************************
 IMAGE + TEXT
 ******************************************************************/
 @media (min-width: 600px) {
@@ -4359,9 +4303,14 @@ JOBS LIST
   display: table;
   clear: both;
 }
+.list--job-item:last-of-type {
+  border-bottom: 1px solid #f1f1f1;
+}
 .list--job-item:hover {
   text-decoration: none;
-  box-shadow: 0 10px 30px 0 rgba(17, 21, 23, 0.1);
+}
+.list--job-item:hover .job-item__title {
+  border-bottom-color: #ccc;
 }
 .list--job-item .job-item__image {
   float: left;
@@ -4375,16 +4324,9 @@ JOBS LIST
 .list--job-item .job-item__text {
   overflow: hidden;
 }
-@media (min-width: 600px) {
-  .list--job-item .job-item__title {
-    overflow: hidden;
-    padding-right: 30px;
-  }
-}
-@media (min-width: 600px) {
+@media (max-width: 599px) {
   .list--job-item .job-item__text--top {
-    float: right;
-    padding-right: 20px;
+    margin-bottom: 5px;
   }
 }
 .list--job-item .job-item__text--bottom:after {
@@ -4423,11 +4365,28 @@ JOBS LIST
   font-size: 1.44444rem;
   line-height: 1.4;
   margin: 0;
+  display: inline-block;
+  border-bottom: 1px solid #fff;
+  -webkit-transition: .3s;
+          transition: .3s;
 }
 @media (min-width: 600px) {
   .job-item__title {
     font-size: 32px;
     font-size: 1.77778rem;
+  }
+}
+.job-item__title span {
+  font-size: 15px;
+  font-size: 0.83333rem;
+  font-weight: 100;
+  letter-spacing: 1px;
+  display: block;
+}
+@media (min-width: 600px) {
+  .job-item__title span {
+    display: inline-block;
+    margin-left: 10px;
   }
 }
 
@@ -4462,10 +4421,11 @@ span[class^=job-item-meta] {
   letter-spacing: 1px;
   margin-right: 5px;
 }
-@media (min-width: 600px) {
+@media (max-width: 599px) {
   span[class^=job-item-meta] {
     display: block;
-    margin-right: 0px;
+    line-height: 2;
+    margin: 0;
   }
 }
 span[class^=job-item-meta] i {

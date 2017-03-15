@@ -1,25 +1,24 @@
 <section class="section--employers">
   <div class="inner-wrap">
-
-    <?php
-        $job_loop = new WP_Query( array(
-        'post_type' => 'employer',
-            'posts_per_page' => 10 // put number of posts that you'd like to display
-        ) );
-    ?>
     <div class="employers-logos">
-      <?php if ( $job_loop->have_posts() ) : ?>
-        <?php while ( $job_loop->have_posts() ) : $job_loop->the_post(); ?>
+      <?php if( have_rows('logos') ): ?>
 
+          <?php while ( have_rows('logos') ) : the_row(); ?>
             <?php
-              $website = get_post_meta($post->ID, "website", true);
-              $logo_url = wp_get_attachment_url(get_post_meta($post->ID, "logo", true));
-              $images = get_post_meta($post->ID, "images", true);
+              // $post_objects = get_sub_field('company');
+              // print_r($post_objects );
+
+              $post_object = get_sub_field('company');
+            	if($post_object){
+            		//Fetch the image field from the carsandtrucks post
+            		$image = get_field('logo', $post_object->ID);
+                echo '<img src="' . $image['sizes']['medium'] . '" alt="' . $image['alt'] . '" />';
+            	}
+
             ?>
-            <img src="<?php echo $logo_url; ?>" alt="" />
-        <?php endwhile;?>
+          <?php endwhile;?>
+
       <?php endif; ?>
-      <?php wp_reset_query(); ?>
     </div>
 
     <div class="employers-text">

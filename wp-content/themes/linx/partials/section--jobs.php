@@ -13,9 +13,11 @@
 
           <?php
             $hourly_rate = get_post_meta($post->ID, "hourly_rate", true);
-            $location = get_post_meta($post->ID, "location", true);
+            $location = get_post_meta($post->ID, "location_display_name", true);
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
+            $employerDisplayName = get_post_meta($post->ID, "employer_display_name", true);
+
           ?>
           <a href='<?php echo get_permalink(); ?>' class="list--job-item">
             <div class="job-item__image">
@@ -29,10 +31,12 @@
               <?php endif; ?>
             </div>
             <div class="job-item__text">
+              <?php if($location): ?>
               <div class="job-item__text--top">
-                <span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location['address']; ?></span>
+                <span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location; ?></span>
               </div>
-              <h3 class='job-item__title'><?php the_title(); ?></span></h3>
+              <?php endif; ?>
+              <h3 class='job-item__title'><?php the_title(); ?><?php if($employerDisplayName): ?><span><?php echo $employerDisplayName; ?></span><?php endif; ?></h3>
               <div class="job-item__text--bottom">
                 <span class="job-item__salary"><?php echo $hourly_rate; ?></span>
               </div>
