@@ -290,28 +290,31 @@ var timeToWaitForLast = 100;
 	}
 
 	function videoHeroPlay(){
-		jQuery(".homepage--video-intro.showBG").each(function(index,element){
+		jQuery(".section--video-hero.showBG").each(function(index,element){
 
 			var videoHero = new TimelineMax({paused: true,onReverseComplete:function(){
-				jQuery(element).find('.homepage--video-intro__video').css('z-index','1');
+				jQuery(element).find('.video-hero__video').hide();
 			},onComplete: function(){
-				jQuery(element).find('.homepage--video-intro__video')[0].play();
+				jQuery(element).find('.video-hero__video')[0].play();
 			}});
 
-			videoHero.set(jQuery(element).find('.homepage--video-intro-button'), {clearProps:"all"})
-				.staggerTo(jQuery(element).find('.homepage--video-intro__text > *'), 0.8, {y: '-20px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.1)
-				// .to(jQuery(element).find('.homepage--video-intro'), 1, {css:{backgroundImage:"none"}})
-				.to(jQuery(element).find('.homepage--video-intro__text'), 0.1, {css:{zIndex:"-1"}})
-				.to(jQuery(element).find('.homepage--video-intro__video'), 1, {autoAlpha: 1, ease:Power4.easeInOut});
+			videoHero.set(jQuery(element).find('.video-hero__button'), {clearProps:"all"})
+				.staggerTo(jQuery(element).find('.video-hero-text > *'), 0.8, {y: '-20px', autoAlpha: 0, ease:Back.easeInOut.config(1.7)},0.1)
+				// .to(jQuery(element).find('.video-hero'), 1, {css:{backgroundImage:"none"}})
+				.to(jQuery(element).find('.inner-wrap'), 0.1, {css:{zIndex:"-1"}})
+				.to(jQuery(element).find('.video-hero__bg'), 1, {autoAlpha: 0, display:'none', ease:Power4.easeInOut})
+				.to(jQuery(element).find('.video-hero__video'), 1, {autoAlpha: 1, display:'block', ease:Power4.easeInOut});
 
-			jQuery(element).find('.homepage--video-intro-button').on('click',function(){
-				jQuery(element).find('.homepage--video-intro__video').css('z-index','9999');
+
+
+			jQuery(element).find('.video-hero__button').on('click',function(){
+				jQuery(element).find('.video-hero__video').show();
 				videoHero.play();
 			});
 
-			jQuery(element).find('.homepage--video-intro__video').on('click',function(){
+			jQuery(element).find('.video-hero__video').on('click',function(){
 
-				jQuery(element).find('.homepage--video-intro__video')[0].pause();
+				jQuery(element).find('.video-hero__video')[0].pause();
 				videoHero.reverse();
 			});
 		})
@@ -452,7 +455,7 @@ var timeToWaitForLast = 100;
 
   function reSizeVideoWrapper(){
     if(window.breakpoint != 'mobile'){
-      adjustVideoPositioning('.homepage--video-intro__video','video');
+      adjustVideoPositioning('.video-hero__video','video');
     } else {
       // adjustVideoPositioning('.homepage-hero','img');
 

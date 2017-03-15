@@ -591,7 +591,7 @@ html:before {
   /* For IE6-8 */
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../fonts/material-icons/MaterialIcons-Regular.woff2) format("woff2"), url(../fonts/material-icons/MaterialIcons-Regular.woff) format("woff"), url(../fonts/material-icons/MaterialIcons-Regular.ttf) format("truetype");
 }
-.material-icons, #mobile-navigation-wrapper .close-button, .menu-main-nav li.main-nav-link--mobile a, .homepage--video-intro:after, .homepage--video-intro .homepage--video-intro-button .icon, .section--carousel .mobile-carousel .owl-nav [class*='owl-'],
+.material-icons, #mobile-navigation-wrapper .close-button, .menu-main-nav li.main-nav-link--mobile a, .section--video-hero:after, .section--video-hero .video-hero__button .icon, .section--carousel .mobile-carousel .owl-nav [class*='owl-'],
 .section--carousel .mobile-carousel .owl-nav [class*='owl-']:hover, .blog-item__date i, .blog-item__author i {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -999,7 +999,7 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
+.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
 .gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit] {
   display: inline-block;
   position: relative;
@@ -1019,13 +1019,13 @@ Stylesheet: Button Styles
   transition: background-color 0.14s ease-in-out;
 }
 @media (min-width: 600px) {
-  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
+  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
   .gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit] {
     padding: 19px 45px 15px;
   }
 }
-.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, #gform_1 input.button:hover, .employers-text a:hover, .section--text-hero .text-hero__cta:hover, .section--text-3-columns .text-column__button:hover, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:hover, .bullet-points__button a:hover, .section--jobs .jobs-link a:hover, .gform_wrapper .custom-form .gform_footer input.button:hover,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, #gform_1 input.button:focus, .employers-text a:focus, .section--text-hero .text-hero__cta:focus, .section--text-3-columns .text-column__button:focus, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:focus, .bullet-points__button a:focus, .section--jobs .jobs-link a:focus, .gform_wrapper .custom-form .gform_footer input.button:focus,
+.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .section--video-hero .video-hero__button:hover, #gform_1 input.button:hover, .employers-text a:hover, .section--text-hero .text-hero__cta:hover, .section--text-3-columns .text-column__button:hover, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:hover, .bullet-points__button a:hover, .section--jobs .jobs-link a:hover, .gform_wrapper .custom-form .gform_footer input.button:hover,
+.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .section--video-hero .video-hero__button:focus, #gform_1 input.button:focus, .employers-text a:focus, .section--text-hero .text-hero__cta:focus, .section--text-3-columns .text-column__button:focus, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:focus, .bullet-points__button a:focus, .section--jobs .jobs-link a:focus, .gform_wrapper .custom-form .gform_footer input.button:focus,
 .gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:focus {
   color: #fff;
   text-decoration: none;
@@ -2413,22 +2413,22 @@ MAIN NAVIGATION
 /******************************************************************
 HOMEPAGE HERO
 ******************************************************************/
-section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro):not(.section--cta-hero) {
+section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):not(.section--cta-hero) {
   padding-bottom: 60px;
 }
 @media (min-width: 600px) {
-  section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro):not(.section--cta-hero) {
+  section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):not(.section--cta-hero) {
     padding-bottom: 120px;
   }
 }
 
 .section--text-hero + section,
-.homepage--video-intro + section {
+.section--video-hero + section {
   padding-top: 60px;
 }
 @media (min-width: 600px) {
   .section--text-hero + section,
-  .homepage--video-intro + section {
+  .section--video-hero + section {
     padding-top: 120px;
   }
 }
@@ -2470,17 +2470,48 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     opacity: 1;
   }
 }
-.homepage--video-intro {
+.section--video-hero {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   position: relative;
-  background-size: cover;
-  background-position: 50% 50%;
   max-height: 85vh;
+  background: #000;
 }
-.homepage--video-intro:after {
+.section--video-hero .inner-wrap, .section--video-hero .menu-main-nav > ul, .section--video-hero .text-image-row {
+  position: relative;
+  z-index: 3;
+}
+.section--video-hero .video-hero-text {
+  z-index: 3;
+}
+.section--video-hero .video-hero__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+@media (min-width: 600px) {
+  .section--video-hero.hideBG .video-hero__bg {
+    display: none;
+  }
+}
+.section--video-hero .video-hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.section--video-hero.showBG .video-hero__bg {
+  z-index: 2;
+}
+.section--video-hero.showBG .video-hero__video {
+  z-index: 1;
+  display: none;
+  opacity: 0;
+}
+.section--video-hero:after {
   content: "keyboard_arrow_down";
   position: absolute;
   bottom: 8px;
@@ -2497,16 +2528,7 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
   z-index: 99;
   opacity: 0.5;
 }
-.homepage--video-intro.showBG video {
-  opacity: 0;
-}
-@media (min-width: 600px) {
-  .homepage--video-intro.hideBG {
-    background: #08152b !important;
-  }
-}
-.homepage--video-intro .inner-wrap, .homepage--video-intro .menu-main-nav > ul, .homepage--video-intro .text-image-row {
-  position: relative;
+.section--video-hero .inner-wrap, .section--video-hero .menu-main-nav > ul, .section--video-hero .text-image-row {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -2517,45 +2539,51 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
       -ms-flex-align: center;
           align-items: center;
 }
-.homepage--video-intro .homepage--video-intro__text {
+.section--video-hero .video-hero-text {
   color: #fff;
-  z-index: 2;
   width: 100%;
   padding: 30vh 0 20vh;
 }
 @media (min-width: 600px) {
-  .homepage--video-intro .homepage--video-intro__text {
+  .section--video-hero .video-hero-text {
     width: 80%;
     padding: 30vh 0 20vh;
   }
 }
-.homepage--video-intro .homepage--video-intro-button {
+.section--video-hero .video-hero__button {
   background: none;
   border: none;
-  padding: 0;
   outline: none;
   position: relative;
-  color: #fff;
+  background: #FFCF60;
 }
-.homepage--video-intro .homepage--video-intro-button .icon {
+.section--video-hero .video-hero__button:hover {
+  background: #ffc337;
+  -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+}
+.section--video-hero .video-hero__button:active {
+  background: #e09c00;
+}
+.section--video-hero .video-hero__button .icon {
   vertical-align: middle;
   -webkit-transition: all 0.3s;
           transition: all 0.3s;
   font-size: 19px;
 }
-.homepage--video-intro .homepage--video-intro-button span {
+.section--video-hero .video-hero__button span {
   text-transform: uppercase;
   font-size: 14px;
   font-size: 0.77778rem;
   font-weight: bold;
   letter-spacing: 1px;
 }
-.homepage--video-intro .homepage--video-intro-button:hover .icon {
+.section--video-hero .video-hero__button:hover .icon {
   -webkit-transform: translateX(2px);
       -ms-transform: translateX(2px);
           transform: translateX(2px);
 }
-.homepage--video-intro p {
+.section--video-hero p {
   font-size: 28px;
   font-size: 1.55556rem;
   line-height: 46.66667px;
@@ -2563,19 +2591,22 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
   font-weight: 100;
 }
 @media (min-width: 600px) {
-  .homepage--video-intro p {
+  .section--video-hero p {
     max-width: 630px;
   }
 }
-.homepage--video-intro .homepage--video-intro__video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  opacity: 0.8;
+.section--video-hero .video-hero__bg {
+  background-size: cover;
+  background-position: 50% 50%;
+  width: 100%;
+  height: 100%;
+  opacity: 0.6;
+}
+.section--video-hero .video-hero__video {
+  opacity: 0.6;
 }
 @media (max-width: 599px) {
-  .homepage--video-intro .homepage--video-intro__video {
+  .section--video-hero .video-hero__video {
     display: none;
   }
 }
@@ -3427,12 +3458,12 @@ IMAGE + TEXT
   font-weight: 100;
   letter-spacing: 0.5px;
 }
-.section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .homepage--video-intro:after, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-button .icon, .homepage--video-intro .homepage--video-intro-button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
+.section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--video-hero:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
   font-size: 32px;
   color: #43DA5C;
 }
 @media (min-width: 600px) {
-  .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .homepage--video-intro:after, .section--text-3-columns .text-column__item .homepage--video-intro .homepage--video-intro-button .icon, .homepage--video-intro .homepage--video-intro-button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
+  .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--video-hero:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
     margin-bottom: 2rem;
   }
 }

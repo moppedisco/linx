@@ -659,7 +659,7 @@ MAIN NAVIGATION
 HOMEPAGE HERO
 ******************************************************************/
 
-section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro):not(.section--cta-hero)  {
+section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):not(.section--cta-hero)  {
   padding-bottom: 60px;
   @include for-size('tablet-portrait-up'){
     padding-bottom: 120px;
@@ -667,7 +667,7 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
 }
 
 .section--text-hero,
-.homepage--video-intro  {
+.section--video-hero  {
 
   & + section {
     padding-top: 60px;
@@ -700,13 +700,52 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     }
 }
 
-.homepage--video-intro {
+.section--video-hero {
   display: flex;
   overflow: hidden;
   position: relative;
-  background-size: cover;
-  background-position: 50% 50%;
   max-height: 85vh;
+  background: #000;
+
+  .inner-wrap {
+    position: relative;
+    z-index: 3;
+  }
+
+  .video-hero-text {
+    z-index: 3;
+  }
+
+  .video-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  &.hideBG .video-hero__bg {
+    @include for-size('tablet-portrait-up'){
+      display: none;
+    }
+  }
+
+  .video-hero__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  &.showBG {
+    .video-hero__bg {
+      z-index: 2;
+    }
+    .video-hero__video {
+      z-index: 1;
+      display: none;
+      opacity: 0;
+    }
+  }
 
   &:after {
     content:"keyboard_arrow_down";
@@ -728,26 +767,14 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     // box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.15);
   }
 
-  &.showBG video {
-    opacity: 0;
-  }
-
-  &.hideBG {
-    @include for-size('tablet-portrait-up'){
-      background: $blueDark !important;
-    }
-  }
-
   .inner-wrap {
-    position: relative;
     flex: 1 1 auto;
     display: flex;
     align-items: center;
   }
 
-  .homepage--video-intro__text {
+  .video-hero-text {
     color: #fff;
-    z-index: 2;
     width: 100%;
     padding: 30vh 0 20vh;
     @include for-size('tablet-portrait-up'){
@@ -756,15 +783,13 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     }
   }
 
-  .homepage--video-intro-button {
+  .video-hero__button {
     background: none;
     border: none;
-    padding: 0;
     outline: none;
     position: relative;
-
-    color: #fff;
-
+    @extend %button;
+    @include button-bg($yellow);
     .icon {
       @extend .material-icons;
       vertical-align: middle;
@@ -790,12 +815,16 @@ section[class^="section--"]:not(.section--text-hero):not(.homepage--video-intro)
     }
   }
 
-  .homepage--video-intro__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0.8;
+  .video-hero__bg {
+    background-size: cover;
+    background-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+  }
+
+  .video-hero__video {
+    opacity: 0.6;
     @include for-size('phone-only'){
       display: none;
     }
