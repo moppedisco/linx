@@ -730,6 +730,11 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   position: relative;
   max-height: 85vh;
   background: #000;
+  text-align: center;
+
+  @include for-size('tablet-portrait-up'){
+    text-align: left;
+  }
 
   .inner-wrap {
     position: relative;
@@ -1155,6 +1160,7 @@ EMPLOYERS LOGOS
   padding: 3rem 0;
   max-width: 800px;
   margin: 0 auto;
+
   p {
     @include font-size(22px,true);
     font-weight: 100;
@@ -1176,48 +1182,49 @@ TEXT HERO
 ******************************************************************/
 .section--text-hero {
   position: relative;
-  padding: 30vh 0;
+  padding: 15% 0;
   background: #000;
+  text-align: center;
 
-  .inner-wrap {
+  @include for-size('tablet-portrait-up'){
+    text-align: left;
+  }
+
+  .text-hero-left {
     position: relative;
     z-index: 2;
+    @include for-size('tablet-portrait-up'){
+      width: 65%;
+      padding-right: 40px;
+    }
+  }
+
+  .text-hero-right {
+    position: relative;
+    top: 0;
+    right: 0;
+    height: 100%;
+
+    z-index: 4;
+    @include for-size('tablet-portrait-up'){
+      position: absolute;
+      width: 35%;
+    }
   }
 
   h3 {
     @extend h1;
     color: $white;
     z-index: 1;
-    margin: 0;
-
+    margin: 0 0 10px;
     @include for-size('tablet-portrait-up'){
-      max-width: 75%;
-    }
-
-    @include for-size('tablet-landscape-up'){
-      max-width: 60%;
-    }
-  }
-
-  h3 + p,
-  h3 + a {
-    margin-top: 2em;
-
-    @include for-size('tablet-landscape-up'){
-      margin-top: 0;
+      margin: 0 0 20px;
     }
   }
 
   p {
     @extend h4;
     color: $white;
-    @include for-size('tablet-portrait-up'){
-      max-width: 75%;
-    }
-
-    @include for-size('tablet-landscape-up'){
-      max-width: 40%;
-    }
   }
 
   .text-hero__image {
@@ -1233,36 +1240,39 @@ TEXT HERO
   }
 
   .text-hero__form {
-    position: absolute;
-    right: 80px;
-    top: 80px;
-    width: 400px;
+    width: 100%;
     background: #fff;
-    padding: 20px 40px;
-    min-height: calc(100% - 80px);
+    padding: 20px;
     box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
+    max-width: 320px;
+    margin: 0 auto;
 
-    .gform_title {
-      color: black;
-      max-width: none;
+    @include for-size('tablet-portrait-up'){
+      padding: 2em;
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      max-width: 400px;
+      min-height: calc(100% - 80px);
     }
   }
 
   .text-hero__cta {
     @extend %button;
     @include button-bg($yellow);
-    padding: 13px 25px 11px;
+    padding: 5px 17px 4px;
 
-    @include for-size('tablet-landscape-up'){
+    @include for-size('tablet-portrait-up'){
       text-transform: none;
       padding: 2em 1.5em;
       @include font-size(26px);
       position: absolute;
       top: 50%;
-      right: 0;
+      right: 0%;
       transform: translateY(-50%);
       font-weight: 500;
       max-width: 320px;
+      width: 100%;
       transition: all 1s cubic-bezier(.19,1,.22,1),transform 2.5s cubic-bezier(.19,1,.22,1);
 
 
@@ -2592,6 +2602,12 @@ GENERAL FORM STYLING, NOT TESTED
     color: $red;
   }
 
+  .gform_title {
+    color: $black;
+    max-width: none;
+    text-transform: capitalize;
+  }
+
   &.gf_browser_chrome .gform_body { width: 100%; }
 
   // CONTENT ROW
@@ -2624,7 +2640,7 @@ GENERAL FORM STYLING, NOT TESTED
 
 
     @include for-size("tablet-portrait-up"){
-      @include font-size(24px);
+      @include font-size(20px);
       padding: 10px 14px;
     }
   }

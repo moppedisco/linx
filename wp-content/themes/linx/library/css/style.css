@@ -2509,6 +2509,12 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   position: relative;
   max-height: 85vh;
   background: #000;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .section--video-hero {
+    text-align: left;
+  }
 }
 .section--video-hero .inner-wrap, .section--video-hero .menu-main-nav > ul, .section--video-hero .text-image-row {
   position: relative;
@@ -3040,50 +3046,50 @@ TEXT HERO
 ******************************************************************/
 .section--text-hero {
   position: relative;
-  padding: 30vh 0;
+  padding: 15% 0;
   background: #000;
+  text-align: center;
 }
-.section--text-hero .inner-wrap, .section--text-hero .menu-main-nav > ul, .section--text-hero .text-image-row {
+@media (min-width: 600px) {
+  .section--text-hero {
+    text-align: left;
+  }
+}
+.section--text-hero .text-hero-left {
   position: relative;
   z-index: 2;
+}
+@media (min-width: 600px) {
+  .section--text-hero .text-hero-left {
+    width: 65%;
+    padding-right: 40px;
+  }
+}
+.section--text-hero .text-hero-right {
+  position: relative;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 4;
+}
+@media (min-width: 600px) {
+  .section--text-hero .text-hero-right {
+    position: absolute;
+    width: 35%;
+  }
 }
 .section--text-hero h3 {
   color: #fff;
   z-index: 1;
-  margin: 0;
+  margin: 0 0 10px;
 }
 @media (min-width: 600px) {
   .section--text-hero h3 {
-    max-width: 75%;
-  }
-}
-@media (min-width: 1200px) {
-  .section--text-hero h3 {
-    max-width: 60%;
-  }
-}
-.section--text-hero h3 + p,
-.section--text-hero h3 + a {
-  margin-top: 2em;
-}
-@media (min-width: 1200px) {
-  .section--text-hero h3 + p,
-  .section--text-hero h3 + a {
-    margin-top: 0;
+    margin: 0 0 20px;
   }
 }
 .section--text-hero p {
   color: #fff;
-}
-@media (min-width: 600px) {
-  .section--text-hero p {
-    max-width: 75%;
-  }
-}
-@media (min-width: 1200px) {
-  .section--text-hero p {
-    max-width: 40%;
-  }
 }
 .section--text-hero .text-hero__image {
   background-position: 50% 50%;
@@ -3097,23 +3103,27 @@ TEXT HERO
   opacity: 0.7;
 }
 .section--text-hero .text-hero__form {
-  position: absolute;
-  right: 80px;
-  top: 80px;
-  width: 400px;
+  width: 100%;
   background: #fff;
-  padding: 20px 40px;
-  min-height: -webkit-calc(100% - 80px);
-  min-height: calc(100% - 80px);
+  padding: 20px;
   box-shadow: 0px 85px 109px 0px rgba(0, 0, 0, 0.15);
+  max-width: 320px;
+  margin: 0 auto;
 }
-.section--text-hero .text-hero__form .gform_title {
-  color: black;
-  max-width: none;
+@media (min-width: 600px) {
+  .section--text-hero .text-hero__form {
+    padding: 2em;
+    position: absolute;
+    right: 40px;
+    top: 40px;
+    max-width: 400px;
+    min-height: -webkit-calc(100% - 80px);
+    min-height: calc(100% - 80px);
+  }
 }
 .section--text-hero .text-hero__cta {
   background: #FFCF60;
-  padding: 13px 25px 11px;
+  padding: 5px 17px 4px;
 }
 .section--text-hero .text-hero__cta:hover {
   background: #ffc337;
@@ -3123,7 +3133,7 @@ TEXT HERO
 .section--text-hero .text-hero__cta:active {
   background: #e09c00;
 }
-@media (min-width: 1200px) {
+@media (min-width: 600px) {
   .section--text-hero .text-hero__cta {
     text-transform: none;
     padding: 2em 1.5em;
@@ -3131,12 +3141,13 @@ TEXT HERO
     font-size: 1.44444rem;
     position: absolute;
     top: 50%;
-    right: 0;
+    right: 0%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
     font-weight: 500;
     max-width: 320px;
+    width: 100%;
     -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1), -webkit-transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
             transition: all 1s cubic-bezier(0.19, 1, 0.22, 1), transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
@@ -4518,6 +4529,11 @@ GENERAL FORM STYLING, NOT TESTED
 .gform_wrapper .custom-form .gfield_required {
   color: #f5554b;
 }
+.gform_wrapper .custom-form .gform_title {
+  color: #484844;
+  max-width: none;
+  text-transform: capitalize;
+}
 .gform_wrapper .custom-form.gf_browser_chrome .gform_body {
   width: 100%;
 }
@@ -4546,8 +4562,8 @@ GENERAL FORM STYLING, NOT TESTED
 }
 @media (min-width: 600px) {
   .gform_wrapper .custom-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
-    font-size: 24px;
-    font-size: 1.33333rem;
+    font-size: 20px;
+    font-size: 1.11111rem;
     padding: 10px 14px;
   }
 }

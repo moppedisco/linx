@@ -1,16 +1,16 @@
 <section class="section--text-hero">
   <div class="inner-wrap">
-    <div class="text-hero__text">
+    <div class="text-hero-left">
       <h3><?php the_sub_field('title'); ?></h3>
       <?php the_sub_field('text'); ?>
-      <?php if( get_sub_field('call_to_action_button') ): ?>
+    </div>
+    <div class="text-hero-right">
+      <?php if( get_sub_field('call_to_action') == 'cta' ): ?>
         <a class='text-hero__cta' href="<?php the_sub_field('button_link'); ?>">
           <span><?php the_sub_field('button_text'); ?></span>
           <i class="material-icons">keyboard_arrow_right</i>
         </a>
-      <?php endif; ?>
-
-      <?php if( get_sub_field('add_form') ): ?>
+      <?php elseif(get_sub_field('call_to_action') == 'form' ): ?>
         <div class="text-hero__form">
           <?php
             $form_object = get_sub_field('form');
