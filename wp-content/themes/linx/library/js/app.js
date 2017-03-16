@@ -175,13 +175,32 @@ var timeToWaitForLast = 100;
 		var carouselItemsTotal = carouselItems.length;
 		var rightCol = jQuery(".desktop-carousel").find('.homepage--carousel__feature:eq(0) .carousel__feature__rightcol')[0];
 
-		new ScrollMagic.Scene({
+		controller.scrollTo(function (newpos) {
+			TweenMax.to(window, 1.5, {scrollTo: {y: newpos}, ease: Power4.easeInOut});
+		});
+
+		var scrolldots = new ScrollMagic.Scene({
+				triggerElement: ".desktop-carousel",
+				triggerHook: "onLeave",
+				duration: (carouselItemsTotal-1)*100+'%'
+			})
+			.setPin(".desktop-carousel-nav")
+			.addTo(controller);
+
+		var scrollcarousel = new ScrollMagic.Scene({
 				triggerElement: ".desktop-carousel",
 				triggerHook: "onLeave",
 				duration: (carouselItemsTotal-1)*100+'%'
 			})
 			.setPin(rightCol)
 			.addTo(controller);
+
+		jQuery('.desktop-carousel-nav .carousel-dot').each(function(index,element){
+			jQuery(element).on('click',function(){
+				console.log();
+				controller.scrollTo(jQuery('.homepage--carousel__feature:eq('+index+')').offset().top);
+			})
+		});
 
 		carouselItems.each(function(index,element){
 			new ScrollMagic.Scene({
@@ -190,8 +209,8 @@ var timeToWaitForLast = 100;
 					duration: "100%"
 				})
 				.on("enter", function(event){
-					console.log("start");
-					// TweenMax.fromTo(jQuery(firstElement).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
+					jQuery('.desktop-carousel-nav .carousel-dot').removeClass('active');
+					jQuery('.desktop-carousel-nav .carousel-dot').eq(index).addClass('active');
 					if(event.scrollDirection == 'FORWARD' && index > 0){
 						if(index != carouselItemsTotal){
 							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});

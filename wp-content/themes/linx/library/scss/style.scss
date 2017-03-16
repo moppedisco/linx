@@ -1004,7 +1004,11 @@ HOMEPAGE SECTION CAROUSEL
     text-align: center;
     margin: 0;
   }
-
+}
+/**********************************
+MOBILE CAROUSEL
+**********************************/
+.section--carousel {
   .mobile-carousel {
     display: block;
     padding-top: 40px;
@@ -1012,6 +1016,22 @@ HOMEPAGE SECTION CAROUSEL
     @extend .owl-theme;
     @include for-size('tablet-portrait-up'){
       display: none;
+    }
+
+    .owl-carousel__image {
+      max-width: 150px;
+      margin: 0 auto 40px;
+    }
+
+    .owl-carousel__text {
+      text-align: center;
+
+      p {
+        @include font-size(22px);
+        font-weight: 100;
+        line-height: 1.7;
+        letter-spacing: 0.5px;
+      }
     }
 
     .owl-dot span {
@@ -1045,7 +1065,12 @@ HOMEPAGE SECTION CAROUSEL
 
     .owl-carousel__text h2 { margin: 0; }
   }
-
+}
+/**********************************
+DESKTOP CAROUSEL
+**********************************/
+.section--carousel {
+  position: relative;
   .desktop-carousel {
     display: none;
     @include for-size('tablet-portrait-up'){
@@ -1054,6 +1079,34 @@ HOMEPAGE SECTION CAROUSEL
     }
     @include for-size('desktop-up'){
       width: 90%;
+    }
+  }
+
+  .desktop-carousel-nav {
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120vh;
+    transform: translateX(-20px);
+    z-index: 99;
+
+    .carousel-dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      background: #eee;
+      border: none;
+      margin-bottom: 10px;
+      outline: none;
+
+      &.active {
+        background: $yellow;
+      }
+
+      &:last-child { margin: 0; }
     }
   }
 
@@ -1067,22 +1120,6 @@ HOMEPAGE SECTION CAROUSEL
   }
 }
 
-.owl-carousel__image {
-  max-width: 150px;
-  margin: 0 auto 40px;
-}
-
-.owl-carousel__text {
-  text-align: center;
-
-  p {
-    @include font-size(22px);
-    font-weight: 100;
-    line-height: 1.7;
-    letter-spacing: 0.5px;
-  }
-}
-
 .homepage--carousel__feature {
   @include clearfix;
   clear: both;
@@ -1092,7 +1129,6 @@ HOMEPAGE SECTION CAROUSEL
   justify-content: center;
   height: 100vh;
   width: 100%;
-
 
   &:nth-child(1){ z-index: 10; }
   &:nth-child(2){ z-index: 9; }
@@ -1114,7 +1150,7 @@ HOMEPAGE SECTION CAROUSEL
     position: relative;
     align-self: center;
   }
-  
+
   .carousel__feature__rightcol {
     flex: 0 0 50%;
     height: 100%;
@@ -1135,8 +1171,21 @@ HOMEPAGE SECTION CAROUSEL
       &:first-of-type {
         opacity: 1;
       }
-
     }
+
+    .image-box-wrap.screen-desktop {
+      max-width: none;
+      transform: translate(0,0);
+      top: 10%;
+      width: 200%;
+      right: -40%;
+
+      .image-box {
+        padding-bottom: 70%;
+        width: 100%;
+      }
+    }
+
   }
 }
 

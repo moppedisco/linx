@@ -2824,6 +2824,10 @@ HOMEPAGE SECTION CAROUSEL
   text-align: center;
   margin: 0;
 }
+
+/**********************************
+MOBILE CAROUSEL
+**********************************/
 .section--carousel .mobile-carousel {
   display: block;
   padding-top: 40px;
@@ -2832,6 +2836,20 @@ HOMEPAGE SECTION CAROUSEL
   .section--carousel .mobile-carousel {
     display: none;
   }
+}
+.section--carousel .mobile-carousel .owl-carousel__image {
+  max-width: 150px;
+  margin: 0 auto 40px;
+}
+.section--carousel .mobile-carousel .owl-carousel__text {
+  text-align: center;
+}
+.section--carousel .mobile-carousel .owl-carousel__text p {
+  font-size: 22px;
+  font-size: 1.22222rem;
+  font-weight: 100;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
 }
 .section--carousel .mobile-carousel .owl-dot span {
   width: 18px !important;
@@ -2866,6 +2884,13 @@ HOMEPAGE SECTION CAROUSEL
 .section--carousel .mobile-carousel .owl-carousel__text h2 {
   margin: 0;
 }
+
+/**********************************
+DESKTOP CAROUSEL
+**********************************/
+.section--carousel {
+  position: relative;
+}
 .section--carousel .desktop-carousel {
   display: none;
 }
@@ -2880,6 +2905,41 @@ HOMEPAGE SECTION CAROUSEL
     width: 90%;
   }
 }
+.section--carousel .desktop-carousel-nav {
+  position: absolute;
+  top: 0%;
+  left: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 120vh;
+  -webkit-transform: translateX(-20px);
+      -ms-transform: translateX(-20px);
+          transform: translateX(-20px);
+  z-index: 99;
+}
+.section--carousel .desktop-carousel-nav .carousel-dot {
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background: #eee;
+  border: none;
+  margin-bottom: 10px;
+  outline: none;
+}
+.section--carousel .desktop-carousel-nav .carousel-dot.active {
+  background: #FFCF60;
+}
+.section--carousel .desktop-carousel-nav .carousel-dot:last-child {
+  margin: 0;
+}
 .section--carousel .image-box {
   box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
   background-size: cover;
@@ -2887,22 +2947,6 @@ HOMEPAGE SECTION CAROUSEL
   height: 0;
   padding-bottom: 177%;
   width: 100%;
-}
-
-.owl-carousel__image {
-  max-width: 150px;
-  margin: 0 auto 40px;
-}
-
-.owl-carousel__text {
-  text-align: center;
-}
-.owl-carousel__text p {
-  font-size: 22px;
-  font-size: 1.22222rem;
-  font-weight: 100;
-  line-height: 1.7;
-  letter-spacing: 0.5px;
 }
 
 .homepage--carousel__feature {
@@ -2977,6 +3021,19 @@ HOMEPAGE SECTION CAROUSEL
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap:first-of-type {
   opacity: 1;
+}
+.homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
+  max-width: none;
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  top: 10%;
+  width: 200%;
+  right: -40%;
+}
+.homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop .image-box {
+  padding-bottom: 70%;
+  width: 100%;
 }
 
 /******************************************************************
