@@ -5,14 +5,11 @@
 
           <?php while ( have_rows('logos') ) : the_row(); ?>
             <?php
-              // $post_objects = get_sub_field('company');
-              // print_r($post_objects );
-
               $post_object = get_sub_field('company');
             	if($post_object){
             		//Fetch the image field from the carsandtrucks post
             		$image = get_field('logo', $post_object->ID);
-                echo '<img src="' . $image['sizes']['medium'] . '" alt="' . $image['alt'] . '" />';
+                echo '<div><img src="' . $image['sizes']['medium'] . '" alt="' . $image['alt'] . '" /></div>';
             	}
 
             ?>

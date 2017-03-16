@@ -1050,9 +1050,7 @@ HOMEPAGE SECTION CAROUSEL
     display: none;
     @include for-size('tablet-portrait-up'){
       display: block;
-      overflow: hidden;
       width: 100%;
-      height: 100vh;
     }
     @include for-size('desktop-up'){
       width: 90%;
@@ -1087,15 +1085,14 @@ HOMEPAGE SECTION CAROUSEL
 
 .homepage--carousel__feature {
   @include clearfix;
+  clear: both;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  position: absolute;
-  left: 0;
+
 
   &:nth-child(1){ z-index: 10; }
   &:nth-child(2){ z-index: 9; }
@@ -1113,21 +1110,33 @@ HOMEPAGE SECTION CAROUSEL
   }
 
   .carousel__feature__leftcol {
-    flex:  0 0 450px;
+    flex: 0 0 420px;
     position: relative;
     align-self: center;
-    margin-right: 80px;
   }
-
-  &:nth-child(1) .carousel__feature__leftcol { top: 0%; }
-  &:nth-child(2) .carousel__feature__leftcol { top: 100%; }
-  &:nth-child(3) .carousel__feature__leftcol { top: 200%; }
-  &:nth-child(4) .carousel__feature__leftcol { top: 300%; }
-  &:nth-child(5) .carousel__feature__leftcol { top: 400%; }
-
+  
   .carousel__feature__rightcol {
-    flex:  0 0 320px;
+    flex: 0 0 50%;
+    height: 100%;
+    width: 50%;
+    // float: right;
+    // width: 50%;
     align-self: center;
+
+    .image-box-wrap {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      right: -30%;
+      max-width: 320px;
+      transform: translate(-50%,-50%);
+      opacity: 0;
+
+      &:first-of-type {
+        opacity: 1;
+      }
+
+    }
   }
 }
 
@@ -1141,16 +1150,22 @@ EMPLOYERS LOGOS
   align-items: center;
   justify-content: center;
 
-
+  > div {
+    flex: 0 0 50%;
+    text-align: center;
+    @include for-size('tablet-portrait-up'){
+      flex: 0 0 auto;
+    }
+  }
 
   img {
     opacity: 0.3;
     max-height: 45px;
-    margin: 0 10px 20px;
     filter: grayscale(100%);
+    max-width: 80%;
+
     @include for-size('tablet-portrait-up'){
       max-height: 85px;
-      margin: 0 20px 10px;
     }
   }
 }
@@ -2351,15 +2366,13 @@ JOBS
 
   li {
     display: inline-block;
-    margin: 0 15px;
     @include for-size('tablet-portrait-up'){
-      margin: 0 0 32px;
       display: block;
     }
   }
 
   a {
-    @include font-size(18px,true);
+    @include font-size(14px,true);
     text-decoration: none;
     font-weight: bold;
     padding-bottom: 4px;
@@ -2367,7 +2380,6 @@ JOBS
     transition: all 1s cubic-bezier(.19,1,.22,1);
 
     @include for-size('tablet-portrait-up'){
-      @include font-size(24px,true);
     }
 
     &:hover {
@@ -2545,12 +2557,9 @@ JOBS ARTICLE
   .job-item-meta__role {
     display: inline-block;
     margin-right: 10px;
-    i {
-      @extend .role-icon;
-      @include font-size(15px);
-      font-weight: 800;
-      position: relative;
-      top: 2px;
+    img {
+      height: 11px;
+      opacity: 0.7;
       margin-right: 8px;
     }
   }
@@ -2591,7 +2600,10 @@ GENERAL FORM STYLING, NOT TESTED
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.gform_wrapper .custom-form {
+
+
+
+.gform_wrapper:not(#gform_wrapper_1) {
 
   max-width: 400px;
   margin: 0 auto;

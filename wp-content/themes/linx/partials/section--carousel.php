@@ -2,24 +2,48 @@
   <div class="inner-wrap">
     <h2 class='carousel-title'><?php the_sub_field('title'); ?></h2>
     <div class="desktop-carousel">
-
+      <?php $i = 0; ?>
       <?php if( have_rows('carousel_item') ): ?>
           <?php while ( have_rows('carousel_item') ) : the_row(); ?>
 
-            <article class="homepage--carousel__feature <?php the_sub_field('screenshot_type');?>">
+            <?php if($i == 0): ?>
+              <article class="homepage--carousel__feature <?php the_sub_field('screenshot_type');?>">
+                <div class="carousel__feature__leftcol">
+                  <h2><?php the_sub_field('title');?></h2>
+                  <p><?php the_sub_field('text');?></p>
+                </div>
+                <div class="carousel__feature__rightcol">
+            <?php endif; ?>
+                  <div class="image-box-wrap">
+                    <div class="image-box" style='background-image:url("<?php the_sub_field('image'); ?>");'></div>
+                  </div>
+            <?php $i++; ?>
+          <?php endwhile;?>
+            </div>
+          </article>
+      <?php endif; ?>
 
-              <div class="carousel__feature__leftcol">
-                <h2><?php the_sub_field('title');?></h2>
-                <p><?php the_sub_field('text');?></p>
-              </div>
+      <?php $k = 0; ?>
+      <?php if( have_rows('carousel_item') ): ?>
+          <?php while ( have_rows('carousel_item') ) : the_row(); ?>
+              <?php if($k > 0): ?>
+              <article class="homepage--carousel__feature <?php the_sub_field('screenshot_type');?>">
+                <div class="carousel__feature__leftcol">
+                  <h2><?php the_sub_field('title');?></h2>
+                  <p><?php the_sub_field('text');?></p>
+                </div>
+                <div class="carousel__feature__rightcol">
+                </div>
+              </article>
+            <?php endif; ?>
 
-              <div class="carousel__feature__rightcol">
-                <div class="image-box" style='background-image:url("<?php the_sub_field('image'); ?>");'></div>
-              </div>
 
-            </article>
+
+
+            <?php $k++; ?>
           <?php endwhile;?>
       <?php endif; ?>
+
     </div>
 
     <div class="mobile-carousel">

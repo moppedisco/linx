@@ -28,8 +28,11 @@
 	<div class="job-article__header">
 		<span class="job-item-meta__date"><i class="material-icons">date_range</i><?php the_date(); ?></span>
 		<div class="job-item-meta__role">
-			<i class='icon-role-<?php foreach ( $terms as $term ) {echo $term->slug; } ?>'></i>
-			<span class="job-item-meta__category"><?php foreach ( $terms as $term ) {echo $term->slug; } ?></span>
+			<?php foreach ( $terms as $term ): ?>
+				<img src="<?php echo z_taxonomy_image_url($term->term_id); ?>" />
+				<span class="job-item-meta__category"><?php echo $term->slug; ?></span>
+			<?php endforeach; ?>
+
 		</div>
 		<?php if($location): ?>
 			<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location; ?></span>

@@ -621,7 +621,7 @@ html:before {
   src: url(../fonts/role-icons/jitr-role-icon-font.eot?v=1.5);
   src: url(../fonts/role-icons/jitr-role-icon-font.eot?#iefix&?v=1.5) format("eot"), url(../fonts/role-icons/jitr-role-icon-font.woff?v=1.5) format("woff"), url(../fonts/role-icons/jitr-role-icon-font.ttf?v=1.5) format("truetype"), url(../fonts/role-icons/jitr-role-icon-font.svg#jitr-role-icon-font) format("svg");
 }
-.role-icon:before, .job-article__header .job-item-meta__role i:before {
+.role-icon:before {
   font-family: "jitr-role-icon-font";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1000,8 +1000,8 @@ them however you see fit.
 Stylesheet: Button Styles
 
 ******************************************************************/
-.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit] {
+.blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit] {
   display: inline-block;
   position: relative;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
@@ -1020,14 +1020,14 @@ Stylesheet: Button Styles
   transition: background-color 0.14s ease-in-out;
 }
 @media (min-width: 600px) {
-  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper .custom-form .gform_footer input.button,
-  .gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit] {
+  .blue-btn, .header-links .menu .button.looking-for-staff a, .header-links .menu .button.looking-for-work a, .section--video-hero .video-hero__button, #gform_1 input.button, .employers-text a, .section--text-hero .text-hero__cta, .section--text-3-columns .text-column__button, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a, .bullet-points__button a, .section--jobs .jobs-link a, .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button,
+  .gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit] {
     padding: 19px 45px 15px;
   }
 }
-.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .section--video-hero .video-hero__button:hover, #gform_1 input.button:hover, .employers-text a:hover, .section--text-hero .text-hero__cta:hover, .section--text-3-columns .text-column__button:hover, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:hover, .bullet-points__button a:hover, .section--jobs .jobs-link a:hover, .gform_wrapper .custom-form .gform_footer input.button:hover,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .section--video-hero .video-hero__button:focus, #gform_1 input.button:focus, .employers-text a:focus, .section--text-hero .text-hero__cta:focus, .section--text-3-columns .text-column__button:focus, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:focus, .bullet-points__button a:focus, .section--jobs .jobs-link a:focus, .gform_wrapper .custom-form .gform_footer input.button:focus,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:focus {
+.blue-btn:hover, .header-links .menu .button.looking-for-staff a:hover, .header-links .menu .button.looking-for-work a:hover, .section--video-hero .video-hero__button:hover, #gform_1 input.button:hover, .employers-text a:hover, .section--text-hero .text-hero__cta:hover, .section--text-3-columns .text-column__button:hover, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:hover, .bullet-points__button a:hover, .section--jobs .jobs-link a:hover, .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:hover,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:hover, .blue-btn:focus, .header-links .menu .button.looking-for-staff a:focus, .header-links .menu .button.looking-for-work a:focus, .section--video-hero .video-hero__button:focus, #gform_1 input.button:focus, .employers-text a:focus, .section--text-hero .text-hero__cta:focus, .section--text-3-columns .text-column__button:focus, .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:focus, .bullet-points__button a:focus, .section--jobs .jobs-link a:focus, .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:focus,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
@@ -2872,9 +2872,7 @@ HOMEPAGE SECTION CAROUSEL
 @media (min-width: 600px) {
   .section--carousel .desktop-carousel {
     display: block;
-    overflow: hidden;
     width: 100%;
-    height: 100vh;
   }
 }
 @media (min-width: 1200px) {
@@ -2908,6 +2906,7 @@ HOMEPAGE SECTION CAROUSEL
 }
 
 .homepage--carousel__feature {
+  clear: both;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2920,10 +2919,8 @@ HOMEPAGE SECTION CAROUSEL
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100%;
+  height: 100vh;
   width: 100%;
-  position: absolute;
-  left: 0;
 }
 .homepage--carousel__feature:after {
   content: "";
@@ -2952,34 +2949,34 @@ HOMEPAGE SECTION CAROUSEL
 }
 .homepage--carousel__feature .carousel__feature__leftcol {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 450px;
-          flex: 0 0 450px;
+      -ms-flex: 0 0 420px;
+          flex: 0 0 420px;
   position: relative;
   -ms-flex-item-align: center;
       align-self: center;
-  margin-right: 80px;
-}
-.homepage--carousel__feature:nth-child(1) .carousel__feature__leftcol {
-  top: 0%;
-}
-.homepage--carousel__feature:nth-child(2) .carousel__feature__leftcol {
-  top: 100%;
-}
-.homepage--carousel__feature:nth-child(3) .carousel__feature__leftcol {
-  top: 200%;
-}
-.homepage--carousel__feature:nth-child(4) .carousel__feature__leftcol {
-  top: 300%;
-}
-.homepage--carousel__feature:nth-child(5) .carousel__feature__leftcol {
-  top: 400%;
 }
 .homepage--carousel__feature .carousel__feature__rightcol {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 320px;
-          flex: 0 0 320px;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  height: 100%;
+  width: 50%;
   -ms-flex-item-align: center;
       align-self: center;
+}
+.homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  right: -30%;
+  max-width: 320px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap:first-of-type {
+  opacity: 1;
 }
 
 /******************************************************************
@@ -2998,17 +2995,29 @@ EMPLOYERS LOGOS
       -ms-flex-pack: center;
           justify-content: center;
 }
+.employers-logos > div {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  text-align: center;
+}
+@media (min-width: 600px) {
+  .employers-logos > div {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+  }
+}
 .employers-logos img {
   opacity: 0.3;
   max-height: 45px;
-  margin: 0 10px 20px;
   -webkit-filter: grayscale(100%);
           filter: grayscale(100%);
+  max-width: 80%;
 }
 @media (min-width: 600px) {
   .employers-logos img {
     max-height: 85px;
-    margin: 0 20px 10px;
   }
 }
 
@@ -4261,33 +4270,23 @@ JOBS
 }
 #lct-widget-job_categories-container li {
   display: inline-block;
-  margin: 0 15px;
 }
 @media (min-width: 600px) {
   #lct-widget-job_categories-container li {
-    margin: 0 0 32px;
     display: block;
   }
 }
 #lct-widget-job_categories-container a {
-  font-size: 18px;
-  font-size: 1rem;
-  line-height: 30px;
-  line-height: 1.66667rem;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  line-height: 23.33333px;
+  line-height: 1.2963rem;
   text-decoration: none;
   font-weight: bold;
   padding-bottom: 4px;
   border-bottom: 3px solid #fff;
   -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
-}
-@media (min-width: 600px) {
-  #lct-widget-job_categories-container a {
-    font-size: 24px;
-    font-size: 1.33333rem;
-    line-height: 40px;
-    line-height: 2.22222rem;
-  }
 }
 #lct-widget-job_categories-container a:hover {
   border-bottom: 3px solid #484844;
@@ -4474,12 +4473,9 @@ JOBS ARTICLE
   display: inline-block;
   margin-right: 10px;
 }
-.job-article__header .job-item-meta__role i {
-  font-size: 15px;
-  font-size: 0.83333rem;
-  font-weight: 800;
-  position: relative;
-  top: 2px;
+.job-article__header .job-item-meta__role img {
+  height: 11px;
+  opacity: 0.7;
   margin-right: 8px;
 }
 .job-article__header span[class^=job-item-meta] {
@@ -4519,38 +4515,38 @@ GENERAL FORM STYLING, NOT TESTED
   letter-spacing: 1px;
 }
 
-.gform_wrapper .custom-form {
+.gform_wrapper:not(#gform_wrapper_1) {
   max-width: 400px;
   margin: 0 auto;
 }
-.gform_wrapper .custom-form .gform_body {
+.gform_wrapper:not(#gform_wrapper_1) .gform_body {
   width: 100% !important;
 }
-.gform_wrapper .custom-form .gfield_required {
+.gform_wrapper:not(#gform_wrapper_1) .gfield_required {
   color: #f5554b;
 }
-.gform_wrapper .custom-form .gform_title {
+.gform_wrapper:not(#gform_wrapper_1) .gform_title {
   color: #484844;
   max-width: none;
   text-transform: capitalize;
 }
-.gform_wrapper .custom-form.gf_browser_chrome .gform_body {
+.gform_wrapper:not(#gform_wrapper_1).gf_browser_chrome .gform_body {
   width: 100%;
 }
-.gform_wrapper .custom-form ul.gform_fields li.gfield {
+.gform_wrapper:not(#gform_wrapper_1) ul.gform_fields li.gfield {
   padding: 0;
 }
-.gform_wrapper .custom-form .top_label .gfield_label {
+.gform_wrapper:not(#gform_wrapper_1) .top_label .gfield_label {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 14px;
   font-size: 0.77778rem;
   font-weight: bold;
 }
-.gform_wrapper .custom-form .top_label div.ginput_container {
+.gform_wrapper:not(#gform_wrapper_1) .top_label div.ginput_container {
   margin: 0;
 }
-.gform_wrapper .custom-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+.gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   width: 100%;
   background: #eee;
   border-radius: 0;
@@ -4561,24 +4557,24 @@ GENERAL FORM STYLING, NOT TESTED
   max-width: none;
 }
 @media (min-width: 600px) {
-  .gform_wrapper .custom-form input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
+  .gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
     font-size: 20px;
     font-size: 1.11111rem;
     padding: 10px 14px;
   }
 }
-.gform_wrapper .custom-form .gform_footer input.button,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit] {
+.gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit] {
   background: #43DA5C;
 }
-.gform_wrapper .custom-form .gform_footer input.button:hover,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:hover {
+.gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:hover,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:hover {
   background: #28cc43;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
-.gform_wrapper .custom-form .gform_footer input.button:active,
-.gform_wrapper .custom-form .gform_wrapper .gform_footer input[type=submit]:active {
+.gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:active,
+.gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:active {
   background: #1a842b;
 }
 

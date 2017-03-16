@@ -169,99 +169,43 @@ var timeToWaitForLast = 100;
 	}
 
 	function newCarousel(){
-		var windowHeight = jQuery(window).height();
+		var controller = new ScrollMagic.Controller();
+		var firstElement;
 		var carouselItems = jQuery('.desktop-carousel .homepage--carousel__feature');
 		var carouselItemsTotal = carouselItems.length;
-		var scrollDistance = carouselItems.length * windowHeight;
-		var controller = new ScrollMagic.Controller();
-		var allTweens = [];
-		var oldElement;
-		// var wipeAnimation = new TimelineMax({paused: true})
+		var rightCol = jQuery(".desktop-carousel").find('.homepage--carousel__feature:eq(0) .carousel__feature__rightcol')[0];
 
-
-		jQuery( ".desktop-carousel .homepage--carousel__feature" ).each(function(index,element){
-			isPaused.push(true);
-
-			// if(index <= carouselItemsTotal){
-			//
-			// 	if(index == 1){
-			// 		oldElement = element;
-			// 	}	else if(index == 2){
-			// 		var tweenOut 	= "TweenMax.fromTo(jQuery(oldElement).find('.carousel__feature__rightcol'),1,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut},"+(index-1)+")";
-			// 		var tweenIn 	= "TweenMax.fromTo(jQuery(element).find('.carousel__feature__rightcol'),1,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut},"+index+")";
-			// 	} else {
-			// 		var tweenOut 	= "TweenMax.to(jQuery(oldElement).find('.carousel__feature__rightcol'), 1, {autoAlpha: '0', ease: Power4.easeInOut},"+(index-1)+")";
-			// 		var tweenIn 	= "TweenMax.fromTo(jQuery(element).find('.carousel__feature__rightcol'),1,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut},"+index+")";
-			// 	}
-			//
-			// 	if(index > 1){
-			// 		allTweens.push(tweenOut);
-			// 		allTweens.push(tweenIn);
-			// 		// wipeAnimation.add(pause);
-			// 	}
-			// 	oldElement = element;
-			// }
-		});
-
-		// console.log(allTweens);
-		// wipeAnimation.play();
-
-		// define movement of panels
-		wipeAnimation = new TimelineMax({paused: true})
-			// .fromTo(".homepage--carousel__feature:nth-child(1) .carousel__feature__rightcol", 1, {autoAlpha: "1"}, {autoAlpha: "1", ease: Power4.easeInOut},"0")  // in from left
-			// .add(pause)
-			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(1) .carousel__feature__rightcol", 1, {autoAlpha: "1",x:0}, {autoAlpha: "0",x:10, ease: Power4.easeInOut},"1")  // in from left
-			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(2) .carousel__feature__rightcol", 1, {autoAlpha: "0",x:10}, {autoAlpha: "1",x:0, ease: Power4.easeInOut},'1+='+0.3)  // in from right
-			.add(pause)
-			.to(".desktop-carousel .homepage--carousel__feature:nth-child(2) .carousel__feature__rightcol", 1, {autoAlpha: "0",scale:0.98, ease: Power4.easeInOut},'2')  // in from righ
-			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(3) .carousel__feature__rightcol", 1, {autoAlpha: "0",scale:1}, {autoAlpha: "1",scale:1.02, ease: Power4.easeInOut},'2') // in from top
-			.add(pause)
-			.to(".desktop-carousel .homepage--carousel__feature:nth-child(3) .carousel__feature__rightcol", 1, {autoAlpha: "0", ease: Power4.easeInOut},'3')  // in from righ
-			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(4) .carousel__feature__rightcol", 1, {autoAlpha: "0"}, {autoAlpha: "1", ease: Power4.easeInOut},'3') // in from top
-			.add(pause)
-			.to(".desktop-carousel .homepage--carousel__feature:nth-child(4) .carousel__feature__rightcol", 1, {autoAlpha: "0",y:"-20px", ease: Power4.easeInOut},'4')  // in from righ
-			.fromTo(".desktop-carousel .homepage--carousel__feature:nth-child(5) .carousel__feature__rightcol", 1, {autoAlpha: "0",y:"20px"}, {autoAlpha: "1",y: 0, ease: Power4.easeInOut},'4'); // in from top
-
-		// create scene to pin and link animation
 		new ScrollMagic.Scene({
 				triggerElement: ".desktop-carousel",
 				triggerHook: "onLeave",
-				duration: "500%"
+				duration: (carouselItemsTotal-1)*100+'%'
 			})
-			.setPin(".desktop-carousel")
-			// .setTween(wipeAnimation)
-			.on("progress", function(event){
-				var prog = Math.round(event.progress * 10) / 10;
-						prog = Math.round(prog*5)/1; // To even numbers
-
-						console.log(event.progress);
-
-				var direction = (event.direction == "FORWARD" ? 1 : -1);
-				wipeAnimation.progress(event.progress);
-				// if(prog == 1 && isPaused[0]) {
-				// 	isPaused[0] = false;
-				//
-				// 	wipeAnimation.tweenFromTo("1", "2");
-				// 	console.log("playing 1");
-				// } else if(prog == 2 && isPaused[1]){
-				// 	isPaused[1] = false;
-				// 	wipeAnimation.tweenFromTo("2", "3");
-				// 	console.log("playing 2");
-				// } else if(prog == 3 && isPaused[2]){
-				// 	isPaused[2] = false;
-				// 	wipeAnimation.tweenFromTo("3", "4");
-				// 	console.log("playing 3");
-				// } else if(prog == 4 && isPaused[3]){
-				// 	isPaused[3] = false;
-				// 	wipeAnimation.tweenFromTo("4", "5");
-				// 	console.log("playing 4");
-				// }
-
-				jQuery('.homepage--carousel__feature').each(function(index,element){
-					jQuery(element).find('.carousel__feature__leftcol').css('transform','translateY(-'+ scrollDistance*event.progress + 'px)');
-				})
-			})
+			.setPin(rightCol)
 			.addTo(controller);
+
+		carouselItems.each(function(index,element){
+			new ScrollMagic.Scene({
+					triggerElement: element,
+					triggerHook: 0.5,
+					duration: "100%"
+				})
+				.on("enter", function(event){
+					console.log("start");
+					// TweenMax.fromTo(jQuery(firstElement).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
+					if(event.scrollDirection == 'FORWARD' && index > 0){
+						if(index != carouselItemsTotal){
+							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
+						}
+						TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index),0.5,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut});
+					} else if(event.scrollDirection == 'REVERSE') {
+						TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index+1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
+						if(index != carouselItemsTotal-1){
+							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index),0.5,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut});
+						}
+					}
+				})
+				.addTo(controller);
+		});
 	}
 
   function init(){
