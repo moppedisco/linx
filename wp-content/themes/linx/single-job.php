@@ -81,6 +81,8 @@
 
 			</div>
 <?php if(get_field( "include_cta" )): ?>
-	<?php get_template_part( 'partials/footer--cta-hero' ); ?>
+	<?php if( get_field('add_cta', 'option') ): ?>
+		<?php get_template_part( 'partials/footer--cta-hero' ); ?>
+	<?php endif; ?>
 <?php endif; ?>
 <?php get_footer(); ?>
