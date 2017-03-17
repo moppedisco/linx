@@ -5,8 +5,10 @@
     <?php if( have_rows('column') ): ?>
         <?php while ( have_rows('column') ) : the_row(); ?>
           <div class="column-item">
-            <?php $image = get_sub_field('image'); ?>
-            <img src="<?php echo $image['sizes']['large'] ?>" alt="">
+            <?php
+              $image = get_sub_field('image');
+            ?>
+            <img src="<?php echo $image['sizes']['bones-thumb-450'] ?>"  alt="<?php echo $image['alt']; ?>">
             <h3><?php the_sub_field('title');?></h3>
             <?php the_sub_field('text');?>
           </div>

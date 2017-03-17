@@ -205,11 +205,10 @@ var timeToWaitForLast = 100;
 					jQuery('.desktop-carousel-nav .carousel-dot').eq(index).addClass('active');
 					if(event.scrollDirection == 'FORWARD' && index > 0){
 						// console.log(jQuery(element).find('.carousel__feature__leftcol'));
-						if(jQuery(element).find('.carousel__feature__leftcol').hasClass('screen-desktop')){
-							console.log('asdas');
-							TweenMax.to(jQuery(element).find('.carousel__feature__leftcol'),0.5,{y:'-30px', autoAlpha: '1',delay: 0.5}, {y:0, autoAlpha: '1', ease: Power4.easeInOut});
-							// jQuery(element).find('.carousel__feature__leftcol').fadeIn();
-						}
+						// if(jQuery(element).find('.carousel__feature__leftcol').hasClass('screen-desktop')){
+						// 	console.log('asdas');
+						// 	TweenMax.to(jQuery(element).find('.carousel__feature__leftcol'),0.5,{y:'-30px', autoAlpha: '1',delay: 0.2}, {y:0, autoAlpha: '1', ease: Power4.easeInOut});
+						// }
 
 						if(index != carouselItemsTotal){
 							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
@@ -261,7 +260,7 @@ var timeToWaitForLast = 100;
 				jQuery(element).owlCarousel({
 					items: columnSize,
 					dots: false,
-					margin: 40,
+					margin: 20,
 					nav: true,
 					navText: ["keyboard_arrow_left","keyboard_arrow_right"]
 				});

@@ -3258,8 +3258,9 @@ TEXT HERO
 .section--columns h2 {
   text-align: center;
 }
-.section--columns .column-item {
-  padding: 0 20px;
+.section--columns p {
+  font-weight: 100;
+  letter-spacing: 0.5px;
 }
 .section--columns .column-item > *:last-child {
   margin-bottom: 0;
@@ -3267,6 +3268,7 @@ TEXT HERO
 .section--columns .column-item img {
   max-width: 100%;
   width: 100%;
+  margin-bottom: 2em;
 }
 .section--columns .columns-type-newrow {
   display: -webkit-box;
@@ -3279,6 +3281,9 @@ TEXT HERO
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 0 -20px;
+}
+.section--columns .columns-type-newrow .column-item {
+  padding: 0 10px 3em;
 }
 .section--columns .columns-type-newrow.columns-size1 .column-item {
   -webkit-box-flex: 0;
