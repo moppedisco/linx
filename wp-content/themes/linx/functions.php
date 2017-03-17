@@ -284,6 +284,7 @@ function sendSMS( $entry, $form ) {
 
 add_action( 'gform_after_submission_1', 'sendSMS', 10, 2 );
 
+/************* ADD ACF GLOBAL OPTION *********************/
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page( array(
@@ -297,6 +298,12 @@ if( function_exists('acf_add_options_page') ) {
 
     ));
 
+}
+
+/************* REPLACE GRAVITY FORM SPINNER *********************/
+add_filter( 'gform_ajax_spinner_url', 'spinner_url', 10, 2 );
+function spinner_url( $image_src, $form ) {
+    return get_stylesheet_directory_uri() . "/library/images/spin.svg";
 }
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

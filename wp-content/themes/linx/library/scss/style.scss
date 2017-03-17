@@ -1072,13 +1072,17 @@ DESKTOP CAROUSEL
 .section--carousel {
   position: relative;
   .desktop-carousel {
+
     display: none;
+    width: 100%;
+
     @include for-size('tablet-portrait-up'){
       display: block;
-      width: 100%;
+      // width: 80%;
     }
     @include for-size('desktop-up'){
-      width: 90%;
+      margin: 0 auto;
+      width: 80%;
     }
   }
 
@@ -1146,17 +1150,20 @@ DESKTOP CAROUSEL
   }
 
   .carousel__feature__leftcol {
-    flex: 0 0 420px;
+    flex: 0 0 50%;
+    padding-right: 20px;
     position: relative;
     align-self: center;
+    @include for-size('tablet-portrait-up'){
+      flex: 0 0 420px;
+      padding: 0;
+    }
   }
 
   .carousel__feature__rightcol {
     flex: 0 0 50%;
     height: 100%;
     width: 50%;
-    // float: right;
-    // width: 50%;
     align-self: center;
 
     .image-box-wrap {
@@ -2650,7 +2657,11 @@ GENERAL FORM STYLING, NOT TESTED
   letter-spacing: 1px;
 }
 
-
+.gform_wrapper .gform_ajax_spinner {
+  padding-left: 10px;
+  width: 30px;
+  vertical-align: middle;
+}
 
 .gform_wrapper:not(#gform_wrapper_1) {
 

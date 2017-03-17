@@ -2893,16 +2893,17 @@ DESKTOP CAROUSEL
 }
 .section--carousel .desktop-carousel {
   display: none;
+  width: 100%;
 }
 @media (min-width: 600px) {
   .section--carousel .desktop-carousel {
     display: block;
-    width: 100%;
   }
 }
 @media (min-width: 1200px) {
   .section--carousel .desktop-carousel {
-    width: 90%;
+    margin: 0 auto;
+    width: 80%;
   }
 }
 .section--carousel .desktop-carousel-nav {
@@ -2993,11 +2994,20 @@ DESKTOP CAROUSEL
 }
 .homepage--carousel__feature .carousel__feature__leftcol {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 420px;
-          flex: 0 0 420px;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  padding-right: 20px;
   position: relative;
   -ms-flex-item-align: center;
       align-self: center;
+}
+@media (min-width: 600px) {
+  .homepage--carousel__feature .carousel__feature__leftcol {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 420px;
+            flex: 0 0 420px;
+    padding: 0;
+  }
 }
 .homepage--carousel__feature .carousel__feature__rightcol {
   -webkit-box-flex: 0;
@@ -4570,6 +4580,12 @@ GENERAL FORM STYLING, NOT TESTED
   font-size: 0.66667rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.gform_wrapper .gform_ajax_spinner {
+  padding-left: 10px;
+  width: 30px;
+  vertical-align: middle;
 }
 
 .gform_wrapper:not(#gform_wrapper_1) {
