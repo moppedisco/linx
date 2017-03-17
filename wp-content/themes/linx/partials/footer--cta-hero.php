@@ -1,12 +1,14 @@
-<?php if( get_field('background') ): ?>
+<?php if( get_field('background', 'option') ): ?>
 <section class="section--cta-hero footer-cta cta-hero--hasBG">
-  <div class='bg-image' style='background-image: url("<?php the_field('background'); ?>");'></div>
+  <?php $image = get_field('background', 'option'); ?>
+  <div class='bg-image' style='background-image: url("<?php echo wp_get_attachment_url($image,'full'); ?>");'></div>
 <?php else: ?>
 <section class="section--cta-hero footer-cta cta-hero--noBG">
 <?php endif; ?>
   <div class="cta-hero__text">
-      <h3><?php the_field('headline'); ?></h3>
-      <?php the_field('text'); ?>
+      <h3><?php the_field('title', 'option'); ?></h3>
+
+      <?php the_field('text', 'option'); ?>
   </div>
   <!-- END .inner-wrap -->
 </section>

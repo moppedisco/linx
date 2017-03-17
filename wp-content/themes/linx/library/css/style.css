@@ -3180,7 +3180,8 @@ TEXT HERO
 }
 .section--text-hero .text-hero__form {
   width: 100%;
-  background: #fff;
+  background: rgba(45, 57, 59, 0.8);
+  color: #fff;
   padding: 20px;
   box-shadow: 0px 85px 109px 0px rgba(0, 0, 0, 0.15);
   max-width: 320px;
@@ -4599,7 +4600,7 @@ GENERAL FORM STYLING, NOT TESTED
   color: #f5554b;
 }
 .gform_wrapper:not(#gform_wrapper_1) .gform_title {
-  color: #484844;
+  color: #fff;
   max-width: none;
   text-transform: capitalize;
 }
@@ -4621,7 +4622,7 @@ GENERAL FORM STYLING, NOT TESTED
 }
 .gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]) {
   width: 100%;
-  background: #eee;
+  background: #fff;
   border-radius: 0;
   padding: 6px 12px;
   font-size: 18px;
