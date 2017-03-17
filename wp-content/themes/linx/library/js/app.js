@@ -160,14 +160,6 @@ var timeToWaitForLast = 100;
 		});
 	}
 
-	var wipeAnimation;
-	var isPaused = [];
-
-	function pause(){
-		wipeAnimation.pause();
-		console.log("is it paused");
-	}
-
 	function newCarousel(){
 		var controller = new ScrollMagic.Controller();
 		var firstElement;
@@ -240,6 +232,16 @@ var timeToWaitForLast = 100;
 			createOwlCarousel();
 		}
 
+		 jQuery(window).resize(function () {
+
+	      // if we're on the home page, we wait the set amount (in function above) then fire the function
+	      if( jQuery('.video-hero__video') ) { waitForFinalEvent( function() {
+
+	  			viewport = updateViewportDimensions();
+
+	      }, timeToWaitForLast, adjustVideoPositioning('.video-hero__video','video')); }
+	   });
+
   }
 
 	function createOwlCarousel(){
@@ -281,120 +283,6 @@ var timeToWaitForLast = 100;
 				videoHero.reverse();
 			});
 		})
-	}
-
-	function carousel(){
-		var scrollDuration = 900;
-		var tl = new TimelineMax({paused: true});
-		var controller = new ScrollMagic.Controller();
-		var carouselItems = jQuery('.homepage--carousel__feature');
-		var scrollDistance = carouselItems.length * scrollDuration;
-		var tween = TweenMax.to(".carousel__feature__rightcol", 1, {autoAlpha: 1,paused: true});
-
-		var scroll1;
-		var scroll2;
-		var scroll3;
-		var carousel = new ScrollMagic.Scene({
-			triggerElement: ".section--carousel",
-			triggerHook: "0.2",
-			duration: scrollDistance
-		})
-		.setPin(".section--carousel")
-		.setTween(tween)
-		.on("end", function(event){
-			// isScrolling = 1;
-			scroll1 = false;
-			scroll2 = false;
-			scroll3 = false;
-		}).on("progress", function (event) {
-			// console.log(event);
-
-			jQuery('.carousel__feature__leftcol').each(function(index,element){
-				jQuery(element).css('transform','translateY(-'+ scrollDistance*event.progress + 'px)');
-			})
-
-			if(event.progress > 0 && event.progress < 0.3 && !scroll1) {
-				console.log("1");
-				// oldscrollTimestamp = scrollTimestamp;
-				// tl.play();
-				if(event.scrollDirection == "FORWARD"){
-					// tl.play();
-				} else {
-					tl.reverse();
-				}
-				scroll1 = true;
-				scroll2 = false;
-				scroll3 = false;
-			} else if(event.progress > 0.3 && event.progress < 0.6 && !scroll2){
-				if(event.scrollDirection == "FORWARD"){
-					tl.play();
-				} else {
-					tl.reverse();
-				}
-				console.log('2');
-				scroll1 = false;
-				scroll2 = true;
-				scroll3 = false;
-
-			} else if(event.progress > 0.6 && event.progress < 1 && !scroll3){
-				if(event.scrollDirection == "FORWARD"){
-					tl.play();
-				} else {
-					// tl.reverse();
-				}
-				console.log('3');
-				scroll1 = false;
-				scroll2 = false;
-				scroll3 = true;
-			}
-
-			scrollTimestamp = event.timeStamp;
-
-		})
-		.setClassToggle(".section--carousel", "active")
-		.addTo(controller);
-
-		console.log(jQuery(".section--carousel").height());
-		var textHeights = [0,900,1800];
-		jQuery(".homepage--carousel__feature").each(function(index,elem) {
-			tl.to(jQuery(elem).find('.carousel__feature__rightcol'), 0.7, {autoAlpha:0}).addPause();
-			// var height = jQuery(elem).height();
-			// var offset = jQuery(elem).offset().top - jQuery(elem).find('.carousel__feature__leftcol').offset().top;
-			// console.log(offset);
-			jQuery(elem).css('position',"absolute").css('top',"0");
-			jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
-			// jQuery(elem).find('.carousel__feature__leftcol').css('position',"relative").css('top',carheight/3*index);
-			// console.log(elem);
-		});
-
-		// jQuery('.homepage--carousel__feature').css('position',"absolute").css('height',height);
-		//
-
-		// jQuery(".homepage--carousel__feature").each(function(index,elem) {
-		//   _this = this;
-		//
-		//   // jQuery(elem).css('position',"absolute");
-		//   // jQuery(elem).find('.carousel__feature__leftcol').css('top',textHeights[index]);
-		//
-		//   new ScrollMagic.Scene({
-		//     triggerElement: this,
-		//     // triggerHook: "1",
-		//     duration: 900,
-		//     // offset: '-50%'
-		//   })
-		//   .setClassToggle(jQuery(this)[0], "active")
-		//   .on("start", function(event){
-		//     // jQuery(_this).addClass('active');
-		//     // console.log(jQuery(_this)[0]);
-		//   }).on("progress", function (event) {
-		//     // console.log("Scene progress changed to " + event.progress);
-		//   })
-
-
-			// .setPin(jQuery(_this).find('.carousel__feature__rightcol')[0])
-			// .setTween(tween)
-			// .addTo(controller);
-		// });
 	}
 
   function stickyNav(){
