@@ -78,6 +78,11 @@
 
 									<?php get_template_part( 'partials/section--cta-hero' ); ?>
 
+								<?php elseif( get_row_layout() == 'columns' ): ?>
+
+									<?php get_template_part( 'partials/section--columns' ); ?>
+
+
 			        <?php endif; ?>
 				    <?php endwhile; ?>
 

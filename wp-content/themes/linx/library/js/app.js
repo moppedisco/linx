@@ -204,6 +204,13 @@ var timeToWaitForLast = 100;
 					jQuery('.desktop-carousel-nav .carousel-dot').removeClass('active');
 					jQuery('.desktop-carousel-nav .carousel-dot').eq(index).addClass('active');
 					if(event.scrollDirection == 'FORWARD' && index > 0){
+						// console.log(jQuery(element).find('.carousel__feature__leftcol'));
+						if(jQuery(element).find('.carousel__feature__leftcol').hasClass('screen-desktop')){
+							console.log('asdas');
+							TweenMax.to(jQuery(element).find('.carousel__feature__leftcol'),0.5,{y:'-30px', autoAlpha: '1',delay: 0.5}, {y:0, autoAlpha: '1', ease: Power4.easeInOut});
+							// jQuery(element).find('.carousel__feature__leftcol').fadeIn();
+						}
+
 						if(index != carouselItemsTotal){
 							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
 						}
@@ -226,10 +233,13 @@ var timeToWaitForLast = 100;
 		addParallax();
 		mobileNav();
 		videoHeroPlay();
+		columnsCarousel();
+
+
 		if(window.breakpoint != 'mobile'){
 			newCarousel();
 		} else {
-			createOwlCarousel();
+			createMobileCarousel();
 		}
 
 		 jQuery(window).resize(function () {
@@ -244,7 +254,22 @@ var timeToWaitForLast = 100;
 
   }
 
-	function createOwlCarousel(){
+	function columnsCarousel(){
+		if(jQuery('.columns-type-carousel')){
+			jQuery('.columns-type-carousel').each(function(index,element){
+				var columnSize = jQuery(element).attr('data-size').replace('size','');;
+				jQuery(element).owlCarousel({
+					items: columnSize,
+					dots: false,
+					margin: 40,
+					nav: true,
+					navText: ["keyboard_arrow_left","keyboard_arrow_right"]
+				});
+			});
+		}
+	}
+
+	function createMobileCarousel(){
 		jQuery('.mobile-carousel').owlCarousel({
 			items: 1,
 			dots: true,
