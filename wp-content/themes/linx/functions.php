@@ -277,7 +277,7 @@ function sendSMS( $entry, $form ) {
 
     $args = array(
     	'number_to' => $text['phonenumber'],
-    	'message' => "Click on the link to download the Adia app: http://bit.ly/linx-app"
+    	'message' => get_field('sms_text_message', 'option')
     );
     twl_send_sms( $args );
 }
