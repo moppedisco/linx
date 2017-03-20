@@ -23,6 +23,10 @@
 
   </div>
   <!-- END .inner-wrap -->
-  <div class='text-hero__image' style='background-image: url("<?php the_sub_field('image'); ?>");'></div>
+  <?php if( get_sub_field('background') == 'color' ): ?>
+    <div class='text-hero__image' style='opacity: 1;background-color: <?php the_sub_field('background_color'); ?>;'></div>
+  <?php else: ?>
+    <div class='text-hero__image' style='background-image: url("<?php the_sub_field('image'); ?>");'></div>
+  <?php endif; ?>
 </section>
 <!-- END section.image-hero-text -->

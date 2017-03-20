@@ -1390,7 +1390,7 @@ TEXT HERO
     }
 
     img {
-      margin-bottom: 2em;
+      margin-bottom: 1em;
       width: auto !important;
       display: block;
 
@@ -2747,6 +2747,10 @@ GENERAL FORM STYLING, NOT TESTED
   @include font-size(12px);
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.gform_wrapper div.validation_error {
+  color: pink;
 }
 
 .gform_wrapper .gform_ajax_spinner {
