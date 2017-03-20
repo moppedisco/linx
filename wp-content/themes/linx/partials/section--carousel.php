@@ -54,7 +54,7 @@
       <?php while ( have_rows('carousel_item') ) : the_row(); ?>
         <article class="homepage--owl-carousel">
 
-          <div class="owl-carousel__image">
+          <div class="owl-carousel__image <?php the_sub_field('screenshot_type');?>">
             <div class="image-box" style='background-image:url("<?php the_sub_field('image'); ?>");'></div>
           </div>
 

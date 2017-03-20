@@ -2459,7 +2459,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
           animation: DOWN 2s infinite;
   -webkit-transition: all 12s cubic-bezier(0.27, 0, 0.4, 1);
           transition: all 12s cubic-bezier(0.27, 0, 0.4, 1);
-  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.15);
 }
 
 @-webkit-keyframes DOWN {
@@ -2866,7 +2865,8 @@ MOBILE CAROUSEL
   background: #FFCF60 !important;
 }
 .section--carousel .mobile-carousel .owl-nav {
-  width: 100%;
+  width: -webkit-calc(100% + 40px);
+  width: calc(100% + 40px);
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -2875,6 +2875,7 @@ MOBILE CAROUSEL
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 0 -20px;
 }
 .section--carousel .mobile-carousel .owl-nav [class*='owl-'],
 .section--carousel .mobile-carousel .owl-nav [class*='owl-']:hover {
@@ -2886,6 +2887,13 @@ MOBILE CAROUSEL
 }
 .section--carousel .mobile-carousel .image-box {
   box-shadow: 0px 5px 59px 0px rgba(0, 0, 0, 0.15);
+}
+.section--carousel .mobile-carousel .screen-desktop {
+  max-width: 80%;
+}
+.section--carousel .mobile-carousel .screen-desktop .image-box {
+  padding-bottom: 70%;
+  width: 100%;
 }
 .section--carousel .mobile-carousel .owl-carousel__text h2 {
   margin: 0;
@@ -3028,7 +3036,7 @@ DESKTOP CAROUSEL
   width: 100%;
   position: absolute;
   top: 50%;
-  right: -30%;
+  right: -20%;
   max-width: 320px;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
@@ -3040,12 +3048,12 @@ DESKTOP CAROUSEL
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
   max-width: none;
-  -webkit-transform: translate(0, 0);
-      -ms-transform: translate(0, 0);
-          transform: translate(0, 0);
-  top: 10%;
+  left: 0%;
   width: 170%;
-  right: 15%;
+  right: auto;
+  -webkit-transform: translate(40px, -50%);
+      -ms-transform: translate(40px, -50%);
+          transform: translate(40px, -50%);
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop .image-box {
   padding-bottom: 70%;
