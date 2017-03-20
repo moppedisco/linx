@@ -4,13 +4,10 @@
     <div data-size="<?php the_sub_field('column_size'); ?>" class="columns-type-<?php the_sub_field('wrapping'); ?> columns-<?php the_sub_field('column_size'); ?>">
     <?php if( have_rows('column') ): ?>
         <?php while ( have_rows('column') ) : the_row(); ?>
-          <div class="column-item">
+          <div class="column-item ">
             <?php
-              $image = get_sub_field('image');
+              the_sub_field('text');
             ?>
-            <img src="<?php echo $image['sizes']['bones-thumb-450'] ?>"  alt="<?php echo $image['alt']; ?>">
-            <h3><?php the_sub_field('title');?></h3>
-            <?php the_sub_field('text');?>
           </div>
         <?php endwhile;?>
     <?php endif; ?>

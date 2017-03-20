@@ -3262,13 +3262,21 @@ TEXT HERO
   font-weight: 100;
   letter-spacing: 0.5px;
 }
+.section--columns img {
+  margin-bottom: 2em;
+  width: auto !important;
+  display: block;
+}
+.section--columns img.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+.section--columns img.alignright {
+  margin-left: auto;
+  margin-right: 0;
+}
 .section--columns .column-item > *:last-child {
   margin-bottom: 0;
-}
-.section--columns .column-item img {
-  max-width: 100%;
-  width: 100%;
-  margin-bottom: 2em;
 }
 .section--columns .columns-type-newrow {
   display: -webkit-box;
@@ -3332,6 +3340,9 @@ TEXT HERO
   margin: 0;
   font-size: 48px;
   font-size: 2.66667rem;
+}
+.section--columns .columns-type-carousel .owl-dots {
+  margin-top: 20px;
 }
 
 /******************************************************************

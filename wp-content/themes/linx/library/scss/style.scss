@@ -1389,19 +1389,28 @@ TEXT HERO
       letter-spacing: 0.5px;
     }
 
+    img {
+      margin-bottom: 2em;
+      width: auto !important;
+      display: block;
+
+      &.aligncenter {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      &.alignright {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+    }
+
     .column-item {
 
       > *:last-child {
         margin-bottom: 0;
       }
     }
-
-    .column-item img {
-      max-width: 100%;
-      width: 100%;
-      margin-bottom: 2em;
-    }
-
 
     .columns-type-newrow {
       display: flex;
@@ -1441,6 +1450,10 @@ TEXT HERO
           @include font-size(48px);
           @extend .material-icons;
         }
+      }
+
+      .owl-dots {
+        margin-top: 20px;
       }
     }
 }
