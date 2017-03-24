@@ -2370,7 +2370,7 @@ MAIN NAVIGATION
   background: #43DA5C;
   color: #fff !important;
   border: none;
-  padding: 8px 10px 11px 17px;
+  padding: 11px 10px 16px 17px;
 }
 @media (min-width: 600px) {
   .menu-main-nav.sticky li.main-nav-link--register a {
@@ -3789,7 +3789,7 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   border-bottom: 2px solid #484844;
 }
 
-.entry-content--blogposts {
+.entry-content--blogposts, .entry-content--employers {
   padding-bottom: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3797,24 +3797,24 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.entry-content--blogposts:after {
+.entry-content--blogposts:after, .entry-content--employers:after {
   content: "";
   display: table;
   clear: both;
 }
 @media (min-width: 1200px) {
-  .entry-content--blogposts {
+  .entry-content--blogposts, .entry-content--employers {
     margin: 0 -20px;
   }
 }
-.entry-content--blogposts .list--blog-item {
+.entry-content--blogposts .list--blog-item, .entry-content--employers .list--blog-item, .entry-content--employers .list--employer-item {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
   margin: 0 0 25px;
 }
 @media (min-width: 600px) {
-  .entry-content--blogposts .list--blog-item {
+  .entry-content--blogposts .list--blog-item, .entry-content--employers .list--blog-item, .entry-content--employers .list--employer-item {
     margin: 0 10px;
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(50% - 20px);
@@ -3823,50 +3823,62 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   }
 }
 @media (min-width: 1200px) {
-  .entry-content--blogposts .list--blog-item {
+  .entry-content--blogposts .list--blog-item, .entry-content--employers .list--blog-item, .entry-content--employers .list--employer-item {
     -webkit-box-flex: 0;
         -ms-flex: 0 0 calc(33.333334% - 20px);
             flex: 0 0 -webkit-calc(33.333334% - 20px);
             flex: 0 0 calc(33.333334% - 20px);
   }
 }
-.entry-content--blogposts .list--blog-item a {
+.entry-content--blogposts .list--blog-item a, .entry-content--employers .list--blog-item a, .entry-content--employers .list--employer-item a {
   display: block;
   text-align: center;
   text-decoration: none;
   -webkit-transition: .3s,box-shadow .3s,background-color .3s;
           transition: .3s,box-shadow .3s,background-color .3s;
 }
-.entry-content--blogposts .list--blog-item a:hover {
+.entry-content--blogposts .list--blog-item a:hover, .entry-content--employers .list--blog-item a:hover, .entry-content--employers .list--employer-item a:hover {
   box-shadow: 0 20px 30px 0 rgba(17, 21, 23, 0.1);
   -webkit-transform: translate3d(0, -8px, 0);
           transform: translate3d(0, -8px, 0);
 }
-.entry-content--blogposts .list--blog-item .blog-item__image {
+.entry-content--blogposts .list--blog-item .blog-item__image, .entry-content--employers .list--blog-item .blog-item__image, .entry-content--employers .list--employer-item .blog-item__image, .entry-content--employers .list--employer-item .employer-item__image {
   width: 100%;
   height: 180px;
   background-size: cover;
   background-position: 50% 50%;
   margin: 0 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
-.entry-content--blogposts .list--blog-item .blog-item__text {
+.entry-content--blogposts .list--blog-item .blog-item__image img, .entry-content--employers .list--blog-item .blog-item__image img, .entry-content--employers .list--employer-item .blog-item__image img, .entry-content--employers .list--employer-item .employer-item__image img {
+  max-width: 80%;
+}
+.entry-content--blogposts .list--blog-item .blog-item__text, .entry-content--employers .list--blog-item .blog-item__text, .entry-content--employers .list--employer-item .blog-item__text, .entry-content--employers .list--employer-item .employer-item__text {
   padding: 0 40px 40px;
 }
-.entry-content--blogposts h2 {
+.entry-content--blogposts h2, .entry-content--employers h2 {
   font-weight: bold;
   font-size: 42px;
   font-size: 2.33333rem;
   margin: 0 0 20px;
   line-height: 1.2;
 }
-.entry-content--blogposts p {
+.entry-content--blogposts p, .entry-content--employers p {
   margin: 0;
   font-weight: 100;
   position: relative;
   font-weight: 100;
   letter-spacing: 1px;
 }
-.entry-content--blogposts p:after {
+.entry-content--blogposts p:after, .entry-content--employers p:after {
   content: "...";
   font-weight: 100;
 }
@@ -3901,6 +3913,13 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   position: relative;
   top: 3px;
   margin-right: 8px;
+}
+
+.entry-content--employers .list--employer-item a:hover {
+  box-shadow: none;
+  -webkit-transform: none;
+      -ms-transform: none;
+          transform: none;
 }
 
 .section--simple-content + .section--simple-content {
@@ -4259,6 +4278,7 @@ NO HERO STYLES
 
 .page-template-default .header,
 .page-template-page-blog .header,
+.page-template-page-companies .header,
 .page-template-page-jobs .header,
 .job-template-default .header,
 .blogpost-template-default .header {
@@ -4268,6 +4288,7 @@ NO HERO STYLES
 @media (min-width: 600px) {
   .page-template-default .header,
   .page-template-page-blog .header,
+  .page-template-page-companies .header,
   .page-template-page-jobs .header,
   .job-template-default .header,
   .blogpost-template-default .header {
@@ -4278,6 +4299,9 @@ NO HERO STYLES
 .page-template-page-blog .header h1,
 .page-template-page-blog .header .section--text-hero h3,
 .section--text-hero .page-template-page-blog .header h3,
+.page-template-page-companies .header h1,
+.page-template-page-companies .header .section--text-hero h3,
+.section--text-hero .page-template-page-companies .header h3,
 .page-template-page-jobs .header h1,
 .page-template-page-jobs .header .section--text-hero h3,
 .section--text-hero .page-template-page-jobs .header h3,
@@ -4301,6 +4325,9 @@ NO HERO STYLES
   .page-template-page-blog .header h1,
   .page-template-page-blog .header .section--text-hero h3,
   .section--text-hero .page-template-page-blog .header h3,
+  .page-template-page-companies .header h1,
+  .page-template-page-companies .header .section--text-hero h3,
+  .section--text-hero .page-template-page-companies .header h3,
   .page-template-page-jobs .header h1,
   .page-template-page-jobs .header .section--text-hero h3,
   .section--text-hero .page-template-page-jobs .header h3,
@@ -4319,6 +4346,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky),
 .page-template-page-blog .menu-main-nav:not(.sticky),
+.page-template-page-companies .menu-main-nav:not(.sticky),
 .page-template-page-jobs .menu-main-nav:not(.sticky),
 .job-template-default .menu-main-nav:not(.sticky),
 .blogpost-template-default .menu-main-nav:not(.sticky) {
@@ -4327,6 +4355,7 @@ NO HERO STYLES
 @media (min-width: 600px) {
   .page-template-default .menu-main-nav:not(.sticky),
   .page-template-page-blog .menu-main-nav:not(.sticky),
+  .page-template-page-companies .menu-main-nav:not(.sticky),
   .page-template-page-jobs .menu-main-nav:not(.sticky),
   .job-template-default .menu-main-nav:not(.sticky),
   .blogpost-template-default .menu-main-nav:not(.sticky) {
@@ -4335,6 +4364,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .page-template-page-blog .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
+.page-template-page-companies .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .job-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .blogpost-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a {
@@ -4342,6 +4372,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .page-template-page-blog .menu-main-nav:not(.sticky) li.menu-item-has-children a,
+.page-template-page-companies .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a {
@@ -4350,6 +4381,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .page-template-page-blog .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
+.page-template-page-companies .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i {
@@ -4357,6 +4389,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .page-template-page-blog .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
+.page-template-page-companies .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .job-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
@@ -4365,6 +4398,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
 .page-template-page-blog .menu-main-nav:not(.sticky) li.current-menu-item a,
+.page-template-page-companies .menu-main-nav:not(.sticky) li.current-menu-item a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.current-menu-item a,
 .job-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.current-menu-item a {
@@ -4372,6 +4406,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) a,
 .page-template-page-blog .menu-main-nav:not(.sticky) a,
+.page-template-page-companies .menu-main-nav:not(.sticky) a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) a,
 .job-template-default .menu-main-nav:not(.sticky) a,
 .blogpost-template-default .menu-main-nav:not(.sticky) a {
@@ -4379,6 +4414,7 @@ NO HERO STYLES
 }
 .page-template-default .menu-main-nav:not(.sticky) a:hover,
 .page-template-page-blog .menu-main-nav:not(.sticky) a:hover,
+.page-template-page-companies .menu-main-nav:not(.sticky) a:hover,
 .page-template-page-jobs .menu-main-nav:not(.sticky) a:hover,
 .job-template-default .menu-main-nav:not(.sticky) a:hover,
 .blogpost-template-default .menu-main-nav:not(.sticky) a:hover {

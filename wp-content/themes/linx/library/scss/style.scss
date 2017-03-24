@@ -608,7 +608,7 @@ MAIN NAVIGATION
       background: $green;
       color: #fff !important;
       border: none;
-      padding: 8px 10px 11px 17px;
+      padding: 11px 10px 16px 17px;
       @include for-size('tablet-portrait-up'){
         padding: 18px 34px;
       }
@@ -1908,6 +1908,14 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
       background-size: cover;
       background-position: 50% 50%;
       margin: 0 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        // filter: grayscale(100%);
+        max-width: 80%;
+      }
     }
 
     .blog-item__text {
@@ -1990,6 +1998,27 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 //     &:hover { border-color: $black; }
 //   }
 // }
+
+.entry-content--employers {
+  @extend .entry-content--blogposts;
+
+  .list--employer-item {
+    @extend .list--blog-item;
+
+    a:hover {
+      box-shadow: none;
+      transform: none;
+    }
+
+    .employer-item__image {
+      @extend .blog-item__image;
+    }
+
+    .employer-item__text {
+      @extend .blog-item__text;
+    }
+  }
+}
 
 .section--simple-content {
   & + & {
@@ -2391,6 +2420,7 @@ NO HERO STYLES
 
 .page-template-default,        // Simple page
 .page-template-page-blog,      // Blog overview
+.page-template-page-companies, // Companies
 .page-template-page-jobs,      // Jobs overview
 .job-template-default,         // Single job post
 .blogpost-template-default {   // Single blog post
