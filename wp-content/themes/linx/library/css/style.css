@@ -1998,6 +1998,7 @@ HEADER LINKS
 .header-links .menu .menu-item-has-children ul a {
   padding: 10px 20px;
   display: block;
+  text-transform: uppercase;
 }
 .header-links .menu .menu-item-has-children ul a:hover {
   background: #f2f2f2;
@@ -2205,6 +2206,7 @@ MAIN NAVIGATION
 .menu-main-nav li.menu-item-has-children ul a {
   padding: 10px 20px;
   display: block;
+  text-transform: uppercase;
 }
 .menu-main-nav li.menu-item-has-children ul a:hover {
   background: #f2f2f2;
@@ -2245,8 +2247,12 @@ MAIN NAVIGATION
 }
 .menu-main-nav li.menu-item-has-children ul.sub-menu a {
   color: #484844;
-  padding: 18px 20px;
+  padding: 13px 23px;
   border: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  font-weight: bold;
 }
 .menu-main-nav li.main-nav-link--mobile {
   display: block;
@@ -2515,10 +2521,12 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   max-height: 85vh;
   background: #000;
   text-align: center;
+  min-height: 550px;
 }
 @media (min-width: 600px) {
   .section--video-hero {
     text-align: left;
+    min-height: 700px;
   }
 }
 .section--video-hero .inner-wrap, .section--video-hero .menu-main-nav > ul, .section--video-hero .text-image-row {
@@ -2574,6 +2582,9 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
     width: 80%;
     padding: 30vh 0 20vh;
   }
+}
+.section--video-hero .video-hero-text h1, .section--video-hero .video-hero-text .section--text-hero h3, .section--text-hero .section--video-hero .video-hero-text h3 {
+  text-transform: uppercase;
 }
 .section--video-hero .video-hero__button {
   background: none;
@@ -3172,6 +3183,7 @@ TEXT HERO
   color: #fff;
   z-index: 1;
   margin: 0 0 10px;
+  text-transform: uppercase;
 }
 @media (min-width: 600px) {
   .section--text-hero h3 {
