@@ -2045,6 +2045,12 @@ HEADER LINKS
 /******************************************************************
 MAIN NAVIGATION
 ******************************************************************/
+@media (min-width: 600px) {
+  .logged-in.admin-bar .menu-main-nav {
+    margin-top: 32px;
+  }
+}
+
 .menu-main-nav {
   margin: 0;
   position: absolute;

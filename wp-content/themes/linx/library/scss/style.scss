@@ -369,6 +369,12 @@ HEADER LINKS
 MAIN NAVIGATION
 ******************************************************************/
 
+.logged-in.admin-bar .menu-main-nav {
+  @include for-size('tablet-portrait-up'){
+    margin-top: 32px;
+  }
+}
+
 .menu-main-nav {
   margin: 0;
   position: absolute;
