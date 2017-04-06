@@ -59,6 +59,14 @@
 
 								<?php get_template_part( 'partials/section--bullet-points' ); ?>
 
+							<?php elseif( get_row_layout() == 'cta_section' ): ?>
+
+								<?php get_template_part( 'partials/section--cta-hero' ); ?>
+
+							<?php elseif( get_row_layout() == 'columns' ): ?>
+
+								<?php get_template_part( 'partials/section--columns' ); ?>
+
 						<?php endif; ?>
 						<?php endwhile; ?>
 

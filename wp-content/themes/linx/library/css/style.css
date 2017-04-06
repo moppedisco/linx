@@ -1934,15 +1934,15 @@ HEADER LINKS
   cursor: pointer;
 }
 .header-links .menu .button.looking-for-staff a {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .header-links .menu .button.looking-for-staff a:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .header-links .menu .button.looking-for-staff a:active {
-  background: #1a842b;
+  background: #176a41;
 }
 .header-links .menu .button.looking-for-staff a i {
   font-size: 19px;
@@ -2161,15 +2161,15 @@ MAIN NAVIGATION
   width: 90px;
   height: 31px;
   border: none;
-  background: url("../images/logo--white.png") no-repeat;
+  background: url("../images/adia-logo-white.png") no-repeat;
   background-size: contain;
   display: inline-block;
   text-indent: -99999px;
 }
 @media (min-width: 600px) {
   .menu-main-nav li.main-nav-link--logo a {
-    width: 110px;
-    height: 29px;
+    width: 140px;
+    height: 49px;
   }
 }
 .menu-main-nav li.main-nav-link--logo a:hover {
@@ -2285,10 +2285,10 @@ MAIN NAVIGATION
   }
 }
 .menu-main-nav.sticky a {
-  color: #43DA5C;
+  color: #2ED282;
 }
 .menu-main-nav.sticky a:hover {
-  border-color: #43DA5C;
+  border-color: #2ED282;
 }
 .menu-main-nav.sticky li.menu-item-has-children {
   display: none;
@@ -2339,7 +2339,7 @@ MAIN NAVIGATION
   padding: 0;
   border: none;
   margin: 0;
-  background-image: url("../images/logo--green.png");
+  background-image: url("../images/adia-logo-green.png");
 }
 @media (max-width: 599px) {
   .menu-main-nav.sticky li.main-nav-link--logo a {
@@ -2367,7 +2367,7 @@ MAIN NAVIGATION
   }
 }
 .menu-main-nav.sticky li.main-nav-link--register a {
-  background: #43DA5C;
+  background: #2ED282;
   color: #fff !important;
   border: none;
   padding: 11px 10px 16px 17px;
@@ -2701,15 +2701,15 @@ SEND SMS FORM
           transform: translateX(1px);
 }
 .section--cta-hero.cta-hero--noBG #gform_1 input.button {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .section--cta-hero.cta-hero--noBG #gform_1 input.button:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .section--cta-hero.cta-hero--noBG #gform_1 input.button:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 /******************************************************************
@@ -3120,15 +3120,15 @@ EMPLOYERS LOGOS
   margin-bottom: 0;
 }
 .employers-text a {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .employers-text a:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .employers-text a:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 /******************************************************************
@@ -3614,7 +3614,7 @@ IMAGE + TEXT
 .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
 .section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
   font-size: 32px;
-  color: #43DA5C;
+  color: #2ED282;
 }
 @media (min-width: 600px) {
   .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
@@ -3623,15 +3623,15 @@ IMAGE + TEXT
   }
 }
 .section--text-3-columns .text-column__button {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .section--text-3-columns .text-column__button:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .section--text-3-columns .text-column__button:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 .section--text-3-columns.columns--vertical {
@@ -3736,25 +3736,25 @@ IMAGE + TEXT
   padding-bottom: 20px;
 }
 .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a {
-  background: #43DA5C;
+  background: #2ED282;
   color: #fff !important;
   padding: 10px 30px 6px;
   min-width: 150px;
   text-align: center;
 }
 .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .page-template-page-visual-composer .menu-main-nav ul .main-nav-link--login a:active {
-  background: #1a842b;
+  background: #176a41;
 }
 .page-template-page-visual-composer .menu-main-nav a {
   color: #484844 !important;
 }
 .page-template-page-visual-composer .menu-main-nav li.main-nav-link--logo a {
-  background-image: url("../images/logo--black.png");
+  background-image: url("../images/adia-logo-black.png");
   opacity: 0.7;
 }
 
@@ -4077,15 +4077,15 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   text-align: center;
 }
 .bullet-points__button a {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .bullet-points__button a:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .bullet-points__button a:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 .bullet-points {
@@ -4104,7 +4104,7 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 }
 .bullet-points .bullet-points__item i {
   vertical-align: middle;
-  color: #43DA5C;
+  color: #2ED282;
   margin-right: 15px;
   margin-top: -1px;
   float: left;
@@ -4183,7 +4183,7 @@ FOOTER LINKS
 .footer-links .nav li.logo > a {
   width: 90px;
   height: 31px;
-  background: url("../images/logo--white.png") no-repeat;
+  background: url("../images/adia-logo-white.png") no-repeat;
   background-size: contain;
   display: inline-block;
   text-indent: -99999px;
@@ -4393,7 +4393,7 @@ NO HERO STYLES
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .job-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
-  background-image: url("../images/logo--black.png");
+  background-image: url("../images/adia-logo-black.png");
   opacity: 0.7;
 }
 .page-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
@@ -4432,16 +4432,16 @@ JOBS
   margin-top: 40px;
 }
 .section--jobs .jobs-link a {
-  background: #43DA5C;
+  background: #2ED282;
   color: #fff;
 }
 .section--jobs .jobs-link a:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .section--jobs .jobs-link a:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 @media (max-width: 599px) {
@@ -4668,7 +4668,7 @@ span[class^=job-item-meta] i {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: bold;
-  color: #43DA5C;
+  color: #2ED282;
 }
 .job-item__salary:after {
   content: " CHF / Hour";
@@ -4786,17 +4786,17 @@ GENERAL FORM STYLING, NOT TESTED
 }
 .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button,
 .gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit] {
-  background: #43DA5C;
+  background: #2ED282;
 }
 .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:hover,
 .gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:hover {
-  background: #28cc43;
+  background: #26b16d;
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
 .gform_wrapper:not(#gform_wrapper_1) .gform_footer input.button:active,
 .gform_wrapper:not(#gform_wrapper_1) .gform_wrapper .gform_footer input[type=submit]:active {
-  background: #1a842b;
+  background: #176a41;
 }
 
 /*# sourceMappingURL=style.css.map */
