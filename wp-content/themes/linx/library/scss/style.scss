@@ -471,7 +471,7 @@ MAIN NAVIGATION
       width: 90px;
       height: 31px;
       border: none;
-      background: url("../images/adia-logo-white.png") no-repeat;
+      background: url("../images/adia-logo-white.png") 50% no-repeat;
       background-size: contain;
       display: inline-block;
       text-indent: -99999px;
@@ -479,6 +479,7 @@ MAIN NAVIGATION
       @include for-size('tablet-portrait-up'){
         width: 140px;
         height: 49px;
+        background-position: 0 0;
       }
 
       &:hover { border-bottom-color: transparent; }
@@ -1288,7 +1289,7 @@ TEXT HERO
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 550px;  
+  min-height: 550px;
 
   @include for-size('tablet-portrait-up'){
     text-align: left;
