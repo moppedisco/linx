@@ -1286,10 +1286,13 @@ TEXT HERO
   padding: 15% 0;
   background: #000;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 550px;
+
+  @include for-size("phone-only"){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 550px;
+  }
 
   @include for-size('tablet-portrait-up'){
     text-align: left;
