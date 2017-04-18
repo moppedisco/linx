@@ -55,13 +55,14 @@
 														<?php endif; ?>
 														<div class="employer-item__text">
 							                <h2><?php the_title(); ?></span></h2>
-
+															<?php if($content): ?>
 															<p>
 																<?php
 																	$content = get_the_content();
 																	echo substr($content, 0, 150);
 																?>
 															</p>
+														<?php endif; ?>
 														</div>
 								          </a>
 												</div>
