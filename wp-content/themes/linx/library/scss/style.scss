@@ -1442,6 +1442,7 @@ TEXT HERO
       flex-wrap: wrap;
       flex-direction: row;
       margin: 0 -20px;
+      justify-content: center;
 
       .column-item {
         padding: 0 10px 3em;

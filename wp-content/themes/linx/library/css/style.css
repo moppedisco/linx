@@ -3304,6 +3304,9 @@ TEXT HERO
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 0 -20px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .section--columns .columns-type-newrow .column-item {
   padding: 0 10px 3em;
