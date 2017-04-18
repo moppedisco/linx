@@ -82,7 +82,6 @@
 
 									<?php get_template_part( 'partials/section--columns' ); ?>
 
-
 			        <?php endif; ?>
 				    <?php endwhile; ?>
 

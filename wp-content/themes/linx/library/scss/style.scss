@@ -868,6 +868,7 @@ SEND SMS FORM
   display: flex;
   justify-content: center;
   position: relative;
+  padding-top: 0 !important;
 
   &.footer-cta {
     margin-top: 80px;
@@ -886,28 +887,20 @@ SEND SMS FORM
     }
   }
 
+  .text-hero__image {
+    background-position: 50% 50%;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.7;
+  }
+
   #gform_1 {
     justify-content: center;
-  }
-
-  &.cta-hero--hasBG {
-    background: #000;
-    color: #fff;
-    .bg-image {
-      background-size: cover;
-      background-position: 50% 50%;
-      color: $white;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0.7;
-      z-index: 1;
-    }
-  }
-
-  &.cta-hero--noBG #gform_1 {
     input[type='text'] {
       background: rgba(255,255,255,0.5);
       border: 1px solid #ddd;
