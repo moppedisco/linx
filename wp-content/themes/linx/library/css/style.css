@@ -730,7 +730,8 @@ own grids. It's better in the long run and allows you full control
 over your project's layout.
 
 ******************************************************************/
-.last-col, .page-template-page-jobs #main {
+.last-col, .page-template-page-jobs #main,
+.tax-job_categories #main {
   float: right;
   padding-right: 0 !important;
 }
@@ -742,7 +743,9 @@ There are four types, but you can add or customize
 them however you see fit.
 */
 @media (max-width: 767px) {
-  .m-all, .page-template-page-jobs #main, .page-template-page-jobs #sidebar1 {
+  .m-all, .page-template-page-jobs #main,
+  .tax-job_categories #main, .page-template-page-jobs #sidebar1,
+  .tax-job_categories #sidebar1 {
     float: left;
     padding-right: 0.75em;
     width: 100%;
@@ -794,13 +797,15 @@ them however you see fit.
     width: 50%;
   }
 
-  .t-1of3, .page-template-page-jobs #sidebar1 {
+  .t-1of3, .page-template-page-jobs #sidebar1,
+  .tax-job_categories #sidebar1 {
     float: left;
     padding-right: 0.75em;
     width: 33.33%;
   }
 
-  .t-2of3, .page-template-page-jobs #main {
+  .t-2of3, .page-template-page-jobs #main,
+  .tax-job_categories #main {
     float: left;
     padding-right: 0.75em;
     width: 66.66%;
@@ -917,7 +922,8 @@ them however you see fit.
     width: 14.2857142857%;
   }
 
-  .d-2of7, .page-template-page-jobs #sidebar1 {
+  .d-2of7, .page-template-page-jobs #sidebar1,
+  .tax-job_categories #sidebar1 {
     float: left;
     padding-right: 0.75em;
     width: 28.5714286%;
@@ -935,7 +941,8 @@ them however you see fit.
     width: 57.1428572%;
   }
 
-  .d-5of7, .page-template-page-jobs #main {
+  .d-5of7, .page-template-page-jobs #main,
+  .tax-job_categories #main {
     float: left;
     padding-right: 0.75em;
     width: 71.4285715%;
@@ -3890,6 +3897,7 @@ IMAGE + TEXT
 }
 .section--text-3-columns h2 {
   text-align: center;
+  margin-bottom: 3rem;
 }
 .section--text-3-columns p {
   margin: 0;
@@ -3923,8 +3931,8 @@ IMAGE + TEXT
 @media (min-width: 600px) {
   .section--text-3-columns .text-column__item {
     -webkit-box-flex: 0;
-        -ms-flex: 0 0 25%;
-            flex: 0 0 25%;
+        -ms-flex: 0 0 28%;
+            flex: 0 0 28%;
     margin-bottom: 0;
   }
 }
@@ -3941,20 +3949,20 @@ IMAGE + TEXT
 }
 .section--text-3-columns .text-column__item:first-child:nth-last-child(2) {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+      -ms-flex: 0 0 28%;
+          flex: 0 0 28%;
   margin-left: 12.5%;
 }
 .section--text-3-columns .text-column__item:first-child:nth-last-child(2) ~ .text-column__item {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+      -ms-flex: 0 0 28%;
+          flex: 0 0 28%;
   margin-right: 12.5%;
 }
 .section--text-3-columns .text-column__item:first-child:nth-last-child(3), .section--text-3-columns .text-column__item:first-child:nth-last-child(3) ~ .text-column__item {
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 25%;
-          flex: 0 0 25%;
+      -ms-flex: 0 0 28%;
+          flex: 0 0 28%;
 }
 .section--text-3-columns .text-column__item p {
   font-weight: 100;
@@ -4110,17 +4118,20 @@ IMAGE + TEXT
 /******************************************************************
 BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 ******************************************************************/
-.page-template-page-blog #lct-widget-blog_categories-container ul {
+.page-template-page-blog #lct-widget-blog_categories-container ul,
+.tax-blog_categories #lct-widget-blog_categories-container ul {
   list-style: none;
   padding: 0;
   margin: 40px 0 0;
   text-align: center;
 }
-.page-template-page-blog #lct-widget-blog_categories-container ul li {
+.page-template-page-blog #lct-widget-blog_categories-container ul li,
+.tax-blog_categories #lct-widget-blog_categories-container ul li {
   display: inline-block;
   margin: 0 20px;
 }
-.page-template-page-blog #lct-widget-blog_categories-container a {
+.page-template-page-blog #lct-widget-blog_categories-container a,
+.tax-blog_categories #lct-widget-blog_categories-container a {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23.33333px;
@@ -4134,7 +4145,8 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   -webkit-transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
           transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
 }
-.page-template-page-blog #lct-widget-blog_categories-container a:hover {
+.page-template-page-blog #lct-widget-blog_categories-container a:hover,
+.tax-blog_categories #lct-widget-blog_categories-container a:hover {
   border-bottom: 2px solid #484844;
 }
 
@@ -4630,7 +4642,9 @@ NO HERO STYLES
 .page-template-page-companies .header,
 .page-template-page-jobs .header,
 .job-template-default .header,
-.blogpost-template-default .header {
+.blogpost-template-default .header,
+.tax-job_categories .header,
+.tax-blog_categories .header {
   margin: 120px 0 70px;
   text-align: center;
 }
@@ -4640,7 +4654,9 @@ NO HERO STYLES
   .page-template-page-companies .header,
   .page-template-page-jobs .header,
   .job-template-default .header,
-  .blogpost-template-default .header {
+  .blogpost-template-default .header,
+  .tax-job_categories .header,
+  .tax-blog_categories .header {
     margin: 180px 0 100px;
   }
 }
@@ -4659,7 +4675,13 @@ NO HERO STYLES
 .section--text-hero .job-template-default .header h3,
 .blogpost-template-default .header h1,
 .blogpost-template-default .header .section--text-hero h3,
-.section--text-hero .blogpost-template-default .header h3 {
+.section--text-hero .blogpost-template-default .header h3,
+.tax-job_categories .header h1,
+.tax-job_categories .header .section--text-hero h3,
+.section--text-hero .tax-job_categories .header h3,
+.tax-blog_categories .header h1,
+.tax-blog_categories .header .section--text-hero h3,
+.section--text-hero .tax-blog_categories .header h3 {
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 70px;
@@ -4685,7 +4707,13 @@ NO HERO STYLES
   .section--text-hero .job-template-default .header h3,
   .blogpost-template-default .header h1,
   .blogpost-template-default .header .section--text-hero h3,
-  .section--text-hero .blogpost-template-default .header h3 {
+  .section--text-hero .blogpost-template-default .header h3,
+  .tax-job_categories .header h1,
+  .tax-job_categories .header .section--text-hero h3,
+  .section--text-hero .tax-job_categories .header h3,
+  .tax-blog_categories .header h1,
+  .tax-blog_categories .header .section--text-hero h3,
+  .section--text-hero .tax-blog_categories .header h3 {
     font-size: 62px;
     font-size: 3.44444rem;
     line-height: 103.33333px;
@@ -4698,7 +4726,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky),
 .page-template-page-jobs .menu-main-nav:not(.sticky),
 .job-template-default .menu-main-nav:not(.sticky),
-.blogpost-template-default .menu-main-nav:not(.sticky) {
+.blogpost-template-default .menu-main-nav:not(.sticky),
+.tax-job_categories .menu-main-nav:not(.sticky),
+.tax-blog_categories .menu-main-nav:not(.sticky) {
   top: 0;
 }
 @media (min-width: 600px) {
@@ -4707,7 +4737,9 @@ NO HERO STYLES
   .page-template-page-companies .menu-main-nav:not(.sticky),
   .page-template-page-jobs .menu-main-nav:not(.sticky),
   .job-template-default .menu-main-nav:not(.sticky),
-  .blogpost-template-default .menu-main-nav:not(.sticky) {
+  .blogpost-template-default .menu-main-nav:not(.sticky),
+  .tax-job_categories .menu-main-nav:not(.sticky),
+  .tax-blog_categories .menu-main-nav:not(.sticky) {
     padding: 20px 0;
   }
 }
@@ -4716,7 +4748,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .job-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
-.blogpost-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a {
+.blogpost-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
+.tax-job_categories .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
+.tax-blog_categories .menu-main-nav:not(.sticky) ul .main-nav-link--login a {
   color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
@@ -4724,7 +4758,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
-.blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a {
+.blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
+.tax-job_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a,
+.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a {
   color: #484844;
   opacity: 0.3;
 }
@@ -4733,7 +4769,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
-.blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i {
+.blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
+.tax-job_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
+.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a i {
   color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
@@ -4741,7 +4779,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .job-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
-.blogpost-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
+.blogpost-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
+.tax-job_categories .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
+.tax-blog_categories .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
   background-image: url("../images/adia-logo-black.png");
   opacity: 0.7;
 }
@@ -4750,7 +4790,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) li.current-menu-item a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) li.current-menu-item a,
 .job-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
-.blogpost-template-default .menu-main-nav:not(.sticky) li.current-menu-item a {
+.blogpost-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
+.tax-job_categories .menu-main-nav:not(.sticky) li.current-menu-item a,
+.tax-blog_categories .menu-main-nav:not(.sticky) li.current-menu-item a {
   border-color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) a,
@@ -4758,7 +4800,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) a,
 .page-template-page-jobs .menu-main-nav:not(.sticky) a,
 .job-template-default .menu-main-nav:not(.sticky) a,
-.blogpost-template-default .menu-main-nav:not(.sticky) a {
+.blogpost-template-default .menu-main-nav:not(.sticky) a,
+.tax-job_categories .menu-main-nav:not(.sticky) a,
+.tax-blog_categories .menu-main-nav:not(.sticky) a {
   color: #484844 !important;
 }
 .page-template-default .menu-main-nav:not(.sticky) a:hover,
@@ -4766,7 +4810,9 @@ NO HERO STYLES
 .page-template-page-companies .menu-main-nav:not(.sticky) a:hover,
 .page-template-page-jobs .menu-main-nav:not(.sticky) a:hover,
 .job-template-default .menu-main-nav:not(.sticky) a:hover,
-.blogpost-template-default .menu-main-nav:not(.sticky) a:hover {
+.blogpost-template-default .menu-main-nav:not(.sticky) a:hover,
+.tax-job_categories .menu-main-nav:not(.sticky) a:hover,
+.tax-blog_categories .menu-main-nav:not(.sticky) a:hover {
   border-color: #484844;
 }
 
@@ -4794,7 +4840,8 @@ JOBS
 }
 
 @media (max-width: 599px) {
-  .page-template-page-jobs .header {
+  .page-template-page-jobs .header,
+  .tax-job_categories .header {
     margin-bottom: 0;
   }
 }

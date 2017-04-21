@@ -1651,7 +1651,7 @@ IMAGE + TEXT
 .section--text-3-columns {
   text-align: center;
 
-  h2 { text-align: center; }
+  h2 { text-align: center; margin-bottom: 3rem; }
 
   p { margin: 0; }
 
@@ -1670,7 +1670,7 @@ IMAGE + TEXT
     margin-bottom: 2rem;
 
     @include for-size("tablet-portrait-up"){
-      flex: 0 0 25%;
+      flex: 0 0 28%;
       margin-bottom: 0;
     }
 
@@ -1687,13 +1687,13 @@ IMAGE + TEXT
     }
 
     /* two items */
-    &:first-child:nth-last-child(2) { flex: 0 0 25%; margin-left: 12.5%; }
-    &:first-child:nth-last-child(2) ~ .text-column__item { flex: 0 0 25%; margin-right: 12.5%; }
+    &:first-child:nth-last-child(2) { flex: 0 0 28%; margin-left: 12.5%; }
+    &:first-child:nth-last-child(2) ~ .text-column__item { flex: 0 0 28%; margin-right: 12.5%; }
 
     /* three items */
     &:first-child:nth-last-child(3),
     &:first-child:nth-last-child(3) ~ .text-column__item {
-    	flex: 0 0 25%;
+    	flex: 0 0 28%;
     }
 
     p {
@@ -1855,7 +1855,8 @@ IMAGE + TEXT
 BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 ******************************************************************/
 
-.page-template-page-blog {
+.page-template-page-blog,
+.tax-blog_categories {
 
   #lct-widget-blog_categories-container {
 
@@ -2444,7 +2445,9 @@ NO HERO STYLES
 .page-template-page-companies, // Companies
 .page-template-page-jobs,      // Jobs overview
 .job-template-default,         // Single job post
-.blogpost-template-default {   // Single blog post
+.blogpost-template-default,    // Single blog post
+.tax-job_categories,           // Category page job categories
+.tax-blog_categories {         // Blog post categories
 
   .header {
     margin: 120px 0 70px;
@@ -2524,7 +2527,8 @@ JOBS
   }
 }
 
-.page-template-page-jobs {
+.page-template-page-jobs,
+.tax-job_categories {
 
   .header {
     @include for-size('phone-only'){

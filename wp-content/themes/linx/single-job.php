@@ -14,6 +14,7 @@
  * For more info: http://codex.wordpress.org/Post_Type_Templates
 */
 ?>
+
 <?php
 	$expireDate = get_post_meta( get_the_ID(), 'pw_spe_expiration', true );
 	$today = date('Y-m-d');
@@ -23,6 +24,7 @@
 	$openpositions = get_post_meta(get_the_ID(), "open_positions", true);
 	$terms = get_the_terms( get_the_ID() , 'job_categories' );
 ?>
+
 <?php get_header(); ?>
 <header class="header">
 	<div class="job-article__header">
