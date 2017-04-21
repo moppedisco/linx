@@ -21,6 +21,8 @@ Stylesheet: Main Stylesheet
 @import "modules/buttons";                         // buttons
 @import "modules/forms";                           // forms (inputs & labels)
 @import "modules/owl-carousel";                    // Owl carousel
+@import "modules/remodal";                         // Remodal popup
+@import "modules/remodal-default-theme";           // Remodal popup theme
 @import "admin";                                   // forms (inputs & labels)
 
 
@@ -2876,5 +2878,25 @@ GENERAL FORM STYLING, NOT TESTED
   .gform_wrapper .gform_footer input[type=submit] {
     @extend %button;
     @include button-bg($green);
+  }
+}
+
+
+.popup-modal {
+  background-size: cover;
+  padding: 0 0 20px;
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .remodal-confirm {
+    background: $yellow;
+  }
+
+  .remodal-close {
+    color: #fff;
   }
 }

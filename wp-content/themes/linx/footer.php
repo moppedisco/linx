@@ -41,6 +41,9 @@
 			</div>
 			<div class="mobile-background">
 			</div>
+			<?php if(get_field( "activate_popup","option")): ?>
+				<?php get_template_part( 'partials/modal--namechange' ); ?>
+			<?php endif; ?>
 		</div>
 
 		<?php // all js scripts are loaded in library/bones.php ?>

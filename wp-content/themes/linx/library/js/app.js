@@ -95,6 +95,55 @@ var timeToWaitForLast = 100;
 
   var $window = jQuery(window);
 
+	function init(){
+    breakpoint();
+    reSizeVideoWrapper();
+    stickyNav();
+		addParallax();
+		mobileNav();
+		videoHeroPlay();
+		columnsCarousel();
+		newNamePopup();
+
+		if(window.breakpoint != 'mobile'){
+			if(jQuery('.desktop-carousel').length){
+				newCarousel();
+			}
+		} else {
+			createMobileCarousel();
+		}
+
+		jQuery(window).resize(function () {
+
+		  // if we're on the home page, we wait the set amount (in function above) then fire the function
+		  if( jQuery('.video-hero__video') ) { waitForFinalEvent( function() {
+
+				viewport = updateViewportDimensions();
+
+		  }, timeToWaitForLast, adjustVideoPositioning('.video-hero__video','video')); }
+		});
+  }
+
+	function newNamePopup(){
+		var inst = jQuery('[data-remodal-id=modal]').remodal();
+
+		if(getUrlVars()['newname']){
+			inst.open();
+		}
+	}
+
+	function getUrlVars()	{
+	    var vars = [], hash;
+	    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+	    for(var i = 0; i < hashes.length; i++)
+	    {
+	        hash = hashes[i].split('=');
+	        vars.push(hash[0]);
+	        vars[hash[0]] = hash[1];
+	    }
+	    return vars;
+	}
+
 	function addParallax(){
 		var controller = new ScrollMagic.Controller();
 
@@ -224,34 +273,6 @@ var timeToWaitForLast = 100;
 				.addTo(controller);
 		});
 	}
-
-  function init(){
-    breakpoint();
-    reSizeVideoWrapper();
-    stickyNav();
-		addParallax();
-		mobileNav();
-		videoHeroPlay();
-		columnsCarousel();
-
-
-		if(window.breakpoint != 'mobile'){
-			newCarousel();
-		} else {
-			createMobileCarousel();
-		}
-
-		 jQuery(window).resize(function () {
-
-	      // if we're on the home page, we wait the set amount (in function above) then fire the function
-	      if( jQuery('.video-hero__video') ) { waitForFinalEvent( function() {
-
-	  			viewport = updateViewportDimensions();
-
-	      }, timeToWaitForLast, adjustVideoPositioning('.video-hero__video','video')); }
-	   });
-
-  }
 
 	function columnsCarousel(){
 		if(jQuery('.columns-type-carousel')){
