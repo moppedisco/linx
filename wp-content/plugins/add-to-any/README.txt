@@ -1,9 +1,9 @@
 === AddToAny Share Buttons ===
 Contributors: micropat, addtoany
-Tags: AddToAny, share, sharing, social, share button, share buttons, social media, media, marketing, links, email, seo, woocommerce, ecommerce, google, linkedin, reddit, facebook, like, twitter, pinterest, whatsapp, instagram, youtube, addthis, share this, sharethis, feed, icons
+Tags: AddToAny, share, sharing, social, share buttons, share button, social media, media, marketing, links, email, seo, woocommerce, google, linkedin, reddit, facebook, like, twitter, pinterest, whatsapp, instagram, youtube, share this, sharethis, feed, icons
 Requires at least: 3.7
 Tested up to: 4.7
-Stable tag: 1.7.7
+Stable tag: 1.7.8
 
 Share buttons for WordPress including the AddToAny sharing button, Facebook, Twitter, Google+, Pinterest, WhatsApp, many more, and follow icons too.
 
@@ -63,7 +63,7 @@ AddToAny is the universal sharing platform, and AddToAny's plugin is the most po
 = Wide Support =
 
 * Over 10 years of development
-* Over 5.6 million downloads
+* Over 6 million downloads
 * Translated into dozens of languages
 * Ongoing support from the community
 
@@ -117,15 +117,19 @@ Try another web browser, device, and/or Internet connection to see if the button
 = What is the shortcode for sharing? =
 
 You can place your share buttons exactly where you want them by inserting the following shortcode:
+
 `[addtoany]`
 
 Customize the shared URL like so:
+
 `[addtoany url="https://www.example.com/page.html" title="Some Example Page"]`
 
 Display specific share buttons by specifying comma-separated <a href="https://www.addtoany.com/services/">service codes</a>:
+
 `[addtoany buttons="facebook,twitter,google_plus"]`
 
 Share a specific image or video to certain services that accept arbitrary media (Pinterest, Yummly):
+
 `[addtoany buttons="pinterest,yummly" media="https://www.example.com/media/picture.jpg"]`
 
 = For Facebook sharing, how can I set the thumbnail image and description Facebook uses? =
@@ -149,9 +153,11 @@ Upload sharing icons in a single directory to a public location, and make sure t
 = How can I place the share buttons in a specific area of my site? =
 
 In the Theme Editor (or another code editor), place this code block where you want the button and individual icons to appear in your theme:
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>`
 
 You can specify [AddToAny service code(s)](https://www.addtoany.com/services/) to show specific share buttons, for example:
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 	ADDTOANY_SHARE_SAVE_KIT( array( 
 		'buttons' => array( 'facebook', 'twitter', 'google_plus', 'whatsapp' ),
@@ -159,6 +165,7 @@ You can specify [AddToAny service code(s)](https://www.addtoany.com/services/) t
 } ?>`
 
 To customize the shared URL and title:
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 	ADDTOANY_SHARE_SAVE_KIT( array( 
 		'linkname' => 'Example Page',
@@ -167,11 +174,13 @@ To customize the shared URL and title:
 } ?>`
 
 To share the current URL and title (detected on the client-side):
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 	ADDTOANY_SHARE_SAVE_KIT( array( 'use_current_page' => true ) );
 } ?>`
 
 To hardcode the shared current URL and modify the title (server-side):
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 	ADDTOANY_SHARE_SAVE_KIT( array( 
 		'linkname' => is_home() ? get_bloginfo( 'description' ) : wp_title( '', false ),
@@ -180,6 +189,7 @@ To hardcode the shared current URL and modify the title (server-side):
 } ?>`
 
 To share a specific image or video to certain services that accept arbitrary media (Pinterest, Yummly):
+
 `<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 	ADDTOANY_SHARE_SAVE_KIT( array( 
 		'buttons'   => array( 'pinterest', 'yummly' ),
@@ -192,6 +202,7 @@ To share a specific image or video to certain services that accept arbitrary med
 = How can I place the follow buttons in a specific area of my site? =
 
 See the [supported follow services](https://www.addtoany.com/buttons/customize/follow_buttons) for service code names, then place this example code in your theme's file(s) where you want the follow buttons to appear:
+
 `<?php if ( function_exists( 'ADDTOANY_FOLLOW_KIT' ) ) {
 	ADDTOANY_FOLLOW_KIT( array(
 		'buttons' => array(
@@ -236,9 +247,11 @@ add_filter( 'A2A_FOLLOW_services', 'addtoany_add_follow_services', 10, 1 );`
 It depends on your theme, but you can try adding the following CSS code to your Additional CSS box in Settings > AddToAny.
 
 To align right:
+
 `.addtoany_share_save_container { text-align:right; }`
 
 To align center:
+
 `.addtoany_share_save_container { text-align:center; }`
 
 = How can I remove the button(s) from individual posts and pages? =
@@ -262,6 +275,7 @@ Go to `Settings` > `AddToAny` > uncheck `Display at the top or bottom of posts o
 In your theme's `functions.php`, you can add a filter to disable AddToAny sharing.
 
 Disable AddToAny sharing in specific categories, for example:
+
 `function addtoany_disable_sharing_in_some_categories() {
 	// Examples of in_category usage: https://codex.wordpress.org/Function_Reference/in_category
 	if ( in_category( array( 'my_category_1_slug', 'my_category_2_slug' ) ) ) {
@@ -271,6 +285,7 @@ Disable AddToAny sharing in specific categories, for example:
 add_filter( 'addtoany_sharing_disabled', 'addtoany_disable_sharing_in_some_categories' );`
 
 Disable AddToAny sharing on a custom post type, for example:
+
 `function addtoany_disable_sharing_on_my_custom_post_type() {
 	if ( 'my_custom_post_type' == get_post_type() ) {
 		return true;
@@ -305,15 +320,15 @@ The Google+ Share Button width can be changed using CSS code, for instance: `.a2
 
 Yes, this plugin outputs 100% W3C valid HTML5 and W3C valid CSS 3 by default.
 
-= How can I load the buttons after content insertion with AJAX and infinite scroll? =
+= How can I load the buttons after content insertion with Ajax and infinite scroll? =
 
-Fire the standard `post-load` event to have the plugin initiate AddToAny buttons:
+AddToAny supports the <a href="https://codex.wordpress.org/AJAX_in_Plugins#The_post-load_JavaScript_Event">standard `post-load` event</a>.
+
+Ajax and infinite scroll plugins should always fire the `post-load` event after content insertion, so request <a href="https://codex.wordpress.org/AJAX_in_Plugins#The_post-load_JavaScript_Event">standard `post-load` support</a> from plugin authors as needed.
+
+Use the following line to dispatch the `post-load` event for AddToAny and other plugins:
+
 `jQuery( 'body' ).trigger( 'post-load' );`
-
-A couple prerequisites:
-
- * The request has an `HTTP_X_REQUESTED_WITH` header set to `xmlhttprequest`
- * `jQuery` available
 
 = Why does the menu appear behind embedded objects (like Flash)? =
 
@@ -322,17 +337,24 @@ Please read <a href="https://www.addtoany.com/buttons/customize/show_over_embeds
 = How can I set the plugin as a "Must-Use" plugin that is autoloaded and activated for all sites? =
 
 Upload (or move) the `add-to-any` plugin directory into the `/wp-content/mu-plugins/` directory. Then create a proxy PHP loader file (such as `load.php`) in your `mu-plugins` directory, for example:
+
 `<?php require WPMU_PLUGIN_DIR . '/add-to-any/add-to-any.php';`
 
 == Screenshots ==
 
 1. AddToAny vector share buttons (SVG icons) are pixel-perfect on Retina and high-PPI dispays
-2. Traditional Share/Save button features Facebook, Twitter, and a generic share icon
-3. Mini share menu that drops down when visitors use the universal share button
-4. Full universal share menu modal that includes all services
-5. Settings panel
+2. Mini share menu that drops down when visitors use the universal share button
+3. Full universal share menu modal that includes all services
+4. Standard Settings
+5. Floating Settings
 
 == Changelog ==
+
+= 1.7.8 =
+* AddToAny Follow widgets will now use full URLs when specified for a service ID
+* Add Papaly
+* Add Refind
+* Update Pinterest icon
 
 = 1.7.7 =
 * Resolve syntax issue with [out-of-date PHP versions](https://secure.php.net/eol.php) below PHP 5.3

@@ -3,7 +3,7 @@
 Plugin Name: AddToAny Share Buttons
 Plugin URI: https://www.addtoany.com/
 Description: Share buttons for your pages including AddToAny's universal sharing button, Facebook, Twitter, Google+, Pinterest, WhatsApp and many more.
-Version: 1.7.7
+Version: 1.7.8
 Author: AddToAny
 Author URI: https://www.addtoany.com/
 Text Domain: add-to-any
@@ -278,11 +278,14 @@ function ADDTOANY_SHARE_SAVE_ICONS( $args = array() ) {
 			// If Follow kit and HREF specified
 			if ( $is_follow && isset( $service['href'] ) ) {
 				$follow_id = $buttons[ $active_service ]['id'];
-				if ( 'feed' == $safe_name ) {
-					// For "feed" service, stored ID value is actually the URL
+				$is_url = in_array( parse_url( $follow_id, PHP_URL_SCHEME ), array( 'http', 'https' ) );
+				
+				// If it's a URL instead of a service ID
+				if ( $is_url ) {
+					// Just use the given URL instead of the URL template
 					$href = $follow_id;
 				} else {
-					// For all other services, replace
+					// Replace the ID placeholder in the URL template
 					$href = str_replace( '${id}', $follow_id, $service['href'] );
 				}
 				$href = ( 'feed' == $safe_name ) ? $follow_id : $href;
