@@ -3906,7 +3906,6 @@ IMAGE + TEXT
 }
 @media (min-width: 600px) {
   .section--text-3-columns .text-columns {
-    text-align: left;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
@@ -3963,7 +3962,7 @@ IMAGE + TEXT
 }
 .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
 .section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
-  font-size: 32px;
+  font-size: 42px;
   color: #2ED282;
 }
 @media (min-width: 600px) {
@@ -5163,7 +5162,6 @@ GENERAL FORM STYLING, NOT TESTED
 }
 .popup-modal .remodal-close {
   color: #fff;
-  background: none;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1661,7 +1661,6 @@ IMAGE + TEXT
     flex-direction: column;
 
     @include for-size("tablet-portrait-up"){
-      text-align: left;
       flex-direction: row;
       justify-content: space-around;
     }
@@ -1703,7 +1702,7 @@ IMAGE + TEXT
     }
 
     .material-icons {
-      font-size: 32px;
+      font-size: 42px;
       color: $green;
 
       @include for-size("tablet-portrait-up"){
