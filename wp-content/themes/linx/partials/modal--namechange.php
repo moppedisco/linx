@@ -1,5 +1,3 @@
-
-
 <div class='popup-modal' data-remodal-id="modal">
   <button data-remodal-action="close" class="remodal-close"></button>
   <?php $image = get_field('popup_image', 'option'); ?>
