@@ -1024,7 +1024,7 @@ Stylesheet: Button Styles
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   text-decoration: none;
   color: #fff;
-  font-weight: normal;
+  font-weight: bold;
   font-size: 12px;
   font-size: 0.66667rem;
   text-transform: uppercase;
@@ -2969,8 +2969,8 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
 }
 .section--video-hero .video-hero__button span {
   text-transform: uppercase;
-  font-size: 14px;
-  font-size: 0.77778rem;
+  font-size: 12px;
+  font-size: 0.66667rem;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -4893,6 +4893,7 @@ JOBS
 ******************************************************************/
 .section--jobs .inner-wrap, .section--jobs .menu-main-nav > ul, .section--jobs .text-image-row {
   max-width: 800px;
+  margin: 0 auto;
 }
 .section--jobs .jobs-link {
   text-align: center;
