@@ -17,60 +17,72 @@
 
 <main id="content" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-				<?php if( have_rows('homepage_section') ): ?>
-						<?php while ( have_rows('homepage_section') ) : the_row(); ?>
-							<?php if( get_row_layout() == 'video_hero' ): ?>
+	<?php if( have_rows('homepage_section') ): ?>
+			<?php $i = 1; ?>
+			<?php while ( have_rows('homepage_section') ) : the_row(); ?>
+					<?php if( get_row_layout() == 'video_hero' ): ?>
+						<?php
+						/*
+							Used for hero elements that most likely is the top section of a page.
+							This way we can pass the counter variable and decide if title tag should be an H1 or not.
+						*/
+						?>
+						<?php include( locate_template( 'partials/homepage--intro.php', false, false ) );  ?>
 
-								<?php get_template_part( 'partials/homepage--intro' ); ?>
+					<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
+						<?php
+						/*
+							Used for hero elements that most likely is the top section of a page.
+							This way we can pass the counter variable and decide if title tag should be an H1 or not.
+						*/
+						?>
+						<?php include( locate_template( 'partials/section--image-hero-text.php', false, false ) ); ?>
 
-							<?php elseif( get_row_layout() == 'text_banner' ): ?>
+					<?php elseif( get_row_layout() == 'text_banner' ): ?>
 
-								<?php get_template_part( 'partials/section--text-banner' ); ?>
+						<?php get_template_part( 'partials/section--text-banner' ); ?>
 
-							<?php elseif( get_row_layout() == 'carousel' ): ?>
+					<?php elseif( get_row_layout() == 'carousel' ): ?>
 
-								<?php get_template_part( 'partials/section--carousel' ); ?>
+						<?php get_template_part( 'partials/section--carousel' ); ?>
 
-							<?php elseif( get_row_layout() == 'jobs' ): ?>
+					<?php elseif( get_row_layout() == 'jobs' ): ?>
 
-								<?php get_template_part( 'partials/section--jobs' ); ?>
+						<?php get_template_part( 'partials/section--jobs' ); ?>
 
-							<?php elseif( get_row_layout() == 'employers' ): ?>
+					<?php elseif( get_row_layout() == 'employers' ): ?>
 
-								<?php get_template_part( 'partials/section--employers' ); ?>
+						<?php get_template_part( 'partials/section--employers' ); ?>
 
-							<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
+					<?php elseif( get_row_layout() == 'text_w_3_column_points' ): ?>
 
-								<?php get_template_part( 'partials/section--image-hero-text' ); ?>
+						<?php get_template_part( 'partials/section--text-3-columns' ); ?>
 
-							<?php elseif( get_row_layout() == 'text_w_3_column_points' ): ?>
+					<?php elseif( get_row_layout() == 'feature_text_w_image' ): ?>
 
-								<?php get_template_part( 'partials/section--text-3-columns' ); ?>
+						<?php get_template_part( 'partials/section--feature-row' ); ?>
 
-							<?php elseif( get_row_layout() == 'feature_text_w_image' ): ?>
+					<?php elseif( get_row_layout() == 'simple_content_box' ): ?>
 
-								<?php get_template_part( 'partials/section--feature-row' ); ?>
+						<?php get_template_part( 'partials/section--simple-content' ); ?>
 
-							<?php elseif( get_row_layout() == 'simple_content_box' ): ?>
+					<?php elseif( get_row_layout() == 'bullet_points' ): ?>
 
-								<?php get_template_part( 'partials/section--simple-content' ); ?>
+						<?php get_template_part( 'partials/section--bullet-points' ); ?>
 
-							<?php elseif( get_row_layout() == 'bullet_points' ): ?>
+					<?php elseif( get_row_layout() == 'cta_section' ): ?>
 
-								<?php get_template_part( 'partials/section--bullet-points' ); ?>
+						<?php get_template_part( 'partials/section--cta-hero' ); ?>
 
-							<?php elseif( get_row_layout() == 'cta_section' ): ?>
+					<?php elseif( get_row_layout() == 'columns' ): ?>
 
-								<?php get_template_part( 'partials/section--cta-hero' ); ?>
-
-							<?php elseif( get_row_layout() == 'columns' ): ?>
-
-								<?php get_template_part( 'partials/section--columns' ); ?>
-
-						<?php endif; ?>
-						<?php endwhile; ?>
+						<?php get_template_part( 'partials/section--columns' ); ?>
 
 				<?php endif; ?>
+			<?php $i++; ?>
+			<?php endwhile; ?>
+
+	<?php endif; ?>
 </main>
 
 <?php get_footer(); ?>
