@@ -16,7 +16,7 @@
             <?php if($i == 0): ?>
               <article class="homepage--carousel__feature">
                 <div class="carousel__feature__leftcol">
-                  <h2><?php the_sub_field('title');?></h2>
+                  <h3  class='carousel__feature__title'><?php the_sub_field('title');?></h3>
                   <p><?php the_sub_field('text');?></p>
                 </div>
                 <div class="carousel__feature__rightcol">
@@ -36,7 +36,7 @@
               <?php if($k > 0): ?>
               <article class="homepage--carousel__feature">
                 <div class="carousel__feature__leftcol <?php the_sub_field('screenshot_type');?>">
-                  <h2><?php the_sub_field('title');?></h2>
+                  <h3 class='carousel__feature__title'><?php the_sub_field('title');?></h3>
                   <p><?php the_sub_field('text');?></p>
                 </div>
                 <div class="carousel__feature__rightcol">

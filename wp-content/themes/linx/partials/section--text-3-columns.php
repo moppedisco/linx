@@ -6,7 +6,7 @@
       <div class="text-columns-split">
         <div class="text-columns--image">
           <img src="<?php the_sub_field('vertical_image'); ?>" alt="" />
-        </div>        
+        </div>
     <?php endif; ?>
     <div class="text-columns">
     <?php if( have_rows('points') ): ?>
@@ -18,7 +18,7 @@
             	<i class='material-icons'><?php the_sub_field('image');?></i>
             <?php endif; ?>
 
-            <h3><?php the_sub_field('title');?></h3>
+            <h4><?php the_sub_field('title');?></h4>
             <p><?php the_sub_field('text');?></p>
           </article>
 

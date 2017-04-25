@@ -1087,7 +1087,7 @@ MOBILE CAROUSEL
       }
     }
 
-    .owl-carousel__text h2 { margin: 0; }
+    .owl-carousel__text .carousel__feature__title { margin: 0; }
   }
 }
 /**********************************
@@ -1164,13 +1164,14 @@ DESKTOP CAROUSEL
   &:nth-child(4){ z-index: 7; }
   &:nth-child(5){ z-index: 6; }
 
-  h2 {
-    @include font-size(42px);
+  .carousel__feature__title {
+    @include font-size(38px);
     line-height: 1.4;
   }
 
   p {
-    @extend h4;
+    @include font-size(22px,true);
+    font-weight: 100;
   }
 
   .carousel__feature__leftcol {
@@ -1679,7 +1680,8 @@ IMAGE + TEXT
       margin-bottom: 0;
     }
 
-    h3 {
+    h4 {
+      @extend h3;
       @include for-size("phone-only"){
         margin-bottom: 0rem;
       }

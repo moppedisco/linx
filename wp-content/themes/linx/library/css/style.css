@@ -496,7 +496,7 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
-h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .text-image-row p, h5, h6, hgroup,
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p, h4, .text-image-row p, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
 table,
@@ -728,7 +728,7 @@ FONT FACE (IN YOUR FACE)
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .text-image-row p, h5, h6 {
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p, h4, .text-image-row p, h5, h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
@@ -2107,7 +2107,7 @@ h2 {
   }
 }
 
-h3 {
+h3, .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p {
   font-size: 26px;
   font-size: 1.44444rem;
   line-height: 43.33333px;
@@ -2115,7 +2115,7 @@ h3 {
   font-weight: 100;
 }
 
-h4, .homepage--carousel__feature p, .text-image-row p {
+h4, .text-image-row p {
   font-size: 22px;
   font-size: 1.22222rem;
   font-weight: 100;
@@ -3262,7 +3262,7 @@ MOBILE CAROUSEL
   padding-bottom: 70%;
   width: 100%;
 }
-.section--carousel .mobile-carousel .owl-carousel__text h2 {
+.section--carousel .mobile-carousel .owl-carousel__text .carousel__feature__title {
   margin: 0;
 }
 
@@ -3368,10 +3368,17 @@ DESKTOP CAROUSEL
 .homepage--carousel__feature:nth-child(5) {
   z-index: 6;
 }
-.homepage--carousel__feature h2 {
-  font-size: 42px;
-  font-size: 2.33333rem;
+.homepage--carousel__feature .carousel__feature__title {
+  font-size: 38px;
+  font-size: 2.11111rem;
   line-height: 1.4;
+}
+.homepage--carousel__feature p {
+  font-size: 22px;
+  font-size: 1.22222rem;
+  line-height: 36.66667px;
+  line-height: 2.03704rem;
+  font-weight: 100;
 }
 .homepage--carousel__feature .carousel__feature__leftcol {
   -webkit-box-flex: 0;
@@ -3974,7 +3981,7 @@ IMAGE + TEXT
   }
 }
 @media (max-width: 599px) {
-  .section--text-3-columns .text-column__item h3 {
+  .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p {
     margin-bottom: 0rem;
   }
 }
@@ -4927,7 +4934,7 @@ JOBS
   padding: 0;
   margin: 0;
 }
-#lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
+#lct-widget-job_categories-container h4, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
   text-transform: uppercase;
   font-size: 14px;
   font-size: 0.77778rem;
@@ -4936,7 +4943,7 @@ JOBS
   opacity: 0.3;
 }
 @media (max-width: 599px) {
-  #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
+  #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
     display: none;
   }
 }
