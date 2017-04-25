@@ -33,10 +33,25 @@
 <main id="content" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 				<?php if( have_rows('homepage_section') ): ?>
+						<?php $i = 1; ?>
 				    <?php while ( have_rows('homepage_section') ) : the_row(); ?>
 				      	<?php if( get_row_layout() == 'video_hero' ): ?>
+									<?php
+									/*
+										Used for hero elements that most likely is the top section of a page.
+										This way we can pass the counter variable and decide if title tag should be an H1 or not.
+									*/
+									?>
+									<?php include( locate_template( 'partials/homepage--intro.php', false, false ) );  ?>
 
-									<?php get_template_part( 'partials/homepage--intro' ); ?>
+								<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
+									<?php
+									/*
+										Used for hero elements that most likely is the top section of a page.
+										This way we can pass the counter variable and decide if title tag should be an H1 or not.
+									*/
+									?>
+									<?php include( locate_template( 'partials/section--image-hero-text.php', false, false ) ); ?>
 
 								<?php elseif( get_row_layout() == 'text_banner' ): ?>
 
@@ -53,10 +68,6 @@
 								<?php elseif( get_row_layout() == 'employers' ): ?>
 
 									<?php get_template_part( 'partials/section--employers' ); ?>
-
-								<?php elseif( get_row_layout() == 'image_hero_w_text' ): ?>
-
-									<?php get_template_part( 'partials/section--image-hero-text' ); ?>
 
 								<?php elseif( get_row_layout() == 'text_w_3_column_points' ): ?>
 
@@ -83,6 +94,7 @@
 									<?php get_template_part( 'partials/section--columns' ); ?>
 
 			        <?php endif; ?>
+						<?php $i++; ?>
 				    <?php endwhile; ?>
 
 				<?php endif; ?>

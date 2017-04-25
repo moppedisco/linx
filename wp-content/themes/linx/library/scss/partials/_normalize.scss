@@ -498,3 +498,31 @@ span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
+
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+table td,
+table th {
+    padding: .5rem;
+    vertical-align: top;
+    border-top: 1px solid #eceeef;
+    text-align: left;
+}
+
+table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #eceeef;
+}
+
+table tbody th {
+  padding-left: 0;
+}

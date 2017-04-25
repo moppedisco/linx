@@ -509,6 +509,29 @@ body#tinymce.wp-editor span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
+body#tinymce.wp-editor table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+body#tinymce.wp-editor table {
+  border-collapse: collapse;
+  background-color: transparent;
+}
+body#tinymce.wp-editor table td,
+body#tinymce.wp-editor table th {
+  padding: .5rem;
+  vertical-align: top;
+  border-top: 1px solid #eceeef;
+  text-align: left;
+}
+body#tinymce.wp-editor table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #eceeef;
+}
+body#tinymce.wp-editor table tbody th {
+  padding-left: 0;
+}
 body#tinymce.wp-editor h1, body#tinymce.wp-editor h2, body#tinymce.wp-editor h3, body#tinymce.wp-editor h4, body#tinymce.wp-editor h5, body#tinymce.wp-editor h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;

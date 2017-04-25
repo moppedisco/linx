@@ -111,7 +111,7 @@ a:hover {
  * Address variable `h1` font-size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari 5, and Chrome.
  */
-h1, .section--text-hero h3 {
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title {
   font-size: 2em;
   margin: 0.67em 0;
 }
@@ -462,13 +462,41 @@ span.amp {
   font-style: italic;
 }
 
+table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: transparent;
+}
+
+table td,
+table th {
+  padding: .5rem;
+  vertical-align: top;
+  border-top: 1px solid #eceeef;
+  text-align: left;
+}
+
+table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #eceeef;
+}
+
+table tbody th {
+  padding-left: 0;
+}
+
 /******************************************************************
 Stylesheet: Variables
 ******************************************************************/
 /******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
-h1, .section--text-hero h3, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6, hgroup,
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
 table,
@@ -700,7 +728,7 @@ FONT FACE (IN YOUR FACE)
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-h1, .section--text-hero h3, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6 {
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
@@ -2049,7 +2077,7 @@ iframe {
   max-width: 100%;
 }
 
-h1, .section--text-hero h3 {
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title {
   font-size: 52px;
   font-size: 2.88889rem;
   line-height: 1.1;
@@ -2057,7 +2085,7 @@ h1, .section--text-hero h3 {
   font-weight: bold;
 }
 @media (min-width: 600px) {
-  h1, .section--text-hero h3 {
+  h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title {
     font-size: 92px;
     font-size: 5.11111rem;
   }
@@ -2853,6 +2881,7 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   background: #000;
   text-align: center;
   min-height: 550px;
+  padding-top: 0 !important;
 }
 @media (min-width: 600px) {
   .section--video-hero {
@@ -2914,7 +2943,7 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
     padding: 30vh 0 20vh;
   }
 }
-.section--video-hero .video-hero-text h1, .section--video-hero .video-hero-text .section--text-hero h3, .section--text-hero .section--video-hero .video-hero-text h3 {
+.section--video-hero .video-hero__title {
   text-transform: uppercase;
 }
 .section--video-hero .video-hero__button {
@@ -2983,7 +3012,7 @@ SEND SMS FORM
 ******************************************************************/
 .section--cta-hero {
   text-align: center;
-  background: #f7f7f7;
+  background: #000;
   min-height: 65vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -3474,7 +3503,7 @@ TEXT HERO
 ******************************************************************/
 .section--text-hero {
   position: relative;
-  padding: 15% 0;
+  padding: 15% 0 !important;
   background: #000;
   text-align: center;
 }
@@ -3508,6 +3537,9 @@ TEXT HERO
     padding-right: 40px;
   }
 }
+.section--text-hero .text-hero-left > *:last-child {
+  margin-bottom: 0;
+}
 .section--text-hero .text-hero-right {
   position: relative;
   top: 0;
@@ -3521,14 +3553,14 @@ TEXT HERO
     width: 35%;
   }
 }
-.section--text-hero h3 {
+.section--text-hero .text-hero__title {
   color: #fff;
   z-index: 1;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
 @media (min-width: 600px) {
-  .section--text-hero h3 {
+  .section--text-hero .text-hero__title {
     margin: 0 0 20px;
   }
 }
@@ -4660,28 +4692,42 @@ NO HERO STYLES
     margin: 180px 0 100px;
   }
 }
-.page-template-default .header h1, .page-template-default .header .section--text-hero h3, .section--text-hero .page-template-default .header h3,
+.page-template-default .header h1, .page-template-default .header .section--video-hero .video-hero__title, .section--video-hero .page-template-default .header .video-hero__title, .page-template-default .header .section--text-hero .text-hero__title, .section--text-hero .page-template-default .header .text-hero__title,
 .page-template-page-blog .header h1,
-.page-template-page-blog .header .section--text-hero h3,
-.section--text-hero .page-template-page-blog .header h3,
+.page-template-page-blog .header .section--video-hero .video-hero__title,
+.section--video-hero .page-template-page-blog .header .video-hero__title,
+.page-template-page-blog .header .section--text-hero .text-hero__title,
+.section--text-hero .page-template-page-blog .header .text-hero__title,
 .page-template-page-companies .header h1,
-.page-template-page-companies .header .section--text-hero h3,
-.section--text-hero .page-template-page-companies .header h3,
+.page-template-page-companies .header .section--video-hero .video-hero__title,
+.section--video-hero .page-template-page-companies .header .video-hero__title,
+.page-template-page-companies .header .section--text-hero .text-hero__title,
+.section--text-hero .page-template-page-companies .header .text-hero__title,
 .page-template-page-jobs .header h1,
-.page-template-page-jobs .header .section--text-hero h3,
-.section--text-hero .page-template-page-jobs .header h3,
+.page-template-page-jobs .header .section--video-hero .video-hero__title,
+.section--video-hero .page-template-page-jobs .header .video-hero__title,
+.page-template-page-jobs .header .section--text-hero .text-hero__title,
+.section--text-hero .page-template-page-jobs .header .text-hero__title,
 .job-template-default .header h1,
-.job-template-default .header .section--text-hero h3,
-.section--text-hero .job-template-default .header h3,
+.job-template-default .header .section--video-hero .video-hero__title,
+.section--video-hero .job-template-default .header .video-hero__title,
+.job-template-default .header .section--text-hero .text-hero__title,
+.section--text-hero .job-template-default .header .text-hero__title,
 .blogpost-template-default .header h1,
-.blogpost-template-default .header .section--text-hero h3,
-.section--text-hero .blogpost-template-default .header h3,
+.blogpost-template-default .header .section--video-hero .video-hero__title,
+.section--video-hero .blogpost-template-default .header .video-hero__title,
+.blogpost-template-default .header .section--text-hero .text-hero__title,
+.section--text-hero .blogpost-template-default .header .text-hero__title,
 .tax-job_categories .header h1,
-.tax-job_categories .header .section--text-hero h3,
-.section--text-hero .tax-job_categories .header h3,
+.tax-job_categories .header .section--video-hero .video-hero__title,
+.section--video-hero .tax-job_categories .header .video-hero__title,
+.tax-job_categories .header .section--text-hero .text-hero__title,
+.section--text-hero .tax-job_categories .header .text-hero__title,
 .tax-blog_categories .header h1,
-.tax-blog_categories .header .section--text-hero h3,
-.section--text-hero .tax-blog_categories .header h3 {
+.tax-blog_categories .header .section--video-hero .video-hero__title,
+.section--video-hero .tax-blog_categories .header .video-hero__title,
+.tax-blog_categories .header .section--text-hero .text-hero__title,
+.section--text-hero .tax-blog_categories .header .text-hero__title {
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 70px;
@@ -4692,28 +4738,42 @@ NO HERO STYLES
   max-width: 800px;
 }
 @media (min-width: 600px) {
-  .page-template-default .header h1, .page-template-default .header .section--text-hero h3, .section--text-hero .page-template-default .header h3,
+  .page-template-default .header h1, .page-template-default .header .section--video-hero .video-hero__title, .section--video-hero .page-template-default .header .video-hero__title, .page-template-default .header .section--text-hero .text-hero__title, .section--text-hero .page-template-default .header .text-hero__title,
   .page-template-page-blog .header h1,
-  .page-template-page-blog .header .section--text-hero h3,
-  .section--text-hero .page-template-page-blog .header h3,
+  .page-template-page-blog .header .section--video-hero .video-hero__title,
+  .section--video-hero .page-template-page-blog .header .video-hero__title,
+  .page-template-page-blog .header .section--text-hero .text-hero__title,
+  .section--text-hero .page-template-page-blog .header .text-hero__title,
   .page-template-page-companies .header h1,
-  .page-template-page-companies .header .section--text-hero h3,
-  .section--text-hero .page-template-page-companies .header h3,
+  .page-template-page-companies .header .section--video-hero .video-hero__title,
+  .section--video-hero .page-template-page-companies .header .video-hero__title,
+  .page-template-page-companies .header .section--text-hero .text-hero__title,
+  .section--text-hero .page-template-page-companies .header .text-hero__title,
   .page-template-page-jobs .header h1,
-  .page-template-page-jobs .header .section--text-hero h3,
-  .section--text-hero .page-template-page-jobs .header h3,
+  .page-template-page-jobs .header .section--video-hero .video-hero__title,
+  .section--video-hero .page-template-page-jobs .header .video-hero__title,
+  .page-template-page-jobs .header .section--text-hero .text-hero__title,
+  .section--text-hero .page-template-page-jobs .header .text-hero__title,
   .job-template-default .header h1,
-  .job-template-default .header .section--text-hero h3,
-  .section--text-hero .job-template-default .header h3,
+  .job-template-default .header .section--video-hero .video-hero__title,
+  .section--video-hero .job-template-default .header .video-hero__title,
+  .job-template-default .header .section--text-hero .text-hero__title,
+  .section--text-hero .job-template-default .header .text-hero__title,
   .blogpost-template-default .header h1,
-  .blogpost-template-default .header .section--text-hero h3,
-  .section--text-hero .blogpost-template-default .header h3,
+  .blogpost-template-default .header .section--video-hero .video-hero__title,
+  .section--video-hero .blogpost-template-default .header .video-hero__title,
+  .blogpost-template-default .header .section--text-hero .text-hero__title,
+  .section--text-hero .blogpost-template-default .header .text-hero__title,
   .tax-job_categories .header h1,
-  .tax-job_categories .header .section--text-hero h3,
-  .section--text-hero .tax-job_categories .header h3,
+  .tax-job_categories .header .section--video-hero .video-hero__title,
+  .section--video-hero .tax-job_categories .header .video-hero__title,
+  .tax-job_categories .header .section--text-hero .text-hero__title,
+  .section--text-hero .tax-job_categories .header .text-hero__title,
   .tax-blog_categories .header h1,
-  .tax-blog_categories .header .section--text-hero h3,
-  .section--text-hero .tax-blog_categories .header h3 {
+  .tax-blog_categories .header .section--video-hero .video-hero__title,
+  .section--video-hero .tax-blog_categories .header .video-hero__title,
+  .tax-blog_categories .header .section--text-hero .text-hero__title,
+  .section--text-hero .tax-blog_categories .header .text-hero__title {
     font-size: 62px;
     font-size: 3.44444rem;
     line-height: 103.33333px;

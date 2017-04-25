@@ -5,7 +5,12 @@
 <?php endif; ?>
   <div class="inner-wrap">
     <div class="video-hero-text">
-      <h1><?php the_sub_field('hero_title'); ?></h1>
+
+      <?php if($i == 1): ?>
+        <h1 class='video-hero__title'><?php the_sub_field('hero_title'); ?></h1>
+      <?php else: ?>
+        <h3 class='video-hero__title'><?php the_sub_field('hero_title'); ?></h3>
+      <?php endif; ?>
       <?php the_sub_field('hero_text'); ?>
       <?php if( get_sub_field('embed_type') != "embed" ): ?>
         <button class="video-hero__button" type="button" name="button">

@@ -1,7 +1,11 @@
 <section class="section--text-hero">
   <div class="inner-wrap">
     <div class="text-hero-left">
-      <h3><?php the_sub_field('title'); ?></h3>
+      <?php if($i == 1): ?>
+        <h1 class='text-hero__title'><?php the_sub_field('title'); ?></h1>
+      <?php else: ?>
+        <h3 class='text-hero__title'><?php the_sub_field('title'); ?></h3>
+      <?php endif; ?>
       <?php the_sub_field('text'); ?>
     </div>
     <div class="text-hero-right">
