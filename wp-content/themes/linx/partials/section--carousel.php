@@ -59,7 +59,7 @@
           </div>
 
           <div class="owl-carousel__text">
-            <h2><?php the_sub_field('title');?></h2>
+            <h3 class='carousel__feature__title'><?php the_sub_field('title');?></h3>
             <p><?php the_sub_field('text');?></p>
           </div>
 
