@@ -1338,7 +1338,8 @@ TEXT HERO
   }
 
   p {
-    @extend h4;
+    @include font-size(28px,true);
+    font-weight: 100;
     color: $white;
   }
 

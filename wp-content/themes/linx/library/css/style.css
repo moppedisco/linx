@@ -496,7 +496,7 @@ Stylesheet: Variables
 /******************************************************************
 Stylesheet: Vertical spacing
 ******************************************************************/
-h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6, hgroup,
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .text-image-row p, h5, h6, hgroup,
 ul, ol, dl,
 blockquote, p, address,
 table,
@@ -728,7 +728,7 @@ FONT FACE (IN YOUR FACE)
 some nice typographical defaults
 more here: http://www.newnet-soft.com/blog/csstypography
 */
-h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p, h5, h6 {
+h1, .section--video-hero .video-hero__title, .section--text-hero .text-hero__title, h2, h3, h4, .homepage--carousel__feature p, .text-image-row p, h5, h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
   font-weight: 100;
 }
@@ -2115,7 +2115,7 @@ h3 {
   font-weight: 100;
 }
 
-h4, .homepage--carousel__feature p, .section--text-hero p, .text-image-row p {
+h4, .homepage--carousel__feature p, .text-image-row p {
   font-size: 22px;
   font-size: 1.22222rem;
   font-weight: 100;
@@ -3565,6 +3565,11 @@ TEXT HERO
   }
 }
 .section--text-hero p {
+  font-size: 28px;
+  font-size: 1.55556rem;
+  line-height: 46.66667px;
+  line-height: 2.59259rem;
+  font-weight: 100;
   color: #fff;
 }
 .section--text-hero .text-hero__image {
@@ -4922,7 +4927,7 @@ JOBS
   padding: 0;
   margin: 0;
 }
-#lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .section--text-hero p, .section--text-hero #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
+#lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
   text-transform: uppercase;
   font-size: 14px;
   font-size: 0.77778rem;
@@ -4931,7 +4936,7 @@ JOBS
   opacity: 0.3;
 }
 @media (max-width: 599px) {
-  #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .section--text-hero p, .section--text-hero #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
+  #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .homepage--carousel__feature p, .homepage--carousel__feature #lct-widget-job_categories-container p, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
     display: none;
   }
 }
