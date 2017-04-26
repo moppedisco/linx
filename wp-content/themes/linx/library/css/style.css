@@ -2888,7 +2888,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   display: flex;
   overflow: hidden;
   position: relative;
-  max-height: 85vh;
   background: #000;
   text-align: center;
   min-height: 550px;
