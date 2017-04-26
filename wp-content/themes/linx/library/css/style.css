@@ -4478,7 +4478,16 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   display: block;
 }
 
-.section--simple-content .gform_wrapper form input {
+.section--simple-content .gform_heading {
+  display: none;
+}
+.section--simple-content .gform_wrapper {
+  box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
+  padding: 10px 30px;
+  max-width: 440px;
+}
+.section--simple-content .gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+.section--simple-content textarea {
   background: #eee;
 }
 
