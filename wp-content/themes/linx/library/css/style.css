@@ -4980,7 +4980,7 @@ JOBS
 
 #lct-widget-job_categories-container {
   text-align: center;
-  margin: 40px 0 70px;
+  margin: 10px 0 70px;
 }
 @media (min-width: 600px) {
   #lct-widget-job_categories-container {
