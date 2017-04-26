@@ -18,7 +18,7 @@
             	<i class='material-icons'><?php the_sub_field('image');?></i>
             <?php endif; ?>
 
-            <h4><?php the_sub_field('title');?></h4>
+            <h3><?php the_sub_field('title');?></h3>
             <p><?php the_sub_field('text');?></p>
           </article>
 

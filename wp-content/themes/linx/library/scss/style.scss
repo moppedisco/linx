@@ -93,8 +93,11 @@ h2 {
 }
 
 h3 {
-  @include font-size(26px,true);
+  @include font-size(32px,true);
   font-weight: 100;
+  @include for-size('tablet-portrait-up'){
+    @include font-size(26px,true);
+  }
 }
 
 h4 {
@@ -251,11 +254,15 @@ MOBILE NAVIGATION
         margin-right: 2px;
         opacity: 0.2;
       }
+
+      &:last-child:after {
+        content:"";
+      }
     }
 
     a {
       @include font-size(14px,true);
-      font-weight: 400;
+      font-weight: 600;
       padding-right: 5px;
       text-transform: capitalize;
     }
@@ -1310,8 +1317,16 @@ TEXT HERO
       width: 65%;
       padding-right: 40px;
     }
+  }
 
-    > *:last-child { margin-bottom: 0; }
+  &.noCTA .text-hero-left {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    margin: 0 auto;
+    @include for-size('tablet-portrait-up'){
+      width: 65%;
+    }
   }
 
   .text-hero-right {
@@ -1423,6 +1438,9 @@ TEXT HERO
     p {
       font-weight: 100;
       letter-spacing: 0.5px;
+      @include for-size('phone-only'){
+        @include font-size(22px,true);
+      }
     }
 
     img {
@@ -1706,6 +1724,9 @@ IMAGE + TEXT
     p {
       font-weight: 100;
       letter-spacing: 0.5px;
+      @include for-size("phone-only"){
+        @include font-size(22px,true);
+      }
     }
 
     .material-icons {
@@ -2121,6 +2142,9 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   p {
     font-weight: 100;
     letter-spacing: 0.5px;
+    @include for-size('phone-only'){
+      @include font-size(22px,true);
+    }
   }
 
   .simple-content--text,
@@ -2133,49 +2157,6 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   }
 
 
-
-  // [class^="simple-content"]:nth-child(1):nth-last-child(1) {
-  // 	flex: 0 0 100%;
-  //   margin: 0 auto;
-  //   padding: 0;
-  //
-  //   @include for-size('tablet-portrait-up'){
-  //     flex: 0 0 80%;
-  //   }
-  //   @include for-size('tablet-landscape-up'){
-  //     flex: 0 0 50%;
-  //   }
-  // }
-  //
-  // /* two items */
-  // [class^="simple-content"]:nth-child(1):nth-last-child(2),
-  // [class^="simple-content"]:nth-child(2):nth-last-child(1) {
-  //
-  //   @include for-size("tablet-portrait-up"){
-  //     flex: 1 1 50%;
-  //   }
-  // }
-  //
-  // /* three items */
-  // [class^="simple-content"]:nth-child(1):nth-last-child(3),
-  // [class^="simple-content"]:nth-child(2):nth-last-child(2),
-  // [class^="simple-content"]:nth-child(3):nth-last-child(1) {
-  //   @include for-size("tablet-portrait-up"){
-  // 	  flex: 1 1 33.333334%;
-  //   }
-  // }
-  //
-  // /* four items */
-  // [class^="simple-content"]:nth-child(1):nth-last-child(4),
-  // [class^="simple-content"]:nth-child(2):nth-last-child(3),
-  // [class^="simple-content"]:nth-child(3):nth-last-child(2),
-  // [class^="simple-content"]:nth-child(4):nth-last-child(1) {
-  //   @include for-size("tablet-portrait-up"){
-  // 	  flex: 1 1 25%;
-  //   }
-  // }
-
-
   .aligncenter {
       margin: 0 auto;
       display: block;
@@ -2184,53 +2165,11 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 
 }
 
-// .simple-content--text .custom-form_wrapper {
-//   @include css-gradient(#43DA5C, #2AD189);
-//   box-shadow: 0px 85px 109px 0px rgba(0,0,0,0.15);
-//   padding: 3rem 2rem;
-//   max-width: 440px;
-//   margin: 0 auto;
-//
-//   &.gform_wrapper .gfield_required { color: red; }
-//
-//   .gform_body {
-//     width: 100% !important;
-//   }
-//
-//   ul.gform_fields li.gfield {
-//     padding: 0;
-//   }
-//
-//   .gfield_html {
-//     font-weight: 100;
-//     @include font-size(16px,true);
-//     color: $white;
-//   }
-//
-//   ul.gform_fields label.gfield_label {
-//     text-transform: uppercase;
-//     letter-spacing: 1px;
-//     @include font-size(14px);
-//     font-weight: bold;
-//     color: #fff;
-//   }
-//
-//   input[type='text'].medium {
-//     width: 100%;
-//     max-width: none;
-//     background: $white;
-//     border-radius: 0;
-//     padding: 5px 10px !important;
-//   }
-//
-//   .gform_footer input[type=submit] {
-//     @extend %button;
-//     @include button-bg($yellow);
-//     display: block;
-//     width: 100%;
-//
-//   }
-// }
+.section--simple-content .gform_wrapper form {
+  input {
+    background: #eee;
+  }
+}
 
 .section--bullet-points {
   @include clearfix;

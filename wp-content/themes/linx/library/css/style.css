@@ -2108,11 +2108,19 @@ h2 {
 }
 
 h3, .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p {
-  font-size: 26px;
-  font-size: 1.44444rem;
-  line-height: 43.33333px;
-  line-height: 2.40741rem;
+  font-size: 32px;
+  font-size: 1.77778rem;
+  line-height: 53.33333px;
+  line-height: 2.96296rem;
   font-weight: 100;
+}
+@media (min-width: 600px) {
+  h3, .section--text-3-columns .text-column__item h4, .section--text-3-columns .text-column__item .text-image-row p, .text-image-row .section--text-3-columns .text-column__item p {
+    font-size: 26px;
+    font-size: 1.44444rem;
+    line-height: 43.33333px;
+    line-height: 2.40741rem;
+  }
 }
 
 h4, .text-image-row p {
@@ -2216,12 +2224,15 @@ MOBILE NAVIGATION
   margin-right: 2px;
   opacity: 0.2;
 }
+#mobile-navigation-wrapper .menu-item-has-children li:last-child:after {
+  content: "";
+}
 #mobile-navigation-wrapper .menu-item-has-children a {
   font-size: 14px;
   font-size: 0.77778rem;
   line-height: 23.33333px;
   line-height: 1.2963rem;
-  font-weight: 400;
+  font-weight: 600;
   padding-right: 5px;
   text-transform: capitalize;
 }
@@ -3541,8 +3552,16 @@ TEXT HERO
     padding-right: 40px;
   }
 }
-.section--text-hero .text-hero-left > *:last-child {
-  margin-bottom: 0;
+.section--text-hero.noCTA .text-hero-left {
+  width: 100%;
+  padding: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+@media (min-width: 600px) {
+  .section--text-hero.noCTA .text-hero-left {
+    width: 65%;
+  }
 }
 .section--text-hero .text-hero-right {
   position: relative;
@@ -3664,6 +3683,14 @@ TEXT HERO
 .section--columns p {
   font-weight: 100;
   letter-spacing: 0.5px;
+}
+@media (max-width: 599px) {
+  .section--columns p {
+    font-size: 22px;
+    font-size: 1.22222rem;
+    line-height: 36.66667px;
+    line-height: 2.03704rem;
+  }
 }
 .section--columns img {
   margin-bottom: 1em;
@@ -4008,6 +4035,14 @@ IMAGE + TEXT
 .section--text-3-columns .text-column__item p {
   font-weight: 100;
   letter-spacing: 0.5px;
+}
+@media (max-width: 599px) {
+  .section--text-3-columns .text-column__item p {
+    font-size: 22px;
+    font-size: 1.22222rem;
+    line-height: 36.66667px;
+    line-height: 2.03704rem;
+  }
 }
 .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
 .section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i {
@@ -4419,6 +4454,14 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   font-weight: 100;
   letter-spacing: 0.5px;
 }
+@media (max-width: 599px) {
+  .simple-content-wrap p {
+    font-size: 22px;
+    font-size: 1.22222rem;
+    line-height: 36.66667px;
+    line-height: 2.03704rem;
+  }
+}
 .simple-content-wrap .simple-content--text,
 .simple-content-wrap .simple-content--image {
   margin-bottom: 20px;
@@ -4433,6 +4476,10 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 .simple-content-wrap .aligncenter {
   margin: 0 auto;
   display: block;
+}
+
+.section--simple-content .gform_wrapper form input {
+  background: #eee;
 }
 
 .section--bullet-points:after {
