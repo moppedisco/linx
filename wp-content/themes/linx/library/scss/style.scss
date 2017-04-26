@@ -2523,15 +2523,24 @@ JOBS
 #lct-widget-job_categories-container {
   text-align: center;
   margin: 40px 0 70px;
+
   @include for-size('tablet-portrait-up'){
     text-align: right;
-    margin: 0;
+    margin: 0 0 70px;
     padding-right: 80px;
   }
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @include for-size('phone-only'){
+      white-space: nowrap;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 0 20px;
+    }
   }
 
   h4 {
@@ -2548,8 +2557,10 @@ JOBS
 
   li {
     display: inline-block;
+    margin-right: 20px;
     @include for-size('tablet-portrait-up'){
       display: block;
+      margin-right: 0px;
     }
   }
 
