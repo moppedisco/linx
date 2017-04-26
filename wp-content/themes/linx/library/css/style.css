@@ -2539,7 +2539,7 @@ MAIN NAVIGATION
 @media (min-width: 600px) {
   .menu-main-nav li.main-nav-link--logo a {
     width: 140px;
-    height: 49px;
+    height: 44px;
     background-position: 0 0;
   }
 }
@@ -2997,11 +2997,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   line-height: 2.59259rem;
   font-weight: 100;
 }
-@media (min-width: 600px) {
-  .section--video-hero p {
-    max-width: 630px;
-  }
-}
 .section--video-hero .video-hero__bg {
   background-size: cover;
   background-position: 50% 50%;
@@ -3034,8 +3029,21 @@ SEND SMS FORM
   position: relative;
   padding-top: 0 !important;
 }
+.section--cta-hero.isDark {
+  color: #fff;
+}
+.section--cta-hero.isDark #gform_1 input[type='text'] {
+  background: white;
+  border: 0px solid #ddd;
+  color: #484844;
+}
 .section--cta-hero.footer-cta {
   margin-top: 80px;
+  color: #fff;
+}
+.section--cta-hero.footer-cta .text-hero__image {
+  background: #2a2d34 !important;
+  opacity: 0.7 !important;
 }
 .section--cta-hero .cta-hero__text {
   -webkit-box-flex: 0;
@@ -3049,9 +3057,7 @@ SEND SMS FORM
 }
 @media (min-width: 600px) {
   .section--cta-hero .cta-hero__text {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 600px;
-            flex: 0 0 600px;
+    max-width: 600px;
   }
 }
 .section--cta-hero .text-hero__image {

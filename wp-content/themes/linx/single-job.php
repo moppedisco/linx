@@ -48,42 +48,41 @@
 	<span class="job-item__salary"><?php echo $hourly_rate; ?></span>
 </header>
 <div id="content">
+	<div id="inner-content" class="inner-wrap">
 
-				<div id="inner-content" class="inner-wrap">
+			<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-						<main id="main" class="" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
+					<section class="entry-content" itemprop="articleBody">
+						<div class="job-item__expires">
+							<?php if($expireDate < $today && $expireDate): ?>
+								<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
+							<?php endif; ?>
+						</div>
+						<?php the_content(); ?>
+						<div class="job-item__expires">
+							<?php if($expireDate > $today): ?>
+								<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
+							<?php elseif($expireDate < $today && $expireDate): ?>
+								<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
+							<?php endif; ?>
+						</div>
+					</section> <?php // end article section ?>
 
-								<section class="entry-content" itemprop="articleBody">
-									<div class="job-item__expires">
-										<?php if($expireDate < $today && $expireDate): ?>
-											<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
-										<?php endif; ?>
-									</div>
-									<?php the_content(); ?>
-									<div class="job-item__expires">
-										<?php if($expireDate > $today): ?>
-											<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
-										<?php elseif($expireDate < $today && $expireDate): ?>
-											<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
-										<?php endif; ?>
-									</div>
-								</section> <?php // end article section ?>
+				</article>
 
-							</article>
+				<?php endwhile; endif; ?>
 
-							<?php endwhile; endif; ?>
+			</main>
 
-						</main>
+	</div>
 
-				</div>
-
-			</div>
+</div>
 <?php if(get_field( "include_cta" )): ?>
-	<?php if( get_field('add_cta', 'option') ): ?>
+	<?php if( get_field('add_footer_cta_to_post', 'option') ): ?>
 		<?php get_template_part( 'partials/footer--cta-hero' ); ?>
 	<?php endif; ?>
 <?php endif; ?>
