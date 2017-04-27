@@ -3298,6 +3298,7 @@ DESKTOP CAROUSEL
   .section--carousel .desktop-carousel {
     margin: 0 auto;
     width: 80%;
+    width: 100%;
   }
 }
 .section--carousel .desktop-carousel-nav {
@@ -3410,6 +3411,11 @@ DESKTOP CAROUSEL
     padding: 0;
   }
 }
+@media (min-width: 1200px) {
+  .homepage--carousel__feature .carousel__feature__leftcol.screen-desktop {
+    left: -5%;
+  }
+}
 .homepage--carousel__feature .carousel__feature__rightcol {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
@@ -3436,11 +3442,11 @@ DESKTOP CAROUSEL
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
   max-width: none;
   left: 0%;
-  width: 170%;
+  width: 150%;
   right: auto;
-  -webkit-transform: translate(40px, -50%);
-      -ms-transform: translate(40px, -50%);
-          transform: translate(40px, -50%);
+  -webkit-transform: translate(150px, -50%);
+      -ms-transform: translate(150px, -50%);
+          transform: translate(150px, -50%);
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop .image-box {
   padding-bottom: 70%;

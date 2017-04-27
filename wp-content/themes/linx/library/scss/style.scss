@@ -1128,6 +1128,7 @@ DESKTOP CAROUSEL
     @include for-size('desktop-up'){
       margin: 0 auto;
       width: 80%;
+      width: 100%;
     }
   }
 
@@ -1205,15 +1206,21 @@ DESKTOP CAROUSEL
       padding: 0;
     }
 
-    // &.screen-desktop {
-    //   position: fixed;
-    //   bottom: 40px;
-    //   left: 50%;
-    //   transform: translate(-50%,0%);
-    //   width: 50%;
-    //   text-align: center;
-    //   opacity: 0;
-    // }
+    &.screen-desktop {
+      // position: fixed;
+      // top: 50%;
+      // left: 8%;
+      // transform: translate(0%,-50%);
+      // width: 50%;
+      // max-width: 420px;
+      // // text-align: center;
+      // opacity: 0;
+      // background: #fff;
+
+      @include for-size('desktop-up'){
+        left: -5%;
+      }
+    }
   }
 
   .carousel__feature__rightcol {
@@ -1239,9 +1246,9 @@ DESKTOP CAROUSEL
     .image-box-wrap.screen-desktop {
       max-width: none;
       left: 0%;
-      width: 170%;
+      width: 150%;
       right: auto;
-      transform: translate(40px,-50%);
+      transform: translate(150px,-50%);
 
       .image-box {
         padding-bottom: 70%;

@@ -15,7 +15,7 @@
 
             <?php if($i == 0): ?>
               <article class="homepage--carousel__feature">
-                <div class="carousel__feature__leftcol">
+                <div class="carousel__feature__leftcol <?php the_sub_field('screenshot_type');?>">
                   <h3  class='carousel__feature__title'><?php the_sub_field('title');?></h3>
                   <p><?php the_sub_field('text');?></p>
                 </div>
@@ -59,7 +59,7 @@
           </div>
 
           <div class="owl-carousel__text">
-            <h3 class='carousel__feature__title'><?php the_sub_field('title');?></h3>
+            <h3 class=''><?php the_sub_field('title');?></h3>
             <p><?php the_sub_field('text');?></p>
           </div>
 
