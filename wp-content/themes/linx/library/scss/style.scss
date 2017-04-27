@@ -64,7 +64,7 @@ a {
    cursor: default;
 }
 
-#content { position: relative; }
+#content { position: relative; overflow: hidden; }
 
 iframe {
   width: 100%;
@@ -1177,8 +1177,12 @@ DESKTOP CAROUSEL
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
+
+  @include for-size('desktop-up'){
+    height: 100vh;
+  }
 
   &:nth-child(1){ z-index: 10; }
   &:nth-child(2){ z-index: 9; }
@@ -1218,7 +1222,7 @@ DESKTOP CAROUSEL
       // background: #fff;
 
       @include for-size('desktop-up'){
-        left: -5%;
+        left: -2%;
       }
     }
   }
@@ -1248,7 +1252,11 @@ DESKTOP CAROUSEL
       left: 0%;
       width: 150%;
       right: auto;
-      transform: translate(150px,-50%);
+      transform: translate(50px,-50%);
+
+      @include for-size('desktop-up'){
+        transform: translate(150px,-50%);
+      }
 
       .image-box {
         padding-bottom: 70%;

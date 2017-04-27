@@ -2070,6 +2070,7 @@ a:hover {
 
 #content {
   position: relative;
+  overflow: hidden;
 }
 
 iframe {
@@ -3359,13 +3360,18 @@ DESKTOP CAROUSEL
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
 }
 .homepage--carousel__feature:after {
   content: "";
   display: table;
   clear: both;
+}
+@media (min-width: 1200px) {
+  .homepage--carousel__feature {
+    height: 100vh;
+  }
 }
 .homepage--carousel__feature:nth-child(1) {
   z-index: 10;
@@ -3413,7 +3419,7 @@ DESKTOP CAROUSEL
 }
 @media (min-width: 1200px) {
   .homepage--carousel__feature .carousel__feature__leftcol.screen-desktop {
-    left: -5%;
+    left: -2%;
   }
 }
 .homepage--carousel__feature .carousel__feature__rightcol {
@@ -3444,9 +3450,16 @@ DESKTOP CAROUSEL
   left: 0%;
   width: 150%;
   right: auto;
-  -webkit-transform: translate(150px, -50%);
-      -ms-transform: translate(150px, -50%);
-          transform: translate(150px, -50%);
+  -webkit-transform: translate(50px, -50%);
+      -ms-transform: translate(50px, -50%);
+          transform: translate(50px, -50%);
+}
+@media (min-width: 1200px) {
+  .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
+    -webkit-transform: translate(150px, -50%);
+        -ms-transform: translate(150px, -50%);
+            transform: translate(150px, -50%);
+  }
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop .image-box {
   padding-bottom: 70%;
