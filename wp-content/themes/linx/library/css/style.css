@@ -3742,13 +3742,20 @@ TEXT HERO
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 -20px;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 .section--columns .columns-type-newrow .column-item {
   padding: 0 10px 3em;
+}
+@media (max-width: 599px) {
+  .section--columns .columns-type-newrow .column-item {
+    -webkit-box-flex: 1 !important;
+        -ms-flex: 1 0 100% !important;
+            flex: 1 0 100% !important;
+  }
 }
 .section--columns .columns-type-newrow.columns-size1 .column-item {
   -webkit-box-flex: 0;

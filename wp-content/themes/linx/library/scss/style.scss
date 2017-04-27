@@ -1499,11 +1499,14 @@ TEXT HERO
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      margin: 0 -20px;
+      width: 100%;
       justify-content: center;
 
       .column-item {
         padding: 0 10px 3em;
+        @include for-size('phone-only'){
+          flex: 1 0 100% !important;
+        }
       }
 
       &.columns-size1 .column-item { flex: 0 0 100%; }
