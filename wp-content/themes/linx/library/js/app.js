@@ -214,6 +214,7 @@ var timeToWaitForLast = 100;
 		var carouselItems = jQuery('.desktop-carousel .homepage--carousel__feature');
 		var carouselItemsTotal = carouselItems.length;
 		var rightCol = jQuery(".desktop-carousel").find('.homepage--carousel__feature:eq(0) .carousel__feature__rightcol')[0];
+		// var leftCol = jQuery(".desktop-carousel").find('.homepage--carousel__feature:eq(0) .carousel__feature__leftcol.screen-desktop')[0];
 
 		controller.scrollTo(function (newpos) {
 			TweenMax.to(window, 1.5, {scrollTo: {y: newpos}, ease: Power4.easeInOut});
@@ -262,6 +263,7 @@ var timeToWaitForLast = 100;
 							TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index-1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
 						}
 						TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index),0.5,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut});
+						// TweenMax.fromTo(jQuery(leftcol).eq(index),0.5,{autoAlpha: '0'}, {autoAlpha: '1', ease: Power4.easeInOut});
 					} else if(event.scrollDirection == 'REVERSE') {
 						TweenMax.fromTo(jQuery(rightCol).find('.image-box-wrap').eq(index+1),0.5,{autoAlpha: '1'}, {autoAlpha: '0', ease: Power4.easeInOut});
 						if(index != carouselItemsTotal-1){
@@ -372,6 +374,8 @@ var timeToWaitForLast = 100;
   function adjustVideoPositioning(element,type) {
 		var windowW = $window.width();
 		var windowH = $window.height();
+		var parentSectionH = jQuery(element).parents('section').height();
+		windowH = parentSectionH;
 		var mediaAspect = 16/9;
 		var windowAspect = windowW/windowH;
 		if (windowAspect < mediaAspect) {

@@ -1,6 +1,5 @@
 <?php if( get_sub_field('call_to_action') && get_sub_field('call_to_action') != 'disabled' ): ?>
   <section class="section--text-hero">
-    <?php echo get_sub_field('call_to_action'); ?>
 <?php else: ?>
   <section class="section--text-hero noCTA">
 <?php endif; ?>

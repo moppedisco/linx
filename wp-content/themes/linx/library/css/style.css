@@ -2070,6 +2070,7 @@ a:hover {
 
 #content {
   position: relative;
+  overflow: hidden;
 }
 
 iframe {
@@ -2539,7 +2540,7 @@ MAIN NAVIGATION
 @media (min-width: 600px) {
   .menu-main-nav li.main-nav-link--logo a {
     width: 140px;
-    height: 49px;
+    height: 44px;
     background-position: 0 0;
   }
 }
@@ -2888,7 +2889,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   display: flex;
   overflow: hidden;
   position: relative;
-  max-height: 85vh;
   background: #000;
   text-align: center;
   min-height: 550px;
@@ -2997,11 +2997,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   line-height: 2.59259rem;
   font-weight: 100;
 }
-@media (min-width: 600px) {
-  .section--video-hero p {
-    max-width: 630px;
-  }
-}
 .section--video-hero .video-hero__bg {
   background-size: cover;
   background-position: 50% 50%;
@@ -3034,8 +3029,21 @@ SEND SMS FORM
   position: relative;
   padding-top: 0 !important;
 }
+.section--cta-hero.isDark {
+  color: #fff;
+}
+.section--cta-hero.isDark #gform_1 input[type='text'] {
+  background: white;
+  border: 0px solid #ddd;
+  color: #484844;
+}
 .section--cta-hero.footer-cta {
   margin-top: 80px;
+  color: #fff;
+}
+.section--cta-hero.footer-cta .text-hero__image {
+  background: #2a2d34 !important;
+  opacity: 0.7 !important;
 }
 .section--cta-hero .cta-hero__text {
   -webkit-box-flex: 0;
@@ -3049,9 +3057,7 @@ SEND SMS FORM
 }
 @media (min-width: 600px) {
   .section--cta-hero .cta-hero__text {
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 600px;
-            flex: 0 0 600px;
+    max-width: 600px;
   }
 }
 .section--cta-hero .text-hero__image {
@@ -3293,6 +3299,7 @@ DESKTOP CAROUSEL
   .section--carousel .desktop-carousel {
     margin: 0 auto;
     width: 80%;
+    width: 100%;
   }
 }
 .section--carousel .desktop-carousel-nav {
@@ -3353,13 +3360,18 @@ DESKTOP CAROUSEL
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
 }
 .homepage--carousel__feature:after {
   content: "";
   display: table;
   clear: both;
+}
+@media (min-width: 1200px) {
+  .homepage--carousel__feature {
+    height: 100vh;
+  }
 }
 .homepage--carousel__feature:nth-child(1) {
   z-index: 10;
@@ -3405,6 +3417,11 @@ DESKTOP CAROUSEL
     padding: 0;
   }
 }
+@media (min-width: 1200px) {
+  .homepage--carousel__feature .carousel__feature__leftcol.screen-desktop {
+    left: -2%;
+  }
+}
 .homepage--carousel__feature .carousel__feature__rightcol {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 50%;
@@ -3431,11 +3448,18 @@ DESKTOP CAROUSEL
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
   max-width: none;
   left: 0%;
-  width: 170%;
+  width: 150%;
   right: auto;
-  -webkit-transform: translate(40px, -50%);
-      -ms-transform: translate(40px, -50%);
-          transform: translate(40px, -50%);
+  -webkit-transform: translate(50px, -50%);
+      -ms-transform: translate(50px, -50%);
+          transform: translate(50px, -50%);
+}
+@media (min-width: 1200px) {
+  .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop {
+    -webkit-transform: translate(150px, -50%);
+        -ms-transform: translate(150px, -50%);
+            transform: translate(150px, -50%);
+  }
 }
 .homepage--carousel__feature .carousel__feature__rightcol .image-box-wrap.screen-desktop .image-box {
   padding-bottom: 70%;
@@ -3718,13 +3742,20 @@ TEXT HERO
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin: 0 -20px;
+  width: 100%;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 .section--columns .columns-type-newrow .column-item {
   padding: 0 10px 3em;
+}
+@media (max-width: 599px) {
+  .section--columns .columns-type-newrow .column-item {
+    -webkit-box-flex: 1 !important;
+        -ms-flex: 1 0 100% !important;
+            flex: 1 0 100% !important;
+  }
 }
 .section--columns .columns-type-newrow.columns-size1 .column-item {
   -webkit-box-flex: 0;
@@ -4478,7 +4509,16 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
   display: block;
 }
 
-.section--simple-content .gform_wrapper form input {
+.section--simple-content .gform_heading {
+  display: none;
+}
+.section--simple-content .gform_wrapper {
+  box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
+  padding: 10px 30px;
+  max-width: 440px;
+}
+.section--simple-content .gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+.section--simple-content textarea {
   background: #eee;
 }
 
@@ -4732,7 +4772,8 @@ NO HERO STYLES
 .job-template-default .header,
 .blogpost-template-default .header,
 .tax-job_categories .header,
-.tax-blog_categories .header {
+.tax-blog_categories .header,
+.error404 .header {
   margin: 120px 0 70px;
   text-align: center;
 }
@@ -4744,7 +4785,8 @@ NO HERO STYLES
   .job-template-default .header,
   .blogpost-template-default .header,
   .tax-job_categories .header,
-  .tax-blog_categories .header {
+  .tax-blog_categories .header,
+  .error404 .header {
     margin: 180px 0 100px;
   }
 }
@@ -4783,7 +4825,12 @@ NO HERO STYLES
 .tax-blog_categories .header .section--video-hero .video-hero__title,
 .section--video-hero .tax-blog_categories .header .video-hero__title,
 .tax-blog_categories .header .section--text-hero .text-hero__title,
-.section--text-hero .tax-blog_categories .header .text-hero__title {
+.section--text-hero .tax-blog_categories .header .text-hero__title,
+.error404 .header h1,
+.error404 .header .section--video-hero .video-hero__title,
+.section--video-hero .error404 .header .video-hero__title,
+.error404 .header .section--text-hero .text-hero__title,
+.section--text-hero .error404 .header .text-hero__title {
   font-size: 42px;
   font-size: 2.33333rem;
   line-height: 70px;
@@ -4829,7 +4876,12 @@ NO HERO STYLES
   .tax-blog_categories .header .section--video-hero .video-hero__title,
   .section--video-hero .tax-blog_categories .header .video-hero__title,
   .tax-blog_categories .header .section--text-hero .text-hero__title,
-  .section--text-hero .tax-blog_categories .header .text-hero__title {
+  .section--text-hero .tax-blog_categories .header .text-hero__title,
+  .error404 .header h1,
+  .error404 .header .section--video-hero .video-hero__title,
+  .section--video-hero .error404 .header .video-hero__title,
+  .error404 .header .section--text-hero .text-hero__title,
+  .section--text-hero .error404 .header .text-hero__title {
     font-size: 62px;
     font-size: 3.44444rem;
     line-height: 103.33333px;
@@ -4844,7 +4896,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky),
 .blogpost-template-default .menu-main-nav:not(.sticky),
 .tax-job_categories .menu-main-nav:not(.sticky),
-.tax-blog_categories .menu-main-nav:not(.sticky) {
+.tax-blog_categories .menu-main-nav:not(.sticky),
+.error404 .menu-main-nav:not(.sticky) {
   top: 0;
 }
 @media (min-width: 600px) {
@@ -4855,7 +4908,8 @@ NO HERO STYLES
   .job-template-default .menu-main-nav:not(.sticky),
   .blogpost-template-default .menu-main-nav:not(.sticky),
   .tax-job_categories .menu-main-nav:not(.sticky),
-  .tax-blog_categories .menu-main-nav:not(.sticky) {
+  .tax-blog_categories .menu-main-nav:not(.sticky),
+  .error404 .menu-main-nav:not(.sticky) {
     padding: 20px 0;
   }
 }
@@ -4866,7 +4920,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .blogpost-template-default .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
 .tax-job_categories .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
-.tax-blog_categories .menu-main-nav:not(.sticky) ul .main-nav-link--login a {
+.tax-blog_categories .menu-main-nav:not(.sticky) ul .main-nav-link--login a,
+.error404 .menu-main-nav:not(.sticky) ul .main-nav-link--login a {
   color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
@@ -4876,7 +4931,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a,
 .tax-job_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a,
-.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a {
+.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a,
+.error404 .menu-main-nav:not(.sticky) li.menu-item-has-children a {
   color: #484844;
   opacity: 0.3;
 }
@@ -4887,7 +4943,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
 .tax-job_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
-.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a i {
+.tax-blog_categories .menu-main-nav:not(.sticky) li.menu-item-has-children a i,
+.error404 .menu-main-nav:not(.sticky) li.menu-item-has-children a i {
   color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
@@ -4897,7 +4954,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
 .tax-job_categories .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
-.tax-blog_categories .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
+.tax-blog_categories .menu-main-nav:not(.sticky) li.main-nav-link--logo a,
+.error404 .menu-main-nav:not(.sticky) li.main-nav-link--logo a {
   background-image: url("../images/adia-logo-black.png");
   opacity: 0.7;
 }
@@ -4908,7 +4966,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
 .blogpost-template-default .menu-main-nav:not(.sticky) li.current-menu-item a,
 .tax-job_categories .menu-main-nav:not(.sticky) li.current-menu-item a,
-.tax-blog_categories .menu-main-nav:not(.sticky) li.current-menu-item a {
+.tax-blog_categories .menu-main-nav:not(.sticky) li.current-menu-item a,
+.error404 .menu-main-nav:not(.sticky) li.current-menu-item a {
   border-color: #484844;
 }
 .page-template-default .menu-main-nav:not(.sticky) a,
@@ -4918,7 +4977,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) a,
 .blogpost-template-default .menu-main-nav:not(.sticky) a,
 .tax-job_categories .menu-main-nav:not(.sticky) a,
-.tax-blog_categories .menu-main-nav:not(.sticky) a {
+.tax-blog_categories .menu-main-nav:not(.sticky) a,
+.error404 .menu-main-nav:not(.sticky) a {
   color: #484844 !important;
 }
 .page-template-default .menu-main-nav:not(.sticky) a:hover,
@@ -4928,7 +4988,8 @@ NO HERO STYLES
 .job-template-default .menu-main-nav:not(.sticky) a:hover,
 .blogpost-template-default .menu-main-nav:not(.sticky) a:hover,
 .tax-job_categories .menu-main-nav:not(.sticky) a:hover,
-.tax-blog_categories .menu-main-nav:not(.sticky) a:hover {
+.tax-blog_categories .menu-main-nav:not(.sticky) a:hover,
+.error404 .menu-main-nav:not(.sticky) a:hover {
   border-color: #484844;
 }
 
@@ -4965,12 +5026,12 @@ JOBS
 
 #lct-widget-job_categories-container {
   text-align: center;
-  margin: 40px 0 70px;
+  margin: 10px 0 70px;
 }
 @media (min-width: 600px) {
   #lct-widget-job_categories-container {
     text-align: right;
-    margin: 0;
+    margin: 0 0 70px;
     padding-right: 80px;
   }
 }
@@ -4978,6 +5039,14 @@ JOBS
   list-style: none;
   padding: 0;
   margin: 0;
+}
+@media (max-width: 599px) {
+  #lct-widget-job_categories-container ul {
+    white-space: nowrap;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 0 20px;
+  }
 }
 #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
   text-transform: uppercase;
@@ -4994,10 +5063,12 @@ JOBS
 }
 #lct-widget-job_categories-container li {
   display: inline-block;
+  margin-right: 20px;
 }
 @media (min-width: 600px) {
   #lct-widget-job_categories-container li {
     display: block;
+    margin-right: 0px;
   }
 }
 #lct-widget-job_categories-container a {
@@ -5326,6 +5397,11 @@ GENERAL FORM STYLING, NOT TESTED
 }
 .popup-modal .remodal-close {
   color: #fff;
+}
+
+.error404 #main {
+  text-align: center;
+  padding-bottom: 5rem;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -64,7 +64,7 @@ a {
    cursor: default;
 }
 
-#content { position: relative; }
+#content { position: relative; overflow: hidden; }
 
 iframe {
   width: 100%;
@@ -487,7 +487,7 @@ MAIN NAVIGATION
 
       @include for-size('tablet-portrait-up'){
         width: 140px;
-        height: 49px;
+        height: 44px;
         background-position: 0 0;
       }
 
@@ -748,7 +748,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   display: flex;
   overflow: hidden;
   position: relative;
-  max-height: 85vh;
   background: #000;
   text-align: center;
   min-height: 550px;
@@ -848,9 +847,6 @@ section[class^="section--"]:not(.section--text-hero):not(.section--video-hero):n
   p {
     @include font-size(28px,true);
     font-weight: 100;
-    @include for-size('tablet-portrait-up'){
-      max-width: 630px;
-    }
   }
 
   .video-hero__bg {
@@ -882,8 +878,26 @@ SEND SMS FORM
   position: relative;
   padding-top: 0 !important;
 
+  &.isDark {
+    color: #fff;
+
+    #gform_1 input[type='text'] {
+      background: rgba(255,255,255,1);
+      border: 0px solid #ddd;
+      color: $black;
+    }
+
+  }
+
   &.footer-cta {
     margin-top: 80px;
+    color: #fff;
+
+    // THIS IS TEMPORARILY UNTIL THEY HAVE GOOD IMAGES
+    .text-hero__image {
+      background: #2a2d34 !important;
+      opacity: 0.7 !important;
+    }
   }
 
   .cta-hero__text {
@@ -895,7 +909,7 @@ SEND SMS FORM
     z-index: 2;
 
     @include for-size('tablet-portrait-up'){
-      flex: 0 0 600px;
+      max-width: 600px;
     }
   }
 
@@ -1114,6 +1128,7 @@ DESKTOP CAROUSEL
     @include for-size('desktop-up'){
       margin: 0 auto;
       width: 80%;
+      width: 100%;
     }
   }
 
@@ -1162,8 +1177,12 @@ DESKTOP CAROUSEL
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
-  height: 100vh;
+  height: 95vh;
   width: 100%;
+
+  @include for-size('desktop-up'){
+    height: 100vh;
+  }
 
   &:nth-child(1){ z-index: 10; }
   &:nth-child(2){ z-index: 9; }
@@ -1191,15 +1210,21 @@ DESKTOP CAROUSEL
       padding: 0;
     }
 
-    // &.screen-desktop {
-    //   position: fixed;
-    //   bottom: 40px;
-    //   left: 50%;
-    //   transform: translate(-50%,0%);
-    //   width: 50%;
-    //   text-align: center;
-    //   opacity: 0;
-    // }
+    &.screen-desktop {
+      // position: fixed;
+      // top: 50%;
+      // left: 8%;
+      // transform: translate(0%,-50%);
+      // width: 50%;
+      // max-width: 420px;
+      // // text-align: center;
+      // opacity: 0;
+      // background: #fff;
+
+      @include for-size('desktop-up'){
+        left: -2%;
+      }
+    }
   }
 
   .carousel__feature__rightcol {
@@ -1225,9 +1250,13 @@ DESKTOP CAROUSEL
     .image-box-wrap.screen-desktop {
       max-width: none;
       left: 0%;
-      width: 170%;
+      width: 150%;
       right: auto;
-      transform: translate(40px,-50%);
+      transform: translate(50px,-50%);
+
+      @include for-size('desktop-up'){
+        transform: translate(150px,-50%);
+      }
 
       .image-box {
         padding-bottom: 70%;
@@ -1470,11 +1499,14 @@ TEXT HERO
       display: flex;
       flex-wrap: wrap;
       flex-direction: row;
-      margin: 0 -20px;
+      width: 100%;
       justify-content: center;
 
       .column-item {
         padding: 0 10px 3em;
+        @include for-size('phone-only'){
+          flex: 1 0 100% !important;
+        }
       }
 
       &.columns-size1 .column-item { flex: 0 0 100%; }
@@ -2165,8 +2197,16 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 
 }
 
-.section--simple-content .gform_wrapper form {
-  input {
+.section--simple-content {
+
+  .gform_heading { display: none; }
+  .gform_wrapper {
+    box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
+    padding: 10px 30px;
+    max-width: 440px;
+  }
+  .gform_wrapper:not(#gform_wrapper_1) input:not([type=radio]):not([type=checkbox]):not([type=submit]):not([type=button]):not([type=image]):not([type=file]),
+  textarea {
     background: #eee;
   }
 }
@@ -2393,7 +2433,8 @@ NO HERO STYLES
 .job-template-default,         // Single job post
 .blogpost-template-default,    // Single blog post
 .tax-job_categories,           // Category page job categories
-.tax-blog_categories {         // Blog post categories
+.tax-blog_categories,          // Blog post categories
+.error404 {                    // 404
 
   .header {
     margin: 120px 0 70px;
@@ -2499,16 +2540,25 @@ JOBS
 
 #lct-widget-job_categories-container {
   text-align: center;
-  margin: 40px 0 70px;
+  margin: 10px 0 70px;
+
   @include for-size('tablet-portrait-up'){
     text-align: right;
-    margin: 0;
+    margin: 0 0 70px;
     padding-right: 80px;
   }
+
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+
+    @include for-size('phone-only'){
+      white-space: nowrap;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 0 20px;
+    }
   }
 
   h4 {
@@ -2525,8 +2575,10 @@ JOBS
 
   li {
     display: inline-block;
+    margin-right: 20px;
     @include for-size('tablet-portrait-up'){
       display: block;
+      margin-right: 0px;
     }
   }
 
@@ -2848,5 +2900,12 @@ GENERAL FORM STYLING, NOT TESTED
 
   .remodal-close {
     color: #fff;
+  }
+}
+
+.error404 {
+  #main {
+    text-align: center;
+    padding-bottom: 5rem;
   }
 }
