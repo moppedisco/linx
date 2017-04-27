@@ -2430,7 +2430,8 @@ NO HERO STYLES
 .job-template-default,         // Single job post
 .blogpost-template-default,    // Single blog post
 .tax-job_categories,           // Category page job categories
-.tax-blog_categories {         // Blog post categories
+.tax-blog_categories,          // Blog post categories
+.error404 {                    // 404
 
   .header {
     margin: 120px 0 70px;
@@ -2896,5 +2897,12 @@ GENERAL FORM STYLING, NOT TESTED
 
   .remodal-close {
     color: #fff;
+  }
+}
+
+.error404 {
+  #main {
+    text-align: center;
+    padding-bottom: 5rem;
   }
 }
