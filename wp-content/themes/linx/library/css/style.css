@@ -3020,12 +3020,6 @@ SEND SMS FORM
   text-align: center;
   background: #000;
   min-height: 65vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   position: relative;
   padding-top: 0 !important;
 }
@@ -3039,6 +3033,14 @@ SEND SMS FORM
 }
 .section--cta-hero.footer-cta {
   margin-top: 80px;
+}
+.section--cta-hero .inner-wrap, .section--cta-hero .menu-main-nav > ul, .section--cta-hero .text-image-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .section--cta-hero .cta-hero__text {
   -webkit-box-flex: 0;

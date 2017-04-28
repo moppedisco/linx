@@ -873,8 +873,6 @@ SEND SMS FORM
   text-align: center;
   background: #000;
   min-height: 65vh;
-  display: flex;
-  justify-content: center;
   position: relative;
   padding-top: 0 !important;
 
@@ -891,6 +889,11 @@ SEND SMS FORM
 
   &.footer-cta {
     margin-top: 80px;
+  }
+
+  .inner-wrap {
+    display: flex;
+    justify-content: center;
   }
 
   .cta-hero__text {
