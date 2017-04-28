@@ -371,4 +371,7 @@ function RGBToHSL($RGB) {
     return (object) Array('hue' => $h, 'saturation' => $s, 'lightness' => $l);
   }
 
+pll_register_string('Shifts', 'Shifts');
+pll_register_string('Hour', 'Hour');
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>

@@ -78,6 +78,7 @@
 
 							<?php endwhile; ?>
 
+								<!-- <?php bones_page_navi(); ?> -->
 
 							<?php endif; ?>
 
