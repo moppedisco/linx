@@ -4,7 +4,7 @@
     <?php
         $job_loop = new WP_Query( array(
         'post_type' => 'job',
-            'posts_per_page' => 10 // put number of posts that you'd like to display
+            'posts_per_page' => 5 // put number of posts that you'd like to display
         ) );
     ?>
 
@@ -13,6 +13,7 @@
 
           <?php
             $hourly_rate = get_post_meta($post->ID, "hourly_rate", true);
+            $currency = get_post_meta($post->ID, "currency", true);
             $location = get_post_meta($post->ID, "location_display_name", true);
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
@@ -38,7 +39,7 @@
               <?php endif; ?>
               <h3 class='job-item__title'><?php the_title(); ?><?php if($employerDisplayName): ?><span><?php echo $employerDisplayName; ?></span><?php endif; ?></h3>
               <div class="job-item__text--bottom">
-                <span class="job-item__salary"><?php echo $hourly_rate; ?></span>
+                <span class="job-item__salary"><?php echo $hourly_rate; ?> <?php echo $currency; ?> / <?php pll_e('Hour'); ?></span>
               </div>
 
 

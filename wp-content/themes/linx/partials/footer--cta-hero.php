@@ -1,4 +1,15 @@
-<section class="section--cta-hero footer-cta">
+<?php if( get_field('footer_cta_background','option') == 'solid' ): ?>
+  <?php
+  $colour = get_field('footer_cta_background_color','option');
+  $rgb = HTMLToRGB($colour);
+  $hsl = RGBToHSL($rgb);
+  if($hsl->lightness > 200) {
+    echo '<section class="section--cta-hero footer-cta isLight">';
+  } else {
+    echo '<section class="section--cta-hero footer-cta isDark">';
+  }
+?>
+<?php endif; ?>
   <div class="cta-hero__text">
       <h3><?php the_field('footer_cta_title', 'option'); ?></h3>
       <?php echo get_field('footer_cta_text', 'option'); ?>

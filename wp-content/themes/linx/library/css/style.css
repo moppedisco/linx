@@ -3039,11 +3039,6 @@ SEND SMS FORM
 }
 .section--cta-hero.footer-cta {
   margin-top: 80px;
-  color: #fff;
-}
-.section--cta-hero.footer-cta .text-hero__image {
-  background: #2a2d34 !important;
-  opacity: 0.7 !important;
 }
 .section--cta-hero .cta-hero__text {
   -webkit-box-flex: 0;
@@ -5039,6 +5034,7 @@ JOBS
   list-style: none;
   padding: 0;
   margin: 0;
+  display: block;
 }
 @media (max-width: 599px) {
   #lct-widget-job_categories-container ul {
@@ -5046,6 +5042,7 @@ JOBS
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     padding: 0 0 20px;
+    display: none;
   }
 }
 #lct-widget-job_categories-container h4, #lct-widget-job_categories-container .text-image-row p, .text-image-row #lct-widget-job_categories-container p {
@@ -5242,10 +5239,6 @@ span[class^=job-item-meta] i {
   margin-right: 8px;
 }
 
-.job-item-meta__shifts:after {
-  content: " shifts";
-}
-
 .job-item__salary {
   font-size: 14px;
   font-size: 0.77778rem;
@@ -5253,9 +5246,6 @@ span[class^=job-item-meta] i {
   letter-spacing: 1px;
   font-weight: bold;
   color: #2ED282;
-}
-.job-item__salary:after {
-  content: " CHF / Hour";
 }
 
 /******************************

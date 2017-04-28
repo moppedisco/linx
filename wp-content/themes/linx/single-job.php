@@ -19,6 +19,7 @@
 	$expireDate = get_post_meta( get_the_ID(), 'pw_spe_expiration', true );
 	$today = date('Y-m-d');
 	$hourly_rate = get_post_meta(get_the_ID(), "hourly_rate", true);
+	$currency = get_post_meta(get_the_ID(), "currency", true);
 	$number_of_shifts = get_post_meta(get_the_ID(), "number_of_shifts", true);
 	$location = get_post_meta(get_the_ID(), "location_display_name", true);
 	$openpositions = get_post_meta(get_the_ID(), "open_positions", true);
@@ -40,12 +41,12 @@
 			<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location; ?></span>
 		<?php endif; ?>
 		<?php if($number_of_shifts): ?>
-			<span class="job-item-meta__shifts"><i class="material-icons">timelapse</i><?php echo $number_of_shifts; ?></span>
+			<span class="job-item-meta__shifts"><i class="material-icons">timelapse</i><?php echo $number_of_shifts; ?> <?php pll_e('Shifts'); ?></span>
 		<?php endif; ?>
 	</div>
 
 	<h1 class="page-title" itemprop="headline"><?php the_title(); ?></h1>
-	<span class="job-item__salary"><?php echo $hourly_rate; ?></span>
+	<span class="job-item__salary"><?php echo $hourly_rate; ?> <?php echo $currency; ?> / <?php pll_e('Hour'); ?></span>
 </header>
 <div id="content">
 	<div id="inner-content" class="inner-wrap">
