@@ -59,7 +59,7 @@
 							            </div>
 							            <div class="job-item__text">
 														<div class="job-item__text--top">
-															<span class="job-item-meta__date"><i class="material-icons">date_range</i><?php the_date(); ?></span>
+															<span class="job-item-meta__date"><i class="material-icons">date_range</i><?php echo get_the_date(); ?></span>
 															<?php if($location): ?>
 																<span class="job-item-meta__location"><i class="material-icons">location_on</i><?php echo $location; ?></span>
 															<?php endif; ?>
