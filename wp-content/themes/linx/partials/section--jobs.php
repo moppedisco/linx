@@ -49,7 +49,7 @@
     <?php endif; ?>
     <?php wp_reset_query(); ?>
     <div class="jobs-link">
-      <a href="<?php echo get_permalink( 39 ); ?>" class=button><?php the_sub_field('button_label'); ?></a>
+      <a href="<?php echo get_permalink(pll_get_post(1571)); ?>" class=button><?php the_sub_field('button_label'); ?></a>
     </div>
   </div>
   <!-- END .inner-wrap -->
