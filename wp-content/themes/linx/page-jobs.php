@@ -28,11 +28,11 @@
 
 								<section class='entry-content--jobs'>
 									<?php
-											// $paged = ( get_query_var('page') ) ? get_query_var('page') : 1;
+											$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
 							        $job_loop = new WP_Query( array(
 							        	'post_type' => 'job',
-							          'posts_per_page' => 10, // put number of posts that you'd like to display
-												// 'paged' => $paged
+							          'posts_per_page' => 5, // put number of posts that you'd like to display
+												'paged' => $paged
 							        ) );
 							    ?>
 
@@ -81,16 +81,16 @@
 							          </a>
 							      <?php endwhile;?>
 
-										<!-- <?php if ($job_loop->max_num_pages > 1) { // check if the max number of pages is greater than 1  ?>
+										<?php if ($job_loop->max_num_pages > 1) { // check if the max number of pages is greater than 1  ?>
 										  <nav class="prev-next-posts">
 										    <div class="prev-posts-link">
-										      <?php echo get_next_posts_link( 'Older Entries', $job_loop->max_num_pages ); // display older posts link ?>
+										      <?php echo get_next_posts_link( pll__('Older entries'), $job_loop->max_num_pages ); // display older posts link ?>
 										    </div>
 										    <div class="next-posts-link">
-										      <?php echo get_previous_posts_link( 'Newer Entries' ); // display newer posts link ?>
+										      <?php echo get_previous_posts_link( pll__('Newer entries')); // display newer posts link ?>
 										    </div>
 										  </nav>
-										<?php } ?> -->
+										<?php } ?>
 
 							    <?php endif; ?>
 							    <?php wp_reset_query(); ?>

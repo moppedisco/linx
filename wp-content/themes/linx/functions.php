@@ -369,7 +369,18 @@ function RGBToHSL($RGB) {
     $l = (int)round(255.0 * $l);
 
     return (object) Array('hue' => $h, 'saturation' => $s, 'lightness' => $l);
-  }
+}
+
+function wpa_jobs_permalinks( $post_link, $post ){
+    if ( is_object( $post ) && $post->post_type == 'job' ){
+        $terms = wp_get_object_terms( $post->ID, 'job_categories' );
+        if( $terms ){
+            return str_replace( '%job_categories%' , $terms[0]->slug , $post_link );
+        }
+    }
+    return $post_link;
+}
+add_filter( 'post_type_link', 'wpa_jobs_permalinks', 1, 2 );
 
 pll_register_string('Shifts', 'Shifts');
 pll_register_string('Hour', 'Hour');

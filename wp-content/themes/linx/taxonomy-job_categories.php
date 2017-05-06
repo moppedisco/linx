@@ -28,7 +28,6 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
 
-								<section class='entry-content--jobs'>
 
 									<?php
 										$hourly_rate = get_post_meta($post->ID, "hourly_rate", true);
@@ -72,7 +71,6 @@
 										</div>
 									</a>
 
-								</section>
 
 							</article>
 

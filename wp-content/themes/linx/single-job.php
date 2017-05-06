@@ -16,7 +16,8 @@
 ?>
 
 <?php
-	$expireDate = get_post_meta( get_the_ID(), 'pw_spe_expiration', true );
+	$expireDate = strtotime(get_post_meta( get_the_ID(), 'pw_spe_expiration', true ));
+	$expireDate = date("Y-m-d",$expireDate);
 	$today = date('Y-m-d');
 	$hourly_rate = get_post_meta(get_the_ID(), "hourly_rate", true);
 	$currency = get_post_meta(get_the_ID(), "currency", true);
@@ -59,16 +60,16 @@
 
 					<section class="entry-content" itemprop="articleBody">
 						<div class="job-item__expires">
-							<?php if($expireDate < $today && $expireDate): ?>
-								<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
+							<?php if($expireDate < $today): ?>
+								<?php echo do_shortcode('[expires expired="' . pll_e('This job expired on') . ': %s"]' ); ?>
 							<?php endif; ?>
 						</div>
 						<?php the_content(); ?>
 						<div class="job-item__expires">
 							<?php if($expireDate > $today): ?>
-								<?php echo do_shortcode( '[expires expires_on="Last application date: %s"]' ); ?>
+								<?php echo do_shortcode('[expires expires_on="' . pll_e('Last application date') . ': %s"]' ); ?>
 							<?php elseif($expireDate < $today && $expireDate): ?>
-								<?php echo do_shortcode( '[expires expired="This job expired on: %s"]' ); ?>
+								<?php echo do_shortcode('[expires expired="' . pll_e('This job expired on') . ': %s"]' ); ?>
 							<?php endif; ?>
 						</div>
 					</section> <?php // end article section ?>
