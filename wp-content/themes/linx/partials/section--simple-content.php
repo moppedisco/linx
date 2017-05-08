@@ -1,4 +1,12 @@
-<section class="section--simple-content">
+<?php if( get_sub_field('background_color') ): ?>
+  <?php
+  $bgcolor = get_sub_field('background_color');
+  $textcolor = get_sub_field('text_color');
+?>
+  <section class="section--simple-content hasBgColor" style='background-color:<?php echo $bgcolor; ?>; color: <?php echo $textcolor; ?>;'>
+<?php else: ?>
+  <section class="section--simple-content">
+<?php endif; ?>
   <div class="inner-wrap">
     <?php if( get_sub_field('grid_size') ): ?>
       <div class="simple-content-wrap <?php the_sub_field('grid_size'); ?>">

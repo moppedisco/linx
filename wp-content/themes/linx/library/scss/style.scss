@@ -1004,13 +1004,21 @@ HOMEPAGE SECTION TEXT BANNER
 .section--text-banner {
   text-align: center;
 
+  &.hasBgColor {
+    padding-top: 60px;
+
+    @include for-size('tablet-portrait-up'){
+      padding-top: 120px;
+    }
+  }
+
   h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
     @include font-size(14px);
     line-height: 1;
     font-weight: bold;
-    color: #9B9B9B;
+    opacity: 0.6;
   }
 
   p {
@@ -2196,6 +2204,14 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 }
 
 .section--simple-content {
+
+  &.hasBgColor {
+    padding-top: 60px;
+
+    @include for-size('tablet-portrait-up'){
+      padding-top: 120px;
+    }
+  }
 
   .gform_heading { display: none; }
   .gform_wrapper {
