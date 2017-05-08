@@ -58,6 +58,9 @@
 
 	<?php // drop Google Analytics Here ?>
 	<?php // end analytics ?>
+	<style media="screen">
+		.section--video-hero .video-hero__video {background-size: cover; height: 100vh;}
+	</style>
 </head>
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
