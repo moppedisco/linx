@@ -2971,3 +2971,27 @@ GENERAL FORM STYLING, NOT TESTED
 
   .next-posts-link { text-align: right; }
 }
+
+.pagination {
+  text-align: center;
+  ul.page-numbers li {
+    display: inline-block;
+    padding: 0 2px;
+    @include font-size(14px);
+    vertical-align: middle;
+  }
+
+  a.page-numbers {
+    text-decoration: none;
+    background: #666;
+    padding: 5px 8px;
+    color: #fff;
+  }
+
+  a.next.page-numbers {
+    background: none;
+    color: #666;
+    @extend .material-icons;
+    @include font-size(18px);
+  }
+}

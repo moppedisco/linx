@@ -615,7 +615,7 @@ html:before {
 .material-icons, #mobile-navigation-wrapper .close-button, .menu-main-nav li.main-nav-link--mobile a, .section--text-hero:first-child:after,
 .section--video-hero:first-child:after, .section--video-hero .video-hero__button .icon, .section--carousel .mobile-carousel .owl-nav [class*='owl-'],
 .section--carousel .mobile-carousel .owl-nav [class*='owl-']:hover, .section--columns .columns-type-carousel .owl-nav [class*='owl-'],
-.section--columns .columns-type-carousel .owl-nav [class*='owl-']:hover, .blog-item__date i, .blog-item__author i, .prev-next-posts .prev-posts-link a:before, .prev-next-posts .next-posts-link a:after {
+.section--columns .columns-type-carousel .owl-nav [class*='owl-']:hover, .blog-item__date i, .blog-item__author i, .prev-next-posts .prev-posts-link a:before, .prev-next-posts .next-posts-link a:after, .pagination a.next.page-numbers {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -4083,13 +4083,13 @@ IMAGE + TEXT
   }
 }
 .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
-.section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .prev-next-posts .prev-posts-link a:before, .prev-next-posts .prev-posts-link .section--text-3-columns .text-column__item a:before, .section--text-3-columns .text-column__item .prev-next-posts .next-posts-link a:after, .prev-next-posts .next-posts-link .section--text-3-columns .text-column__item a:after {
+.section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .prev-next-posts .prev-posts-link a:before, .prev-next-posts .prev-posts-link .section--text-3-columns .text-column__item a:before, .section--text-3-columns .text-column__item .prev-next-posts .next-posts-link a:after, .prev-next-posts .next-posts-link .section--text-3-columns .text-column__item a:after, .section--text-3-columns .text-column__item .pagination a.next.page-numbers, .pagination .section--text-3-columns .text-column__item a.next.page-numbers {
   font-size: 42px;
   color: #2ED282;
 }
 @media (min-width: 600px) {
   .section--text-3-columns .text-column__item .material-icons, .section--text-3-columns .text-column__item #mobile-navigation-wrapper .close-button, #mobile-navigation-wrapper .section--text-3-columns .text-column__item .close-button, .section--text-3-columns .text-column__item .menu-main-nav li.main-nav-link--mobile a, .menu-main-nav li.main-nav-link--mobile .section--text-3-columns .text-column__item a, .section--text-3-columns .text-column__item .section--text-hero:first-child:after,
-  .section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .prev-next-posts .prev-posts-link a:before, .prev-next-posts .prev-posts-link .section--text-3-columns .text-column__item a:before, .section--text-3-columns .text-column__item .prev-next-posts .next-posts-link a:after, .prev-next-posts .next-posts-link .section--text-3-columns .text-column__item a:after {
+  .section--text-3-columns .text-column__item .section--video-hero:first-child:after, .section--text-3-columns .text-column__item .section--video-hero .video-hero__button .icon, .section--video-hero .video-hero__button .section--text-3-columns .text-column__item .icon, .section--text-3-columns .text-column__item .section--carousel .mobile-carousel .owl-nav [class*='owl-'], .section--carousel .mobile-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .section--columns .columns-type-carousel .owl-nav [class*='owl-'], .section--columns .columns-type-carousel .owl-nav .section--text-3-columns .text-column__item [class*='owl-'], .section--text-3-columns .text-column__item .blog-item__date i, .blog-item__date .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .blog-item__author i, .blog-item__author .section--text-3-columns .text-column__item i, .section--text-3-columns .text-column__item .prev-next-posts .prev-posts-link a:before, .prev-next-posts .prev-posts-link .section--text-3-columns .text-column__item a:before, .section--text-3-columns .text-column__item .prev-next-posts .next-posts-link a:after, .prev-next-posts .next-posts-link .section--text-3-columns .text-column__item a:after, .section--text-3-columns .text-column__item .pagination a.next.page-numbers, .pagination .section--text-3-columns .text-column__item a.next.page-numbers {
     margin-bottom: 2rem;
   }
 }
@@ -5455,6 +5455,29 @@ GENERAL FORM STYLING, NOT TESTED
 }
 .prev-next-posts .next-posts-link {
   text-align: right;
+}
+
+.pagination {
+  text-align: center;
+}
+.pagination ul.page-numbers li {
+  display: inline-block;
+  padding: 0 2px;
+  font-size: 14px;
+  font-size: 0.77778rem;
+  vertical-align: middle;
+}
+.pagination a.page-numbers {
+  text-decoration: none;
+  background: #666;
+  padding: 5px 8px;
+  color: #fff;
+}
+.pagination a.next.page-numbers {
+  background: none;
+  color: #666;
+  font-size: 18px;
+  font-size: 1rem;
 }
 
 /*# sourceMappingURL=style.css.map */
