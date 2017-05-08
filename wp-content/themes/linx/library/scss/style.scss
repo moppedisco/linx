@@ -2988,7 +2988,8 @@ GENERAL FORM STYLING, NOT TESTED
     color: #fff;
   }
 
-  a.next.page-numbers {
+  a.next.page-numbers,
+  a.prev.page-numbers {
     background: none;
     color: #666;
     @extend .material-icons;
