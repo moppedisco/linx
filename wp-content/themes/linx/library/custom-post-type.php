@@ -189,12 +189,35 @@ function custom_post_landingpage() {
 
 add_action( 'init', 'custom_post_landingpage');
 
+// now let's add custom categories (these act like categories)
+register_taxonomy( 'job_categories',
+	array('job'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
+	array('hierarchical' => true,     /* if this is true, it acts like categories */
+		'labels' => array(
+			'name' => __( 'Job Categories', 'bonestheme' ), /* name of the custom taxonomy */
+			'singular_name' => __( 'Job Category', 'bonestheme' ), /* single taxonomy name */
+			'search_items' =>  __( 'Search Job Categories', 'bonestheme' ), /* search title for taxomony */
+			'all_items' => __( 'All job Categories', 'bonestheme' ), /* all title for taxonomies */
+			'parent_item' => __( 'Parent Job Category', 'bonestheme' ), /* parent title for taxonomy */
+			'parent_item_colon' => __( 'Parent Job Category:', 'bonestheme' ), /* parent taxonomy title */
+			'edit_item' => __( 'Edit Job Category', 'bonestheme' ), /* edit custom taxonomy title */
+			'update_item' => __( 'Update Job Category', 'bonestheme' ), /* update title for taxonomy */
+			'add_new_item' => __( 'Add New Job Category', 'bonestheme' ), /* add new title for taxonomy */
+			'new_item_name' => __( 'New Job Category Name', 'bonestheme' ) /* name title for taxonomy */
+		),
+		'show_admin_column' => true,
+		'show_ui' => true,
+		'query_var' => true,
+		'rewrite' => array( 'slug' => 'jobs', 'with_front' => false ),
+	)
+);
+
 function custom_post_jobs() {
 	// creating (registering) the custom type
 	register_post_type( 'job', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 		// let's now add all the options for this post type
 		array( 'labels' => array(
-			'name' => __( 'Job postings', 'bonestheme' ), /* This is the Title of the Group */
+			'name' => __( 'Jobs', 'bonestheme' ), /* This is the Title of the Group */
 			'singular_name' => __( 'Job', 'bonestheme' ), /* This is the individual type */
 			'all_items' => __( 'All Jobs', 'bonestheme' ), /* the all items menu item */
 			'add_new' => __( 'Add New Job', 'bonestheme' ), /* The add new menu item */
@@ -216,8 +239,8 @@ function custom_post_jobs() {
 			'query_var' => true,
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */
 			'menu_icon' => get_stylesheet_directory_uri() . '/library/images/custom-post-jobs.png', /* the icon for the custom post type menu */
-			'rewrite'	=> array( 'slug' => 'jobs', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'job', /* you can rename the slug here */
+			'rewrite'	=> array( 'slug' => 'jobs/%job_categories%', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => 'jobs', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -241,28 +264,6 @@ add_action( 'init', 'custom_post_jobs');
 	http://codex.wordpress.org/Function_Reference/register_taxonomy
 	*/
 
-	// now let's add custom categories (these act like categories)
-	register_taxonomy( 'job_categories',
-		array('job'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */
-		array('hierarchical' => true,     /* if this is true, it acts like categories */
-			'labels' => array(
-				'name' => __( 'Job Categories', 'bonestheme' ), /* name of the custom taxonomy */
-				'singular_name' => __( 'Job Category', 'bonestheme' ), /* single taxonomy name */
-				'search_items' =>  __( 'Search Job Categories', 'bonestheme' ), /* search title for taxomony */
-				'all_items' => __( 'All job Categories', 'bonestheme' ), /* all title for taxonomies */
-				'parent_item' => __( 'Parent Job Category', 'bonestheme' ), /* parent title for taxonomy */
-				'parent_item_colon' => __( 'Parent Job Category:', 'bonestheme' ), /* parent taxonomy title */
-				'edit_item' => __( 'Edit Job Category', 'bonestheme' ), /* edit custom taxonomy title */
-				'update_item' => __( 'Update Job Category', 'bonestheme' ), /* update title for taxonomy */
-				'add_new_item' => __( 'Add New Job Category', 'bonestheme' ), /* add new title for taxonomy */
-				'new_item_name' => __( 'New Job Category Name', 'bonestheme' ) /* name title for taxonomy */
-			),
-			'show_admin_column' => true,
-			'show_ui' => true,
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'job-categories' ),
-		)
-	);
 
 	register_taxonomy( 'blog_categories',
 		array('blogpost'), /* if you change the name of register_post_type( 'custom_type', then you have to change this */

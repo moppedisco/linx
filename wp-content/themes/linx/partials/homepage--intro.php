@@ -33,9 +33,9 @@
   </div>
   <!-- END .inner-wrap -->
   <?php if( get_sub_field('embed_type') != "embed" ): ?>
-    <video class='video-hero__video' src="<?php the_sub_field('hero_video'); ?>" paused controls></video>
+    <video style="background-image: url(<?php the_sub_field('hero_video_poster'); ?>);background-size: cover;" class='video-hero__video' src="<?php the_sub_field('hero_video'); ?>" paused controls></video>
   <?php else: ?>
-    <video class='video-hero__video' src="<?php the_sub_field('hero_video'); ?>" autoplay muted loop></video>
+    <video style="background-image: url(<?php the_sub_field('hero_video_poster'); ?>);background-size: cover;" class='video-hero__video' src="<?php the_sub_field('hero_video'); ?>" autoplay muted loop></video>
   <?php endif; ?>
   <div class="video-hero__bg" style="background-image: url('<?php the_sub_field('hero_background'); ?>');"></div>
 </section>

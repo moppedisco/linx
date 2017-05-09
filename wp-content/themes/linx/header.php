@@ -26,8 +26,6 @@
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	<?php // icons & favicons (for more: http://www.jonathantneal.com/blog/understand-the-favicon/) ?>
-	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/library/images/apple-touch-icon.png">
 	<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/favicon.png">
 	<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/apple-icon-60x60.png">
@@ -50,8 +48,7 @@
 	<![endif]-->
 	<?php // or, set /favicon.ico for IE10 win ?>
 	<meta name="msapplication-TileColor" content="#f01d4f">
-	<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/library/images/win8-tile-icon.png">
-          <meta name="theme-color" content="#121212">
+  <meta name="theme-color" content="#121212">
 
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
 
@@ -61,11 +58,14 @@
 
 	<?php // drop Google Analytics Here ?>
 	<?php // end analytics ?>
+	<style media="screen">
+		.section--video-hero .video-hero__video {background-size: cover; height: 100vh;}
+	</style>
 </head>
 
 <body <?php body_class(); ?> itemscope itemtype="http://schema.org/WebPage">
 	<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXX"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMDK4V"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <div id="container">

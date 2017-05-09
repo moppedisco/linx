@@ -15,7 +15,7 @@ Stylesheet: Main Stylesheet
 @import "partials/breakpoints";                    // Breakpoints
 @import "../fonts/fonts";                          // fonts import
 @import "../fonts/material-icons/material-icons";  // fonts import
-@import "../fonts/role-icons/role-icons";  // fonts import
+@import "../fonts/role-icons/role-icons";          // fonts import
 @import "partials/typography";                     // typography
 @import "partials/grid";                           // the grid
 @import "modules/buttons";                         // buttons
@@ -200,6 +200,8 @@ MOBILE NAVIGATION
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
 }
 
 #mobile-navigation-wrapper {
@@ -873,8 +875,6 @@ SEND SMS FORM
   text-align: center;
   background: #000;
   min-height: 65vh;
-  display: flex;
-  justify-content: center;
   position: relative;
   padding-top: 0 !important;
 
@@ -891,6 +891,11 @@ SEND SMS FORM
 
   &.footer-cta {
     margin-top: 80px;
+  }
+
+  .inner-wrap {
+    display: flex;
+    justify-content: center;
   }
 
   .cta-hero__text {
@@ -999,13 +1004,21 @@ HOMEPAGE SECTION TEXT BANNER
 .section--text-banner {
   text-align: center;
 
+  &.hasBgColor {
+    padding-top: 60px;
+
+    @include for-size('tablet-portrait-up'){
+      padding-top: 120px;
+    }
+  }
+
   h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
     @include font-size(14px);
     line-height: 1;
     font-weight: bold;
-    color: #9B9B9B;
+    opacity: 0.6;
   }
 
   p {
@@ -2192,6 +2205,14 @@ BLOG OVERVIEW AND BLOG POST SINGLE VIEW
 
 .section--simple-content {
 
+  &.hasBgColor {
+    padding-top: 60px;
+
+    @include for-size('tablet-portrait-up'){
+      padding-top: 120px;
+    }
+  }
+
   .gform_heading { display: none; }
   .gform_wrapper {
     box-shadow: 0px 35px 109px 0px rgba(0, 0, 0, 0.15);
@@ -2422,7 +2443,7 @@ NO HERO STYLES
 .page-template-default,        // Simple page
 .page-template-page-blog,      // Blog overview
 .page-template-page-companies, // Companies
-.page-template-page-jobs,      // Jobs overview
+.post-type-archive-job,      // Jobs overview
 .job-template-default,         // Single job post
 .blogpost-template-default,    // Single blog post
 .tax-job_categories,           // Category page job categories
@@ -2508,7 +2529,7 @@ JOBS
   }
 }
 
-.page-template-page-jobs,
+.post-type-archive-job,
 .tax-job_categories {
 
   .header {
@@ -2904,5 +2925,74 @@ GENERAL FORM STYLING, NOT TESTED
   #main {
     text-align: center;
     padding-bottom: 5rem;
+  }
+}
+
+.prev-next-posts {
+  display: flex;
+  padding: 30px 0 0;
+
+  a {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #999;
+    text-decoration: none;
+    @include font-size(12px);
+    font-weight: bold;
+    padding-bottom: 2px;
+
+    &:hover {
+      border-bottom: 1px solid #999;
+    }
+  }
+
+  .prev-posts-link,
+  .next-posts-link {
+    flex: 1;
+  }
+
+  .prev-posts-link a:before {
+      content:"arrow_back";
+      @extend .material-icons;
+      vertical-align: middle;
+      font-size: 12px;
+      font-weight: bold;
+      margin-right: 5px;
+  }
+
+  .next-posts-link a:after {
+      content:"arrow_forward";
+      @extend .material-icons;
+      vertical-align: middle;
+      font-size: 12px;
+      font-weight: bold;
+      margin-left: 5px;
+  }
+
+  .next-posts-link { text-align: right; }
+}
+
+.pagination {
+  text-align: center;
+  ul.page-numbers li {
+    display: inline-block;
+    padding: 0 2px;
+    @include font-size(14px);
+    vertical-align: middle;
+  }
+
+  a.page-numbers {
+    text-decoration: none;
+    background: #666;
+    padding: 5px 8px;
+    color: #fff;
+  }
+
+  a.next.page-numbers,
+  a.prev.page-numbers {
+    background: none;
+    color: #666;
+    @extend .material-icons;
+    @include font-size(18px);
   }
 }

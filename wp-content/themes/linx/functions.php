@@ -240,11 +240,11 @@ external fonts. If you're using Google Fonts, you
 can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
-function bones_fonts() {
-  wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
-}
+// function bones_fonts() {
+  // wp_enqueue_style('googleFonts', '//fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+// }
 
-add_action('wp_enqueue_scripts', 'bones_fonts');
+// add_action('wp_enqueue_scripts', 'bones_fonts');
 
 function remove_menus(){
 
@@ -369,9 +369,25 @@ function RGBToHSL($RGB) {
     $l = (int)round(255.0 * $l);
 
     return (object) Array('hue' => $h, 'saturation' => $s, 'lightness' => $l);
-  }
+}
+
+function wpa_jobs_permalinks( $post_link, $post ){
+    if ( is_object( $post ) && $post->post_type == 'job' ){
+        $terms = wp_get_object_terms( $post->ID, 'job_categories' );
+        if( $terms ){
+            return str_replace( '%job_categories%' , $terms[0]->slug , $post_link );
+        }
+    }
+    return $post_link;
+}
+add_filter( 'post_type_link', 'wpa_jobs_permalinks', 1, 2 );
 
 pll_register_string('Shifts', 'Shifts');
 pll_register_string('Hour', 'Hour');
+pll_register_string('ExpiredOn', 'This job expired on');
+pll_register_string('LastApplication', 'Last application date');
+pll_register_string('OlderEntries', 'Older entries');
+pll_register_string('NewerEntries', 'Newer entries');
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

@@ -2,23 +2,37 @@
   <div class="inner-wrap">
 
     <?php
-        $job_loop = new WP_Query( array(
-        'post_type' => 'job',
-            'posts_per_page' => 5 // put number of posts that you'd like to display
-        ) );
+        $args = Array(
+            'post_type'         => 'job',
+            'posts_per_page'    => 5,
+            // 'meta_key'          => 'pw_spe_expiration',
+            // 'orderby'           => 'meta_value_num',
+            // 'order'             => 'ASC',
+            // 'meta_query'        => array(
+            //    array(
+            //     'key'       => 'pw_spe_expiration',
+            //     'value'     => intval(strtotime(date('Y-m-d'))),
+            //     'compare'   => '>',
+            //     'type'      => 'numeric'
+            //    )
+            // ),
+        );
+        $job_loop = new WP_Query( $args );
     ?>
 
     <?php if ( $job_loop->have_posts() ) : ?>
       <?php while ( $job_loop->have_posts() ) : $job_loop->the_post(); ?>
 
           <?php
+            $expireDate = strtotime(get_post_meta( get_the_ID(), 'pw_spe_expiration', true ));
+            $expireDate = date("Y-m-d",$expireDate);
+            $today = date('Y-m-d');
             $hourly_rate = get_post_meta($post->ID, "hourly_rate", true);
             $currency = get_post_meta($post->ID, "currency", true);
             $location = get_post_meta($post->ID, "location_display_name", true);
             $openpositions = get_post_meta($post->ID, "open_positions", true);
             $terms = get_the_terms( $post->ID , 'job_categories' );
             $employerDisplayName = get_post_meta($post->ID, "employer_display_name", true);
-
           ?>
           <a href='<?php echo get_permalink(); ?>' class="list--job-item">
             <div class="job-item__image">
@@ -41,8 +55,6 @@
               <div class="job-item__text--bottom">
                 <span class="job-item__salary"><?php echo $hourly_rate; ?> <?php echo $currency; ?> / <?php pll_e('Hour'); ?></span>
               </div>
-
-
             </div>
           </a>
       <?php endwhile;?>
