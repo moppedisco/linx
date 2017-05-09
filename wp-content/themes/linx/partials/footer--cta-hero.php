@@ -10,9 +10,11 @@
   }
 ?>
 <?php endif; ?>
-  <div class="cta-hero__text">
-      <h3><?php the_field('footer_cta_title', 'option'); ?></h3>
-      <?php echo get_field('footer_cta_text', 'option'); ?>
+  <div class="inner-wrap">
+    <div class="cta-hero__text">
+        <h3><?php the_field('footer_cta_title', 'option'); ?></h3>
+        <?php echo get_field('footer_cta_text', 'option'); ?>
+    </div>
   </div>
   <?php if( get_field('footer_cta_background','option') == 'solid' ): ?>
     <div class='text-hero__image' style='opacity: 1;background-color: <?php the_field('footer_cta_background_color','option'); ?>;'></div>
